@@ -80,7 +80,7 @@ h3{font-size:22px;line-height:1.25}
 .hero p.lead{color:var(--on-dark-2);margin-bottom:28px}
 .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.12);font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px}
 .hero-art{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px}
-.hero-art .mascot{width:min(300px,70%)}
+.hero-art .mascot{width:min(250px,70%)}
 .hero .bubble{max-width:260px}
 .stripes{position:absolute;inset:auto 0 0 0;height:14px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 36px,transparent 36px 72px);opacity:.14}
 
@@ -121,6 +121,7 @@ h3{font-size:22px;line-height:1.25}
 
 /* mascot */
 .mascot{display:block;height:auto;overflow:visible}
+.mascot.face{overflow:hidden}
 .mascot .arm{transform-origin:144px 150px;transform:rotate(-150deg)}
 .mascot.wave .arm{animation:wave 1.6s ease-in-out infinite}
 .mascot.float{animation:float 4s ease-in-out infinite}
@@ -180,8 +181,8 @@ h3{font-size:22px;line-height:1.25}
 .port .when{font:700 11px/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-muted)}
 .port .pname{display:block;font:500 20px/1.2 var(--f-title);color:var(--fg);margin:6px 0 10px}
 .port .cnt{font-size:13px;color:var(--fg-muted)}
-.port .boat{position:absolute;top:-70px;left:50%;margin-left:-26px;width:52px;pointer-events:none}
-.port .boat .mascot{width:52px}
+.port .boat{position:absolute;top:-76px;left:50%;margin-left:-26px;width:52px;pointer-events:none}
+.port .boat .mascot{width:52px;background:var(--soft);border-radius:50%}
 
 .panel{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:32px;min-width:0}
 .panel-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,260px);gap:28px;align-items:end;margin-bottom:26px}
@@ -213,7 +214,7 @@ h3{font-size:22px;line-height:1.25}
 .chat{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-strong);display:flex;flex-direction:column;overflow:hidden;min-width:0}
 .chat-top{background:var(--marine);color:#fff;padding:14px 20px;display:flex;gap:12px;align-items:center}
 .chat-top .av{width:44px;height:44px;border-radius:50%;background:var(--bg-ice);overflow:hidden;flex:none;display:grid;place-items:end center}
-.chat-top .av .mascot{width:46px;margin-bottom:-6px}
+.chat-top .av .mascot{width:44px}
 .chat-top b{display:block;font-size:16px}
 .chat-top small{color:var(--on-dark-2);font-size:12px}
 .log{display:flex;flex-direction:column;gap:14px;padding:20px;height:430px;overflow-y:auto;background:var(--bg-ice)}
@@ -402,7 +403,7 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
             <div class="intents" id="intents"></div>
             <div class="principle"><span class="mini"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span><div><b>Redirection automatique</b>Chaque réponse ouvre le document qui fait foi.</div></div>
             <div class="principle"><span class="mini"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/></svg></span><div><b>Fraîcheur du document</b>Un document ancien est signalé « À vérifier ».</div></div>
-            <div class="principle"><span class="mini"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v11H9l-4 3.5v-3.5H4v-11z"/></svg></span><div><b>Pas de réponse ?</b>La question est transmise à l'équipe Talent Recruitment et alimente la FAQ.</div></div>
+            <div class="principle"><span class="mini"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v11H9l-4 3.5v-3.5H4v-11z"/></svg></span><div><b>Pas dans la doc ?</b>Un membre de l’équipe ajoute la réponse. Elle est relue, puis réutilisée.</div></div>
             
           </div>
         </div>
@@ -444,39 +445,45 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
   var HOW={read:['book','Lire'],demo:['play','Démo avec ton buddy'],train:['target','S’entraîner']};
 
   function mascot(o){
-    o=o||{}; var n=++uid, s=140, M='#002882', SK='#fde7c8', O='#f98f03';
+    o=o||{}; var n=++uid, M='#002882', SK='#f3cfb3', SH='#d9a98a', HR='#4a2c1a', O='#f98f03';
     var stripes='';
-    for(var y=146;y<240;y+=18){stripes+='<rect x="30" y="'+y+'" width="140" height="9" fill="'+M+'"/>';}
-    var arm=function(x){return '<rect x="'+x+'" y="142" width="16" height="50" rx="8" fill="#fff" stroke="'+M+'" stroke-width="3"/><rect x="'+(x+1.5)+'" y="156" width="13" height="6" fill="'+M+'"/><circle cx="'+(x+8)+'" cy="196" r="9" fill="'+SK+'" stroke="'+M+'" stroke-width="2.5"/>';};
-    return '<svg class="mascot'+(o.wave?' wave':'')+(o.float?' float':'')+'" viewBox="0 0 200 250" role="img" aria-label="Mascotte en marinière">'+
-    '<defs><clipPath id="bc'+n+'"><path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z"/></clipPath></defs>'+
-    '<ellipse cx="78" cy="238" rx="17" ry="8" fill="'+M+'"/><ellipse cx="122" cy="238" rx="17" ry="8" fill="'+M+'"/>'+
-    '<g transform="rotate(18 54 148)">'+arm(46)+'</g>'+
-    '<path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z" fill="#fff"/>'+
+    for(var y=186;y<270;y+=16){stripes+='<rect x="10" y="'+y+'" width="180" height="8" fill="'+M+'"/>';}
+    var vb=o.face?'42 24 116 116':'0 0 200 262';
+    var eye=function(cx,dir){
+      return '<path d="M'+(cx-10)+' 98 Q'+cx+' 90 '+(cx+10)+' 98 Q'+cx+' 105 '+(cx-10)+' 98Z" fill="#fff"/>'+
+        '<circle cx="'+cx+'" cy="98" r="4.8" fill="#4a2f1d"/><circle cx="'+cx+'" cy="98" r="2.2" fill="#1c110a"/><circle cx="'+(cx+1.6)+'" cy="96.4" r="1.3" fill="#fff"/>'+
+        '<path d="M'+(cx-11)+' 98.5 Q'+cx+' 88.5 '+(cx+11)+' 98.5" fill="none" stroke="#2b1a10" stroke-width="2.2" stroke-linecap="round"/>'+
+        '<path d="M'+(cx+dir*11)+' 98 L'+(cx+dir*15)+' 95" stroke="#2b1a10" stroke-width="1.8" stroke-linecap="round"/>';};
+    return '<svg class="mascot'+(o.float?' float':'')+(o.face?' face':'')+'" viewBox="'+vb+'" role="img" aria-label="Sunny, la mascotte en marinière">'+
+    '<defs><clipPath id="bc'+n+'"><path d="M20 262 C22 215 40 190 62 178 Q100 200 138 178 C160 190 178 215 180 262Z"/></clipPath></defs>'+
+    '<path d="M58 92 C52 40 148 40 142 92 C152 130 148 160 134 178 L66 178 C52 160 48 130 58 92Z" fill="#3b2314"/>'+
+    '<path d="M20 262 C22 215 40 190 62 178 Q100 200 138 178 C160 190 178 215 180 262Z" fill="#fff"/>'+
     '<g clip-path="url(#bc'+n+')">'+stripes+'</g>'+
-    '<path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z" fill="none" stroke="'+M+'" stroke-width="3" stroke-linejoin="round"/>'+
-    '<g class="arm">'+arm(136)+'</g>'+
-    '<path d="M78 136 L100 168 L122 136 Q100 146 78 136Z" fill="'+O+'" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
-    '<path d="M56 70 C16 62 6 122 38 136 C30 114 38 96 58 92Z" fill="#7a2a0e" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
-    '<path d="M144 70 C184 62 194 122 162 136 C170 114 162 96 142 92Z" fill="#7a2a0e" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
-    '<circle cx="100" cy="88" r="50" fill="'+SK+'" stroke="'+M+'" stroke-width="3"/>'+
-    '<circle cx="68" cy="104" r="8" fill="'+O+'" opacity=".35"/><circle cx="132" cy="104" r="8" fill="'+O+'" opacity=".35"/>'+
-    '<circle cx="82" cy="88" r="6.5" fill="'+M+'"/><circle cx="118" cy="88" r="6.5" fill="'+M+'"/>'+
-    '<circle cx="84" cy="85.5" r="2.2" fill="#fff"/><circle cx="120" cy="85.5" r="2.2" fill="#fff"/>'+
-    '<path d="M86 104 Q100 120 114 104" fill="none" stroke="'+M+'" stroke-width="3.2" stroke-linecap="round"/>'+
-    '<path d="M54 66 Q100 80 146 66 L148 60 Q100 72 52 60Z" fill="#7a2a0e"/>'+
-    '<path d="M75 85 L70 82 M125 85 L130 82" stroke="'+M+'" stroke-width="2.5" stroke-linecap="round"/>'+
-    '<path d="M50 58 C48 24 152 24 150 58 Q100 70 50 58Z" fill="'+M+'"/>'+
-    '<path d="M52 56 Q100 68 148 56" fill="none" stroke="#fff" stroke-width="3" opacity=".9"/>'+
-    '<line x1="100" y1="30" x2="100" y2="24" stroke="'+M+'" stroke-width="3"/><circle cx="100" cy="20" r="10" fill="'+O+'" stroke="'+M+'" stroke-width="2.5"/>'+
+    '<path d="M88 130 L88 160 Q80 170 62 178 Q100 200 138 178 Q120 170 112 160 L112 130Z" fill="'+SK+'"/>'+
+    '<path d="M88 146 Q100 158 112 146 L112 130 L88 130Z" fill="'+SH+'" opacity=".7"/>'+
+    '<path d="M86 172 Q100 184 114 172 L110 192 Q100 198 90 192Z" fill="'+O+'"/>'+
+    '<path d="M86 172 Q100 184 114 172" fill="none" stroke="#c46f00" stroke-width="1.5" opacity=".6"/>'+
+    '<ellipse cx="61" cy="100" rx="6" ry="10" fill="#ecbf9f"/><ellipse cx="139" cy="100" rx="6" ry="10" fill="#ecbf9f"/>'+
+    '<ellipse cx="100" cy="98" rx="39" ry="47" fill="'+SK+'"/>'+
+    '<circle cx="74" cy="117" r="8" fill="#f08a7a" opacity=".22"/><circle cx="126" cy="117" r="8" fill="#f08a7a" opacity=".22"/>'+
+    eye(84,-1)+eye(116,1)+
+    '<path d="M72 86 Q84 80 95 85 M105 85 Q116 80 128 86" fill="none" stroke="'+HR+'" stroke-width="2.6" stroke-linecap="round"/>'+
+    '<path d="M100 103 Q96 113 99 117 Q103 119 105 116" fill="none" stroke="'+SH+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'+
+    '<path d="M88 127 Q100 133 112 127 Q100 142 88 127Z" fill="#c8574f"/>'+
+    '<path d="M91 128.4 Q100 132.4 109 128.4 Q100 136 91 128.4Z" fill="#fff"/>'+
+    '<path d="M60 94 C56 56 90 42 114 50 C134 57 144 74 140 94 C132 76 118 67 98 67 C80 69 66 79 60 94Z" fill="'+HR+'"/>'+
+    '<path d="M70 72 Q96 56 126 66" fill="none" stroke="#7a4a2c" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>'+
+    '<g transform="rotate(-7 100 52)"><path d="M50 64 C42 34 102 20 152 38 C162 52 154 66 140 68 Q100 60 60 72Z" fill="'+M+'"/>'+
+    '<path d="M62 70 Q100 60 140 68" fill="none" stroke="#fff" stroke-width="2" opacity=".85"/>'+
+    '<path d="M72 38 Q102 28 138 38" fill="none" stroke="#3c5fb5" stroke-width="2.4" stroke-linecap="round" opacity=".6"/></g>'+
     '</svg>';
   }
   function $(id){return document.getElementById(id)}
   function h(s){var d=document.createElement('div');d.innerHTML=s;return d.firstElementChild}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 
-  $('heroMascot').innerHTML=mascot({wave:true,float:true});
-    $('chatAv').innerHTML=mascot({});
+  $('heroMascot').innerHTML=mascot({float:true});
+    $('chatAv').innerHTML=mascot({face:true});
 
   document.querySelectorAll('.mname').forEach(function(e){e.textContent=NAME});
   /* ---------- données onboarding ---------- */
@@ -536,7 +543,7 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
     PORTS.forEach(function(p,i){
       var d=p.docs.filter(function(x){return st.done[x.id]}).length;
       var b=h('<button class="port'+(st.valid[i]?' valid':'')+'" role="tab" type="button" aria-selected="'+(st.sel===i)+'">'+
-        (st.sel===i?'<span class="boat" aria-hidden="true">'+mascot({wave:true})+'</span>':'')+
+        (st.sel===i?'<span class="boat" aria-hidden="true">'+mascot({face:true})+'</span>':'')+
         '<span class="node">'+(st.valid[i]?I.check:(i+1))+'</span>'+
         '<span class="when">'+p.when+'</span><span class="pname">'+p.name+'</span>'+
         '<span class="cnt">'+d+' / '+p.docs.length+' documents · '+p.by+'</span></button>');
