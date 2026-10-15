@@ -448,54 +448,34 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
   var HOW={read:['book','Lire'],demo:['play','Démo avec ton buddy'],train:['target','S’entraîner']};
 
   function mascot(o){
-    o=o||{}; var n=++uid, M='#002882', SK='#f6d3b8', SH='#dfae8f', HR='#6b3a20', O='#f98f03';
+    o=o||{}; var n=++uid, M='#002882', SK='#fde7c8', O='#f98f03', HR='#7a3b1c';
     var stripes='';
-    for(var y=214;y<304;y+=16){stripes+='<rect x="30" y="'+y+'" width="160" height="8" fill="'+M+'"/>';}
-    var vb=o.face?'56 30 108 108':'0 0 220 300';
-    var eye=function(cx,dir){
-      return '<ellipse cx="'+cx+'" cy="112" rx="9.5" ry="9" fill="#fff"/>'+
-        '<circle cx="'+cx+'" cy="113" r="6" fill="#5a3a22"/><circle cx="'+cx+'" cy="113" r="2.8" fill="#1c110a"/>'+
-        '<circle cx="'+(cx+2.2)+'" cy="110.5" r="1.8" fill="#fff"/><circle cx="'+(cx-2)+'" cy="115.5" r="0.9" fill="#fff"/>'+
-        '<path d="M'+(cx-10.5)+' 112 Q'+cx+' 100 '+(cx+10.5)+' 112" fill="none" stroke="#3a2214" stroke-width="2.4" stroke-linecap="round"/>'+
-        '<path d="M'+(cx+dir*10.5)+' 111 L'+(cx+dir*14.5)+' 107.5" stroke="#3a2214" stroke-width="1.8" stroke-linecap="round"/>';};
-    var sleeve=function(d,w){return '<path d="'+d+'" fill="none" stroke="#fff" stroke-width="'+w+'" stroke-linecap="round"/><path d="'+d+'" fill="none" stroke="'+M+'" stroke-width="'+w+'" stroke-dasharray="6 9" stroke-dashoffset="2"/>';};
-    return '<svg class="mascot'+(o.float?' float':'')+(o.wave?' wave':'')+(o.face?' face':'')+'" viewBox="'+vb+'" role="img" aria-label="Sunny, la mascotte en marinière">'+
-    '<defs><clipPath id="bc'+n+'"><path d="M52 304 C50 244 58 208 84 198 Q110 214 136 198 C162 208 170 244 168 304Z"/></clipPath></defs>'+
-    '<path transform="rotate(-5 110 170)" d="M64 108 C56 50 164 50 156 108 C172 142 168 170 152 184 L68 184 C52 170 48 142 64 108Z" fill="#4f2a15"/>'+
-    /* bras gauche (relâché) */
-    sleeve('M64 208 C48 226 44 250 46 272',22)+
-    '<ellipse cx="46" cy="284" rx="9.5" ry="11" fill="'+SK+'"/>'+
-    /* torse */
-    '<path d="M52 304 C50 244 58 208 84 198 Q110 214 136 198 C162 208 170 244 168 304Z" fill="#fff"/>'+
+    for(var y=146;y<240;y+=18){stripes+='<rect x="30" y="'+y+'" width="140" height="9" fill="'+M+'"/>';}
+    var vb=o.face?'42 12 116 116':'0 0 200 250';
+    var arm=function(x){return '<rect x="'+x+'" y="142" width="16" height="50" rx="8" fill="#fff" stroke="'+M+'" stroke-width="3"/><rect x="'+(x+1.5)+'" y="156" width="13" height="6" fill="'+M+'"/><circle cx="'+(x+8)+'" cy="196" r="9" fill="'+SK+'" stroke="'+M+'" stroke-width="2.5"/>';};
+    return '<svg class="mascot'+(o.wave?' wave':'')+(o.float?' float':'')+(o.face?' face':'')+'" viewBox="'+vb+'" role="img" aria-label="Sunny, la mascotte en marinière">'+
+    '<defs><clipPath id="bc'+n+'"><path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z"/></clipPath></defs>'+
+    '<ellipse cx="78" cy="238" rx="17" ry="8" fill="'+M+'"/><ellipse cx="122" cy="238" rx="17" ry="8" fill="'+M+'"/>'+
+    '<g transform="rotate(18 54 148)">'+arm(46)+'</g>'+
+    '<path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z" fill="#fff"/>'+
     '<g clip-path="url(#bc'+n+')">'+stripes+'</g>'+
-    /* bras droit qui salue */
-    sleeve('M156 210 Q194 214 198 238',22)+
-    '<g class="fore">'+sleeve('M198 238 L200 186',21)+
-    '<path d="M200 186 L200 168" stroke="'+SK+'" stroke-width="13" stroke-linecap="round"/>'+
-    '<ellipse cx="201" cy="156" rx="11" ry="12" fill="'+SK+'"/>'+
-    '<rect x="190" y="136" width="5.5" height="16" rx="2.7" fill="'+SK+'"/><rect x="196.5" y="132" width="5.5" height="19" rx="2.7" fill="'+SK+'"/><rect x="203" y="133" width="5.5" height="18" rx="2.7" fill="'+SK+'"/><rect x="209" y="138" width="5" height="14" rx="2.5" fill="'+SK+'"/>'+
-    '<ellipse cx="190" cy="160" rx="4" ry="7" fill="'+SK+'" transform="rotate(30 190 160)"/></g>'+
-    /* cou et décolleté */
-    '<path d="M96 156 L96 184 Q88 196 70 204 Q110 224 150 204 Q132 196 124 184 L124 156Z" fill="'+SK+'"/>'+
-    '<path d="M96 170 Q110 182 124 170 L124 156 L96 156Z" fill="'+SH+'" opacity=".6"/>'+
-    '<path d="M94 196 Q110 210 126 196 L121 218 Q110 224 99 218Z" fill="'+O+'"/>'+
-    /* tête légèrement inclinée */
-    '<g transform="rotate(-5 110 170)">'+
-        '<ellipse cx="69" cy="116" rx="6" ry="10" fill="#efc2a2"/><ellipse cx="151" cy="116" rx="6" ry="10" fill="#efc2a2"/>'+
-    '<ellipse cx="110" cy="112" rx="41" ry="46" fill="'+SK+'"/>'+
-    '<circle cx="85" cy="132" r="9" fill="#f08a7a" opacity=".32"/><circle cx="135" cy="132" r="9" fill="#f08a7a" opacity=".32"/>'+
-    eye(94,-1)+eye(126,1)+
-    '<path d="M82 96 Q94 88 106 94 M114 94 Q126 88 138 96" fill="none" stroke="'+HR+'" stroke-width="2.8" stroke-linecap="round"/>'+
-    '<path d="M110 118 Q106 128 109 131 Q113 133 115 130" fill="none" stroke="'+SH+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'+
-    '<path d="M90 139 Q110 140 130 139 Q124 160 110 160 Q96 160 90 139Z" fill="#c8574f"/>'+
-    '<path d="M92.5 140.4 Q110 142 127.5 140.4 Q123 149 110 149 Q97 149 92.5 140.4Z" fill="#fff"/>'+
-    '<path d="M101 154 Q110 158 119 154" fill="none" stroke="#e98a80" stroke-width="2.4" stroke-linecap="round"/>'+
-    '<path d="M68 112 C62 62 98 46 124 54 C146 61 156 80 152 110 C144 86 130 76 108 76 C88 78 74 90 68 112Z" fill="'+HR+'"/>'+
-    '<path d="M80 80 Q108 62 140 74" fill="none" stroke="#9a5a32" stroke-width="2.6" stroke-linecap="round" opacity=".6"/>'+
-    '<g transform="rotate(-9 110 60)"><path d="M58 74 C48 42 112 26 164 44 C176 60 166 76 150 78 Q108 68 68 82Z" fill="'+M+'"/>'+
-    '<path d="M70 80 Q108 70 150 77" fill="none" stroke="#fff" stroke-width="2" opacity=".85"/>'+
-    '<path d="M80 44 Q112 34 150 44" fill="none" stroke="#3c5fb5" stroke-width="2.6" stroke-linecap="round" opacity=".6"/></g>'+
-    '</g></svg>';
+    '<path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z" fill="none" stroke="'+M+'" stroke-width="3" stroke-linejoin="round"/>'+
+    '<path d="M78 136 L100 168 L122 136 Q100 146 78 136Z" fill="'+O+'" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
+    /* carré brun derrière la tête */
+    '<path d="M44 90 C42 40 158 40 156 90 C160 112 156 130 148 138 L52 138 C44 130 40 112 44 90Z" fill="'+HR+'" stroke="'+M+'" stroke-width="3" stroke-linejoin="round"/>'+
+    '<g class="arm">'+arm(136)+'</g>'+
+    '<circle cx="100" cy="88" r="47" fill="'+SK+'" stroke="'+M+'" stroke-width="3"/>'+
+    '<circle cx="68" cy="104" r="8" fill="'+O+'" opacity=".38"/><circle cx="132" cy="104" r="8" fill="'+O+'" opacity=".38"/>'+
+    '<circle cx="82" cy="88" r="7" fill="'+M+'"/><circle cx="118" cy="88" r="7" fill="'+M+'"/>'+
+    '<circle cx="84.3" cy="85.3" r="2.4" fill="#fff"/><circle cx="120.3" cy="85.3" r="2.4" fill="#fff"/>'+
+    '<path d="M73 83 L68.5 80.5 M127 83 L131.5 80.5" stroke="'+M+'" stroke-width="2.4" stroke-linecap="round"/>'+
+    '<path d="M86 103 Q100 120 114 103 Q100 108 86 103Z" fill="#c8574f" stroke="'+M+'" stroke-width="2.6" stroke-linejoin="round"/>'+
+    /* frange */
+    '<path d="M54 66 Q92 82 148 68 L148 58 Q100 74 52 60Z" fill="'+HR+'" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
+    '<path d="M50 58 C48 24 152 24 150 58 Q100 70 50 58Z" fill="'+M+'"/>'+
+    '<path d="M52 56 Q100 68 148 56" fill="none" stroke="#fff" stroke-width="3" opacity=".9"/>'+
+    '<line x1="100" y1="30" x2="100" y2="24" stroke="'+M+'" stroke-width="3"/><circle cx="100" cy="20" r="10" fill="'+O+'" stroke="'+M+'" stroke-width="2.5"/>'+
+    '</svg>';
   }
   function $(id){return document.getElementById(id)}
   function h(s){var d=document.createElement('div');d.innerHTML=s;return d.firstElementChild}
