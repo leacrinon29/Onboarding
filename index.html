@@ -55,6 +55,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 .themebtn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 
+.mascot{display:block;height:auto;overflow:visible}
+.mascot.face{overflow:hidden}
+.mascot .arm{transform-origin:134px 148px;transform:rotate(-150deg)}
+.mascot.wave .arm{animation:wave 1.6s ease-in-out infinite}
+.mascot.float{animation:float 4s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:rotate(-146deg)}50%{transform:rotate(-168deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 /* site : en-tête de navigation */
 .site{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--hud);color:var(--on-hud)}
 .site:after{content:"";display:block;height:7px;background:repeating-linear-gradient(90deg,#fff 0 22px,var(--electrique) 22px 44px)}
@@ -337,33 +344,56 @@ button{font:inherit;color:inherit;cursor:pointer}
   function h(s){var d=document.createElement('div');d.innerHTML=s;return d.firstElementChild}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function mascot(o){
-    o=o||{}; var n=++uid, M='#002882', SK='#fde7c8', O='#f98f03', HR='#7a3b1c';
-    var stripes='';
-    for(var y=146;y<240;y+=18){stripes+='<rect x="30" y="'+y+'" width="140" height="9" fill="'+M+'"/>';}
+    o=o||{}; var n=++uid, M='#002882', O='#f98f03', LB='#8fb3ea', K='#1a1d2e', SK='#f6cfa6', HR='#26303a', W='#fff', sw='1.8';
+    var st=' stroke="'+K+'" stroke-width="'+sw+'" stroke-linejoin="round" stroke-linecap="round"';
     var vb=o.face?'42 12 116 116':'0 0 200 250';
-    var arm=function(x){return '<rect x="'+x+'" y="142" width="16" height="50" rx="8" fill="#fff" stroke="'+M+'" stroke-width="3"/><rect x="'+(x+1.5)+'" y="156" width="13" height="6" fill="'+M+'"/><circle cx="'+(x+8)+'" cy="196" r="9" fill="'+SK+'" stroke="'+M+'" stroke-width="2.5"/>';};
-    return '<svg class="mascot'+(o.wave?' wave':'')+(o.float?' float':'')+(o.face?' face':'')+'" viewBox="'+vb+'" role="img" aria-label="Sunny, la mascotte en marinière">'+
-    '<defs><clipPath id="bc'+n+'"><path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z"/></clipPath></defs>'+
-    '<ellipse cx="78" cy="238" rx="17" ry="8" fill="'+M+'"/><ellipse cx="122" cy="238" rx="17" ry="8" fill="'+M+'"/>'+
-    '<g transform="rotate(18 54 148)">'+arm(46)+'</g>'+
-    '<path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z" fill="#fff"/>'+
-    '<g clip-path="url(#bc'+n+')">'+stripes+'</g>'+
-    '<path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z" fill="none" stroke="'+M+'" stroke-width="3" stroke-linejoin="round"/>'+
-    '<path d="M78 136 L100 168 L122 136 Q100 146 78 136Z" fill="'+O+'" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
-    /* carré brun derrière la tête */
-    '<path d="M44 90 C42 40 158 40 156 90 C160 112 156 130 148 138 L52 138 C44 130 40 112 44 90Z" fill="'+HR+'" stroke="'+M+'" stroke-width="3" stroke-linejoin="round"/>'+
-    '<g class="arm">'+arm(136)+'</g>'+
-    '<circle cx="100" cy="88" r="47" fill="'+SK+'" stroke="'+M+'" stroke-width="3"/>'+
-    '<circle cx="68" cy="104" r="8" fill="'+O+'" opacity=".38"/><circle cx="132" cy="104" r="8" fill="'+O+'" opacity=".38"/>'+
-    '<circle cx="82" cy="88" r="7" fill="'+M+'"/><circle cx="118" cy="88" r="7" fill="'+M+'"/>'+
-    '<circle cx="84.3" cy="85.3" r="2.4" fill="#fff"/><circle cx="120.3" cy="85.3" r="2.4" fill="#fff"/>'+
-    '<path d="M73 83 L68.5 80.5 M127 83 L131.5 80.5" stroke="'+M+'" stroke-width="2.4" stroke-linecap="round"/>'+
-    '<path d="M86 103 Q100 120 114 103 Q100 108 86 103Z" fill="#c8574f" stroke="'+M+'" stroke-width="2.6" stroke-linejoin="round"/>'+
+    var stripes='';for(var y=139;y<176;y+=8){stripes+='<rect x="55" y="'+y+'" width="90" height="3.6" fill="'+M+'"/>';}
+    var arm=function(x){return '<path d="M'+(x+1)+' 144 Q'+(x+8)+' 138 '+(x+15)+' 144 L'+(x+15)+' 186 L'+(x+1)+' 186Z" fill="'+W+'"'+st+'/>'+
+      '<path d="M'+(x-1)+' 150 C'+(x-1)+' 136 '+(x+17)+' 136 '+(x+17)+' 150 L'+(x+17)+' 158 Q'+(x+8)+' 161 '+(x-1)+' 158Z" fill="'+W+'"'+st+'/>'+
+      '<path d="M'+(x)+' 146 L'+(x+16)+' 146" stroke="'+M+'" stroke-width="2.6"/>'+
+      '<path d="M'+(x-1)+' 153 Q'+(x+8)+' 156 '+(x+17)+' 153 L'+(x+17)+' 158 Q'+(x+8)+' 161 '+(x-1)+' 158Z" fill="'+M+'"'+st+'/>'+
+      '<rect x="'+(x+0.5)+'" y="183" width="15" height="5" rx="2" fill="'+LB+'"'+st+'/>'+
+      '<path d="M'+(x+1)+' 190 C'+(x-1)+' 200 '+(x+3)+' 204 '+(x+8)+' 204 C'+(x+13)+' 204 '+(x+17)+' 200 '+(x+15)+' 190Z" fill="'+SK+'"'+st+'/>';};
+    return '<svg class="mascot'+(o.wave?' wave':'')+(o.float?' float':'')+(o.face?' face':'')+'" viewBox="'+vb+'" role="img" aria-label="Sunny, la mascotte matelot">'+
+    /* jambes + chaussettes + chaussures */
+    '<path d="M84 198 L84 226 L96 226 L96 198Z" fill="'+SK+'"'+st+'/><path d="M104 198 L104 226 L116 226 L116 198Z" fill="'+SK+'"'+st+'/>'+
+    '<path d="M83.5 220 L83.5 236 L96.5 236 L96.5 220Z" fill="'+W+'"'+st+'/><path d="M103.5 220 L103.5 236 L116.5 236 L116.5 220Z" fill="'+W+'"'+st+'/>'+
+    '<path d="M80 236 Q90 232 98 236 Q99 243 89 243 Q78 243 80 236Z" fill="'+M+'"'+st+'/><path d="M102 236 Q110 232 120 236 Q122 243 111 243 Q101 243 102 236Z" fill="'+M+'"'+st+'/>'+
+    '<g transform="rotate(14 66 146)">'+arm(58)+'</g>'+
+    /* jupe + haut */
+    '<path d="M68 180 L132 180 L146 201 Q100 210 54 201Z" fill="'+W+'"'+st+'/>'+
+    '<defs><clipPath id="tc'+n+'"><path d="M77 140 C81 132 90 130 100 130 C110 130 119 132 123 140 C129 150 132 166 132 182 L68 182 C68 166 71 150 77 140Z"/></clipPath></defs>'+'<path d="M77 140 C81 132 90 130 100 130 C110 130 119 132 123 140 C129 150 132 166 132 182 L68 182 C68 166 71 150 77 140Z" fill="'+W+'"/>'+'<g clip-path="url(#tc'+n+')">'+stripes+'</g>'+'<path d="M77 140 C81 132 90 130 100 130 C110 130 119 132 123 140 C129 150 132 166 132 182 L68 182 C68 166 71 150 77 140Z" fill="none"'+st+'/>'+
+    '<path d="M68 176 L132 176 L132.4 183 L67.6 183Z" fill="'+M+'"'+st+'/>'+
+    /* col marin */
+    '<path d="M75 139 C79 131 90 129 100 129 C110 129 121 131 125 139 C127 145 126 149 123 152 Q112 160 100 170 Q88 160 77 152 C74 149 73 145 75 139Z" fill="'+M+'"'+st+'/>'+
+    '<path d="M88 134 Q100 131 112 134 L100 160Z" fill="'+W+'"'+st+'/>'+
+    /* foulard orange */
+    '<path d="M98 166 L86 188 Q92 186 99 181Z" fill="'+O+'"'+st+'/><path d="M102 166 L114 188 Q108 186 101 181Z" fill="'+O+'"'+st+'/>'+
+    '<circle cx="100" cy="165" r="5" fill="'+O+'"'+st+'/>'+
+    /* cheveux arrière : carré aux pointes relevées */
+    '<path d="M54 82 C50 38 150 38 146 82 C147 100 150 112 164 118 C152 126 140 122 135 116 L65 116 C60 122 48 126 36 118 C50 112 53 100 54 82Z" fill="'+HR+'"'+st+'/>'+
+    '<g class="arm">'+arm(126)+'</g>'+
+    /* oreilles + visage */
+    '<ellipse cx="58" cy="90" rx="7" ry="9" fill="'+SK+'"'+st+'/><ellipse cx="142" cy="90" rx="7" ry="9" fill="'+SK+'"'+st+'/>'+
+    '<path d="M60 90 Q58 89 59 93" fill="none"'+st+'/><path d="M140 90 Q142 89 141 93" fill="none"'+st+'/>'+
+    '<ellipse cx="100" cy="86" rx="42" ry="39" fill="'+SK+'"'+st+'/>'+
+    '<circle cx="73" cy="104" r="3.6" fill="#f2877a" opacity=".8"/><circle cx="127" cy="104" r="3.6" fill="#f2877a" opacity=".8"/>'+
+    /* yeux */
+    '<ellipse cx="82" cy="90" rx="10" ry="11" fill="'+W+'"'+st+'/><ellipse cx="118" cy="90" rx="10" ry="11" fill="'+W+'"'+st+'/>'+
+    '<circle cx="82.5" cy="91.5" r="7.4" fill="#7a4a26" stroke="'+K+'" stroke-width="1.4"/><circle cx="117.5" cy="91.5" r="7.4" fill="#7a4a26" stroke="'+K+'" stroke-width="1.4"/>'+
+    '<circle cx="82.5" cy="92" r="3.8" fill="'+K+'"/><circle cx="117.5" cy="92" r="3.8" fill="'+K+'"/>'+
+    '<circle cx="85.5" cy="88" r="2.6" fill="'+W+'"/><circle cx="120.5" cy="88" r="2.6" fill="'+W+'"/><circle cx="80" cy="95" r="1.2" fill="'+W+'"/><circle cx="115" cy="95" r="1.2" fill="'+W+'"/>'+
+    '<path d="M72.5 84 L68.5 82 M73.5 80.5 L70.5 77.5 M127.5 84 L131.5 82 M126.5 80.5 L129.5 77.5" fill="none"'+st+'/>'+
+    '<path d="M74 75 Q82 71 90 74 M110 74 Q118 71 126 75" fill="none" stroke="'+K+'" stroke-width="2.2" stroke-linecap="round"/>'+
+    /* nez + sourire */
+    '<path d="M101 98 Q97.5 101 100.5 103" fill="none"'+st+'/>'+
+    '<path d="M91 108 Q100 114 109 108" fill="none"'+st+'/>'+
     /* frange */
-    '<path d="M54 66 Q92 82 148 68 L148 58 Q100 74 52 60Z" fill="'+HR+'" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
-    '<path d="M50 58 C48 24 152 24 150 58 Q100 70 50 58Z" fill="'+M+'"/>'+
-    '<path d="M52 56 Q100 68 148 56" fill="none" stroke="#fff" stroke-width="3" opacity=".9"/>'+
-    '<line x1="100" y1="30" x2="100" y2="24" stroke="'+M+'" stroke-width="3"/><circle cx="100" cy="20" r="10" fill="'+O+'" stroke="'+M+'" stroke-width="2.5"/>'+
+    '<path d="M59 82 C55 50 146 46 142 80 C134 66 118 58 102 60 C90 62 78 68 70 72 C64 76 61 79 59 82Z" fill="'+HR+'"'+st+'/>'+
+    /* bonnet blanc + pompon */
+    '<path d="M60 52 C66 30 134 30 140 52 C126 58 74 58 60 52Z" fill="'+W+'"'+st+'/>'+
+    '<path d="M56 54 C72 46 128 46 144 54 L141 63 C126 56 74 56 59 63Z" fill="'+W+'"'+st+'/>'+
+    '<ellipse cx="100" cy="33" rx="9" ry="5" fill="'+M+'"'+st+'/>'+
     '</svg>';
   }
 
