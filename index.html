@@ -79,9 +79,9 @@ h3{font-size:22px;line-height:1.25}
 .hero h1{color:#fff;font-size:clamp(38px,5.4vw,76px);line-height:1.08;letter-spacing:-.01em;margin-bottom:22px}
 .hero p.lead{color:var(--on-dark-2);margin-bottom:28px}
 .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.12);font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px}
-.hero-art{position:relative;display:flex;justify-content:center}
+.hero-art{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px}
 .hero-art .mascot{width:min(300px,70%)}
-.hero .bubble{position:absolute;top:2%;left:-4%;max-width:210px}
+.hero .bubble{max-width:260px}
 .stripes{position:absolute;inset:auto 0 0 0;height:14px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 36px,transparent 36px 72px);opacity:.14}
 
 .btn{display:inline-flex;align-items:center;gap:8px;border:2px solid transparent;border-radius:999px;padding:12px 22px;font-weight:600;font-size:15px;cursor:pointer;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s}
@@ -273,7 +273,6 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
   .chapters{flex-direction:row;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
   .chapters a{white-space:nowrap;padding:8px 12px}
   .hero .wrap{grid-template-columns:1fr;padding-block:48px 40px}
-  .hero .bubble{left:0}
   section.ch{padding-block:56px}
 }
 @media (max-width:640px){
@@ -287,7 +286,7 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
   .step{flex:1 1 100%;margin-right:0}
   .step:after{display:none}
   .log{height:380px}
-  .hero .bubble{position:static;margin-bottom:22px;max-width:none}
+  .hero .bubble{max-width:none}
 }
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -323,7 +322,7 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
           </div>
         </div>
         <div class="hero-art">
-          <div class="bubble" id="heroBubble">Ahoy ! Je suis <span class="mname">Mousse</span>, ton guide pour les premiers mois.</div>
+          <div class="bubble" id="heroBubble">Ahoy ! Je suis <span class="mname">Sunny</span>, ton guide pour les premiers mois.</div>
           <div id="heroMascot"></div>
         </div>
       </div>
@@ -390,7 +389,7 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
 
         <div class="faq-grid">
           <div class="chat" aria-label="Chat avec la mascotte">
-            <div class="chat-top"><div class="av" id="chatAv"></div><div><b><span class="mname">Mousse</span></b><small>Je connais la mallette du recruteur</small></div></div>
+            <div class="chat-top"><div class="av" id="chatAv"></div><div><b><span class="mname">Sunny</span></b><small>Je connais la mallette du recruteur</small></div></div>
             <div class="log" id="log" aria-live="polite"></div>
             <form class="compose" id="form" autocomplete="off">
               <label for="q" style="position:absolute;left:-9999px">Ta question</label>
@@ -432,7 +431,7 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
 <script>
 (function(){
   var NS='http://www.w3.org/2000/svg', uid=0;
-  var NAME='Mousse';
+  var NAME='Sunny';
   var I={
     check:'<svg viewBox="0 0 24 24"><polyline points="4 13 9.5 18.5 20 6.5"/></svg>',
     book:'<svg viewBox="0 0 24 24"><path d="M4 4.5h6.5A2.5 2.5 0 0 1 13 7v13a2 2 0 0 0-2-2H4z"/><path d="M20 4.5h-6.5A2.5 2.5 0 0 0 11 7v13a2 2 0 0 1 2-2h7z"/></svg>',
@@ -458,11 +457,15 @@ footer.foot{padding-block:36px;font-size:13px;color:var(--fg-muted);border-top:1
     '<path d="M54 140 Q100 126 146 140 L158 226 Q100 238 42 226 Z" fill="none" stroke="'+M+'" stroke-width="3" stroke-linejoin="round"/>'+
     '<g class="arm">'+arm(136)+'</g>'+
     '<path d="M78 136 L100 168 L122 136 Q100 146 78 136Z" fill="'+O+'" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
+    '<path d="M56 70 C16 62 6 122 38 136 C30 114 38 96 58 92Z" fill="#7a2a0e" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
+    '<path d="M144 70 C184 62 194 122 162 136 C170 114 162 96 142 92Z" fill="#7a2a0e" stroke="'+M+'" stroke-width="2.5" stroke-linejoin="round"/>'+
     '<circle cx="100" cy="88" r="50" fill="'+SK+'" stroke="'+M+'" stroke-width="3"/>'+
     '<circle cx="68" cy="104" r="8" fill="'+O+'" opacity=".35"/><circle cx="132" cy="104" r="8" fill="'+O+'" opacity=".35"/>'+
     '<circle cx="82" cy="88" r="6.5" fill="'+M+'"/><circle cx="118" cy="88" r="6.5" fill="'+M+'"/>'+
     '<circle cx="84" cy="85.5" r="2.2" fill="#fff"/><circle cx="120" cy="85.5" r="2.2" fill="#fff"/>'+
     '<path d="M86 104 Q100 120 114 104" fill="none" stroke="'+M+'" stroke-width="3.2" stroke-linecap="round"/>'+
+    '<path d="M54 66 Q100 80 146 66 L148 60 Q100 72 52 60Z" fill="#7a2a0e"/>'+
+    '<path d="M75 85 L70 82 M125 85 L130 82" stroke="'+M+'" stroke-width="2.5" stroke-linecap="round"/>'+
     '<path d="M50 58 C48 24 152 24 150 58 Q100 70 50 58Z" fill="'+M+'"/>'+
     '<path d="M52 56 Q100 68 148 56" fill="none" stroke="#fff" stroke-width="3" opacity=".9"/>'+
     '<line x1="100" y1="30" x2="100" y2="24" stroke="'+M+'" stroke-width="3"/><circle cx="100" cy="20" r="10" fill="'+O+'" stroke="'+M+'" stroke-width="2.5"/>'+
