@@ -148,6 +148,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 .nav2{display:flex;gap:14px;justify-content:space-between;margin-top:26px;flex-wrap:wrap}
 
 /* chat */
+.pgintro{background:var(--card);border-radius:20px;padding:18px 22px;box-shadow:0 5px 0 var(--line-strong);margin-bottom:18px;font-size:17px;line-height:1.55}
+.rit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rc{background:var(--card);border-radius:20px;padding:16px 20px 18px;box-shadow:0 5px 0 var(--line-strong);display:grid;gap:6px;align-content:start;min-width:0}
+.rc h3{font:500 22px/1.2 var(--f-title);color:var(--fg);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.rc p{font-size:15px}
+.rc a.more{font-weight:800;color:var(--link,var(--electrique));font-size:14px;text-decoration:none}
+.rc a.more:hover{text-decoration:underline}
+.pgsrc{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+@media (max-width:640px){.rit{grid-template-columns:1fr}}
 .chatv{display:flex;flex-direction:column;height:calc(100vh - 260px);min-height:440px}
 .chat{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--card);border-radius:24px;box-shadow:0 6px 0 var(--line-strong);overflow:hidden}
 .log{flex:1;min-height:0;display:flex;flex-direction:column;gap:14px;padding:18px;overflow-y:auto}
@@ -345,8 +354,22 @@ button{font:inherit;color:inherit;cursor:pointer}
    talentkit:P('TribeExpertises/Documents partages/Squad Product Data IA/Recrutement/Talent Kit - Data & IA Product.pptx'),
    tutoboond:P('STAFF/Documents partages/STAFF Talent Recruitment/2 - La mallette du recruteur/BoondManager/Tuto - Compléteret créer une fiche candidat sur Boond.pptx')
   };
+  var PG={rituels:{
+   intro:'Chez WeFiiT, un consultant a deux vies : sa vie en mission et sa vie en interne. Les rituels entretiennent le sentiment d’appartenance, pour qu’on se sente WeFiiTer avant tout. Chaque deuxième jeudi, différents rituels réunissent l’équipe et la communauté.',
+   cards:[
+    {n:'We.Talk',d:'Une « personnalité » partage son expérience sur un sujet Product avec les WeFiiTers.'},
+    {n:'We.Share',d:'Un WeFiiTer partage l’une de ses passions : yoga, photographie, voyages, raclette…'},
+    {n:'Afterwork',d:'Le plaisir de se retrouver sans chichi, autour d’un verre ou d’une activité de team building.'},
+    {n:'WeFiiT Live',d:'Un temps fort collectif : ice breaker, projets structurants de l’entreprise et photo de groupe. On y vient avec sa marinière.'},
+    {n:'Armada',d:'Un rituel d’alignement et de transparence qui rassemble tout l’équipage. Chaque Tribe partage ses OKR et présente son cap sur les 3 prochains mois.',more:['En savoir plus','https://wefiitcom.sharepoint.com/sites/MyWeFiiT/SitePages/Armada.aspx']},
+    {n:'Guilde PO & QA',d:'Le rituel de partage et de retour d’expérience de pairs à pairs. À quoi sert la compétence si elle n’est pas partagée ?',more:['En savoir plus','https://wefiitcom.sharepoint.com/sites/MyWeFiiT/SitePages/Guilde-Produit-%26-QA.aspx']},
+    {n:'Kermesse',d:'L’événement annuel où les WeFiiTers votent pour les formations.'},
+    {n:'WeFiiT Life',d:'',todo:true}
+   ],
+   src:['Voir la page d’origine sur MyWeFiiT','https://wefiitcom.sharepoint.com/sites/MyWeFiiT/SitePages/Rituels-WeFiiT.aspx']
+  }};
   var STEPS=[
-   {t:'Culture WeFiiT',items:[['WeFiiT Story (onboarding)',L.story],['OKR et objectif recrutement',L.okr],['Rituels WeFiiT',U('hpfo')],['Rituels B&T',L.ritbt]]},
+   {t:'Culture WeFiiT',items:[['WeFiiT Story (onboarding)',L.story],['OKR et objectif recrutement',L.okr],['Rituels WeFiiT',null,PG.rituels],['Rituels B&T',L.ritbt]]},
    {t:'Compréhension métier',sub:'Pour tes entretiens avec les WeFiiTers',items:[['Glossaire',L.gloss],['Rôle PO et QA',L.pmdeck],['Discovery, Delivery, Stratégie',L.weskills],['PM IA',L.iapm],['PM data',L.datapm],['Méthode agile']]},
    {t:'Process de recrutement',sub:'De bout en bout',items:[['Personas WeFiiT (PO2, QA1…)'],['Cadrage salarial',L.salaire],['Les étapes du process (brief, propale OKR)',L.notice],['Critères de passage : GO / NO GO',U('gonogo')],['Raisons de NO GO (LN+, LN–, KO) et mail type'],['Statuts candidats (lexique Boond / WeFiiT)',U('lexique')],['Expérience candidat : les bonnes pratiques']]},
    {t:'Sourcing et chasse',sub:'Outbound, inbound, WTTJ, APEC',items:[['Cabinets à chasser et à ne pas chasser'],['Méthodologie de sourcing (booléenne : QA, PO, IA, PM…)'],['Messages d’accroche performants',L.accroche],['KPI attendus : objectifs de sourcing'],['Bonnes pratiques et erreurs à éviter'],['Méthode de sourcing LinkedIn'],['InMail personnalisé'],['Gérer les candidatures et le pipe WTTJ']]},
@@ -365,32 +388,45 @@ button{font:inherit;color:inherit;cursor:pointer}
   function renderDetail(i){
     var s=STEPS[i],html='<button class="back" type="button" id="bk">← Toutes les étapes</button>'+
       '<div class="dh c'+(i%4)+'"><div><h2>'+esc(s.t)+'</h2>'+(s.sub?'<p>'+esc(s.sub)+'</p>':'')+'</div></div><ul class="items">';
-    s.items.forEach(function(it){
-      html+='<li class="it"><span class="pt"></span><b>'+esc(it[0])+'</b>'+(s.soft?'':(it[1]?'<a class="btn sm" target="_blank" rel="noopener" href="'+encodeURI(it[1])+'">Ouvrir</a>':'<span class="tag later">Bientôt</span>'))+'</li>';
+    s.items.forEach(function(it,k){
+      html+='<li class="it"><span class="pt"></span><b>'+esc(it[0])+'</b>'+(s.soft?'':(it[2]?'<button class="btn sm" type="button" data-pg="'+(k+1)+'">Lire</button>':(it[1]?'<a class="btn sm" target="_blank" rel="noopener" href="'+encodeURI(it[1])+'">Ouvrir</a>':'<span class="tag later">Bientôt</span>')))+'</li>';
     });
     html+='</ul><div class="nav2">'+(i>0?'<button class="btn sm sec" type="button" id="pv">← '+esc(STEPS[i-1].t)+'</button>':'<span></span>')+(i<STEPS.length-1?'<button class="btn sm" type="button" id="nx">'+esc(STEPS[i+1].t)+' →</button>':'')+'</div>';
     var d=$('mapDetail');d.innerHTML=html;
     $('bk').onclick=function(){show('map',true)};
     if($('pv'))$('pv').onclick=function(){show('map',true,i)};
     if($('nx'))$('nx').onclick=function(){show('map',true,i+2)};
+    d.querySelectorAll('[data-pg]').forEach(function(b){b.onclick=function(){show('map',true,i+1,+b.getAttribute('data-pg'))}});
+  }
+  function renderPage(i,k){
+    var s=STEPS[i],it=s.items[k],p=it[2];
+    var html='<button class="back" type="button" id="bk">← '+esc(s.t)+'</button>'+
+      '<div class="dh c'+(i%4)+'"><div><h2>'+esc(it[0])+'</h2><p>'+esc(s.t)+'</p></div></div>'+
+      '<div class="pgintro">'+esc(p.intro)+'</div><div class="rit">';
+    p.cards.forEach(function(c){
+      html+='<div class="rc"><h3>'+esc(c.n)+(c.todo?' <span class="tag later">À compléter</span>':'')+'</h3>'+(c.d?'<p>'+esc(c.d)+'</p>':'<p>À décrire avec l’équipe.</p>')+(c.more?'<a class="more" target="_blank" rel="noopener" href="'+c.more[1]+'">'+esc(c.more[0])+' →</a>':'')+'</div>';
+    });
+    html+='</div>'+(p.src?'<div class="pgsrc"><a class="btn sm sec" target="_blank" rel="noopener" href="'+p.src[1]+'">'+esc(p.src[0])+'</a></div>':'');
+    var d=$('mapDetail');d.innerHTML=html;
+    $('bk').onclick=function(){show('map',true,i+1)};
   }
 
   /* ---------- navigation entre les pages ---------- */
   var VIEWS=['home','map','chat'],HASH={home:'accueil',map:'parcours',chat:'questions'},curStep=0;
-  function show(v,push,step){
+  function show(v,push,step,item){
     if(VIEWS.indexOf(v)<0)v='home';
-    curStep=v==='map'&&step?step:0;
+    curStep=v==='map'&&step?step:0;var curItem=curStep&&item?item:0;
     VIEWS.forEach(function(k){$('v-'+k).hidden=k!==v});
     document.querySelectorAll('.lk').forEach(function(b){if(b.getAttribute('data-v')===v)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
-    if(v==='map'){var d=curStep>0;$('mapHome').hidden=d;$('mapDetail').hidden=!d;if(d)renderDetail(curStep-1)}
-    if(push){try{location.hash=HASH[v]+(curStep?'-'+curStep:'')}catch(e){}}
+    if(v==='map'){var d=curStep>0;$('mapHome').hidden=d;$('mapDetail').hidden=!d;if(d){if(curItem>0&&STEPS[curStep-1].items[curItem-1]&&STEPS[curStep-1].items[curItem-1][2])renderPage(curStep-1,curItem-1);else{curItem=0;renderDetail(curStep-1)}}}
+    if(push){try{location.hash=HASH[v]+(curStep?'-'+curStep:'')+(curItem?'-'+curItem:'')}catch(e){}}
     window.scrollTo(0,0);
     if(v==='chat'){var l=$('log');l.scrollTop=l.scrollHeight}
   }
   document.querySelectorAll('[data-v]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();show(b.getAttribute('data-v'),true)})});
   document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-go'),true)})});
-  function fromHash(){var t=(location.hash||'').slice(1),v='home',st=0,m=t.match(/^parcours-(\d+)$/);if(m){v='map';st=+m[1];if(st<1||st>STEPS.length)st=0}else VIEWS.forEach(function(k){if(HASH[k]===t)v=k});return [v,st]}
-  window.addEventListener('hashchange',function(){var r=fromHash();show(r[0],false,r[1])});
+  function fromHash(){var t=(location.hash||'').slice(1),v='home',st=0,m=t.match(/^parcours-(\d+)(?:-(\d+))?$/),it=0;if(m){v='map';st=+m[1];it=m[2]?+m[2]:0;if(st<1||st>STEPS.length){st=0;it=0}}else VIEWS.forEach(function(k){if(HASH[k]===t)v=k});return [v,st,it]}
+  window.addEventListener('hashchange',function(){var r=fromHash();show(r[0],false,r[1],r[2])});
 
   var tt;function toast(t){var e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){e.classList.remove('on')},2400)}
   /* ---------- FAQ ---------- */
@@ -404,6 +440,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   var TUT={t:'Tuto : compléter et créer une fiche candidat sur Boond',loc:'La mallette du recruteur › BoondManager',d:'2026-08-27',url:L.tutoboond};
   var SAL={t:'Modèle d’estimation du cadrage salarial à l’entrée',loc:'La mallette du recruteur › Cadrage salarial',d:'2025-04-28',url:L.salaire};
   var ACC={t:'Messages d’accroche candidats',loc:'Talent Recruitment › Sourcing',d:'2024-03-18',url:L.accroche};
+  var RIW={t:'Rituels WeFiiT (page MyWeFiiT)',loc:'MyWeFiiT › Vie d’équipe',d:'2024-08-09',url:'https://wefiitcom.sharepoint.com/sites/MyWeFiiT/SitePages/Rituels-WeFiiT.aspx'};
   var RIT={t:'Rituels de la squad Business & Talent',loc:'La mallette du recruteur',d:'2023-12-08',url:L.ritbt};
   var KB=[
    {k:'boond etape etapes candidat statut pipe traiter e1 e2 adr signature',q:'Quelles sont les étapes d’un candidat dans Boond ?',a:'Un candidat avance ainsi : <b>À traiter</b> (en sourcing, à contacter pour une pré-qualification), <b>E1</b> (sélection et séduction : expériences et hardskills), <b>E2</b> (validation et approfondissement, le brief est complété en amont), <b>E2 bis</b> (validation et contractualisation), <b>Propale à faire</b>, <b>ADR</b> (attente de réponse), <b>Signature</b>, puis <b>Recruté(e)</b>, converti en ressource Boond.',s:LEX},
@@ -423,6 +460,7 @@ button{font:inherit;color:inherit;cursor:pointer}
    {k:'arguments convaincre objection pourquoi venir wefiit concurrent thiga choisir mission formation',q:'Quels arguments pour convaincre un candidat ?',a:'Les arguments qui reviennent : <b>il choisit sa mission</b>, il a un accès direct à la formation avec des coachs de haut niveau, il rejoint une équipe forte, et il peut contribuer à construire l’entreprise. Face à un concurrent, insiste sur la vision full stack du rôle (stratégie, discovery, delivery) et sur la qualité du delivery.',s:ACC},
    {k:'annulation annuler rappel sms eviter entretien rendez vous absent',q:'Comment éviter qu’un candidat annule son entretien ?',a:'Envoie un petit mail de rappel quelques jours avant (tu peux le programmer), puis un SMS la veille ou deux jours avant pour confirmer l’échange.',s:ACC},
    {k:'rituels b t squad business talent daily hebdo reunion sourcing collectif coaching armada hpfo',q:'Quels sont les rituels de la B&T ?',a:'<b>Chaque jour</b> : daily de 9h30 à 10h. <b>Lundi</b> : séance de sourcing collective (10h30–12h15) et réunion B&T (14h–15h : recrutements puis besoins clients). <b>Mercredi</b> : boussole au daily, prospection collective « Call me maybe » (10h30–12h30) et comptoir du recrutement (16h–16h30) pour demander un avis sur un candidat. <b>Vendredi</b> : HPFO. Chaque trimestre : coaching B&T et Armada (point sur les OKR).',s:RIT},
+   {k:'rituels wefiit we talk we share afterwork armada guilde kermesse wefiit live vie equipe jeudi',q:'Quels sont les rituels WeFiiT ?',a:'Chaque deuxième jeudi : <b>We.Talk</b> (une personnalité partage son expérience sur un sujet Product), <b>We.Share</b> (un WeFiiTer partage une passion) et <b>Afterwork</b> (se retrouver autour d’un verre ou d’une activité). Il y a aussi le <b>WeFiiT Live</b>, la <b>Kermesse</b> (le vote annuel des formations), la <b>Guilde PO & QA</b> (partage entre pairs) et l’<b>Armada</b>, où chaque Tribe présente ses OKR et son cap sur les 3 prochains mois.',s:RIW},
    {k:'pitch presenter presentation wefiit candidat adn avantages',q:'Comment je présente WeFiiT à un candidat ?',a:'Utilise la présentation candidat interactive : notre ADN, nos missions, notre écosystème d’apprentissage, nos avantages et notre processus de recrutement.',s:PIT},
    {k:'chiffre statistique cooptations combien signature taux delai',q:'Que disent les chiffres de la cooptation ?',a:'Sur <b>55 cooptations</b> : 9 process stoppés par le candidat (16 %), 5 propales envoyées (9 %) et 2 signatures (4 %). 14 étaient encore en cours. Il s’écoule en moyenne 2,3 jours avant le premier contact et 5,6 jours avant la pré-qualification.',s:COO}
   ];
@@ -488,6 +526,6 @@ button{font:inherit;color:inherit;cursor:pointer}
     if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)play()})}).observe($('guide'))}else play();
   })();
   renderSteps();
-  var r0=fromHash();show(r0[0],false,r0[1]);
+  var r0=fromHash();show(r0[0],false,r0[1],r0[2]);
 })();
 </script>
