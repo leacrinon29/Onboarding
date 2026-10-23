@@ -169,7 +169,17 @@ button{font:inherit;color:inherit;cursor:pointer}
 .wc{position:absolute;left:50%;top:50%;width:19%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:var(--marine);color:#fff;display:grid;place-content:center;text-align:center;border:4px solid var(--orange);box-shadow:0 6px 0 #000b2e}
 .wc b{display:block;font:500 7cqw/1 var(--f-title)}
 .wc small{display:block;font:800 1.7cqw/1.2 var(--f-body);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+.wsun{position:absolute;left:50%;top:50%;width:34%;transform:translate(-50%,-50%);pointer-events:none}
+.wsun .mascot{width:100%}
+@media (min-width:701px){
+  .guide .gm{display:none}
+  .guide{justify-content:center;margin:14px 0 14px}
+  .gb{max-width:600px;text-align:center}
+  .gb:after{left:50%;top:auto;bottom:-8px;margin:0 0 0 -8px}
+  .gcta{text-align:center;margin:0 0 22px}
+}
 @media (max-width:700px){
+  .wsun{display:none}
   .steps{display:grid;grid-template-columns:1fr 1fr;gap:22px 14px;aspect-ratio:auto;container-type:normal;width:100%}
   .stp{position:static;width:auto}
   .stp .hub{width:min(170px,100%);margin:0 auto}
@@ -400,11 +410,9 @@ button{font:inherit;color:inherit;cursor:pointer}
    {t:'Autonomie et posture',sub:'Ce qui fait la différence',soft:true,items:[['Gestion du pipeline'],['Relances'],['Priorisation'],['Résilience'],['Esprit de conquête'],['Rigueur']]}
   ];
   function renderSteps(){
-    var box=$('steps'),n=STEPS.length,R=38,D=24,sp='';
+    var box=$('steps'),n=STEPS.length,R=38,D=24;
     box.innerHTML='';
-    for(var k=0;k<n;k++){var a=(-90+k*360/n)*Math.PI/180;sp+='<line x1="50" y1="50" x2="'+(50+R*Math.cos(a)).toFixed(2)+'" y2="'+(50+R*Math.sin(a)).toFixed(2)+'"/>'}
-    box.appendChild(h('<svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="var(--line-strong)" stroke-width="0.7" stroke-linecap="round"><circle cx="50" cy="50" r="'+R+'"/><circle cx="50" cy="50" r="'+(R+4.5)+'" stroke-dasharray="0.6 2.2"/>'+sp+'</g></svg>'));
-    box.appendChild(h('<div class="wc" aria-hidden="true"><div><b>'+n+'</b><small>thèmes</small></div></div>'));
+    var ws=h('<div class="wsun" aria-hidden="true"></div>');ws.innerHTML=mascot({wave:true});box.appendChild(ws);
     STEPS.forEach(function(s,i){
       var a=(-90+i*360/n)*Math.PI/180;
       var b=h('<button class="stp c'+(i%4)+'" type="button" aria-label="'+esc(s.t)+'" style="--x:'+(50+R*Math.cos(a)-D/2).toFixed(2)+';--y:'+(50+R*Math.sin(a)-D/2).toFixed(2)+'"><span class="hub"><span class="glass"><b>'+esc(s.t)+'</b></span></span></button>');
