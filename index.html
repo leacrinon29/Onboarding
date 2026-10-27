@@ -269,6 +269,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 
   <section class="view" id="v-map" aria-label="Mon parcours" hidden>
     <div id="mapHome">
+      <button class="back" type="button" data-back>← Page principale</button>
       <h2 class="vtitle">Mon parcours<span class="dot">.</span></h2>
       <div class="guide" id="guide"><div class="gm" id="guideAv"></div><div class="bubble gb"><span id="guideTxt" aria-live="polite"></span><span class="caret" aria-hidden="true"></span></div></div>
       <div class="gcta"><button class="btn sm sec" data-go="chat" type="button">Déjà recruteuse ? Poser une question</button></div>
@@ -278,6 +279,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   </section>
 
   <section class="view" id="v-chat" aria-label="Questions" hidden>
+    <button class="back" type="button" data-back>← Page principale</button>
     <h2 class="vtitle">Une question ?</h2>
     <p class="vsub">Ouvert à toute l'équipe, sans compte. Si la réponse n'est pas dans les documents, l'équipe peut l'ajouter.</p>
     <div class="chatv">
@@ -493,17 +495,20 @@ button{font:inherit;color:inherit;cursor:pointer}
 
   /* ---------- navigation entre les pages ---------- */
   var VIEWS=['home','map','chat'],HASH={home:'accueil',map:'parcours',chat:'questions'},curStep=0;
+  var HIST=[],CUR=['home',0,0];
   function show(v,push,step,item){
     if(VIEWS.indexOf(v)<0)v='home';
     curStep=v==='map'&&step?step:0;var curItem=curStep&&item?item:0;
     VIEWS.forEach(function(k){$('v-'+k).hidden=k!==v});
     document.querySelectorAll('.lk').forEach(function(b){if(b.getAttribute('data-v')===v)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
     if(v==='map'){var d=curStep>0;$('mapHome').hidden=d;$('mapDetail').hidden=!d;if(d){if(curItem>0&&STEPS[curStep-1].items[curItem-1]&&STEPS[curStep-1].items[curItem-1][2])renderPage(curStep-1,curItem-1);else{curItem=0;renderDetail(curStep-1)}}}
+    var NEW=[v,curStep,curItem];if(push===true&&NEW.join()!==CUR.join())HIST.push(CUR);CUR=NEW;
     if(push){try{location.hash=HASH[v]+(curStep?'-'+curStep:'')+(curItem?'-'+curItem:'')}catch(e){}}
     window.scrollTo(0,0);
     if(v==='chat'){var l=$('log');l.scrollTop=l.scrollHeight}
   }
   document.querySelectorAll('[data-v]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();show(b.getAttribute('data-v'),true)})});
+  document.querySelectorAll('[data-back]').forEach(function(b){b.addEventListener('click',function(){HIST=[];show('home','back')})});
   document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-go'),true)})});
   function fromHash(){var t=(location.hash||'').slice(1),v='home',st=0,m=t.match(/^parcours-(\d+)(?:-(\d+))?$/),it=0;if(m){v='map';st=+m[1];it=m[2]?+m[2]:0;if(st<1||st>STEPS.length){st=0;it=0}}else VIEWS.forEach(function(k){if(HASH[k]===t)v=k});return [v,st,it]}
   window.addEventListener('hashchange',function(){var r=fromHash();show(r[0],false,r[1],r[2])});
@@ -609,3 +614,4 @@ button{font:inherit;color:inherit;cursor:pointer}
   var r0=fromHash();show(r0[0],false,r0[1],r0[2]);
 })();
 </script>
+
