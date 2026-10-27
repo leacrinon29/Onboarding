@@ -238,6 +238,85 @@ button{font:inherit;color:inherit;cursor:pointer}
   .chatv{height:calc(100vh - 280px)}
 }
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== Direction artistique v2 : sobre et professionnelle ===== */
+:root{--bg:#f6f7fb;--line:#e3e7f0;--line-strong:#d3d9e8;--r:10px}
+.dot{color:var(--orange)}
+.site:after{height:3px;background:var(--electrique)}
+.site-in{max-width:1040px}
+.brand{font-size:24px}
+.lk{border-radius:0;padding:10px 4px;margin:0 10px;background:transparent!important;border-bottom:3px solid transparent;color:var(--on-hud-2);font-weight:600}
+.lk:hover{color:#fff}
+.lk[aria-current="page"]{color:#fff;border-bottom-color:var(--orange)}
+.themebtn{border-width:1px}
+.view{max-width:1040px;padding-block:36px 80px}
+.vtitle{font-size:clamp(26px,3.6vw,34px);margin-bottom:10px}
+.vsub{font-size:16px}
+.btn{border-radius:8px;box-shadow:none!important;padding:11px 20px;font-weight:700;font-size:15px;transform:none!important}
+.btn:hover{filter:brightness(.95)}
+.btn.sec{border:1px solid var(--line-strong);background:var(--card)}
+.btn.sm{padding:7px 16px;font-size:14px}
+.tag{border-radius:6px;font-weight:600;padding:2px 9px}
+.back{font-weight:600;color:var(--electrique);font-size:14px}
+.lnk{border:0;background:none;padding:0;color:var(--electrique);font-weight:700;text-decoration:underline;cursor:pointer}
+/* accueil */
+.hero{display:block;background:var(--marine);border-radius:var(--r);box-shadow:none;padding:48px 48px 44px;position:relative}
+.hero:after{display:none}
+.hero:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--orange)}
+.kick{background:none;padding:0;border-radius:0;color:#9fb2d4;letter-spacing:.14em;margin-bottom:14px}
+.hero h1{font-size:clamp(30px,4.4vw,48px);max-width:18ch}
+.hero p.lead{font-size:18px;max-width:56ch;color:#c9d6ef}
+.bigbtns{gap:16px;margin-top:20px}
+.bb,.b1,.b2{background:var(--card)!important;color:var(--fg)!important;border:1px solid var(--line-strong);border-radius:var(--r);box-shadow:none!important;padding:24px 26px;transform:none!important;transition:border-color .15s,box-shadow .15s}
+.bb:hover{border-color:var(--electrique);box-shadow:0 4px 16px rgba(0,40,130,.08)!important}
+.bb .bi,.b1 .bi{width:40px;height:40px;border-radius:8px;background:var(--soft);color:var(--electrique);margin-bottom:6px}
+.bb .bi svg{width:22px;height:22px}
+.bb b{font-size:22px}
+.bb small{font-weight:500;color:var(--fg-muted);opacity:1}
+.bb .go{margin-top:10px;font-weight:700;font-size:14px;color:var(--electrique)}
+/* parcours */
+.guide,.guide{display:flex;align-items:flex-start;justify-content:flex-start!important;gap:14px;margin:6px 0 26px;max-width:72ch}
+.guide .gm,.gm{display:block!important;width:44px;flex:none;border-radius:50%;background:#fde7c8;border:2px solid var(--marine);overflow:hidden;animation:none}
+.gm .mascot{width:100%}
+.guide p{font-size:16px;line-height:1.6;color:var(--fg-body)}
+.gcta{display:none}
+.steps{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;width:100%;aspect-ratio:auto;container-type:normal;margin:0}
+.stp{position:static!important;width:auto!important;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:6px;min-height:168px;padding:18px 18px 16px;background:var(--card)!important;color:var(--fg)!important;border:1px solid var(--line-strong);border-top:3px solid var(--marine);border-radius:var(--r);box-shadow:none!important;transition:border-color .15s,box-shadow .15s,transform .15s}
+.stp:hover{border-color:var(--electrique);border-top-color:var(--electrique);box-shadow:0 6px 18px rgba(0,40,130,.10)!important;transform:translateY(-2px)}
+.stp .n{width:auto;height:auto;background:none;border-radius:0;font:500 26px/1 var(--f-title);color:var(--orange)}
+.stp b{font:500 19px/1.2 var(--f-title);color:var(--fg)}
+.stp small{font-size:13px;font-weight:500;color:var(--fg-muted);line-height:1.4}
+.stp em{margin-top:auto;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--electrique)}
+/* détail */
+.dh{background:none;color:var(--fg);padding:0 0 16px;border-radius:0;border-bottom:1px solid var(--line-strong);box-shadow:none!important;margin-bottom:18px}
+.dh h2{font-size:clamp(26px,3.4vw,34px)}
+.dh p{font-weight:500;color:var(--fg-muted);opacity:1}
+.items{gap:0;background:var(--card);border:1px solid var(--line-strong);border-radius:var(--r);overflow:hidden}
+.it{border-radius:0;box-shadow:none;border-bottom:1px solid var(--line);padding:14px 18px}
+.it:last-child{border-bottom:0}
+.it b{font-weight:600;font-size:16px}
+.it .pt{width:6px;height:6px;background:var(--electrique)}
+.pgintro{border-radius:var(--r);box-shadow:none;border:1px solid var(--line-strong);font-size:16px}
+.rc{border-radius:var(--r);box-shadow:none;border:1px solid var(--line-strong);border-top:3px solid var(--marine)}
+.rc h3{font-size:20px}
+/* chat */
+.chat{border-radius:var(--r);box-shadow:none;border:1px solid var(--line-strong)}
+.msg .t{border-radius:10px;font-size:15px}
+.msg.bot .t{border-bottom-left-radius:10px}.msg.me .t{border-bottom-right-radius:10px}
+.src{border-width:1px;border-radius:8px}
+.chip{border-width:1px;border-radius:8px;box-shadow:none;font-weight:600;padding:7px 14px}
+.chip:hover{border-color:var(--electrique)}
+.chip:active{transform:none}
+.fb button{border-width:1px;border-radius:6px}
+.compose input{border:1px solid var(--line-strong);border-radius:8px}
+.toast{border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+/* glossaire */
+.gl-q{border-width:1px;border-radius:8px}
+.gl-az button{border-width:1px;border-radius:6px;height:30px;min-width:30px;font-weight:700}
+.gl-h{font-size:24px}
+.gl-e{border-radius:8px;box-shadow:none;border:1px solid var(--line-strong)}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.hero{padding:32px 24px 30px}.steps{gap:10px}.stp{min-height:140px;padding:14px}.stp b{font-size:17px}.lk{margin:0 4px}}
 </style>
 
 <header class="site">
@@ -254,16 +333,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 <main class="gutter">
   <section class="view" id="v-home" aria-label="Accueil">
     <div class="hero">
-      <div>
-        <span class="kick">Plateforme recrutement</span>
-        <h1>Bienvenue à bord<span class="dot">.</span></h1>
-        <p class="lead">Je suis Sunny, ton agent recruteur. Ici, tu trouves tout ce qu'il faut pour apprendre, comprendre et réussir tes recrutements chez WeFiiT. Et une réponse à chaque question.</p>
-      </div>
-      <div class="hero-art"><div class="bubble">Hello ! Choisis par où commencer.</div><div id="heroMascot"></div></div>
+      <span class="kick">Plateforme recrutement</span>
+      <h1>Onboarding des Talent Recruiters<span class="dot">.</span></h1>
+      <p class="lead">Les documents essentiels pour recruter chez WeFiiT, classés par thème, et une réponse rapide à chaque question.</p>
     </div>
     <div class="bigbtns">
-      <button class="bb b1" data-go="map" type="button"><span class="bi"><svg viewBox="0 0 24 24"><path d="M5.4 16.6h13.2l-2.5 4H7.9z"/><path d="M12 16.6V4.4"/><path d="M12.7 6 18.6 15h-5.9z"/><path d="M11.3 7.6 7 15h4.3z"/></svg></span><b>Démarrer mon parcours</b><small>Tout ce qu'il faut savoir, étape par étape</small></button>
-      <button class="bb b2" data-go="chat" type="button"><span class="bi"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v11H9l-4 3.5v-3.5H4v-11z"/></svg></span><b>Poser une question</b><small>Une réponse et le bon document</small></button>
+      <button class="bb b1" data-go="map" type="button"><span class="bi"><svg viewBox="0 0 24 24"><path d="M5.4 16.6h13.2l-2.5 4H7.9z"/><path d="M12 16.6V4.4"/><path d="M12.7 6 18.6 15h-5.9z"/><path d="M11.3 7.6 7 15h4.3z"/></svg></span><b>Démarrer mon parcours</b><small>Les 8 thèmes à maîtriser et les documents associés</small><span class="go">Ouvrir →</span></button>
+      <button class="bb b2" data-go="chat" type="button"><span class="bi"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v11H9l-4 3.5v-3.5H4v-11z"/></svg></span><b>Poser une question</b><small>Une réponse sourcée et le bon document</small><span class="go">Ouvrir →</span></button>
     </div>
   </section>
 
@@ -271,8 +347,7 @@ button{font:inherit;color:inherit;cursor:pointer}
     <div id="mapHome">
       <button class="back" type="button" data-back>← Page principale</button>
       <h2 class="vtitle">Mon parcours<span class="dot">.</span></h2>
-      <div class="guide" id="guide"><div class="gm" id="guideAv"></div><div class="bubble gb"><span id="guideTxt" aria-live="polite"></span><span class="caret" aria-hidden="true"></span></div></div>
-      <div class="gcta"><button class="btn sm sec" data-go="chat" type="button">Déjà recruteuse ? Poser une question</button></div>
+      <div class="guide" id="guide"><div class="gm" id="guideAv" aria-hidden="true"></div><p id="guideTxt">Voici les 8 thèmes à maîtriser pour devenir un·e excellent·e recruteur·se chez WeFiiT. Chaque thème rassemble les documents de référence : wordings, pitchs, attendus. Tu as déjà de l’expérience et cherches un point précis ? <button class="lnk" data-go="chat" type="button">Pose ta question</button>.</p></div>
       <div class="steps" id="steps"></div>
     </div>
     <div id="mapDetail" hidden></div>
@@ -430,17 +505,14 @@ button{font:inherit;color:inherit;cursor:pointer}
    {t:'Autonomie et posture',sub:'Ce qui fait la différence',soft:true,items:[['Gestion du pipeline'],['Relances'],['Priorisation'],['Résilience'],['Esprit de conquête'],['Rigueur']]}
   ];
   function renderSteps(){
-    var box=$('steps'),n=STEPS.length,R=38,D=24;
-    box.innerHTML='';
-    var ws=h('<div class="wsun" aria-hidden="true"></div>');ws.innerHTML=mascot({wave:true});box.appendChild(ws);
+    var box=$('steps');box.innerHTML='';
     STEPS.forEach(function(s,i){
-      var a=(-90+i*360/n)*Math.PI/180;
-      var b=h('<button class="stp c'+(i%4)+'" type="button" aria-label="'+esc(s.t)+'" style="--x:'+(50+R*Math.cos(a)-D/2).toFixed(2)+';--y:'+(50+R*Math.sin(a)-D/2).toFixed(2)+'"><span class="hub"><span class="glass"><b>'+esc(s.t)+'</b></span></span></button>');
+      var b=h('<button class="stp" type="button"><span class="n">'+('0'+(i+1)).slice(-2)+'</span><b>'+esc(s.t)+'</b><small>'+(s.sub?esc(s.sub):(s.soft?'Savoir-être':''))+'</small><em>'+s.items.length+(s.items.length>1?' sujets':' sujet')+'</em></button>');
       b.onclick=function(){show('map',true,i+1)};box.appendChild(b);
     });
   }
   function renderDetail(i){
-    var s=STEPS[i],html='<button class="back" type="button" id="bk">← La roue des 8 thèmes</button>'+
+    var s=STEPS[i],html='<button class="back" type="button" id="bk">← Les 8 thèmes</button>'+
       '<div class="dh c'+(i%4)+'"><div><h2>'+esc(s.t)+'</h2>'+(s.sub?'<p>'+esc(s.sub)+'</p>':'')+'</div></div><ul class="items">';
     s.items.forEach(function(it,k){
       html+='<li class="it"><span class="pt"></span><b>'+esc(it[0])+'</b>'+(s.soft?'':(it[2]?'<button class="btn sm" type="button" data-pg="'+(k+1)+'">Lire</button>':(it[1]?'<a class="btn sm" target="_blank" rel="noopener" href="'+encodeURI(it[1])+'">Ouvrir</a>':'<span class="tag later">Bientôt</span>')))+'</li>';
@@ -590,26 +662,14 @@ button{font:inherit;color:inherit;cursor:pointer}
     else bot(L[i].a,L[i].team?L[i]:L[i].s)}
   INTENTS.forEach(function(x){var b=h('<button class="chip" type="button">'+esc(x[0])+'</button>');b.onclick=function(){ask(KB[x[1]].q,x[1])};$('intents').appendChild(b)});
   $('form').onsubmit=function(ev){ev.preventDefault();var v=$('q').value.trim();if(!v)return;$('q').value='';ask(v)};
-  add(h('<div class="msg bot"><div class="t">Salut, c’est <span class="mname">'+esc(NAME)+'</span> ! Pose-moi une question sur le recrutement, ou choisis un thème. Je t’ouvre le bon document.</div></div>'));
+  add(h('<div class="msg bot"><div class="t">Bonjour, pose ta question sur le recrutement ou choisis un sujet. Je t’indique le bon document.</div></div>'));
 
 
   var tb=$('themeBtn');
   function dark(){var t=document.documentElement.getAttribute('data-theme');return t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches}
   tb.onclick=function(){document.documentElement.setAttribute('data-theme',dark()?'light':'dark')};
 
-  $('heroMascot').innerHTML=mascot({wave:true,float:true});
-  $('guideAv').innerHTML=mascot({wave:true});
-  (function(){
-    var msg="Hello ! Voici les 8 thèmes à maîtriser pour devenir une top recruteuse ou un top recruteur chez WeFiiT. Chaque thème rassemble les bons documents : les bons wordings, les bons pitchs, ce qu’on attend de toi. Tu es déjà recruteuse et tu cherches un point précis ? Pose ta question.";
-    var el=$('guideTxt'),gm=$('guideAv'),t=null,red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function play(){
-      clearTimeout(t);gm.classList.remove('pop');void gm.offsetWidth;gm.classList.add('pop');
-      if(red){el.textContent=msg;return}
-      var k=0;el.textContent='';
-      (function step(){el.textContent=msg.slice(0,++k);if(k<msg.length)t=setTimeout(step,k===1?450:24)})();
-    }
-    if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)play()})}).observe($('guide'))}else play();
-  })();
+  $('guideAv').innerHTML=mascot({face:true});
   renderSteps();
   var r0=fromHash();show(r0[0],false,r0[1],r0[2]);
 })();
