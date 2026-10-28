@@ -698,7 +698,7 @@ body{background:var(--dz-bg)}
 #homeA[data-lay="1"]{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:"hero hero hero" "quick quick quick" "res proc today"}
 #homeA[data-lay="2"]{grid-template-columns:270px minmax(0,1fr) minmax(0,1fr);grid-template-areas:"today hero hero" "today quick quick" "today res proc"}
 #homeA[data-lay="2"] .b-today{position:sticky;top:90px}
-#homeA[data-lay="3"]{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-areas:"hero hero hero today" "quick quick quick today" "res res proc proc";align-items:stretch}
+#homeA[data-lay="3"]{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-areas:"hero hero hero" "quick quick quick" "res res today";align-items:stretch}
 #homeA[data-lay="3"] .b-today{align-self:stretch;align-content:start}
 #homeA[data-lay="3"] .b-quick .dz-cards{height:calc(100% - 40px)}
 #homeA[data-lay="4"]{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:"quick quick quick" "hero hero hero" "res proc today"}
@@ -715,7 +715,25 @@ body{background:var(--dz-bg)}
 #homeA[data-lay="6"] .dz-st .sc{width:56px;height:56px}
 #homeA[data-lay="6"] .dz-steps:before{top:28px}
 #homeA[data-lay="6"] .dz-st b{font-size:15px}
-@media (max-width:900px){#homeA[data-lay]{grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"hero" "quick" "today" "res" "proc"!important}#homeA[data-lay] .b-today{position:static}#homeA[data-lay="5"] .dz-today{grid-template-columns:1fr}}
+@media (max-width:900px){#homeA[data-lay]{grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"hero" "quick" "today" "res"!important}#homeA[data-lay] .b-today{position:static}#homeA[data-lay="5"] .dz-today{grid-template-columns:1fr}}
+
+/* Bento v2 : bandeau plein écran, Aujourd'hui compact */
+#homeA[data-lay="3"]{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+#homeA[data-lay="3"] .dz-know{align-items:center}
+#homeA[data-lay="3"] .b-today{align-self:stretch;align-content:start;padding:18px 20px!important;gap:12px!important}
+#homeA[data-lay="3"] .dz-today h2{font-size:15px!important}
+#homeA[data-lay="3"] .dz-know{padding:10px 12px}
+#homeA[data-lay="3"] .dz-know .bulb{width:30px;height:30px}
+#homeA[data-lay="3"] .dz-know p{font-size:12.5px}
+#homeA[data-lay="3"] .dz-rec h3{font-size:12.5px;margin-bottom:2px}
+#homeA[data-lay="3"] .dz-ri{padding:5px 0}
+#homeA[data-lay="3"] .dz-ri small{display:none}
+#homeA[data-lay="3"] .dz-ri .fi{width:28px;height:28px}
+#homeA[data-lay="3"] .dz-hero{padding:48px 48px 44px;min-height:380px;align-content:center}
+#homeA[data-lay="3"] .dz-hero .dz-mw .mascot{width:120px}
+#homeA[data-lay="3"] .dz-hero h1,#homeA[data-lay="3"] .dz-hero .txt>*{text-align:center;justify-self:center}
+#homeA[data-lay="3"] .dz-hsearch{max-width:720px}
+@media (max-width:900px){#homeA[data-lay="3"] .dz-hero{padding:28px 18px;min-height:0}}
 /* ===== propositions d'accueil ===== */
 #homeA[hidden],#homeAlt[hidden]{display:none!important}
 .hm-pick{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 18px;font-size:13px;font-weight:600;color:var(--dz-muted)}
@@ -1224,7 +1242,7 @@ body,.dz-shell main{background:#F2F5FF}
   <div class="dz-nwrap"><button class="dz-ib" id="bellBtn" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notifPanel"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="d" id="bellDot" hidden></span></button><div class="dz-npanel" id="notifPanel" role="dialog" aria-label="Notifications" hidden></div></div>
   <button class="dz-ib" type="button" data-go="chat" aria-label="Aide"><svg class="dz-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 .5c0 1.7-2.5 2-2.5 3.5"/><path d="M12 17h.01"/></svg></button>
   <button id="themeBtn" type="button" hidden aria-hidden="true"></button>
-  <span class="dz-av" aria-label="Léa Crinon">LC</span>
+  
 </header>
 <div class="dz-shell">
 
@@ -1233,8 +1251,7 @@ body,.dz-shell main{background:#F2F5FF}
   <section class="view" id="v-home" aria-label="Accueil">
 
    <div id="homeAlt" hidden></div>
-   <div class="hm-pick" role="group" aria-label="Propositions de disposition"><span>Disposition :</span><button type="button" data-lay="a" aria-pressed="true">Actuelle</button><button type="button" data-lay="1" aria-pressed="false">1 · Pleine largeur</button><button type="button" data-lay="2" aria-pressed="false">2 · Aujourd’hui à gauche</button><button type="button" data-lay="3" aria-pressed="false">3 · Bento</button><button type="button" data-lay="4" aria-pressed="false">4 · Raccourcis en tête</button><button type="button" data-lay="5" aria-pressed="false">5 · Colonne centrée</button><button type="button" data-lay="6" aria-pressed="false">6 · Process en vedette</button></div>
-   <div class="dz-home" id="homeA">
+   <div class="dz-home" id="homeA" data-lay="3">
     <div class="dz-col">
       <section class="dz-hero">
         <div class="txt"><span class="hi">Bonjour,</span><h1>Bienvenue dans ton espace recrutement</h1><p>Ici, tu progresses, tu trouves la bonne info et tu appliques le process, au bon moment.</p><div class="dz-hsearch"><form class="dz-search" id="dzForm" autocomplete="off"><svg class="dz-ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><label for="dzq" style="position:absolute;left:-9999px">Rechercher</label><input id="dzq" type="text" placeholder="Rechercher une procédure, un outil, une réponse…"><button class="dz-go" type="submit" aria-label="Rechercher"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button></form><div class="dz-chips" id="dzChips"></div></div></div>
@@ -1257,15 +1274,6 @@ body,.dz-shell main{background:#F2F5FF}
       </section>
       <div class="dz-two">
         <section class="dz-box b-res"><div class="dz-sh"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7"/></svg><h2>Les ressources clés</h2></div><div id="dzRes"></div></section>
-        <section class="dz-box b-proc"><div class="dz-sh"><svg class="dz-ico" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.5"/></svg><h2>Le process en un coup d’œil</h2><button class="dz-more" type="button" data-go="act">Voir le détail →</button></div>
-          <div class="dz-steps">
-            <button class="dz-st" type="button" data-go="act"><span class="sc"><svg class="dz-ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></span><b>Sourcing</b><small>Trouver et attirer</small></button>
-            <button class="dz-st" type="button" data-go="act"><span class="sc"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M4 5.5h16v11H9l-4 3.5v-3.5H4z"/></svg></span><b>Pré-qual</b><small>Premier échange</small></button>
-            <button class="dz-st" type="button" data-go="act"><span class="sc"><svg class="dz-ico" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5"/><path d="M14 15.5c2.5-.5 6 .8 6 4.5"/></svg></span><b>E1 · E2</b><small>Évaluer, GO / NO GO</small></button>
-            <button class="dz-st" type="button" data-go="act"><span class="sc"><svg class="dz-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg></span><b>Signature</b><small>Proposition et accueil</small></button>
-          </div>
-          <div class="dz-tip"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>Chaque étape a ses actions à mener et ses documents.</div>
-        </section>
       </div>
     </div>
     <aside class="dz-right">
