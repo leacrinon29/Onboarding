@@ -2701,12 +2701,8 @@ body,.dz-shell main{background:#F2F5FF}
     document.querySelectorAll('.px-pick button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===v?'true':'false')});
     try{localStorage.setItem('wf-px',v)}catch(e){}
   }
-  var box=document.createElement('div');box.className='px-pick';box.setAttribute('role','group');box.setAttribute('aria-label','Propositions présentation CEO');
-  box.innerHTML='<span>Ambiance</span>'+OPT.map(function(o){return '<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>'}).join('');
-  document.body.appendChild(box);
-  box.querySelectorAll('button').forEach(function(b){b.onclick=function(){set(b.getAttribute('data-v'))}});
-  var v='';try{v=localStorage.getItem('wf-px')||''}catch(e){}
-  set(OPT.some(function(o){return o[0]===v})?v:'phare');
+  /* ambiance choisie : Le Phare (sélecteur retiré) */
+  set('phare');
 })();
 </script>
 <script>
