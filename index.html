@@ -2251,7 +2251,7 @@ body,.dz-shell main{background:#F2F5FF}
     }else{
       html+='<div class="dvf"><aside class="dvf-side">'+cap+'<div class="dvf-bub"><b>'+esc(s.t)+'</b><p>'+esc(m.o)+'</p></div>'+(WHEN[i]?'<span class="dv-when"><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>À maîtriser pour : <b>'+WHEN[i]+'</b></span>':'')+ringSv(n,t,72)+'<small>compétences cochées</small></aside><div class="dvf-main">';
       if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
-      html+='<details class="dv-skd"'+(window.__skOpen?' open':'')+'><summary>Compétences à acquérir <small>'+n+' / '+t+' · surtout utile aux nouveaux recruteurs</small></summary><div class="dva-skw">'+skills()+'</div></details></div></div>';
+      html+='<details class="dv-skd"'+(window.__skOpen?' open':'')+'><summary>Compétences à acquérir <small>'+n+' / '+t+(WHEN[i]?' · à maîtriser pour '+WHEN[i]:'')+'</small></summary><div class="dva-skw">'+skills()+'</div></details></div></div>';
     }
     html+='</div>';
     var d=$('mapDetail');d.innerHTML=html;
