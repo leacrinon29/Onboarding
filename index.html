@@ -2166,7 +2166,7 @@ body,.dz-shell main{background:#F2F5FF}
     MODE=btn.dataset.mode;$('orbWrap').setAttribute('data-mode',MODE);
     document.querySelectorAll('.orb-pick [data-mode]').forEach(function(x){x.setAttribute('aria-pressed',x===btn)});renderSteps();
   }});
-  var DMODE='a';
+  var DMODE='f';
   var DV=[['a','1 · Classique revisité'],['b','2 · Hublot & Capitaine'],['c','3 · Tuiles documents'],['d','4 · Bandeau bleu'],['e','5 · Le chemin'],['f','6 · Panneau Capitaine'],['g','7 · Éditorial'],['h','8 · Onglets'],['i','9 · Carte premium'],['j','10 · Sommaire'],['k','11 · Guidé'],['l','12 · Cartes icônes']];
   var DTAB='docs';
   function ftype(it){if(it[2])return ['PAGE','#4b31b8'];if(!it[1])return ['BIENTÔT','#9aa1b6'];var e=(it[1].split('.').pop()||'').toLowerCase();return {pptx:['PPT','#d24726'],pdf:['PDF','#c62828'],docx:['DOC','#1f5bc0'],xlsx:['XLS','#1d7a45'],html:['WEB','#0042ff']}[e]||['LIEN','#0042ff']}
@@ -2179,9 +2179,9 @@ body,.dz-shell main{background:#F2F5FF}
     function skills(){var h2='<ul class="dv-sk">';m.s.forEach(function(x,k){var id='sk'+i+'-'+k;h2+='<li><label for="'+id+'"><input type="checkbox" id="'+id+'" data-sk="'+i+'-'+k+'"'+(SK[i+'-'+k]?' checked':'')+'><span class="dv-cb" aria-hidden="true"></span><span>'+esc(x)+'</span></label></li>'});return h2+'</ul>'}
     var docs=s.soft?[]:s.items;
     var pick='<div class="dv-pick" role="group" aria-label="Propositions de présentation"><span>Proposition :</span>'+DV.map(function(v){return '<button type="button" data-dm="'+v[0]+'" aria-pressed="'+(v[0]===DMODE)+'">'+v[1]+'</button>'}).join('')+'</div>';
-    var back='<button class="dd-back" type="button" id="bk"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>Je progresse</button>';
+    var back='<button class="dd-back" type="button" id="bk"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>La Mallette du recruteur</button>';
     var cap='<span class="dv-cap" aria-hidden="true">'+mascot({})+'</span>';
-    var html=back+pick+'<div class="dv dv-'+DMODE+'">';
+    var html=back+'<div class="dv dv-'+DMODE+'">';
     if(DMODE==='a'){
       html+='<header class="dva-head"><span class="dva-hub">'+ic+'</span><div><h2>'+esc(s.t)+'</h2><p>'+esc(m.o)+'</p></div>'+ringSv(n,t,64)+'</header>';
       if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
