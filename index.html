@@ -1903,7 +1903,7 @@ body,.dz-shell main{background:#F2F5FF}
     <aside class="dz-right">
       <section class="dz-today b-today">
         <h2><svg class="dz-ico" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>Aujourd’hui</h2>
-        <div class="dz-know"><span class="bulb"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></span><div><b>Le saviez-vous ?</b><p>La fiche Boond se remplit dès que possible, au plus tard à l’E1.</p></div></div>
+        <div class="dz-know"><span class="bulb"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></span><div><b id="ruleT">Règle d’or du recruteur</b><p id="ruleP">On n’oublie pas de mettre à jour ses candidats dans Boond !</p></div></div>
         <div class="dz-rec"><h3><svg class="dz-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>À garder sous la main</h3><div id="dzRec"></div></div>
       </section>
 
@@ -2979,5 +2979,26 @@ body,.dz-shell main{background:#F2F5FF}
   });
   wrap.addEventListener('pointerleave',function(){follow=null});
   orbit.addEventListener('mouseover',function(e){if(e.target.closest('.orb-it'))follow=null});
+})();
+</script>
+
+<script>
+(function(){
+  var R=[['Règle d’or du recruteur','On n’oublie pas de mettre à jour ses candidats dans Boond !'],
+   ['Règle d’or du recruteur','Un candidat relancé à temps, c’est un candidat qu’on ne perd pas.'],
+   ['Règle d’or du recruteur','On remplit la fiche Boond dès que possible, au plus tard à l’E1.'],
+   ['Règle d’or du recruteur','Un NO GO se motive et se dit : chaque candidat mérite une réponse.'],
+   ['Règle d’or du recruteur','On pitche WeFiiT avec des exemples de missions, pas avec des généralités.'],
+   ['Règle d’or du recruteur','Un message d’accroche personnalisé vaut dix messages copiés-collés.'],
+   ['L’art de recruter','C’est savoir écouter avant de convaincre.'],
+   ['L’art de recruter','C’est donner envie, sans jamais promettre ce qu’on ne peut pas tenir.'],
+   ['L’art de recruter','C’est être rigoureux dans le process et humain dans la relation.'],
+   ['L’art de recruter','C’est faire vivre une expérience candidat dont on est fier, même quand c’est un refus.']];
+  var t=document.getElementById('ruleT'),pp=document.getElementById('ruleP');if(!t||!pp)return;
+  var i=0;
+  function show(){t.textContent=R[i][0];pp.textContent=R[i][1]}
+  show();
+  var box=t.closest('.dz-know');box.style.cursor='pointer';box.setAttribute('title','Règle suivante');
+  box.addEventListener('click',function(){i=(i+1)%R.length;show()});
 })();
 </script>
