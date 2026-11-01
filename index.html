@@ -2220,7 +2220,7 @@ body,.dz-shell main{background:#F2F5FF}
     function act(it,k,cls){return it[2]?'<button class="'+cls+'" type="button" data-pg="'+(s.items.indexOf(it)+1)+'">Lire</button>':(it[1]?'<a class="'+cls+'" target="_blank" rel="noopener" href="'+encodeURI(/\.(docx|xlsx|pptx)$/i.test(it[1])?it[1]+'?web=1':it[1])+'">Consulter</a>':'')}
     function badge(it){var f=ftype(it);return '<span class="dv-ft" style="--ft:'+f[1]+'">'+f[0]+'</span>'}
     function skills(){var h2='<ul class="dv-sk">';m.s.forEach(function(x,k){var id='sk'+i+'-'+k;h2+='<li><label for="'+id+'"><input type="checkbox" id="'+id+'" data-sk="'+i+'-'+k+'"'+(SK[i+'-'+k]?' checked':'')+'><span class="dv-cb" aria-hidden="true"></span><span>'+esc(x)+'</span></label></li>'});return h2+'</ul>'}
-    var docs=s.soft?[]:s.items.filter(function(it){return it[2]||it[3]}); /* documents retirés : seules les pages intégrées restent, en attendant la sélection des documents de référence */
+    var docs=s.soft?[]:(i===3?s.items.filter(function(it){return it[2]||it[3]}):s.items); /* Sourcing et chasse : uniquement les documents à jour du dossier de référence */
     var pick='<div class="dv-pick" role="group" aria-label="Propositions de présentation"><span>Proposition :</span>'+DV.map(function(v){return '<button type="button" data-dm="'+v[0]+'" aria-pressed="'+(v[0]===DMODE)+'">'+v[1]+'</button>'}).join('')+'</div>';
     var back='<button class="dd-back" type="button" id="bk"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>La Mallette du recruteur</button>';
     var cap='<span class="dv-cap" aria-hidden="true">'+mascot({})+'</span>';
@@ -2274,7 +2274,6 @@ body,.dz-shell main{background:#F2F5FF}
     }else{
       html+='<div class="dvf"><aside class="dvf-side">'+cap+'<div class="dvf-bub"><b>'+esc(s.t)+'</b><p>'+esc(m.o)+'</p></div>'+(TIPS[i]?'<div class="dvf-tip" role="note"><b>Point important</b><p>'+esc(TIPS[i])+'</p></div>':'')+ringSv(n,t,72)+'<small>compétences cochées</small></aside><div class="dvf-main">';
       if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
-      if(!docs.some(function(x){return x[1]}))html+='<div class="dv-soon"><b>Documents de référence</b><span>La sélection des documents clés est en cours de finalisation.</span></div>';
       html+='<details class="dv-skd"'+(window.__skOpen?' open':'')+'><summary>Compétences à acquérir <small>'+n+' / '+t+(WHEN[i]?' · à maîtriser pour '+WHEN[i]:'')+'</small></summary><div class="dva-skw">'+skills()+'</div></details></div></div>';
     }
     html+='</div>';
