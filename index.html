@@ -2194,8 +2194,7 @@ body,.dz-shell main{background:#F2F5FF}
    {t:'Qualification et entretiens',sub:'Pré-qual, pitch, E1 et E2',items:[['Pré-qualification'],['Pitch WeFiiT en 1 minute et détaillé (deck)',U('pitch')],['Grille d’évaluation hard et soft skills',L.grille],['Réponses aux questions de la maquette E1'],['Product, data et IA',L.talentkit],['Que se passe-t-il pendant l’E2 ?']]},
    {t:'Cooptation',items:[['Fonctionnement actuel du programme',U('recoopt')],['Traiter la candidature d’un coopté',U('proto')],['Outil de suivi des cooptations','https://wefiitcom.sharepoint.com/sites/MyWeFiiT/Lists/Outil de cooptation/AllItems.aspx?sortField=ApplicationDate&isAscending=false&viewid=63c70b96-d742-4139-90ca-c8e6e57e189e']]},
    {t:'Outils et pilotage',sub:'Boond',items:[['Présentation de Boond'],['Ajouter un candidat',L.tutoboond],['Remplir une fiche après l’E1',L.tutoboond],['Se piloter : tableau de bord et reporting'],['Faire ses relances avec Boond',U('lexique')],['Admin : feuille de temps et notes de frais']]},
-   {t:'Autonomie et posture',sub:'Ce qui fait la différence',soft:true,items:[['Gestion du pipeline'],['Relances'],['Priorisation'],['Résilience'],['Esprit de conquête'],['Rigueur']]}
-   ,{t:'Cadrage salarial',sub:'Estimer la rémunération dès les premiers échanges',items:[['Super Calculator : cadrage salarial',L.supcalc],['Grille salariale PM & QA',L.grillepm],['Modèle d’estimation du cadrage salarial à l’entrée',L.salmodele]]}
+   {t:'Cadrage salarial',sub:'Estimer la rémunération dès les premiers échanges',items:[['Super Calculator : cadrage salarial',L.supcalc],['Grille salariale PM & QA',L.grillepm],['Modèle d’estimation du cadrage salarial à l’entrée',L.salmodele]]}
   ];
   var BLOCS={3:{why:'Trouver et approcher les bons profils : savoir où chercher, écrire un message qui donne envie de répondre, et réagir aux réponses des candidats.',
     ess:['La recette magique du message d’accroche','Les objections fréquentes','L’art d’écrire un message d’accroche (École du recrutement)'],
@@ -2204,11 +2203,11 @@ body,.dz-shell main{background:#F2F5FF}
     faq:['Comment faire une recherche booléenne ?','Comment trouver des candidats ?','Comment écrire un bon message d’accroche ?','Quel message d’accroche pour un profil PM / PO ?','Comment relancer un candidat qui ne répond pas ?','Comment répondre aux objections des candidats ?'],
     steps:[1,2]}};
   BLOCS[5]={plain:true,refl:['<b>Réactivité</b> : ne pas laisser une recommandation sans réponse.','<b>Transparence</b> : tenir le coopteur informé de l’avancement.']};
-  BLOCS[8]={refl:['<b>Ne pas attendre l’E2</b> pour vérifier la cohérence salariale.','<b>Ne pas se baser uniquement</b> sur le salaire actuel ou les prétentions du candidat.','Prendre en compte l’<b>expérience réelle en Product Management</b> et les compétences démontrées.','Utiliser le Super Calculator comme <b>aide à la décision</b>, et non comme une décision automatique.','En cas de décalage important, <b>échanger avec la B&amp;T</b> avant de poursuivre le processus.'],secs:[{h:'1. Comprendre notre référentiel salarial',docs:['Modèle d’estimation du cadrage salarial à l’entrée','Grille salariale PM & QA']},
+  BLOCS[7]={refl:['<b>Ne pas attendre l’E2</b> pour vérifier la cohérence salariale.','<b>Ne pas se baser uniquement</b> sur le salaire actuel ou les prétentions du candidat.','Prendre en compte l’<b>expérience réelle en Product Management</b> et les compétences démontrées.','Utiliser le Super Calculator comme <b>aide à la décision</b>, et non comme une décision automatique.','En cas de décalage important, <b>échanger avec la B&amp;T</b> avant de poursuivre le processus.'],secs:[{h:'1. Comprendre notre référentiel salarial',docs:['Modèle d’estimation du cadrage salarial à l’entrée','Grille salariale PM & QA']},
     {h:'2. Estimer une future proposition salariale',docs:['Super Calculator : cadrage salarial']}]};
   var DOCDESC={'Outil de suivi des cooptations':'Permet de voir la fiche du coopté et de mettre à jour son avancement.'};
   function DD(it){return DOCDESC[it[0]]?'<small class="dd">'+esc(DOCDESC[it[0]])+'</small>':''}
-  var INTRO={8:'<p>Le cadrage salarial est une <b>étape essentielle</b> du processus de recrutement. Il permet de s’assurer, <mark>dès les premiers échanges</mark>, de la <b>cohérence</b> entre les <b>attentes du candidat</b>, son <b>expérience</b> et notre <b>référentiel de rémunération</b>.</p><p>Un positionnement mal évalué peut entraîner une <mark>réévaluation tardive</mark>, notamment en <b>E2 ou E2bis</b>, et générer de la <b>frustration</b> ou de la <b>déception</b> chez le candidat.</p>'};
+  var INTRO={7:'<p>Le cadrage salarial est une <b>étape essentielle</b> du processus de recrutement. Il permet de s’assurer, <mark>dès les premiers échanges</mark>, de la <b>cohérence</b> entre les <b>attentes du candidat</b>, son <b>expérience</b> et notre <b>référentiel de rémunération</b>.</p><p>Un positionnement mal évalué peut entraîner une <mark>réévaluation tardive</mark>, notamment en <b>E2 ou E2bis</b>, et générer de la <b>frustration</b> ou de la <b>déception</b> chez le candidat.</p>'};
   var MIS=[
    {o:'Comprendre qui est WeFiiT et savoir le raconter simplement.',s:['Je sais raconter l’histoire et les valeurs de WeFiiT','Je connais les OKR et l’objectif de recrutement','Je connais les rituels WeFiiT et B&T']},
    {o:'Parler le même langage que les WeFiiTers que tu rencontres.',s:['Je comprends les rôles de PO et de QA','Je distingue Discovery, Delivery et Stratégie','Je maîtrise le vocabulaire du glossaire','Je situe les sujets PM data et IA']},
@@ -2217,23 +2216,21 @@ body,.dz-shell main{background:#F2F5FF}
    {o:'Mener une pré-qualification et un entretien de qualité.',s:['Je sais pitcher WeFiiT en une minute','Je sais évaluer hard et soft skills avec la grille','Je sais conduire un E1 et préparer l’E2']},
    {o:'Traiter une cooptation dans les règles.',s:['Je connais le fonctionnement du programme','Je sais traiter la candidature d’un coopté','Je sais déclencher la prime de cooptation']},
    {o:'Utiliser Boond au quotidien pour te piloter.',s:['Je sais ajouter un candidat','Je sais remplir une fiche après l’E1','Je sais lire mon tableau de bord','Je sais programmer mes relances']},
-   {o:'Adopter la posture d’un·e excellent·e recruteur·se.',s:['Je gère mon pipeline avec rigueur','Je relance avec régularité','Je sais prioriser','Je garde ma résilience et mon esprit de conquête']}
-   ,{o:'Cadrer la rémunération d’un candidat dès les premiers échanges.',s:['Je sais utiliser le Super Calculator','Je sais lire la grille salariale PM','Je sais expliquer notre référentiel salarial au candidat']}
+   {o:'Cadrer la rémunération d’un candidat dès les premiers échanges.',s:['Je sais utiliser le Super Calculator','Je sais lire la grille salariale PM','Je sais expliquer notre référentiel salarial au candidat']}
   ];
   var SK={};try{SK=JSON.parse(localStorage.getItem('wf-skills')||'{}')}catch(e){}
   function skSave(){try{localStorage.setItem('wf-skills',JSON.stringify(SK))}catch(e){}}
   var TIPS={3:['Dans tes séances de sourcing, il y a trois cabinets que tu n’as pas le droit d’approcher : Henix, Exalt et Acensi.','Si la fiche d’un candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.']};
   function tipHtml(i){var T=TIPS[i];if(!T)return '';var many=T.length>1;return '<div class="dvf-tip" role="note" data-n="0"><b>Point important</b><p>'+esc(T[0])+'</p>'+(many?'<div class="tip-nav"><button type="button" data-tip="-1" aria-label="Message précédent">←</button><span class="tip-c">1 / '+T.length+'</span><button type="button" data-tip="1" aria-label="Message suivant">→</button></div>':'')+'</div>'}
-
-  var WHEN=['la semaine 1','les semaines 1 à 2','le mois 1','le mois 1','les mois 1 à 2','le mois 2','les semaines 1 à 2','le mois 3','le mois 1'];
+  var WHEN=['la semaine 1','les semaines 1 à 2','le mois 1','le mois 1','les mois 1 à 2','le mois 2','les semaines 1 à 2','le mois 1'];
   function skDone(i){var n=0;MIS[i].s.forEach(function(_,k){if(SK[i+'-'+k])n++});return n}
   function renderProg(){
     var t=0,d=0;MIS.forEach(function(m,i){t+=m.s.length;d+=skDone(i)});
     var p=Math.round(d*100/t);
     $('prog').innerHTML='<div class="pbar"><b>Ma progression</b><span>'+d+' / '+t+' compétences validées</span></div><div class="track"><i style="width:'+p+'%"></i></div>';
   }
-  var OIC=['<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>','<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/>','<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.5"/>','<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/>','<path d="M4 5h11v8H8l-4 3z"/><path d="M15 9h5v8l-3-2h-6v-2"/>','<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5"/><path d="M14 15.5c2.5-.5 6 .8 6 4.5"/>','<path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M21 20H3"/>','<circle cx="12" cy="12" r="9"/><path d="M15.7 8.3 11 11l-2.7 4.7L13 13z"/>','<circle cx="12" cy="12" r="9"/><path d="M15 9.2a3.6 3.6 0 1 0 0 5.6"/><path d="M7.5 11h6M7.5 13.2h6"/>'];
-  window.WF_N=9;window.WF_DEG=360/window.WF_N;
+  var OIC=['<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>','<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/>','<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.5"/>','<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/>','<path d="M4 5h11v8H8l-4 3z"/><path d="M15 9h5v8l-3-2h-6v-2"/>','<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5"/><path d="M14 15.5c2.5-.5 6 .8 6 4.5"/>','<path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M21 20H3"/>','<circle cx="12" cy="12" r="9"/><path d="M15 9.2a3.6 3.6 0 1 0 0 5.6"/><path d="M7.5 11h6M7.5 13.2h6"/>'];
+  window.WF_N=8;window.WF_DEG=360/window.WF_N;
   var MODE='compass';
   function orbPos(i){
     if(MODE==='route'){var X=[11,36.3,63.7,89,89,63.7,36.3,11],Y=[27,27,27,27,75,75,75,75];return [X[i],Y[i]]}
@@ -3185,3 +3182,6 @@ document.addEventListener('click',function(e){var b=e.target.closest('.dist-go')
   all();
 })();
 </script>
+
+
+
