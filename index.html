@@ -2197,6 +2197,7 @@ body,.dz-shell main{background:#F2F5FF}
     tools:['Messages d’accroche LinkedIn B&T','Analyse concurrentielle (sociétés à sourcer)','Identifiants Jobboards & Outils'],
     faq:['Comment faire une recherche booléenne ?','Comment trouver des candidats ?','Comment écrire un bon message d’accroche ?','Quel message d’accroche pour un profil PM / PO ?','Comment relancer un candidat qui ne répond pas ?','Comment répondre aux objections des candidats ?'],
     steps:[1,2]}};
+  BLOCS[5]={plain:true,refl:['<b>Réactivité</b> : ne pas laisser une recommandation sans réponse.','<b>Transparence</b> : tenir le coopteur informé de l’avancement.']};
   BLOCS[8]={refl:['<b>Ne pas attendre l’E2</b> pour vérifier la cohérence salariale.','<b>Ne pas se baser uniquement</b> sur le salaire actuel ou les prétentions du candidat.','Prendre en compte l’<b>expérience réelle en Product Management</b> et les compétences démontrées.','Utiliser le Super Calculator comme <b>aide à la décision</b>, et non comme une décision automatique.','En cas de décalage important, <b>échanger avec la B&amp;T</b> avant de poursuivre le processus.'],secs:[{h:'1. Comprendre notre référentiel salarial',docs:['Modèle d’estimation du cadrage salarial à l’entrée','Grille salariale PM & QA']},
     {h:'2. Estimer une future proposition salariale',docs:['Super Calculator : cadrage salarial']}]};
   var INTRO={8:'<p>Le cadrage salarial est une <b>étape essentielle</b> du processus de recrutement. Il permet de s’assurer, <mark>dès les premiers échanges</mark>, de la <b>cohérence</b> entre les <b>attentes du candidat</b>, son <b>expérience</b> et notre <b>référentiel de rémunération</b>.</p><p>Un positionnement mal évalué peut entraîner une <mark>réévaluation tardive</mark>, notamment en <b>E2 ou E2bis</b>, et générer de la <b>frustration</b> ou de la <b>déception</b> chez le candidat.</p>'};
@@ -2297,7 +2298,8 @@ body,.dz-shell main{background:#F2F5FF}
         var B=BLOCS[i];
         var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
         if(B.refl)html+='<section class="bl"><h3 class="dv-h">Les bons réflexes</h3><ul class="refl">'+B.refl.map(function(t){return '<li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>'+t+'</span></li>'}).join('')+'</ul></section>';
-        if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
+        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}}
+        else if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
         else{
         html+='<section class="bl"><h3 class="dv-h">À quoi sert ce dossier ?</h3><p class="bl-why">'+esc(B.why)+'</p></section>';
         [['Les indispensables','ess'],['Pour aller plus loin','plus'],['Les outils pratiques','tools']].forEach(function(g){var u=bl(B[g[1]]);if(u)html+='<section class="bl"><h3 class="dv-h">'+g[0]+'</h3>'+u+'</section>'});
@@ -2356,7 +2358,8 @@ body,.dz-shell main{background:#F2F5FF}
         var B=BLOCS[i];
         var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
         if(B.refl)html+='<section class="bl"><h3 class="dv-h">Les bons réflexes</h3><ul class="refl">'+B.refl.map(function(t){return '<li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>'+t+'</span></li>'}).join('')+'</ul></section>';
-        if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
+        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}}
+        else if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
         else{
         html+='<section class="bl"><h3 class="dv-h">À quoi sert ce dossier ?</h3><p class="bl-why">'+esc(B.why)+'</p></section>';
         [['Les indispensables','ess'],['Pour aller plus loin','plus'],['Les outils pratiques','tools']].forEach(function(g){var u=bl(B[g[1]]);if(u)html+='<section class="bl"><h3 class="dv-h">'+g[0]+'</h3>'+u+'</section>'});
