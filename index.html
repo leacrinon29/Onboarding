@@ -2218,6 +2218,7 @@ body,.dz-shell main{background:#F2F5FF}
     tools:['Maquette Prequal','Maquette E1'],
     faq:['Comment mener une pré-qualification ?','Quels sont les critères de GO / NO GO ?','Comment noter un candidat après un entretien ?','Que faire après un E1 et après un E2 ?','Que signifient E1, E2, E2 bis et propale ?'],
     steps:[2,3,4]};
+  BLOCS[2]={plain:true,go:true};
   BLOCS[5]={plain:true,refl:['<b>Réactivité</b> : ne pas laisser une recommandation sans réponse.','<b>Transparence</b> : tenir le coopteur informé de l’avancement.']};
   BLOCS[7]={refl:['<b>Ne pas attendre l’E2</b> pour vérifier la cohérence salariale.','<b>Ne pas se baser uniquement</b> sur le salaire actuel ou les prétentions du candidat.','Prendre en compte l’<b>expérience réelle en Product Management</b> et les compétences démontrées.','Utiliser le Super Calculator comme <b>aide à la décision</b>, et non comme une décision automatique.','En cas de décalage important, <b>échanger avec la B&amp;T</b> avant de poursuivre le processus.'],secs:[{h:'1. Comprendre notre référentiel salarial',docs:['Modèle d’estimation du cadrage salarial à l’entrée','Grille salariale PM & QA']},
     {h:'2. Estimer une future proposition salariale',docs:['Super Calculator : cadrage salarial']}]};
@@ -2327,7 +2328,7 @@ body,.dz-shell main{background:#F2F5FF}
         var B=BLOCS[i];
         var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
         if(B.refl)html+='<section class="bl"><h3 class="dv-h">Les bons réflexes</h3><ul class="refl">'+B.refl.map(function(t){return '<li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>'+t+'</span></li>'}).join('')+'</ul></section>';
-        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}}
+        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}if(B.go)html+='<aside class="dist" role="note"><div class="dist-t"><b>Tu as besoin de savoir <em>quoi faire</em> et <em>quand</em> ?</b><span>Le Parcours candidat te guide étape par étape, du sourcing à la signature.</span></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>'}
         else if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
         else{
         html+='<section class="bl"><h3 class="dv-h">À quoi sert ce dossier ?</h3><p class="bl-why">'+esc(B.why)+'</p></section>';
@@ -2387,7 +2388,7 @@ body,.dz-shell main{background:#F2F5FF}
         var B=BLOCS[i];
         var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
         if(B.refl)html+='<section class="bl"><h3 class="dv-h">Les bons réflexes</h3><ul class="refl">'+B.refl.map(function(t){return '<li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>'+t+'</span></li>'}).join('')+'</ul></section>';
-        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}}
+        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}if(B.go)html+='<aside class="dist" role="note"><div class="dist-t"><b>Tu as besoin de savoir <em>quoi faire</em> et <em>quand</em> ?</b><span>Le Parcours candidat te guide étape par étape, du sourcing à la signature.</span></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>'}
         else if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
         else{
         html+='<section class="bl"><h3 class="dv-h">À quoi sert ce dossier ?</h3><p class="bl-why">'+esc(B.why)+'</p></section>';
