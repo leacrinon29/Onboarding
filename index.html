@@ -3138,3 +3138,18 @@ body,.dz-shell main{background:#F2F5FF}
 <script>
 document.addEventListener('click',function(e){var b=e.target.closest('.dist-go');if(!b)return;var t=document.querySelector('.dz-tnav .lk[data-v="'+b.getAttribute('data-nav')+'"]');if(t){t.click();window.scrollTo(0,0)}});
 </script>
+
+<script>
+/* Tous les liens vers des documents SharePoint s'ouvrent en consultation dans le navigateur (pas de téléchargement) */
+(function(){
+  var EXT=/\.(docx|doc|xlsx|xlsm|xls|pptx|ppt|pdf)$/i;
+  function fix(a){
+    var h=a.getAttribute('href');if(!h||h.indexOf('sharepoint.com')<0||/[?&]web=1/.test(h))return;
+    var base=h.split('#')[0].split('?')[0];if(!EXT.test(base))return;
+    a.setAttribute('href',h+(h.indexOf('?')<0?'?':'&')+'web=1');
+  }
+  function all(){document.querySelectorAll('a[href]').forEach(fix)}
+  var t=0;new MutationObserver(function(){if(t)return;t=requestAnimationFrame(function(){t=0;all()})}).observe(document.body,{childList:true,subtree:true});
+  all();
+})();
+</script>
