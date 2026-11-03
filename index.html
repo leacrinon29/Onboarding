@@ -2212,10 +2212,22 @@ body,.dz-shell main{background:#F2F5FF}
     tools:['Messages d’accroche LinkedIn B&T','Analyse concurrentielle (sociétés à sourcer)','Identifiants Jobboards & Outils'],
     faq:['Comment faire une recherche booléenne ?','Comment trouver des candidats ?','Comment écrire un bon message d’accroche ?','Quel message d’accroche pour un profil PM / PO ?','Comment relancer un candidat qui ne répond pas ?','Comment répondre aux objections des candidats ?'],
     steps:[1,2]}};
+  BLOCS[4]={why:'Mener une préqualification et un entretien de qualité : savoir quelles questions poser, évaluer le candidat sur nos critères (soft skills, hard skills, IA) et décider d’un GO ou d’un NO GO.',
+    ess:['Critères de passage : GO / NO GO','Les critères d’évaluation chez WeFiiT'],
+    plus:['Questions pour creuser l’adaptabilité','Réussir à switcher vos Product en QA'],
+    tools:['Maquette Prequal','Maquette E1'],
+    faq:['Comment mener une pré-qualification ?','Quels sont les critères de GO / NO GO ?','Comment noter un candidat après un entretien ?','Que faire après un E1 et après un E2 ?','Que signifient E1, E2, E2 bis et propale ?'],
+    steps:[2,3,4]};
   BLOCS[5]={plain:true,refl:['<b>Réactivité</b> : ne pas laisser une recommandation sans réponse.','<b>Transparence</b> : tenir le coopteur informé de l’avancement.']};
   BLOCS[7]={refl:['<b>Ne pas attendre l’E2</b> pour vérifier la cohérence salariale.','<b>Ne pas se baser uniquement</b> sur le salaire actuel ou les prétentions du candidat.','Prendre en compte l’<b>expérience réelle en Product Management</b> et les compétences démontrées.','Utiliser le Super Calculator comme <b>aide à la décision</b>, et non comme une décision automatique.','En cas de décalage important, <b>échanger avec la B&amp;T</b> avant de poursuivre le processus.'],secs:[{h:'1. Comprendre notre référentiel salarial',docs:['Modèle d’estimation du cadrage salarial à l’entrée','Grille salariale PM & QA']},
     {h:'2. Estimer une future proposition salariale',docs:['Super Calculator : cadrage salarial']}]};
-  var DOCDESC={'Le process de recrutement WeFiiT':'Le document de référence du process de recrutement.','Outil de suivi des cooptations':'Permet de voir la fiche du coopté et de mettre à jour son avancement.'};
+  var DOCDESC={'Le process de recrutement WeFiiT':'Le document de référence du process de recrutement.','Outil de suivi des cooptations':'Permet de voir la fiche du coopté et de mettre à jour son avancement.',
+    'Critères de passage : GO / NO GO':'Ce qu’on valide à chaque étape : préqual, E1, E2 et E2 bis.',
+    'Les critères d’évaluation chez WeFiiT':'Définition, indicateurs et questions pour chaque soft skill, hard skill et le niveau IA.',
+    'Questions pour creuser l’adaptabilité':'Questions et mises en situation sur l’adaptabilité, la posture et l’impact produit.',
+    'Réussir à switcher vos Product en QA':'Quand et comment proposer la track QA à un profil Product junior.',
+    'Maquette Prequal':'La trame d’appel : motivations, drivers, salaire, remote, anglais, timing.',
+    'Maquette E1':'La trame d’entretien et de feedback, avec une note de A à D par compétence.'};
   function DD(it){return DOCDESC[it[0]]?'<small class="dd">'+esc(DOCDESC[it[0]])+'</small>':''}
   var INTRO={7:'<p>Le cadrage salarial est une <b>étape essentielle</b> du processus de recrutement. Il permet de s’assurer, <mark>dès les premiers échanges</mark>, de la <b>cohérence</b> entre les <b>attentes du candidat</b>, son <b>expérience</b> et notre <b>référentiel de rémunération</b>.</p><p>Un positionnement mal évalué peut entraîner une <mark>réévaluation tardive</mark>, notamment en <b>E2 ou E2bis</b>, et générer de la <b>frustration</b> ou de la <b>déception</b> chez le candidat.</p>'};
   var MIS=[
@@ -2230,7 +2242,7 @@ body,.dz-shell main{background:#F2F5FF}
   ];
   var SK={};try{SK=JSON.parse(localStorage.getItem('wf-skills')||'{}')}catch(e){}
   function skSave(){try{localStorage.setItem('wf-skills',JSON.stringify(SK))}catch(e){}}
-  var TIPS={3:['Dans tes séances de sourcing, il y a trois cabinets que tu n’as pas le droit d’approcher : Henix, Exalt et Acensi.','Si la fiche d’un candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.']};
+  var TIPS={4:['Dès la préqual, 4 critères de GO : une histoire à raconter, l’anglais à l’écrit et à l’oral, l’adaptabilité (mobilité en Île-de-France à moins d’1 h, ouverture sectorielle) et l’interaction.','Profil Product junior ? Pense au switch QA. Introduis-le idéalement en fin de préqual, et au plus tard en fin d’E1.','Niveau IA : en dessous de B, le profil n’est pas WeFiiT compatible.'],3:['Dans tes séances de sourcing, il y a trois cabinets que tu n’as pas le droit d’approcher : Henix, Exalt et Acensi.','Si la fiche d’un candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.']};
   function tipHtml(i){var T=TIPS[i];if(!T)return '';var many=T.length>1;return '<div class="dvf-tip" role="note" data-n="0"><b>Point important</b><p>'+esc(T[0])+'</p>'+(many?'<div class="tip-nav"><button type="button" data-tip="-1" aria-label="Message précédent">←</button><span class="tip-c">1 / '+T.length+'</span><button type="button" data-tip="1" aria-label="Message suivant">→</button></div>':'')+'</div>'}
   var WHEN=['la semaine 1','les semaines 1 à 2','le mois 1','le mois 1','les mois 1 à 2','le mois 2','les semaines 1 à 2','le mois 1'];
   function skDone(i){var n=0;MIS[i].s.forEach(function(_,k){if(SK[i+'-'+k])n++});return n}
@@ -2293,7 +2305,7 @@ body,.dz-shell main{background:#F2F5FF}
     MODE=btn.dataset.mode;$('orbWrap').setAttribute('data-mode',MODE);
     document.querySelectorAll('.orb-pick [data-mode]').forEach(function(x){x.setAttribute('aria-pressed',x===btn)});renderSteps();
   }});
-  var DMODE='f';var NOSK={4:1};
+  var DMODE='f';var NOSK={0:1,1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1};
   var DV=[['a','1 · Classique revisité'],['b','2 · Hublot & Capitaine'],['c','3 · Tuiles documents'],['d','4 · Bandeau bleu'],['e','5 · Le chemin'],['f','6 · Panneau Capitaine'],['g','7 · Éditorial'],['h','8 · Onglets'],['i','9 · Carte premium'],['j','10 · Sommaire'],['k','11 · Guidé'],['l','12 · Cartes icônes']];
   var DTAB='docs';
   function ftype(it){if(it[2])return ['PAGE','#4b31b8'];if(!it[1])return ['BIENTÔT','#9aa1b6'];var e=(it[1].split('.').pop()||'').toLowerCase();return {pptx:['PPT','#d24726'],pdf:['PDF','#c62828'],docx:['DOC','#1f5bc0'],xlsx:['XLS','#1d7a45'],xlsm:['XLS','#1d7a45'],html:['WEB','#0042ff']}[e]||['LIEN','#0042ff']}
@@ -2744,6 +2756,8 @@ body,.dz-shell main{background:#F2F5FF}
     function unread(d){var t=new Date(d.d).getTime();return NOW-t<WIN&&t>seen}
     function ago(d){var n=Math.round((NOW-new Date(d))/864e5);return n<=0?'aujourd’hui':n===1?'hier':n<31?'il y a '+n+' jours':'le '+fmt(d)}
     var CHG=[
+      {d:'2026-11-03',who:'Léa',th:4,t:'Qualification et entretiens réorganisé',p:'Le dossier suit désormais la même structure que Sourcing et chasse : à quoi sert ce dossier, les indispensables, les outils pratiques, pour aller plus loin, les questions fréquentes, les étapes du parcours associées et des points importants.'},
+      {d:'2026-11-03',who:'Léa',th:-1,t:'Compétences à acquérir retirées',p:'L’onglet Compétences à acquérir et le compteur de compétences ne s’affichent plus dans les dossiers de la Mallette.'},
       {d:'2026-11-03',who:'Léa',th:4,t:'Nouveau document : switcher un Product en QA',p:'Ajout de « Réussir à switcher vos Product en QA » dans Qualification et entretiens.'},
       {d:'2026-11-03',who:'Léa',th:4,t:'Qualification et entretiens : nouveaux documents',p:'Ajout de la Maquette Prequal, de la Maquette E1 et des Questions pour creuser l’adaptabilité. La grille d’évaluation devient « Les critères d’évaluation chez WeFiiT » (lien Squad Talent Recruitment).'},
       {d:'2026-11-03',who:'Léa',th:4,t:'GO / NO GO déplacé',p:'Les critères de passage GO / NO GO passent de Process de recrutement à Qualification et entretiens.'},
@@ -3210,6 +3224,9 @@ document.addEventListener('click',function(e){var b=e.target.closest('.dist-go')
   all();
 })();
 </script>
+
+
+
 
 
 
