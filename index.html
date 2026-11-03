@@ -1414,6 +1414,16 @@ html #v-act[data-pc="aurore"] .xs-panel:before{animation-duration:14s!important}
 .dz-nt b{display:block;font-weight:600;font-size:13.5px;color:#002882;line-height:1.3}
 .dz-nt small{display:block;font-size:12px;color:#5E6A86;margin-top:2px}
 .dz-nl li.unread .dz-nt b:after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#f98f03;margin-left:6px;vertical-align:middle}
+.dz-ntabs{display:flex;gap:4px;padding:8px 10px 0;border-bottom:1px solid #ECEEF5}
+.dz-ntabs button{border:0;background:none;padding:8px 10px 10px;font:600 13px var(--f-body);color:#5E6A86;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.dz-ntabs button[aria-selected="true"]{color:#002882;border-bottom-color:#f98f03}
+.dz-ntabs small{display:inline-block;min-width:18px;padding:1px 6px;margin-left:6px;border-radius:999px;background:#f98f03;color:#fff;font:700 11px var(--f-body)}
+.dz-nl .chg{display:flex;gap:12px;align-items:flex-start;padding:10px;border-radius:12px;width:100%;text-align:left;border:0;background:none;cursor:pointer;font:inherit;color:inherit}
+.dz-nl .chg:hover{background:#F2F5FF}
+.dz-nl .dz-ni.edit{background:#FFF4E5;color:#c96f00}
+.dz-nl .dz-ni.edit .dz-ico{stroke:#c96f00}
+.dz-nt .who{display:inline-block;font:600 11px var(--f-body);color:#0042ff;background:#EEF3FF;border-radius:6px;padding:1px 6px;margin-right:6px}
+.dz-nt p{margin:4px 0 0;font-size:12.5px;line-height:1.45;color:#3a4a7a}
 .dz-nf{padding:10px 16px 14px;font-size:12px;color:#5E6A86;border-top:1px solid #ECEEF5}
 
 /* ===== 6 propositions pour le détail d'une compétence ===== */
@@ -2155,7 +2165,7 @@ body,.dz-shell main{background:#F2F5FF}
    salaire:P('STAFF/Documents partages/STAFF Talent Recruitment/2 - La mallette du recruteur/Cadrage Salarial/Modèle d\'estimation du Cadrage salarial à l\'entrée - 24_04.pptx'),
    notice:P('STAFF/Documents partages/STAFF Talent Recruitment/2 - La mallette du recruteur/Process de recrutement/Formation continue - Deck Formation Recruitment.pptx'),
    accroche:P('STAFF/Documents partages/STAFF Talent Recruitment/6 - Sourcing/Messages d\'accroche exemples/Message Accroche Candidats.xlsx'),
-   grille:P('TALENTRECRUITMENT/Documents partages/Echanges entre Pairs/Softskills & Hardskills WeFiiT + Questions.docx'),
+   grille:BASE+'STAFF/Documents partages/STAFF Talent Recruitment/5 - Maquettes entretiens structurés/Softskills & Hardskills WeFiiT + Questions.docx',mprequal:BASE+'STAFF/Documents partages/STAFF Talent Recruitment/5 - Maquettes entretiens structurés/Maquettes Préqual/Maquette_Prequalification_WeFiiT.docx',adapt:BASE+'STAFF/Documents partages/STAFF Talent Recruitment/5 - Maquettes entretiens structurés/Questions pour creuser l\'adaptabilité.docx',switchqa:BASE+'STAFF/Documents partages/STAFF Talent Recruitment/2 - La mallette du recruteur/Réussir à switcher vos Product en QA.pptx',me1:BASE+'STAFF/Documents partages/STAFF Talent Recruitment/5 - Maquettes entretiens structurés/Maquettes E1/Maquette_E1.docx',
    talentkit:P('TribeExpertises/Documents partages/Squad Product Data IA/Recrutement/Talent Kit - Data & IA Product.pptx'),
    analconc:P("STAFF/Documents partages/STAFF Talent Recruitment/2 - La mallette du recruteur/Sourcing & Chasse/Analyse concurrentielle (sociétés à sourcer).xlsx"),
    idjob:P("STAFF/Documents partages/STAFF Talent Recruitment/2 - La mallette du recruteur/Sourcing & Chasse/Identifiants Jobboards & Outils.docx"),
@@ -2191,7 +2201,7 @@ body,.dz-shell main{background:#F2F5FF}
    {t:'Compréhension métier',sub:'Pour tes entretiens avec les WeFiiTers',items:[['Glossaire',null,PG.glossaire],['Rôle PO et QA',L.pmdeck],['Discovery, Delivery, Stratégie',L.weskills],['PM IA',L.iapm],['PM data',L.datapm],['Méthode agile']]},
    {t:'Cadre et process de recrutement',sub:'De bout en bout',items:[['Étapes recrutement et suivi vivier',U('etapes')]]},
    {t:'Sourcing et chasse',sub:'Outbound, inbound, WTTJ, APEC',items:[['Analyse concurrentielle (sociétés à sourcer)',L.analconc,0,1],['Identifiants Jobboards & Outils',L.idjob,0,1],['La recette magique du message d’accroche',null,PG.recette],['L’art d’écrire un message d’accroche (École du recrutement)',L.artacc,0,1],['Messages d’accroche LinkedIn B&T',L.accbt,0,1],['Les objections fréquentes',L.objec,0,1],['Cabinets à chasser et à ne pas chasser'],['Méthodologie de sourcing (booléenne : QA, PO, IA, PM…)'],['Messages d’accroche performants',L.accroche],['KPI attendus : objectifs de sourcing'],['Bonnes pratiques et erreurs à éviter'],['Méthode de sourcing LinkedIn'],['InMail personnalisé'],['Gérer les candidatures et le pipe WTTJ']]},
-   {t:'Qualification et entretiens',sub:'Pré-qual, pitch, E1 et E2',items:[['Pré-qualification'],['Pitch WeFiiT en 1 minute et détaillé (deck)',U('pitch')],['Grille d’évaluation hard et soft skills',L.grille],['Réponses aux questions de la maquette E1'],['Product, data et IA',L.talentkit],['Que se passe-t-il pendant l’E2 ?']]},
+   {t:'Qualification et entretiens',sub:'Pré-qual, pitch, E1 et E2',items:[['Maquette Prequal',L.mprequal],['Maquette E1',L.me1],['Critères de passage : GO / NO GO',U('gonogo')],['Les critères d’évaluation chez WeFiiT',L.grille],['Questions pour creuser l’adaptabilité',L.adapt],['Réussir à switcher vos Product en QA',L.switchqa]]},
    {t:'Cooptation',items:[['Fonctionnement actuel du programme',U('recoopt')],['Traiter la candidature d’un coopté',U('proto')],['Outil de suivi des cooptations','https://wefiitcom.sharepoint.com/sites/MyWeFiiT/Lists/Outil de cooptation/AllItems.aspx?sortField=ApplicationDate&isAscending=false&viewid=63c70b96-d742-4139-90ca-c8e6e57e189e']]},
    {t:'Outils et pilotage',sub:'Boond',items:[['Présentation de Boond'],['Ajouter un candidat',L.tutoboond],['Remplir une fiche après l’E1',L.tutoboond],['Se piloter : tableau de bord et reporting'],['Faire ses relances avec Boond',U('lexique')],['Admin : feuille de temps et notes de frais']]},
    {t:'Cadrage salarial',sub:'Estimer la rémunération dès les premiers échanges',items:[['Super Calculator : cadrage salarial',L.supcalc],['Grille salariale PM & QA',L.grillepm],['Modèle d’estimation du cadrage salarial à l’entrée',L.salmodele]]}
@@ -2283,7 +2293,7 @@ body,.dz-shell main{background:#F2F5FF}
     MODE=btn.dataset.mode;$('orbWrap').setAttribute('data-mode',MODE);
     document.querySelectorAll('.orb-pick [data-mode]').forEach(function(x){x.setAttribute('aria-pressed',x===btn)});renderSteps();
   }});
-  var DMODE='f';
+  var DMODE='f';var NOSK={4:1};
   var DV=[['a','1 · Classique revisité'],['b','2 · Hublot & Capitaine'],['c','3 · Tuiles documents'],['d','4 · Bandeau bleu'],['e','5 · Le chemin'],['f','6 · Panneau Capitaine'],['g','7 · Éditorial'],['h','8 · Onglets'],['i','9 · Carte premium'],['j','10 · Sommaire'],['k','11 · Guidé'],['l','12 · Cartes icônes']];
   var DTAB='docs';
   function ftype(it){if(it[2])return ['PAGE','#4b31b8'];if(!it[1])return ['BIENTÔT','#9aa1b6'];var e=(it[1].split('.').pop()||'').toLowerCase();return {pptx:['PPT','#d24726'],pdf:['PDF','#c62828'],docx:['DOC','#1f5bc0'],xlsx:['XLS','#1d7a45'],xlsm:['XLS','#1d7a45'],html:['WEB','#0042ff']}[e]||['LIEN','#0042ff']}
@@ -2360,7 +2370,7 @@ body,.dz-shell main{background:#F2F5FF}
       if(docs.length){html+='<div class="dvl-grid">';docs.forEach(function(it,k){var f=ftype(it);html+='<div class="dvl-card'+(!it[1]&&!it[2]?' off':'')+'"><span class="dvl-ic" style="--ft:'+f[1]+'"><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 13h6M9 17h4"/></svg></span><span class="dvl-t">'+esc(it[0])+'</span><small>'+f[0]+'</small>'+act(it,k,'dv-btn')+'</div>'});html+='</div>'}
       html+='<div class="dvl-sk"><div class="dvl-bar"><span>Compétences</span><b>'+n+' / '+t+'</b><i><em style="width:'+(t?n*100/t:0)+'%"></em></i></div>'+skills()+'</div>';
     }else{
-      html+='<div class="dvf"><aside class="dvf-side">'+cap+'<div class="dvf-bub"><b>'+esc(s.t)+'</b><p>'+esc(m.o)+'</p></div>'+tipHtml(i)+ringSv(n,t,72)+'<small>compétences cochées</small></aside><div class="dvf-main">'+(INTRO[i]?'<div class="dv-intro">'+INTRO[i]+'</div>':'');
+      html+='<div class="dvf"><aside class="dvf-side">'+cap+'<div class="dvf-bub"><b>'+esc(s.t)+'</b><p>'+esc(m.o)+'</p></div>'+tipHtml(i)+(NOSK[i]?'':ringSv(n,t,72)+'<small>compétences cochées</small>')+'</aside><div class="dvf-main">'+(INTRO[i]?'<div class="dv-intro">'+INTRO[i]+'</div>':'');
       if(BLOCS[i]){
         var B=BLOCS[i];
         var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
@@ -2376,7 +2386,7 @@ body,.dz-shell main{background:#F2F5FF}
         if(st)html+='<section class="bl"><h3 class="dv-h">Les étapes du parcours associées</h3><div class="bl-sts">'+st+'</div></section>';
         }
       }else if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
-      html+='<details class="dv-skd"'+(window.__skOpen?' open':'')+'><summary>Compétences à acquérir <small>'+n+' / '+t+(WHEN[i]?' · repère d’onboarding : '+WHEN[i]:'')+'</small></summary><div class="dva-skw">'+skills()+'</div></details></div></div>';
+      html+=(NOSK[i]?'':'<details class="dv-skd"'+(window.__skOpen?' open':'')+'><summary>Compétences à acquérir <small>'+n+' / '+t+(WHEN[i]?' · repère d’onboarding : '+WHEN[i]:'')+'</small></summary><div class="dva-skw">'+skills()+'</div></details>')+'</div></div>';
     }
     html+='</div>';
     var d=$('mapDetail');d.innerHTML=html;
@@ -2442,7 +2452,7 @@ body,.dz-shell main{background:#F2F5FF}
   var ACT=[
    {t:'Sourcer',b:'À traiter',g:'Trouver et approcher les bons profils.',do:['Cible le profil avec une recherche booléenne, sur LinkedIn, WTTJ ou l’APEC','Écris un message d’accroche personnalisé : ne dis pas tout, attise la curiosité','Crée la fiche candidat dans Boond depuis le CV ou LinkedIn'],docs:[['Messages d’accroche performants',L.accroche],['Tuto : ajouter un candidat dans Boond',L.tutoboond]],q:'Comment écrire un bon message d’accroche ?'},
    {t:'Pré-qualifier',b:'À traiter',g:'Valider l’intérêt du candidat avant l’E1.',do:['Contacte le candidat par téléphone, puis message vocal et mail','Partage la présentation WeFiiT, le blog et le site','Fixe l’E1 et envoie un mail de rappel quelques jours avant, puis un SMS la veille'],docs:[['Pitch WeFiiT candidat',U('pitch')],['Présentation candidat interactive','https://claude.ai/artifact/5sB7DVd7Kp9G81eQuDKZZL']],q:'Comment éviter qu’un candidat annule son entretien ?'},
-   {t:'Entretien E1',b:'E1',g:'Sélection et séduction : expériences et hardskills.',do:['Évalue hard et soft skills avec la grille d’évaluation','Note le candidat de A à D dans Boond et ajoute un commentaire','Remplis la fiche Boond au plus tard à l’E1'],docs:[['Grille d’évaluation hard et soft skills',L.grille],['Tuto : remplir une fiche candidat',L.tutoboond]],q:'Comment noter un candidat après un entretien ?'},
+   {t:'Entretien E1',b:'E1',g:'Sélection et séduction : expériences et hardskills.',do:['Évalue hard et soft skills avec la grille d’évaluation','Note le candidat de A à D dans Boond et ajoute un commentaire','Remplis la fiche Boond au plus tard à l’E1'],docs:[['Les critères d’évaluation chez WeFiiT',L.grille],['Tuto : remplir une fiche candidat',L.tutoboond]],q:'Comment noter un candidat après un entretien ?'},
    {t:'GO / NO GO',b:'E1 → E2',g:'Décider d’avancer ou d’arrêter, et le dire.',do:['Applique les quatre critères : histoire à raconter, anglais, adaptabilité, interaction','Prends le feedback, fais le brief et le cadrage salarial','En cas de NO GO, qualifie KO, LN– ou LN+ et envoie un retour au candidat'],docs:[['Critères de passage : GO / NO GO',U('gonogo')],['Cadrage salarial',L.salaire],['Lexique candidat Boond',U('lexique')]],q:'Quels sont les critères de GO / NO GO ?'},
    {t:'Entretien E2',b:'E2',g:'Validation et approfondissement, le brief étant complété en amont.',do:['Vérifie que le brief et le cadrage sont validés avant l’E2','Organise un E2 pair si besoin (sélection ou séduction)','Passe si A/A ou A/B ; avec une interaction B, il faut une forte histoire à raconter'],docs:[['Critères de passage : GO / NO GO',U('gonogo')],['Les étapes du process',L.notice]],q:'Que faire après un E1 et après un E2 ?'},
    {t:'E2 bis et propale',b:'E2 bis · Propale à faire',g:'Contractualiser et faire la proposition.',do:['Cadre le salaire avec le Super Calculator (et la propale OKR pour les salaires les plus élevés)','Fais un call pour réappuyer sur les drivers du candidat','Invite le candidat à un événement WeFiiT'],docs:[['Cadrage salarial',L.salaire],['Les étapes du process',L.notice]],q:'Comment estimer le salaire d’un candidat à l’entrée ?'},
@@ -2733,11 +2743,29 @@ body,.dz-shell main{background:#F2F5FF}
     var NOW=new Date(),WIN=45*864e5,seen=0;try{seen=+localStorage.getItem('wf-notif-seen')||0}catch(e){}
     function unread(d){var t=new Date(d.d).getTime();return NOW-t<WIN&&t>seen}
     function ago(d){var n=Math.round((NOW-new Date(d))/864e5);return n<=0?'aujourd’hui':n===1?'hier':n<31?'il y a '+n+' jours':'le '+fmt(d)}
+    var CHG=[
+      {d:'2026-11-03',who:'Léa',th:4,t:'Nouveau document : switcher un Product en QA',p:'Ajout de « Réussir à switcher vos Product en QA » dans Qualification et entretiens.'},
+      {d:'2026-11-03',who:'Léa',th:4,t:'Qualification et entretiens : nouveaux documents',p:'Ajout de la Maquette Prequal, de la Maquette E1 et des Questions pour creuser l’adaptabilité. La grille d’évaluation devient « Les critères d’évaluation chez WeFiiT » (lien Squad Talent Recruitment).'},
+      {d:'2026-11-03',who:'Léa',th:4,t:'GO / NO GO déplacé',p:'Les critères de passage GO / NO GO passent de Process de recrutement à Qualification et entretiens.'},
+      {d:'2026-11-03',who:'Léa',th:4,t:'Qualification et entretiens allégé',p:'Retrait du pitch WeFiiT, des réponses à la maquette E1, de Product, data et IA, de « Que se passe-t-il pendant l’E2 ? » et de l’onglet Compétences à acquérir.'},
+      {d:'2026-11-03',who:'Léa',th:-1,t:'Thème Autonomie et posture retiré',p:'La Mallette du recruteur compte désormais 8 dossiers.'},
+      {d:'2026-10-29',who:'Léa',th:1,t:'Nouvelle présentation des dossiers',p:'Chaque dossier de la Mallette s’ouvre avec le panneau Capitaine : le dossier à gauche, les documents à droite.'}
+    ];
+    var cseen=0;try{cseen=+localStorage.getItem('wf-chg-seen')||0}catch(e){}
+    function cunread(c){return new Date(c.d+'T23:59:59').getTime()>cseen&&NOW-new Date(c.d)<WIN}
+    var TAB='chg';
     var bt=$('bellBtn'),pn=$('notifPanel'),dot=$('bellDot');
-    function badge(){var n=DOCS.filter(unread).length;dot.hidden=!n;dot.textContent=n||'';bt.setAttribute('aria-label','Notifications'+(n?' : '+n+' nouvelle'+(n>1?'s':''):''))}
+    function badge(){var n=DOCS.filter(unread).length+CHG.filter(cunread).length;dot.hidden=!n;dot.textContent=n||'';bt.setAttribute('aria-label','Notifications'+(n?' : '+n+' nouvelle'+(n>1?'s':''):''))}
     function draw(){
-      pn.innerHTML='<div class="dz-nh"><b>Documents mis à jour</b><button type="button" id="nAll">Tout marquer comme lu</button></div><ul class="dz-nl">'+DOCS.map(function(d){return '<li'+(unread(d)?' class="unread"':'')+'><a target="_blank" rel="noopener" href="'+encodeURI(d.url||'#')+'"><span class="dz-ni"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/></svg></span><span class="dz-nt"><b>'+esc(d.t)+'</b><small>Mis à jour '+ago(d.d)+' · '+esc(d.loc||'')+'</small></span></a></li>'}).join('')+'</ul><p class="dz-nf">Les documents mis à jour ces 45 derniers jours sont signalés par un point orange.</p>';
-      $('nAll').onclick=function(){seen=Date.now();try{localStorage.setItem('wf-notif-seen',seen)}catch(e){}draw();badge()};
+      var nc=CHG.filter(cunread).length,nd=DOCS.filter(unread).length;
+      var head='<div class="dz-nh"><b>Notifications</b><button type="button" id="nAll">Tout marquer comme lu</button></div><div class="dz-ntabs" role="tablist"><button type="button" role="tab" data-nt="chg" aria-selected="'+(TAB==='chg')+'">Modifications'+(nc?'<small>'+nc+'</small>':'')+'</button><button type="button" role="tab" data-nt="doc" aria-selected="'+(TAB==='doc')+'">Documents mis à jour'+(nd?'<small>'+nd+'</small>':'')+'</button></div>';
+      if(TAB==='chg'){
+        pn.innerHTML=head+'<ul class="dz-nl">'+CHG.map(function(c,k){return '<li'+(cunread(c)?' class="unread"':'')+'><button class="chg" type="button" data-cg="'+k+'"><span class="dz-ni edit"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span class="dz-nt"><b>'+esc(c.t)+'</b><small><span class="who">'+esc(c.who)+'</span>'+ago(c.d)+'</small><p>'+esc(c.p)+'</p></span></button></li>'}).join('')+'</ul><p class="dz-nf">Les dernières modifications apportées à la plateforme par l’équipe.</p>';
+        pn.querySelectorAll('[data-cg]').forEach(function(b){b.onclick=function(){var c=CHG[+b.getAttribute('data-cg')];set(false);show('map',true,c.th>=0?c.th+1:undefined)}});
+      }else
+      pn.innerHTML=head+'<ul class="dz-nl">'+DOCS.map(function(d){return '<li'+(unread(d)?' class="unread"':'')+'><a target="_blank" rel="noopener" href="'+encodeURI(d.url||'#')+'"><span class="dz-ni"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/></svg></span><span class="dz-nt"><b>'+esc(d.t)+'</b><small>Mis à jour '+ago(d.d)+' · '+esc(d.loc||'')+'</small></span></a></li>'}).join('')+'</ul><p class="dz-nf">Les documents mis à jour ces 45 derniers jours sont signalés par un point orange.</p>';
+      pn.querySelectorAll('[data-nt]').forEach(function(b){b.onclick=function(e){e.stopPropagation();TAB=b.getAttribute('data-nt');draw()}});
+      $('nAll').onclick=function(){seen=cseen=Date.now();try{localStorage.setItem('wf-notif-seen',seen);localStorage.setItem('wf-chg-seen',cseen)}catch(e){}draw();badge()};
     }
     function set(o){pn.hidden=!o;bt.setAttribute('aria-expanded',o);if(o)draw()}
     bt.addEventListener('click',function(e){e.stopPropagation();set(pn.hidden)});
@@ -3182,6 +3210,9 @@ document.addEventListener('click',function(e){var b=e.target.closest('.dist-go')
   all();
 })();
 </script>
+
+
+
 
 
 
