@@ -2220,8 +2220,8 @@ body,.dz-shell main{background:#F2F5FF}
    {t:'Compréhension métier',sub:'Pour tes entretiens avec les WeFiiTers',items:[['Glossaire',null,PG.glossaire],['Rôle PO et QA',L.pmdeck],['Discovery, Delivery, Stratégie',L.weskills],['PM IA',L.iapm],['PM data',L.datapm],['Méthode agile']]},
    {t:'Cadre et process de recrutement',sub:'De bout en bout',items:[['Le process de recrutement WeFiiT',P('STAFF/Documents partages/STAFF Talent Recruitment/2 - La mallette du recruteur/Process de recrutement/Le process de recrutement WeFiiT - Document de référence.docx')],['Étapes recrutement et suivi vivier',U('etapes')],['Mails d’invitation candidat 2026 (templates)',null,PG.mails]]},
    {t:'Sourcing et chasse',sub:'Outbound, inbound, WTTJ, APEC',items:[['Analyse concurrentielle (sociétés à sourcer)',L.analconc,0,1],['Identifiants Jobboards & Outils',L.idjob,0,1],['La recette magique du message d’accroche',null,PG.recette],['L’art d’écrire un message d’accroche (École du recrutement)',L.artacc,0,1],['Messages d’accroche LinkedIn B&T',L.accbt,0,1],['Les objections fréquentes',L.objec,0,1],['Cabinets à chasser et à ne pas chasser'],['Méthodologie de sourcing (booléenne : QA, PO, IA, PM…)'],['Messages d’accroche performants',L.accroche],['KPI attendus : objectifs de sourcing'],['Bonnes pratiques et erreurs à éviter'],['Méthode de sourcing LinkedIn'],['InMail personnalisé'],['Gérer les candidatures et le pipe WTTJ']]},
-   {t:'Qualification et entretiens',sub:'Pré-qual, pitch, E1 et E2',items:[['Maquette Prequal',L.mprequal],['Maquette E1',L.me1],['Critères de passage : GO / NO GO',U('gonogo')],['Les critères d’évaluation chez WeFiiT',L.grille],['Questions pour creuser l’adaptabilité',L.adapt],['Réussir à switcher vos Product en QA',L.switchqa]]},
-   {t:'Cooptation',items:[['Fonctionnement actuel du programme',U('recoopt')],['Traiter la candidature d’un coopté',U('proto')],['Outil de suivi des cooptations','https://wefiitcom.sharepoint.com/sites/MyWeFiiT/Lists/Outil de cooptation/AllItems.aspx?sortField=ApplicationDate&isAscending=false&viewid=63c70b96-d742-4139-90ca-c8e6e57e189e']]},
+   {t:'Qualification et entretiens',sub:'Pré-qual, pitch, E1 et E2',items:[['Maquette Prequal',L.mprequal],['Maquette E1',L.me1],['Critères de passage : GO / NO GO',U('gonogo')],['Les critères d’évaluation chez WeFiiT',L.grille],['Évaluer le niveau IA d’un candidat',BASE+'STAFF/Documents partages/STAFF Talent Recruitment/5 - Maquettes entretiens structurés/Maquettes E1/Evaluer_niveau_IA_candidat.docx'],['Questions pour creuser l’adaptabilité',L.adapt],['Réussir à switcher vos Product en QA',L.switchqa]]},
+   {t:'Cooptation',items:[['Fonctionnement actuel du programme',U('recoopt')],['Traiter la candidature d’un coopté',U('proto')],['Recommandation et cooptation : la présentation aux WeFiiTers',BASE+'STAFF/Documents partages/STAFF Talent Recruitment/7 - Cooptation/Onboarding - Slides Reco & Cooptation.pptx'],['Outil de suivi des cooptations','https://wefiitcom.sharepoint.com/sites/MyWeFiiT/Lists/Outil de cooptation/AllItems.aspx?sortField=ApplicationDate&isAscending=false&viewid=63c70b96-d742-4139-90ca-c8e6e57e189e']]},
    {t:'Outils et pilotage',sub:'Boond',items:[['Présentation de Boond'],['Ajouter un candidat',L.tutoboond],['Remplir une fiche après l’E1',L.tutoboond],['Se piloter : tableau de bord et reporting'],['Faire ses relances avec Boond',U('lexique')],['Admin : feuille de temps et notes de frais']]},
    {t:'Cadrage salarial',sub:'Estimer la rémunération dès les premiers échanges',items:[['Super Calculator : cadrage salarial',L.supcalc],['Grille salariale PM & QA',L.grillepm],['Modèle d’estimation du cadrage salarial à l’entrée',L.salmodele]]}
   ];
@@ -2232,18 +2232,32 @@ body,.dz-shell main{background:#F2F5FF}
     faq:['Comment faire une recherche booléenne ?','Comment trouver des candidats ?','Comment écrire un bon message d’accroche ?','Quel message d’accroche pour un profil PM / PO ?','Comment relancer un candidat qui ne répond pas ?','Comment répondre aux objections des candidats ?'],
     steps:[1,2]}};
   BLOCS[4]={why:'Mener une préqualification et un entretien de qualité : savoir quelles questions poser, évaluer le candidat sur nos critères (soft skills, hard skills, IA) et décider d’un GO ou d’un NO GO.',
-    ess:['Critères de passage : GO / NO GO','Les critères d’évaluation chez WeFiiT'],
+    ess:['Critères de passage : GO / NO GO','Les critères d’évaluation chez WeFiiT','Évaluer le niveau IA d’un candidat'],
     plus:['Questions pour creuser l’adaptabilité','Réussir à switcher vos Product en QA'],
     tools:['Maquette Prequal','Maquette E1'],
     faq:['Comment mener une pré-qualification ?','Quels sont les critères de GO / NO GO ?','Comment noter un candidat après un entretien ?','Que faire après un E1 et après un E2 ?','Que signifient E1, E2, E2 bis et propale ?'],
     steps:[2,3,4]};
-  BLOCS[2]={plain:true,go:true};
-  BLOCS[5]={plain:true,refl:['<b>Réactivité</b> : ne pas laisser une recommandation sans réponse.','<b>Transparence</b> : tenir le coopteur informé de l’avancement.']};
+  BLOCS[5]={why:'Traiter une cooptation dans les règles : comprendre le programme, prendre le relais quand une cooptation t’est attribuée, et tenir le coopteur informé jusqu’au bout.',
+    ess:['Traiter la candidature d’un coopté','Fonctionnement actuel du programme'],
+    plus:['Recommandation et cooptation : la présentation aux WeFiiTers'],
+    tools:['Outil de suivi des cooptations'],
+    faq:['Une cooptation m’est attribuée, je fais quoi ?','Comment la prime de cooptation est-elle déclenchée ?','Comment recommander ou coopter quelqu’un ?','Que disent les chiffres de la cooptation ?'],
+    steps:[1,2]};
+  BLOCS[2]={why:'Comprendre le cadre du recrutement chez WeFiiT : les étapes de la préqualification à la signature, qui intervient à chaque étape, les actions Boond à créer et le suivi du vivier.',
+    ess:['Le process de recrutement WeFiiT','Étapes recrutement et suivi vivier'],
+    plus:[],tools:['Mails d’invitation candidat 2026 (templates)'],
+    faq:['Que signifient E1, E2, E2 bis et propale ?','Quelles sont les étapes d’un candidat dans Boond ?','Qu’est-ce qu’un brief ?','Comment prendre une référence ?','À quelle fréquence relancer un candidat du vivier ?','Que partager au candidat avant la signature ?'],
+    steps:[2,3,5,6,7,8],go:true};
   BLOCS[7]={refl:['<b>Ne pas attendre l’E2</b> pour vérifier la cohérence salariale.','<b>Ne pas se baser uniquement</b> sur le salaire actuel ou les prétentions du candidat.','Prendre en compte l’<b>expérience réelle en Product Management</b> et les compétences démontrées.','Utiliser le Super Calculator comme <b>aide à la décision</b>, et non comme une décision automatique.','En cas de décalage important, <b>échanger avec la B&amp;T</b> avant de poursuivre le processus.'],secs:[{h:'1. Comprendre notre référentiel salarial',docs:['Modèle d’estimation du cadrage salarial à l’entrée','Grille salariale PM & QA']},
     {h:'2. Estimer une future proposition salariale',docs:['Super Calculator : cadrage salarial']}]};
-  var DOCDESC={'Mails d’invitation candidat 2026 (templates)':'Un mail par étape du process, prêt à copier.','Le process de recrutement WeFiiT':'Le document de référence du process de recrutement.','Outil de suivi des cooptations':'Permet de voir la fiche du coopté et de mettre à jour son avancement.',
+  var DOCDESC={'Mails d’invitation candidat 2026 (templates)':'Un mail par étape du process, prêt à copier.','Le process de recrutement WeFiiT':'Le document de référence : objectifs, wordings et actions Boond pour chaque étape, de la préqual à la signature.',
+    'Étapes recrutement et suivi vivier':'Le pipe Boond et les taux de conversion visés, le retour à chaque candidat et les relances du vivier.',
+    'Traiter la candidature d’un coopté':'Les étapes à suivre quand une cooptation t’est attribuée.',
+    'Fonctionnement actuel du programme':'Ce que les WeFiiTers savent de la recommandation et de la cooptation.',
+    'Recommandation et cooptation : la présentation aux WeFiiTers':'Le rôle de chacun, la différence entre recommandation et cooptation, et les récompenses.','Outil de suivi des cooptations':'Permet de voir la fiche du coopté et de mettre à jour son avancement.',
     'Critères de passage : GO / NO GO':'Ce qu’on valide à chaque étape : préqual, E1, E2 et E2 bis.',
     'Les critères d’évaluation chez WeFiiT':'Définition, indicateurs et questions pour chaque soft skill, hard skill et le niveau IA.',
+    'Évaluer le niveau IA d’un candidat':'La grille de réponses attendues pour le bloc IA : débutant ou confirmé, GO ou NO GO, échelle A à D.',
     'Questions pour creuser l’adaptabilité':'Questions et mises en situation sur l’adaptabilité, la posture et l’impact produit.',
     'Réussir à switcher vos Product en QA':'Quand et comment proposer la track QA à un profil Product junior.',
     'Maquette Prequal':'La trame d’appel : motivations, drivers, salaire, remote, anglais, timing.',
@@ -2262,7 +2276,9 @@ body,.dz-shell main{background:#F2F5FF}
   ];
   var SK={};try{SK=JSON.parse(localStorage.getItem('wf-skills')||'{}')}catch(e){}
   function skSave(){try{localStorage.setItem('wf-skills',JSON.stringify(SK))}catch(e){}}
-  var TIPS={4:['Dès la préqual, 4 critères de GO : une histoire à raconter, l’anglais à l’écrit et à l’oral, l’adaptabilité (mobilité en Île-de-France à moins d’1 h, ouverture sectorielle) et l’interaction.','Profil Product junior ? Pense au switch QA. Introduis-le idéalement en fin de préqual, et au plus tard en fin d’E1.','Niveau IA : en dessous de B, le profil n’est pas WeFiiT compatible.'],3:['Dans tes séances de sourcing, il y a trois cabinets que tu n’as pas le droit d’approcher : Henix, Exalt et Acensi.','Si la fiche d’un candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.']};
+  var TIPS={2:['100 % des candidats reçoivent un retour, oral ou écrit, et l’action Boond « Mail / Notif de fin de process », quelle que soit l’issue.','Vivier : relance les P+ (Vivier +++) tous les 3 à 6 mois et les LN+ tous les 6 mois à 1 an, avec une action Boond « Relance à faire – Rappel / To do ».','Le brief est une étape de validation à part entière : c’est le premier livrable du candidat (environ 1 h 30 sur Showcase).','Profil senior (prétentions au-delà de 60K) : pense à la proposition OKR avec Cédric.'],
+    5:['Réactivité : ne laisse jamais une recommandation sans réponse.','Transparence : tiens le coopteur informé de l’avancement de son coopté.','Si la cooptation aboutit : prime jusqu’à 1 500 €, restaurant avec le coopté, et le Pack St-Malo pour 3 cooptations sur 1 an glissant. Une recommandation qui aboutit : bon d’achat de 100 €.'],
+    4:['Dès la préqual, 4 critères de GO : une histoire à raconter, l’anglais à l’écrit et à l’oral, l’adaptabilité (mobilité en Île-de-France à moins d’1 h, ouverture sectorielle) et l’interaction.','Profil Product junior ? Pense au switch QA. Introduis-le idéalement en fin de préqual, et au plus tard en fin d’E1.','Niveau IA : en dessous de B, le profil n’est pas WeFiiT compatible.'],3:['Dans tes séances de sourcing, il y a trois cabinets que tu n’as pas le droit d’approcher : Henix, Exalt et Acensi.','Si la fiche d’un candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.']};
   function tipHtml(i){var T=TIPS[i];if(!T)return '';var many=T.length>1;return '<div class="dvf-tip" role="note" data-n="0"><b>Point important</b><p>'+esc(T[0])+'</p>'+(many?'<div class="tip-nav"><button type="button" data-tip="-1" aria-label="Message précédent">←</button><span class="tip-c">1 / '+T.length+'</span><button type="button" data-tip="1" aria-label="Message suivant">→</button></div>':'')+'</div>'}
   var WHEN=['la semaine 1','les semaines 1 à 2','le mois 1','le mois 1','les mois 1 à 2','le mois 2','les semaines 1 à 2','le mois 1'];
   function skDone(i){var n=0;MIS[i].s.forEach(function(_,k){if(SK[i+'-'+k])n++});return n}
@@ -2356,6 +2372,7 @@ body,.dz-shell main{background:#F2F5FF}
         if(fq)html+='<section class="bl"><h3 class="dv-h">Les questions fréquentes</h3><div class="bl-qs">'+fq+'</div></section>';
         var st='';B.steps.forEach(function(n){st+='<button type="button" class="bl-st" data-stage="'+n+'"><span class="n">'+n+'</span>'+esc(ACT[n-1].t)+'<small>'+esc(ACT[n-1].g)+'</small></button>'});
         if(st)html+='<section class="bl"><h3 class="dv-h">Les étapes du parcours associées</h3><div class="bl-sts">'+st+'</div></section>';
+        if(B.go)html+='<aside class="dist" role="note"><div class="dist-t"><b>Tu as besoin de savoir <em>quoi faire</em> et <em>quand</em> ?</b><span>Le Parcours candidat te guide étape par étape, du sourcing à la signature.</span></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>';
         }
       }else if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
       html+='<h3 class="dv-h">Compétences à acquérir</h3><div class="dva-skw">'+skills()+'</div>';
@@ -2416,6 +2433,7 @@ body,.dz-shell main{background:#F2F5FF}
         if(fq)html+='<section class="bl"><h3 class="dv-h">Les questions fréquentes</h3><div class="bl-qs">'+fq+'</div></section>';
         var st='';B.steps.forEach(function(n){st+='<button type="button" class="bl-st" data-stage="'+n+'"><span class="n">'+n+'</span>'+esc(ACT[n-1].t)+'<small>'+esc(ACT[n-1].g)+'</small></button>'});
         if(st)html+='<section class="bl"><h3 class="dv-h">Les étapes du parcours associées</h3><div class="bl-sts">'+st+'</div></section>';
+        if(B.go)html+='<aside class="dist" role="note"><div class="dist-t"><b>Tu as besoin de savoir <em>quoi faire</em> et <em>quand</em> ?</b><span>Le Parcours candidat te guide étape par étape, du sourcing à la signature.</span></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>';
         }
       }else if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
       html+=(NOSK[i]?'':'<details class="dv-skd"'+(window.__skOpen?' open':'')+'><summary>Compétences à acquérir <small>'+n+' / '+t+(WHEN[i]?' · repère d’onboarding : '+WHEN[i]:'')+'</small></summary><div class="dva-skw">'+skills()+'</div></details>')+'</div></div>';
@@ -2809,6 +2827,9 @@ body,.dz-shell main{background:#F2F5FF}
     function unread(d){var t=new Date(d.d).getTime();return NOW-t<WIN&&t>seen}
     function ago(d){var n=Math.round((NOW-new Date(d))/864e5);return n<=0?'aujourd’hui':n===1?'hier':n<31?'il y a '+n+' jours':'le '+fmt(d)}
     var CHG=[
+      {d:'2026-11-03',who:'Léa',th:4,t:'Nouveau document : la grille IA',p:'Ajout de « Évaluer le niveau IA d’un candidat » dans Qualification et entretiens, rubrique Les indispensables. La Maquette E1 y renvoie sous son bloc IA.'},
+      {d:'2026-11-03',who:'Léa',th:2,t:'Cadre et process de recrutement réorganisé',p:'Même structure que Sourcing et chasse : à quoi sert ce dossier, les indispensables avec une description, les questions fréquentes, les étapes associées et 4 points importants.'},
+      {d:'2026-11-03',who:'Léa',th:5,t:'Cooptation réorganisé',p:'Même structure que Sourcing et chasse, avec l’ajout de la présentation Recommandation et cooptation (Squad Talent Recruitment) et 3 points importants.'},
       {d:'2026-11-03',who:'Léa',th:4,t:'Qualification et entretiens réorganisé',p:'Le dossier suit désormais la même structure que Sourcing et chasse : à quoi sert ce dossier, les indispensables, les outils pratiques, pour aller plus loin, les questions fréquentes, les étapes du parcours associées et des points importants.'},
       {d:'2026-11-03',who:'Léa',th:-1,t:'Compétences à acquérir retirées',p:'L’onglet Compétences à acquérir et le compteur de compétences ne s’affichent plus dans les dossiers de la Mallette.'},
       {d:'2026-11-03',who:'Léa',th:4,t:'Nouveau document : switcher un Product en QA',p:'Ajout de « Réussir à switcher vos Product en QA » dans Qualification et entretiens.'},
@@ -3277,6 +3298,9 @@ document.addEventListener('click',function(e){var b=e.target.closest('.dist-go')
   all();
 })();
 </script>
+
+
+
 
 
 
