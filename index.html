@@ -1890,6 +1890,21 @@ body,.dz-shell main{background:#F2F5FF}
 .dvf-tip b{display:block;color:#b8560a;font:700 12px var(--f-body);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
 .dvf-tip p{margin:0;font-size:14px;line-height:1.4;color:#002882;font-weight:600}
 
+.dvf-bub .bub-k{display:block;margin:10px 0 2px;font:700 10.5px var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:#b8560a}
+.dvf-bub .bub-k + p{font-size:13.5px!important;line-height:1.5;color:#3a4a7a}
+.dvf-tip .tip-ic,.dvf-tip .tip-x{display:none}
+.dvf-main>.dvf-tip{display:flex;align-items:center;gap:12px;margin:0 0 22px;padding:10px 12px;border-radius:14px;border:1px solid #FBE3C4;border-left:4px solid #f98f03;background:#FFF9F1;box-shadow:0 6px 18px rgba(249,143,3,.10);animation:tipIn .45s ease both;transition:opacity .25s,transform .25s}
+.dvf-main>.dvf-tip.out{opacity:0;transform:translateY(-6px)}
+.dvf-main>.dvf-tip .tip-ic{display:grid;place-items:center;flex:none;width:26px;height:26px;border-radius:50%;background:#f98f03;color:#fff;font:800 14px var(--f-body)}
+.dvf-main>.dvf-tip b{margin:0;flex:none;font-size:10.5px}
+.dvf-main>.dvf-tip p{flex:1;font-size:14px!important;font-weight:600;line-height:1.4}
+.dvf-main>.dvf-tip .tip-nav{margin:0;padding:0;border:0;gap:6px;flex:none}
+.dvf-main>.dvf-tip .tip-nav button{width:26px;height:26px;font-size:12px}
+.dvf-main>.dvf-tip .tip-x{display:grid;place-items:center;flex:none;width:26px;height:26px;border:0;background:none;border-radius:50%;color:#8A93AD;font:400 20px/1 var(--f-body);cursor:pointer}
+.dvf-main>.dvf-tip .tip-x:hover{background:#FDEBD3;color:#002882}
+@keyframes tipIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media (max-width:720px){.dvf-main>.dvf-tip{flex-wrap:wrap}.dvf-main>.dvf-tip p{flex-basis:100%;order:3}}
+@media (prefers-reduced-motion:reduce){.dvf-main>.dvf-tip{animation:none}}
 .dv-intro{background:#fff;border:1px solid #ECEEF5;border-left:4px solid #f98f03;border-radius:14px;padding:14px 18px;margin-bottom:14px;color:#47506B;font-size:15px;line-height:1.55}
 .dv-intro p{margin:0 0 10px}.dv-intro ul{margin:0;padding-left:20px}.dv-intro li{margin-bottom:6px}.dv-intro b{color:#002882}
 
@@ -2316,7 +2331,7 @@ body,.dz-shell main{background:#F2F5FF}
     2:['100 % des candidats reçoivent un retour, oral ou écrit, et l’action Boond « Mail / Notif de fin de process », quelle que soit l’issue.','Vivier : relance les P+ (Vivier +++) tous les 3 à 6 mois et les LN+ tous les 6 mois à 1 an, avec une action Boond « Relance à faire – Rappel / To do ».','Le brief est une étape de validation à part entière : c’est le premier livrable du candidat (environ 1 h 30 sur Showcase).','Profil senior (prétentions au-delà de 60K) : pense à la proposition OKR avec Cédric.'],
     5:['Réactivité : ne laisse jamais une recommandation sans réponse.','Transparence : tiens le coopteur informé de l’avancement de son coopté.','Si la cooptation aboutit : prime jusqu’à 1 500 €, restaurant avec le coopté, et le Pack St-Malo pour 3 cooptations sur 1 an glissant. Une recommandation qui aboutit : bon d’achat de 100 €.'],
     4:['Dès la préqual, 4 critères de GO : une histoire à raconter, l’anglais à l’écrit et à l’oral, l’adaptabilité (mobilité en Île-de-France à moins d’1 h, ouverture sectorielle) et l’interaction.','Profil Product junior ? Pense au switch QA. Introduis-le idéalement en fin de préqual, et au plus tard en fin d’E1.','Niveau IA : en dessous de B, le profil n’est pas WeFiiT compatible.'],3:['Dans tes séances de sourcing, il y a trois cabinets que tu n’as pas le droit d’approcher : Henix, Exalt et Acensi.','Si la fiche d’un candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.']};
-  function tipHtml(i){var T=TIPS[i];if(!T)return '';var many=T.length>1;return '<div class="dvf-tip" role="note" data-n="0"><b>Point important</b><p>'+esc(T[0])+'</p>'+(many?'<div class="tip-nav"><button type="button" data-tip="-1" aria-label="Message précédent">←</button><span class="tip-c">1 / '+T.length+'</span><button type="button" data-tip="1" aria-label="Message suivant">→</button></div>':'')+'</div>'}
+  function tipHtml(i){var T=TIPS[i];if(!T)return '';var many=T.length>1;return '<div class="dvf-tip" role="note" data-n="0"><span class="tip-ic" aria-hidden="true">!</span><b>Point important</b><p>'+esc(T[0])+'</p>'+(many?'<div class="tip-nav"><button type="button" data-tip="-1" aria-label="Message précédent">←</button><span class="tip-c">1 / '+T.length+'</span><button type="button" data-tip="1" aria-label="Message suivant">→</button></div>':'')+'<button type="button" class="tip-x" aria-label="Masquer le point important">×</button></div>'}
   var WHEN=['la semaine 1','les semaines 1 à 2','le mois 1','le mois 1','les mois 1 à 2','le mois 2','les semaines 1 à 2','le mois 1'];
   function skDone(i){var n=0;MIS[i].s.forEach(function(_,k){if(SK[i+'-'+k])n++});return n}
   function renderProg(){
@@ -2403,7 +2418,6 @@ body,.dz-shell main{background:#F2F5FF}
         if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}if(B.go)html+='<aside class="dist" role="note"><div class="dist-t"><b>Tu as besoin de savoir <em>quoi faire</em> et <em>quand</em> ?</b><span>Le Parcours candidat te guide étape par étape, du sourcing à la signature.</span></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>'}
         else if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
         else{
-        html+='<section class="bl"><h3 class="dv-h">À quoi sert ce dossier ?</h3><p class="bl-why">'+esc(B.why)+'</p></section>';
         [['Les indispensables','ess'],['Pour aller plus loin','plus'],['Les outils pratiques','tools']].forEach(function(g){var u=bl(B[g[1]]);if(u)html+='<section class="bl"><h3 class="dv-h">'+g[0]+'</h3>'+u+'</section>'});
         var fq='';B.faq.forEach(function(q){var j=KB.findIndex(function(e){return e.q===q});if(j>=0)fq+='<button type="button" class="bl-q" data-faq="'+j+'">'+esc(q)+'<span aria-hidden="true">→</span></button>'});
         if(fq&&0)html+='<section class="bl"><h3 class="dv-h">Les questions fréquentes</h3><div class="bl-qs">'+fq+'</div></section>';
@@ -2456,7 +2470,7 @@ body,.dz-shell main{background:#F2F5FF}
       if(docs.length){html+='<div class="dvl-grid">';docs.forEach(function(it,k){var f=ftype(it);html+='<div class="dvl-card'+(!it[1]&&!it[2]?' off':'')+'"><span class="dvl-ic" style="--ft:'+f[1]+'"><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 13h6M9 17h4"/></svg></span><span class="dvl-t">'+esc(it[0])+'</span><small>'+f[0]+'</small>'+act(it,k,'dv-btn')+'</div>'});html+='</div>'}
       html+='<div class="dvl-sk"><div class="dvl-bar"><span>Compétences</span><b>'+n+' / '+t+'</b><i><em style="width:'+(t?n*100/t:0)+'%"></em></i></div>'+skills()+'</div>';
     }else{
-      html+='<div class="dvf"><aside class="dvf-side">'+cap+'<div class="dvf-bub"><b>'+esc(s.t)+'</b><p>'+esc(m.o)+'</p></div>'+tipHtml(i)+(NOSK[i]?'':ringSv(n,t,72)+'<small>compétences cochées</small>')+'</aside><div class="dvf-main">'+(INTRO[i]?'<div class="dv-intro">'+INTRO[i]+'</div>':'');
+      html+='<div class="dvf"><aside class="dvf-side">'+cap+'<div class="dvf-bub"><b>'+esc(s.t)+'</b>'+(BLOCS[i]&&BLOCS[i].why?'<small class="bub-k">À quoi sert ce dossier ?</small><p>'+esc(BLOCS[i].why)+'</p>':'<p>'+esc(m.o)+'</p>')+'</div>'+(NOSK[i]?'':ringSv(n,t,72)+'<small>compétences cochées</small>')+'</aside><div class="dvf-main">'+tipHtml(i)+(INTRO[i]?'<div class="dv-intro">'+INTRO[i]+'</div>':'');
       if(BLOCS[i]){
         var B=BLOCS[i];
         var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
@@ -2464,7 +2478,6 @@ body,.dz-shell main{background:#F2F5FF}
         if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}if(B.go)html+='<aside class="dist" role="note"><div class="dist-t"><b>Tu as besoin de savoir <em>quoi faire</em> et <em>quand</em> ?</b><span>Le Parcours candidat te guide étape par étape, du sourcing à la signature.</span></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>'}
         else if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
         else{
-        html+='<section class="bl"><h3 class="dv-h">À quoi sert ce dossier ?</h3><p class="bl-why">'+esc(B.why)+'</p></section>';
         [['Les indispensables','ess'],['Pour aller plus loin','plus'],['Les outils pratiques','tools']].forEach(function(g){var u=bl(B[g[1]]);if(u)html+='<section class="bl"><h3 class="dv-h">'+g[0]+'</h3>'+u+'</section>'});
         var fq='';B.faq.forEach(function(q){var j=KB.findIndex(function(e){return e.q===q});if(j>=0)fq+='<button type="button" class="bl-q" data-faq="'+j+'">'+esc(q)+'<span aria-hidden="true">→</span></button>'});
         if(fq&&0)html+='<section class="bl"><h3 class="dv-h">Les questions fréquentes</h3><div class="bl-qs">'+fq+'</div></section>';
@@ -2478,6 +2491,7 @@ body,.dz-shell main{background:#F2F5FF}
     html+='</div>';
     var d=$('mapDetail');d.innerHTML=html;
     d.querySelectorAll('.dvf-tip [data-tip]').forEach(function(btn){btn.onclick=function(){var box=btn.closest('.dvf-tip'),T=TIPS[i],k=((+box.getAttribute('data-n')+(+btn.getAttribute('data-tip')))%T.length+T.length)%T.length;box.setAttribute('data-n',k);box.querySelector('p').textContent=T[k];box.querySelector('.tip-c').textContent=(k+1)+' / '+T.length}});
+    d.querySelectorAll('.tip-x').forEach(function(x){x.onclick=function(){var t=x.closest('.dvf-tip');t.classList.add('out');setTimeout(function(){t.remove()},250)}});
     d.querySelectorAll('[data-faq]').forEach(function(b){b.onclick=function(){var j=+b.getAttribute('data-faq');show('chat',true);ask(KB[j].q,j)}});
     d.querySelectorAll('[data-stage]').forEach(function(b){b.onclick=function(){show('act',true,+b.getAttribute('data-stage'))}});
     d.querySelectorAll('.dv-skd').forEach(function(x){x.addEventListener('toggle',function(){window.__skOpen=x.open})});
@@ -2858,6 +2872,7 @@ body,.dz-shell main{background:#F2F5FF}
     function unread(d){var t=new Date(d.d).getTime();return NOW-t<WIN&&t>seen}
     function ago(d){var n=Math.round((NOW-new Date(d))/864e5);return n<=0?'aujourd’hui':n===1?'hier':n<31?'il y a '+n+' jours':'le '+fmt(d)}
     var CHG=[
+      {d:'2026-11-04',who:'Léa',th:4,t:'Dossiers plus légers',p:'« À quoi sert ce dossier ? » passe sous le titre, à côté du Capitaine. Le point important devient un petit encart en haut de la page, que l’on peut masquer. Viennent ensuite les documents puis les étapes du parcours.'},
       {d:'2026-11-04',who:'Léa',th:4,t:'Qualification et entretiens : documents déplacés',p:'Questions pour creuser l’adaptabilité et Réussir à switcher vos Product en QA passent dans Les indispensables.'},
       {d:'2026-11-04',who:'Léa',th:-1,t:'Questions fréquentes retirées des dossiers',p:'Les dossiers de la Mallette n’affichent plus la rubrique Les questions fréquentes. Les réponses restent accessibles via le Capitaine et la recherche.'},
       {d:'2026-11-04',who:'Léa',th:6,t:'Outils et pilotage allégé',p:'Retrait des questions fréquentes et des étapes du parcours associées.'},
