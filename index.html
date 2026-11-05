@@ -1983,6 +1983,7 @@ body,.dz-shell main{background:#F2F5FF}
 .onb-who button:hover{background:#EAEEF9}
 .onb-who button[aria-pressed="true"]{background:#0F2B80;color:#fff;box-shadow:inset 0 -3px 0 #EC9A3A}
 .onb-who button:focus-visible{outline:2px solid #0042ff;outline-offset:3px}
+.onb-wip{display:grid;gap:8px;justify-items:start;border-top-color:#6B9BD2}.onb-wip h3{margin:0;font:700 18px var(--f-title);color:#002882}.onb-wip p{margin:0;color:#47506B;font-size:14.5px}
 .onb-fr{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;position:relative}
 .onb-fr::before{content:"";position:absolute;left:8%;right:8%;top:24px;height:3px;background:linear-gradient(90deg,#EC9A3A,#0F2B80);border-radius:3px;opacity:.35}
 .onb-fr button{all:unset;box-sizing:border-box;position:relative;display:grid;justify-items:center;gap:6px;width:100%;cursor:pointer;text-align:center}
@@ -3086,6 +3087,7 @@ body,.dz-shell main{background:#F2F5FF}
       function draw(){
         var sel='<div class="onb-who"><b>Tu es :</b><button type="button" data-r="tr" aria-pressed="'+(role==='tr')+'">Talent Recruteur</button><button type="button" data-r="pad" aria-pressed="'+(role==='pad')+'">PAD</button></div>';
         if(!role){box.innerHTML=sel+'<p class="onb-ft">Choisis ton rôle pour voir la frise qui te correspond : les objectifs ne sont pas les mêmes.</p>';bindR();return}
+        if(role==='pad'){box.innerHTML=sel+'<div class="onb-card onb-wip"><span class="tag later">En construction</span><h3>La frise PAD arrive bientôt</h3><p>Les objectifs et les jalons d’intégration d’un PAD sont en cours de rédaction. En attendant, ton point d’entrée reste ton Lead Talent.</p></div>';bindR();return}
         var ONB=ONBR[role];
         var f='<ol class="onb-fr" role="tablist">'+ONB.map(function(m,i){return '<li><button type="button" role="tab" aria-selected="'+(i===cur)+'" data-o="'+i+'"><span class="onb-n">'+esc(m.k)+'</span><small>'+esc(m.h)+'</small></button></li>'}).join('')+'</ol>';
         var m=ONB[cur];
