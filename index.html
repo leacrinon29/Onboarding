@@ -1925,12 +1925,32 @@ body,.dz-shell main{background:#F2F5FF}
 .dist-go:hover{background:#002882;color:#fff}
 .dist-go:focus-visible{outline:2px solid #0042ff;outline-offset:2px}
 
-#homeA[data-lay="3"]{grid-template-areas:"hero" "doubt" "today"!important}
+#homeA[data-lay="3"]{grid-template-areas:"hero" "doubt" "onb" "today"!important}
 #homeA[data-lay] .b-doubt{grid-area:doubt}
+#homeA[data-lay] .b-onb{grid-area:onb}
 .doubt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .doubt-c{background:#fff;border:1px solid #ECEEF5;border-radius:16px;padding:16px 16px 10px;box-shadow:0 1px 2px rgba(0,40,130,.04),0 18px 36px -30px rgba(0,40,130,.35)}
 .doubt-c h3{margin:0 0 8px;display:flex;align-items:center;gap:8px;font:700 15px/1.25 var(--f-title);color:#002882}
 .doubt-c h3 .dz-ico{flex:none;width:20px;height:20px;color:#f98f03;stroke:#f98f03;fill:none;stroke-width:2}
+
+.onb-fr{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;position:relative}
+.onb-fr::before{content:"";position:absolute;left:8%;right:8%;top:24px;height:3px;background:linear-gradient(90deg,#EC9A3A,#0F2B80);border-radius:3px;opacity:.35}
+.onb-fr button{all:unset;box-sizing:border-box;position:relative;display:grid;justify-items:center;gap:6px;width:100%;cursor:pointer;text-align:center}
+.onb-n{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #0F2B80;color:#0F2B80;font:800 15px var(--f-body);text-transform:uppercase;box-shadow:0 3px 0 #D9E0F5;transition:transform .2s}
+.onb-fr button small{font:600 12px/1.25 var(--f-body);color:#47506B}
+.onb-fr button[aria-selected="true"] .onb-n{background:#0F2B80;color:#fff;border-color:#EC9A3A;transform:scale(1.1)}
+.onb-fr button[aria-selected="true"] small{color:#002882;font-weight:800}
+.onb-fr button:focus-visible .onb-n{outline:2px solid #0042ff;outline-offset:3px}
+.onb-card{background:#fff;border:1px solid #ECEEF5;border-top:6px solid #EC9A3A;border-radius:16px;padding:16px 20px 14px;box-shadow:0 1px 2px rgba(0,40,130,.04),0 18px 36px -30px rgba(0,40,130,.35)}
+.onb-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.onb-h h3{margin:0;font:700 18px var(--f-title);color:#002882}
+.onb-o{margin:8px 0 10px;color:#47506B;font-size:14.5px}
+.onb-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 24px}
+.onb-g h4{margin:0 0 4px;font:800 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:#6B7490}
+.onb-g ul{margin:0;padding-left:18px;font-size:14px;color:#1d2540}.onb-g li{margin:3px 0}
+.onb-b{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;padding-top:10px;border-top:1px solid #ECEEF5;font-size:13px;color:#47506B}
+.onb-ft{margin:10px 2px 0;font-size:12.5px;color:#6B7490}
+@media (max-width:700px){.onb-fr{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:14px}.onb-fr::before{display:none}.onb-g{grid-template-columns:1fr}}
+.b-onb .dz-sh{margin-bottom:12px}
 .doubt-to{margin:-4px 0 6px 28px;font-size:12px;font-weight:600;color:#6B7490}
 .doubt-c ul{list-style:none;margin:0;padding:0}
 .doubt-c li+li{border-top:1px solid #ECEEF5}
@@ -1938,7 +1958,7 @@ body,.dz-shell main{background:#F2F5FF}
 .doubt-c button span{color:#0042ff;font-weight:700}
 .doubt-c button:hover{color:#002882}.doubt-c button:focus-visible{outline:2px solid #0042ff;outline-offset:2px;border-radius:6px}
 #homeA .b-doubt .dz-sh{margin-bottom:12px}
-@media (max-width:900px){.doubt{grid-template-columns:1fr}#homeA[data-lay="3"]{grid-template-areas:"hero" "doubt" "today"!important}}
+@media (max-width:900px){.doubt{grid-template-columns:1fr}#homeA[data-lay="3"]{grid-template-areas:"hero" "doubt" "onb" "today"!important}}
 
 .bl{margin-bottom:18px}
 .bl .dv-h{margin:0 0 8px}
@@ -2044,6 +2064,11 @@ body,.dz-shell main{background:#F2F5FF}
       <section class="b-doubt" aria-labelledby="doubtT">
         <div class="dz-sh"><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.6 2.2c-.8.4-1.2 1-1.2 1.9"/><path d="M12 17h.01"/></svg><h2 id="doubtT">J’ai un doute</h2></div>
         <div class="doubt" id="doubt"></div>
+      </section>
+
+      <section class="b-onb" aria-labelledby="onbT">
+        <div class="dz-sh"><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16"/><circle cx="6" cy="18" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18" cy="6" r="1.6"/><path d="M6 18l6-6 6-6"/></svg><h2 id="onbT">Mon intégration</h2></div>
+        <div class="onb" id="onb"></div>
       </section>
 
       <section class="b-quick">
@@ -2989,6 +3014,18 @@ body,.dz-shell main{background:#F2F5FF}
     DOUBT.forEach(function(g){var c=h('<div class="doubt-c"><h3><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true">'+g[2]+'</svg>'+esc(g[0])+'</h3><p class="doubt-to">'+esc(g[1])+'</p><ul></ul></div>');
       g[3].forEach(function(q){var i=KB.findIndex(function(e){return e.q===q[0]});if(i<0&&q[1]==='faq')return;var b=h('<li><button type="button">'+esc(q[0])+'<span aria-hidden="true">→</span></button></li>');b.firstChild.onclick=function(){if(q[1]==='act')goStep(q[2]);else if(q[1]==='map')show('map',true,q[2]+1);else{show('chat',true);ask(KB[i].q,i)}};c.querySelector('ul').appendChild(b)});
       $('doubt').appendChild(c)});
+    var ONB=[{"k": "S1", "t": "Semaine 1", "h": "Je découvre", "o": "Découvrir WeFiiT, l’équipe B&T et les outils du recruteur.", "a": ["Suivre la journée d’onboarding et le petit-déjeuner avec l’équipe B&T", "Prendre en main Boond, avec un focus sur les étapes et les actions", "Comprendre les personae : qui recrute-t-on chez WeFiiT ?", "Écouter tes collègues pitcher WeFiiT pendant des préquals, des E1 et des E2", "Découvrir comment gérer l’inbound et l’outbound"], "v": [], "b": [0, 1, 6]}, {"k": "S2", "t": "Semaine 2", "h": "Je m’approprie", "o": "Maîtriser les bases du process (sourcing, qualification, entretien) et s’approprier les outils, la culture et les personae.", "a": ["Point check-up : le remplissage de Boond", "Point check-up : préqualification et pitch WeFiiT", "Formation : traiter les objections des candidats"], "v": ["Mise en situation : une préqualification fictive, avec un pair qui joue le candidat", "Réussite : mener une préqualification fluide, structurée et pertinente, en suivant la grille"], "b": [3, 4, 2]}, {"k": "S3", "t": "Semaine 3", "h": "Je pratique", "o": "Mener des préqualifications en autonomie et approfondir la compréhension des métiers PO et QA.", "a": ["Point check-up : compréhension du métier PO et QA", "Point check-up : personae candidat et entretien", "Pitcher un candidat en réunion B&T"], "v": ["Entretien en binôme avec un membre de la squad", "Jeu de sourcing (LinkedIn et Boond) : 80 % des candidats trouvés"], "b": [4, 1, 3]}, {"k": "S4", "t": "Semaine 4", "h": "Je consolide", "o": "Valider les acquis du premier mois et gagner en autonomie.", "a": ["Formation : gestion de son agenda", "Check-point : personae WeFiiT", "Check-point : moyens de recrutement (suivi des contacts dans Boond)"], "v": ["Quiz sur les rôles PO et QA : 80 % de bonnes réponses", "Suivi Boond : la donnée sur les contacts", "Mise en situation : pitch WeFiiT avec ton Lead Talent"], "b": [0, 1, 6]}, {"k": "M2", "t": "Mois 2", "h": "Je développe mes compétences", "o": "Mener avec succès les entretiens structurés et suivre ses indicateurs de recrutement.", "a": ["Mener des entretiens structurés", "Rédiger 3 posts LinkedIn clairs et attractifs sur le recrutement", "Suivre ses indicateurs : nombre de préquals, taux E1 vers LN+, taux E1 vers E2 (objectifs chiffrés à fixer avec ton Lead Talent)"], "v": ["Suivi Boond : préquals et taux de conversion", "Entretien en shadow avec ton Lead Talent", "Validation des posts LinkedIn"], "b": [4, 8, 7]}, {"k": "M3", "t": "Mois 3", "h": "J’assure ma maîtrise", "o": "Gérer de manière autonome le process de recrutement, de A à Z.", "a": ["Personnaliser tes objectifs selon tes axes d’amélioration", "Suivre ses indicateurs : taux de contact vers préqual, nombre d’entretiens, taux E1 vers E2 (objectifs chiffrés à fixer avec ton Lead Talent)", "Gérer un recrutement de A à Z"], "v": ["Suivi Boond sur la donnée", "Entretien en shadow avec un autre membre de la squad", "Validation du process géré de A à Z par ton Lead Talent"], "b": [5, 7, 2]}];
+    (function(){var box=$('onb');if(!box)return;var cur=0;
+      function draw(){
+        var f='<ol class="onb-fr" role="tablist">'+ONB.map(function(m,i){return '<li><button type="button" role="tab" aria-selected="'+(i===cur)+'" data-o="'+i+'"><span class="onb-n">'+esc(m.k)+'</span><small>'+esc(m.h)+'</small></button></li>'}).join('')+'</ol>';
+        var m=ONB[cur];
+        var d='<div class="onb-card"><div class="onb-h"><span class="xs-tag">'+esc(m.t)+'</span><h3>'+esc(m.h)+'</h3></div><p class="onb-o">'+esc(m.o)+'</p><div class="onb-g"><div><h4>À faire</h4><ul>'+m.a.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>'+(m.v.length?'<div><h4>Pour valider l’étape</h4><ul>'+m.v.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>':'')+'</div><div class="onb-b"><span>Dans la Mallette :</span>'+m.b.map(function(i){return '<button type="button" class="xbtn" data-m="'+i+'">'+esc(STEPS[i].t)+'</button>'}).join('')+'</div></div>';
+        box.innerHTML=f+d+'<p class="onb-ft">En continu : un point hebdomadaire avec ton Lead Talent pour échanger sur ta pratique et lever les points bloquants. Version de travail, à valider avec l’équipe.</p>';
+        box.querySelectorAll('[data-o]').forEach(function(b){b.onclick=function(){cur=+b.getAttribute('data-o');draw()}});
+        box.querySelectorAll('[data-m]').forEach(function(b){b.onclick=function(){show('map',true,+b.getAttribute('data-m')+1)}});
+      }
+      draw();
+    })();
     $('dzForm').onsubmit=function(ev){ev.preventDefault();var v=$('dzq').value.trim();show('chat',true);if(v){$('dzq').value='';ask(v)}};
   })();
   document.querySelectorAll('[data-lay]').forEach(function(b){if(b.tagName!=='BUTTON')return;b.onclick=function(){var k=b.getAttribute('data-lay'),h=$('homeA');if(k==='a')h.removeAttribute('data-lay');else h.setAttribute('data-lay',k);document.querySelectorAll('button[data-lay]').forEach(function(x){x.setAttribute('aria-pressed',x===b)})}});
