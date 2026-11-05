@@ -1930,6 +1930,7 @@ body,.dz-shell main{background:#F2F5FF}
 .doubt-c{background:#fff;border:1px solid #ECEEF5;border-radius:16px;padding:16px 16px 10px;box-shadow:0 1px 2px rgba(0,40,130,.04),0 18px 36px -30px rgba(0,40,130,.35)}
 .doubt-c h3{margin:0 0 8px;display:flex;align-items:center;gap:8px;font:700 15px/1.25 var(--f-title);color:#002882}
 .doubt-c h3 .dz-ico{flex:none;width:20px;height:20px;color:#f98f03;stroke:#f98f03;fill:none;stroke-width:2}
+.doubt-to{margin:-4px 0 6px 28px;font-size:12px;font-weight:600;color:#6B7490}
 .doubt-c ul{list-style:none;margin:0;padding:0}
 .doubt-c li+li{border-top:1px solid #ECEEF5}
 .doubt-c button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;padding:10px 4px;cursor:pointer;font:500 14px/1.35 var(--f-body);color:#47506B}
@@ -2797,10 +2798,15 @@ body,.dz-shell main{background:#F2F5FF}
       if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,fb);else fb()};
     go(0);
   }
+  function goStep(i){show('act',true);var b=document.querySelector('.xs [data-st="'+i+'"]');if(b)b.click()}
+  var REL={'Comment répondre aux objections des candidats ?':[['Parcours candidat · Pré-qualifier','act',1],['Mallette · Sourcing et chasse','map',3]],
+    'Comment estimer le salaire d’un candidat à l’entrée ?':[['Parcours candidat · Entretien E2','act',4],['Mallette · Cadrage salarial','map',7]],
+    'Dois-je répondre aux candidats que l’on ne retient pas ?':[['Parcours candidat · Retour et vivier','act',7],['Mallette · Expérience candidat & communication','map',8]]};
+  function relNode(q){var r=REL[q];if(!r)return null;var d=h('<div class="xsrc"><span>Pour agir :</span></div>');r.forEach(function(x){var b=h('<button type="button" class="xbtn">'+esc(x[0])+'</button>');b.onclick=function(){if(x[1]==='act')goStep(x[2]);else show('map',true,x[2]+1)};d.appendChild(b)});return d}
   function ask(q,idx){onAsk();me(q);var L=all(),i=idx!=null?idx:best(q);
     if(i<0)bot('Je n’ai rien trouvé dans la documentation pour cette question. Si tu connais la réponse, ajoute-la : elle sera relue par l’équipe, puis réutilisée pour les prochaines personnes.',null,function(n){
       var b=h('<div><button class="btn acc sm" type="button" style="margin-top:4px">Ajouter une réponse</button></div>');n.appendChild(b);b.firstChild.onclick=function(){b.remove();contribute(q,n)}});
-    else if(L[i].car)bot((L[i].intro||'Choisis le ton qui convient, puis copie le message et personnalise les crochets :')+'<div class="car"></div>',L[i].s,function(n){initCar(n.querySelector('.car'),L[i].car,L[i].cl)});else bot(L[i].a,L[i].team?L[i]:L[i].s)}
+    else if(L[i].car)bot((L[i].intro||'Choisis le ton qui convient, puis copie le message et personnalise les crochets :')+'<div class="car"></div>',L[i].s,function(n){initCar(n.querySelector('.car'),L[i].car,L[i].cl)});else bot(L[i].a,L[i].team?L[i]:L[i].s,function(n){var rn=relNode(L[i].q);if(rn)n.querySelector('.t').appendChild(rn)})}
   INTENTS.forEach(function(x){var b=h('<button class="chip'+(x[2]?' ic':'')+'" type="button">'+(x[2]||'')+esc(x[0])+'</button>');b.onclick=function(){ask(KB[x[1]].q,x[1])};$('intents').appendChild(b)});
   $('form').onsubmit=function(ev){ev.preventDefault();var v=$('q').value.trim();if(!v)return;$('q').value='';ask(v)};
   add(h('<div class="msg bot"><div class="t">Bonjour, pose ta question sur le recrutement ou choisis un sujet. Je t’indique le bon document.</div></div>'));
@@ -2841,6 +2847,7 @@ body,.dz-shell main{background:#F2F5FF}
             (e.car?(e.intro?'<p class="ans-intro">'+esc(e.intro)+'</p>':'')+'<div class="car"></div>':'<div class="ans">'+e.a+'</div>')+doc(e.s)+'</article>'+
             (others.length?'<section class="xr-more"><h5>Questions proches</h5>'+others.map(function(x){return '<button type="button" class="xr-q" data-i="'+x[0]+'">'+esc(KB[x[0]].q)+'<span aria-hidden="true">→</span></button>'}).join('')+'</section>':'');
           if(e.car)initCar($('xrl').querySelector('.car'),e.car,e.cl);
+          var rn2=relNode(e.q);if(rn2)$('xrl').querySelector('.best').appendChild(rn2);
           $('xrl').querySelectorAll('.xr-q').forEach(function(b){b.onclick=function(){showAns(+b.getAttribute('data-i'),rk);window.scrollTo({top:0,behavior:'smooth'})}})}
         function run(){var v=$('xrq').value.trim();if(!v){$('xrl').innerHTML='';return}
           var rk=rankKB(v);
@@ -2972,11 +2979,11 @@ body,.dz-shell main{background:#F2F5FF}
     $('dzRec').innerHTML=REC.map(function(r){return '<a class="dz-ri" target="_blank" rel="noopener" href="'+encodeURI(r[1])+'"><span class="fi"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/></svg></span><span><b>'+r[0]+'</b><small>Ouvrir le document</small></span></a>'}).join('');
     INTENTS.slice(0,5).forEach(function(x){var b=h('<button class="dz-chip" type="button">'+esc(x[0])+'</button>');b.onclick=function(){show('chat',true);ask(KB[x[1]].q,x[1])};$('dzChips').appendChild(b)});
     if($('sideForm'))$('sideForm').onsubmit=function(ev){ev.preventDefault();var v=$('sideq').value.trim();show('chat',true);if(v){$('sideq').value='';ask(v)}};
-    var DOUBT=[['Je cherche une méthode','<path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7z"/>',['Comment mener une pré-qualification ?','Comment faire une recherche booléenne ?','Comment relancer un candidat qui ne répond pas ?']],
-      ['Je veux retrouver une bonne pratique','<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/>',['Comment écrire un bon message d’accroche ?','Quels sont les critères de GO / NO GO ?','Comment noter un candidat après un entretien ?']],
-      ['Je ne sais pas quoi répondre à un candidat','<path d="M4 5h16v11H9l-5 4z"/>',['Comment répondre aux objections des candidats ?','Comment estimer le salaire d’un candidat à l’entrée ?','Dois-je répondre aux candidats que l’on ne retient pas ?']]];
-    DOUBT.forEach(function(g){var c=h('<div class="doubt-c"><h3><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true">'+g[1]+'</svg>'+esc(g[0])+'</h3><ul></ul></div>');
-      g[2].forEach(function(q){var i=KB.findIndex(function(e){return e.q===q});if(i<0)return;var b=h('<li><button type="button">'+esc(q)+'<span aria-hidden="true">→</span></button></li>');b.firstChild.onclick=function(){show('chat',true);ask(KB[i].q,i)};c.querySelector('ul').appendChild(b)});
+    var DOUBT=[['Je cherche une méthode','Dans le Parcours candidat','<path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7z"/>',[['Comment mener une pré-qualification ?','act',1],['Comment faire une recherche booléenne ?','act',0],['Comment relancer un candidat qui ne répond pas ?','act',0]]],
+      ['Je veux retrouver une bonne pratique','Dans la Mallette du recruteur','<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/>',[['Comment écrire un bon message d’accroche ?','map',3],['Quels sont les critères de GO / NO GO ?','map',2],['Comment noter un candidat après un entretien ?','map',4]]],
+      ['Je ne sais pas quoi répondre à un candidat','Dans la FAQ, avec les liens utiles','<path d="M4 5h16v11H9l-5 4z"/>',[['Comment répondre aux objections des candidats ?','faq'],['Comment estimer le salaire d’un candidat à l’entrée ?','faq'],['Dois-je répondre aux candidats que l’on ne retient pas ?','faq']]]];
+    DOUBT.forEach(function(g){var c=h('<div class="doubt-c"><h3><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true">'+g[2]+'</svg>'+esc(g[0])+'</h3><p class="doubt-to">'+esc(g[1])+'</p><ul></ul></div>');
+      g[3].forEach(function(q){var i=KB.findIndex(function(e){return e.q===q[0]});if(i<0&&q[1]==='faq')return;var b=h('<li><button type="button">'+esc(q[0])+'<span aria-hidden="true">→</span></button></li>');b.firstChild.onclick=function(){if(q[1]==='act')goStep(q[2]);else if(q[1]==='map')show('map',true,q[2]+1);else{show('chat',true);ask(KB[i].q,i)}};c.querySelector('ul').appendChild(b)});
       $('doubt').appendChild(c)});
     $('dzForm').onsubmit=function(ev){ev.preventDefault();var v=$('dzq').value.trim();show('chat',true);if(v){$('dzq').value='';ask(v)}};
   })();
