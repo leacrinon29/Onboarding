@@ -575,7 +575,8 @@ body{background:var(--dz-bg)}
 .xs .n{width:52px;height:52px;border-radius:50%;background:#fff;border:1.5px solid #002882;color:#002882;display:grid;place-items:center;font:600 16px var(--f-body);transition:background .15s,color .15s,border-color .15s}
 .xs button:hover .n{background:#002882;color:#fff}
 .xs b{font:600 13px/1.25 var(--f-body);color:#002882}
-.xs small{font-size:11px;color:#5E6A86;line-height:1.3}
+.xs-tag{display:inline-block;background:#FFE6C9;color:#B8560A;border:1px solid #EC9A3A;border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
+.xs small{font-size:11px;color:#B8560A;background:#FFE6C9;border:1px solid #EC9A3A;border-radius:999px;padding:2px 9px;font-weight:700;line-height:1.3;display:inline-block}
 .xs-panel{margin-top:22px;background:#fff;border:1px solid var(--dz-line);border-radius:18px;padding:18px 20px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px}
 .xs-panel h4{margin:0 0 4px;font:600 18px var(--f-body);color:#002882}
 .xs-panel p{margin:0 0 10px;color:#5E6A86;font-size:14px}
@@ -2616,7 +2617,7 @@ body,.dz-shell main{background:#F2F5FF}
 
   var ACT=[
    {t:'Sourcer',b:'À traiter',g:'Trouver et approcher les bons profils.',do:['Cible le profil avec une recherche booléenne, sur LinkedIn, WTTJ ou l’APEC','Écris un message d’accroche personnalisé : ne dis pas tout, attise la curiosité','Crée la fiche candidat dans Boond depuis le CV ou LinkedIn'],docs:[['Messages d’accroche performants',L.accroche],['Tuto : ajouter un candidat dans Boond',L.tutoboond]],q:'Comment écrire un bon message d’accroche ?'},
-   {t:'Pré-qualifier',b:'À traiter',g:'Valider l’intérêt du candidat avant l’E1.',do:['Contacte le candidat par téléphone, puis message vocal et mail','Partage la présentation WeFiiT, le blog et le site','Fixe l’E1 et envoie un mail de rappel quelques jours avant, puis un SMS la veille'],docs:[['Pitch WeFiiT candidat',U('pitch')],['Présentation candidat interactive','https://claude.ai/artifact/5sB7DVd7Kp9G81eQuDKZZL']],q:'Comment éviter qu’un candidat annule son entretien ?'},
+   {t:'Préqualification',b:'Pré-qual',g:'Valider l’intérêt du candidat avant l’E1.',do:['Contacte le candidat par téléphone, puis message vocal et mail','Partage la présentation WeFiiT, le blog et le site','Fixe l’E1 et envoie un mail de rappel quelques jours avant, puis un SMS la veille'],docs:[['Pitch WeFiiT candidat',U('pitch')],['Présentation candidat interactive','https://claude.ai/artifact/5sB7DVd7Kp9G81eQuDKZZL']],q:'Comment éviter qu’un candidat annule son entretien ?'},
    {t:'Entretien E1',b:'E1',g:'Sélection et séduction : expériences et hardskills.',do:['Évalue hard et soft skills avec la grille d’évaluation','Note le candidat de A à D dans Boond et ajoute un commentaire','Remplis la fiche Boond au plus tard à l’E1'],docs:[['Les critères d’évaluation chez WeFiiT',L.grille],['Tuto : remplir une fiche candidat',L.tutoboond]],q:'Comment noter un candidat après un entretien ?'},
    {t:'GO / NO GO',b:'E1 → E2',g:'Décider d’avancer ou d’arrêter, et le dire.',do:['Applique les quatre critères : histoire à raconter, anglais, adaptabilité, interaction','Prends le feedback, fais le brief et le cadrage salarial','En cas de NO GO, qualifie KO, LN– ou LN+ et envoie un retour au candidat'],docs:[['Critères de passage : GO / NO GO',U('gonogo')],['Cadrage salarial',L.salaire],['Lexique candidat Boond',U('lexique')]],q:'Quels sont les critères de GO / NO GO ?'},
    {t:'Entretien E2',b:'E2',g:'Validation et approfondissement, le brief étant complété en amont.',do:['Vérifie que le brief et le cadrage sont validés avant l’E2','Organise un E2 pair si besoin (sélection ou séduction)','Passe si A/A ou A/B ; avec une interaction B, il faut une forte histoire à raconter'],docs:[['Critères de passage : GO / NO GO',U('gonogo')],['Les étapes du process',L.notice]],q:'Que faire après un E1 et après un E2 ?'},
@@ -2801,8 +2802,8 @@ body,.dz-shell main{background:#F2F5FF}
   }
   function goStep(i){show('act',true);var b=document.querySelector('.xs [data-st="'+i+'"]');if(b)b.click()}
   var REL={'Quand demander un brief ?':[['Parcours candidat · GO / NO GO','act',3],['Mallette · Cadre et process de recrutement','map',2]],
-    'Comment relancer un candidat qui ne répond pas ?':[['Parcours candidat · Pré-qualifier','act',1],['Mallette · Sourcing et chasse','map',3]],
-    'Comment répondre aux objections des candidats ?':[['Parcours candidat · Pré-qualifier','act',1],['Mallette · Sourcing et chasse','map',3]],
+    'Comment relancer un candidat qui ne répond pas ?':[['Parcours candidat · Préqualification','act',1],['Mallette · Sourcing et chasse','map',3]],
+    'Comment répondre aux objections des candidats ?':[['Parcours candidat · Préqualification','act',1],['Mallette · Sourcing et chasse','map',3]],
     'Comment estimer le salaire d’un candidat à l’entrée ?':[['Parcours candidat · Entretien E2','act',4],['Mallette · Cadrage salarial','map',7]],
     'Dois-je répondre aux candidats que l’on ne retient pas ?':[['Parcours candidat · Retour et vivier','act',7],['Mallette · Expérience candidat & communication','map',8]]};
   function relNode(q){var r=REL[q];if(!r)return null;var d=h('<div class="xsrc"><span>Pour agir :</span></div>');r.forEach(function(x){var b=h('<button type="button" class="xbtn">'+esc(x[0])+'</button>');b.onclick=function(){if(x[1]==='act')goStep(x[2]);else show('map',true,x[2]+1)};d.appendChild(b)});return d}
@@ -2867,7 +2868,7 @@ body,.dz-shell main{background:#F2F5FF}
       var el=$('agAlt');
       if(k==='b'){
         el.innerHTML='<div class="xs">'+ACT.map(function(a,i){return '<button type="button" data-st="'+i+'"><span class="n">'+(i+1)+'</span><b>'+esc(a.t)+'</b><small>'+esc(a.b)+'</small></button>'}).join('')+'</div><div class="xs-panel" id="xsp"></div>';
-        function pick(i){var a=ACT[i];$('xsp').innerHTML='<div><h4>'+esc(a.t)+'</h4><p>'+esc(a.g)+'</p><h5>À faire</h5><ol>'+a.do.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ol></div><div class="docs2"><h5>Statut Boond</h5><p style="margin:0 0 8px;font-weight:600;color:#b8560a">'+esc(a.b)+'</p><h5>Documents</h5>'+docsHtml(a)+'<button class="xbtn" type="button" data-q="'+i+'" style="margin-top:6px">Poser une question</button></div>';
+        function pick(i){var a=ACT[i];$('xsp').innerHTML='<div><h4>'+esc(a.t)+'</h4><p>'+esc(a.g)+'</p><h5>À faire</h5><ol>'+a.do.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ol></div><div class="docs2"><h5>Statut Boond</h5><p style="margin:0 0 8px"><span class="xs-tag">'+esc(a.b)+'</span></p><h5>Documents</h5>'+docsHtml(a)+'<button class="xbtn" type="button" data-q="'+i+'" style="margin-top:6px">Poser une question</button></div>';
           $('xsp').querySelector('[data-q]').onclick=function(){goAsk(a.q)};
           el.querySelectorAll('.xs .n').forEach(function(n,j){n.style.background=j===i?'#002882':'';n.style.color=j===i?'#fff':''})}
         el.querySelectorAll('[data-st]').forEach(function(b){b.onclick=function(){pick(+b.getAttribute('data-st'))}});pick(0);
