@@ -637,7 +637,7 @@ body{background:var(--dz-bg)}
 .dz-shell{grid-template-columns:minmax(0,1fr)!important}
 .dz-top .brand{margin-right:28px!important}
 .dz-tnav{position:static!important;height:auto!important;flex-direction:row!important;align-items:center;gap:4px!important;padding:0!important;border:0!important;background:none!important;margin-right:auto;overflow:visible!important;top:auto!important}
-.dz-tnav .lk{width:auto!important;padding:9px 14px!important;border-radius:999px!important;white-space:nowrap!important;font-size:14.5px!important;box-shadow:none!important}
+.dz-tnav .lk{width:auto!important;padding:9px 11px!important;border-radius:999px!important;white-space:nowrap!important;font-size:14px!important;box-shadow:none!important}
 .dz-tnav .lk[aria-current="page"]{background:var(--dz-blue)!important;color:var(--marine)!important;box-shadow:inset 0 -2px 0 var(--orange)!important}
 .dz-tnav .lk .dz-ico{width:18px;height:18px}
 @media (max-width:860px){
@@ -1925,9 +1925,8 @@ body,.dz-shell main{background:#F2F5FF}
 .dist-go:hover{background:#002882;color:#fff}
 .dist-go:focus-visible{outline:2px solid #0042ff;outline-offset:2px}
 
-#homeA[data-lay="3"]{grid-template-areas:"hero" "doubt" "onb" "today"!important}
+#homeA[data-lay="3"]{grid-template-areas:"hero" "doubt" "today"!important}
 #homeA[data-lay] .b-doubt{grid-area:doubt}
-#homeA[data-lay] .b-onb{grid-area:onb}
 .doubt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .doubt-c{background:#fff;border:1px solid #ECEEF5;border-radius:16px;padding:16px 16px 10px;box-shadow:0 1px 2px rgba(0,40,130,.04),0 18px 36px -30px rgba(0,40,130,.35)}
 .doubt-c h3{margin:0 0 8px;display:flex;align-items:center;gap:8px;font:700 15px/1.25 var(--f-title);color:#002882}
@@ -1958,7 +1957,7 @@ body,.dz-shell main{background:#F2F5FF}
 .doubt-c button span{color:#0042ff;font-weight:700}
 .doubt-c button:hover{color:#002882}.doubt-c button:focus-visible{outline:2px solid #0042ff;outline-offset:2px;border-radius:6px}
 #homeA .b-doubt .dz-sh{margin-bottom:12px}
-@media (max-width:900px){.doubt{grid-template-columns:1fr}#homeA[data-lay="3"]{grid-template-areas:"hero" "doubt" "onb" "today"!important}}
+@media (max-width:900px){.doubt{grid-template-columns:1fr}#homeA[data-lay="3"]{grid-template-areas:"hero" "doubt" "today"!important}}
 
 .bl{margin-bottom:18px}
 .bl .dv-h{margin:0 0 8px}
@@ -2038,6 +2037,7 @@ body,.dz-shell main{background:#F2F5FF}
   <button class="lk" data-v="home" type="button"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg>Accueil</button>
   <button class="lk" data-v="map" type="button"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M3 19h18"/><path d="M5 19v-4l4-3 3.5 2.5L18 8"/><path d="M14.5 8h3.5v3.5"/></svg>Je progresse</button>
   <button class="lk" data-v="act" type="button"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M4 12h4l2-5 4 10 2-5h4"/></svg>J’agis</button>
+  <button class="lk" data-v="onb" type="button"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M4 18h16"/><circle cx="6" cy="18" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18" cy="6" r="1.6"/><path d="M6 18l6-6 6-6"/></svg>Mon intégration</button>
   <button class="lk" data-v="chat" type="button"><svg class="dz-ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Je trouve</button>
 </nav>
 
@@ -2066,10 +2066,6 @@ body,.dz-shell main{background:#F2F5FF}
         <div class="doubt" id="doubt"></div>
       </section>
 
-      <section class="b-onb" aria-labelledby="onbT">
-        <div class="dz-sh"><svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16"/><circle cx="6" cy="18" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18" cy="6" r="1.6"/><path d="M6 18l6-6 6-6"/></svg><h2 id="onbT">Mon intégration</h2></div>
-        <div class="onb" id="onb"></div>
-      </section>
 
       <section class="b-quick">
         <div class="dz-sh"><span style="color:var(--orange)"><svg class="dz-ico" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></span><h2>Accès rapides</h2></div>
@@ -2133,6 +2129,13 @@ body,.dz-shell main{background:#F2F5FF}
     <aside class="tf-side" id="tfSide"></aside>
     <div class="tf-alt" id="tfAlt"></div>
     </div>
+  </section>
+  <section class="view" id="v-onb" aria-label="Mon intégration" hidden>
+    <button class="back" type="button" data-back>← Page principale</button>
+    <span class="eyebrow">Tes trois premiers mois</span>
+    <h2 class="vtitle">Mon intégration<span class="dot">.</span></h2>
+    <p class="vsub">La frise de ton arrivée : de la première semaine au troisième mois, ce que tu fais, comment tu valides chaque étape et les dossiers de la Mallette à travailler.</p>
+    <div class="onb" id="onb"></div>
   </section>
   <section class="view" id="v-act" aria-label="J’agis" hidden>
     <div id="actHome">
@@ -2673,7 +2676,7 @@ body,.dz-shell main{background:#F2F5FF}
   }
 
   /* ---------- navigation entre les pages ---------- */
-  var VIEWS=['home','map','chat','act'],HASH={home:'accueil',map:'progresse',chat:'trouve',act:'agis'},curStep=0;
+  var VIEWS=['home','map','chat','act','onb'],HASH={home:'accueil',map:'progresse',chat:'trouve',act:'agis',onb:'integration'},curStep=0;
   var HIST=[],CUR=['home',0,0];
   function show(v,push,step,item){
     if(VIEWS.indexOf(v)<0)v='home';
