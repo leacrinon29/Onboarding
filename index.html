@@ -2009,6 +2009,8 @@ body,.dz-shell main{background:#F2F5FF}
 .onb-cnt{font:700 11.5px var(--f-body);color:#6B7490;background:#fff;border:1px solid #ECEEF5;border-radius:99px;padding:2px 9px}.onb-cnt.done{color:#1a7f4b;border-color:#bfe3cf}
 .onb-sec .onb-ck{padding-bottom:8px}
 .onb-ck{list-style:none;margin:0;padding:0}.onb-ck li{margin:0}
+.onb-ck li.onb-hl{margin:8px 0 2px;background:#FFF0C2;border:1px solid #F4C142;border-left:5px solid #EC9A3A;border-radius:10px;padding:2px 10px}
+.onb-ck li.onb-hl span{font-weight:700;color:#7A3E00}
 .onb-ck label{display:flex;gap:10px;align-items:flex-start;padding:5px 2px;cursor:pointer;font-size:14px;color:#1d2540;line-height:1.4}
 .onb-ck input{flex:none;width:18px;height:18px;margin-top:1px;accent-color:#0F2B80;cursor:pointer}
 .onb-ck input:checked+span{color:#6B7490;text-decoration:line-through;text-decoration-color:#EC9A3A}
@@ -3120,12 +3122,13 @@ body,.dz-shell main{background:#F2F5FF}
     var ONBT=["Mon badge WOJO", "Mon ordinateur", "Mon téléphone pro", "Ma puce et ma ligne téléphonique", "Ma carte ticket resto (Swile)", "Mon compte Microsoft", "Mon compte Boond", "Mon compte Teams : conversation squad B&T, team interne, équipe squad B&T, squad talent, padawan", "Les invitations aux cérémonies : Call me maybe, rétro coaching, réunion B&T"];
     var ONBR={tr:ONB};
     (function(){var box=$('onb');if(!box)return;var cur=0,role='',CK={},OP={};
+      ONB.forEach(function(m){var s0=m.s[0];if(s0.hl==null){s0.i.push('Avoir accompagné 2 collègues en E1 (2 entretiens support) / 3 préquals support');s0.hl=s0.i.length-1}});
       try{role=localStorage.getItem('wf-onb-role')||''}catch(e){}
       try{CK=JSON.parse(localStorage.getItem('wf-onb-ck')||'{}')}catch(e){CK={}}
       function sv(){try{localStorage.setItem('wf-onb-ck',JSON.stringify(CK))}catch(e){}}
       function ky(k,a,b){return k+'.'+a+'.'+b}
       function stat(m){var n=0,t=0;m.s.forEach(function(sc,a){sc.i.forEach(function(x,b){t++;if(CK[ky(m.k,a,b)])n++})});return [n,t]}
-      function list(k,a,items){return '<ul class="onb-ck">'+items.map(function(x,b){var id=ky(k,a,b);return '<li><label><input type="checkbox" data-k="'+id+'"'+(CK[id]?' checked':'')+'><span>'+esc(x)+'</span></label></li>'}).join('')+'</ul>'}
+      function list(k,a,items,hl){return '<ul class="onb-ck">'+items.map(function(x,b){var id=ky(k,a,b);return '<li'+(hl===b?' class="onb-hl"':'')+'><label><input type="checkbox" data-k="'+id+'"'+(CK[id]?' checked':'')+'><span>'+esc(x)+'</span></label></li>'}).join('')+'</ul>'}
       function draw(){
         var sel='<div class="onb-who"><b>Tu es :</b><button type="button" data-r="tr" aria-pressed="'+(role==='tr')+'">Talent Recruteur</button><button type="button" data-r="pad" aria-pressed="'+(role==='pad')+'">PAD</button></div>';
         if(!role){box.innerHTML=sel+'<p class="onb-ft">Choisis ton rôle pour voir la frise qui te correspond : les objectifs ne sont pas les mêmes.</p>';bindR();return}
@@ -3136,7 +3139,7 @@ body,.dz-shell main{background:#F2F5FF}
         var obj='<section class="onb-obj"><h3>📊 Objectifs</h3><ul><li>7 entretiens (E1)</li><li>12 à 13 préqualifications par semaine</li><li>100 à 120 messages envoyés par semaine</li><li>1 recrutement par semaine</li><li>Utilisation de canaux : APEC / Welcome to the Jungle / LinkedIn / Boond (vivier)</li><li>Être proactif dans les actions</li></ul></section>';
         var f='<ol class="onb-fr" role="tablist">'+L.map(function(m,i){var st=stat(m);return '<li><button type="button" role="tab" aria-selected="'+(i===cur)+'" data-o="'+i+'"><span class="onb-n">'+esc(m.k)+'</span><small>'+esc(m.h)+'</small><i class="onb-pg'+(st[0]===st[1]?' done':'')+'">'+st[0]+' / '+st[1]+'</i></button></li>'}).join('')+'</ol>';
         var m=L[cur],st=stat(m);
-        var d='<div class="onb-card"><div class="onb-h"><span class="xs-tag">'+esc(m.t)+'</span><h3>'+esc(m.h)+'</h3><span class="onb-bar" aria-label="Progression"><em style="width:'+(st[1]?st[0]*100/st[1]:0)+'%"></em></span></div><p class="onb-o">'+esc(m.o)+'</p>'+m.s.map(function(sc,a){var id=m.k+'.'+a,n=0;sc.i.forEach(function(x,b){if(CK[ky(m.k,a,b)])n++});var op=(id in OP)?OP[id]:(a===0);return '<details class="onb-sec" data-d="'+id+'"'+(op?' open':'')+'><summary><h4>'+esc(sc.h)+'</h4><span class="onb-cnt'+(n===sc.i.length?' done':'')+'">'+n+' / '+sc.i.length+'</span></summary>'+list(m.k,a,sc.i)+'</details>'}).join('')+'<div class="onb-b"><span>Dans la Mallette :</span>'+m.b.map(function(i){return '<button type="button" class="xbtn" data-m="'+i+'">'+esc(STEPS[i].t)+'</button>'}).join('')+'</div></div>';
+        var d='<div class="onb-card"><div class="onb-h"><span class="xs-tag">'+esc(m.t)+'</span><h3>'+esc(m.h)+'</h3><span class="onb-bar" aria-label="Progression"><em style="width:'+(st[1]?st[0]*100/st[1]:0)+'%"></em></span></div><p class="onb-o">'+esc(m.o)+'</p>'+m.s.map(function(sc,a){var id=m.k+'.'+a,n=0;sc.i.forEach(function(x,b){if(CK[ky(m.k,a,b)])n++});var op=(id in OP)?OP[id]:(a===0);return '<details class="onb-sec" data-d="'+id+'"'+(op?' open':'')+'><summary><h4>'+esc(sc.h)+'</h4><span class="onb-cnt'+(n===sc.i.length?' done':'')+'">'+n+' / '+sc.i.length+'</span></summary>'+list(m.k,a,sc.i,sc.hl)+'</details>'}).join('')+'<div class="onb-b"><span>Dans la Mallette :</span>'+m.b.map(function(i){return '<button type="button" class="xbtn" data-m="'+i+'">'+esc(STEPS[i].t)+'</button>'}).join('')+'</div></div>';
         box.innerHTML=sel+tools+obj+f+d+'<p class="onb-ft">Valide chaque étape de ta montée en compétence, drive un point hebdo avec Cédric et sollicite l’aide de toute l’équipe. Tes cases cochées restent enregistrées sur cet appareil. Version de travail, à valider avec l’équipe.</p>';
         bindR();
         box.querySelectorAll('details[data-d]').forEach(function(x){x.addEventListener('toggle',function(){OP[x.getAttribute('data-d')]=x.open})});
