@@ -2064,6 +2064,38 @@ body,.dz-shell main{background:#F2F5FF}
 .fi-acts li b{font:700 14.5px var(--f-title);color:#5a2f00}
 .fi-acts li.neg{background:#FDECEC;border-color:#F2B8B8}.fi-acts li.neg span{background:#C0392B}.fi-acts li.neg b{color:#7a1f16}
 @media (max-width:720px){.fi-acts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.fv-pick{position:fixed;left:16px;bottom:16px;z-index:300;display:flex;align-items:center;gap:6px;flex-wrap:wrap;max-width:calc(100vw - 32px);background:#fff;border:1px solid #ECEEF5;border-radius:999px;padding:6px 8px 6px 14px;box-shadow:0 18px 48px rgba(0,40,130,.2);font:600 12px var(--f-body);color:#5E6A86}
+.fv-pick[hidden]{display:none}
+.fv-pick button{border:1px solid #DCE3F5;background:#fff;color:#002882;border-radius:999px;padding:6px 11px;font:600 12px var(--f-body);cursor:pointer}
+.fv-pick button[aria-pressed="true"]{background:#002882;border-color:#002882;color:#fff}
+.fi-hero.slim{padding:14px 22px}.fi-hero.slim h2{font-size:30px}.fi-hero.slim .fi-cap{width:96px}
+.fi-rail{list-style:none;margin:0 0 12px;padding:6px 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;position:relative}
+.fi-rail:before{content:"";position:absolute;left:10%;right:10%;top:28px;height:3px;border-radius:3px;background:linear-gradient(90deg,#EC9A3A,#0F2B80);opacity:.4}
+.fi-rail button{all:unset;box-sizing:border-box;position:relative;display:grid;justify-items:center;gap:6px;width:100%;cursor:pointer;text-align:center}
+.fi-rn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #0F2B80;color:#0F2B80;font:800 14px var(--f-body);box-shadow:0 3px 0 #D9E0F5;transition:transform .2s}
+.fi-rail button small{font:600 12.5px/1.3 var(--f-body);color:#47506B}
+.fi-rail button[aria-selected="true"] .fi-rn{background:#0F2B80;color:#fff;border-color:#EC9A3A;transform:scale(1.12)}
+.fi-rail button[aria-selected="true"] small{color:#002882;font-weight:800}
+.fi-rail button.done .fi-rn{background:#1a7f4b;border-color:#1a7f4b;color:#fff}
+.fi-rail button:focus-visible .fi-rn{outline:2px solid #0042ff;outline-offset:3px}
+.fi-pn{background:#F2F5FF;border:1px solid #DCE3F5;border-radius:16px;padding:14px 18px;display:grid;gap:6px;justify-items:start}
+.fi-pn h4{margin:0;font:700 18px var(--f-title);color:#002882}.fi-pn p{margin:0;font-size:15px;line-height:1.5;color:#1d2540}
+.fi-wiz{display:flex;gap:18px;align-items:center}
+.fi-cap.md{width:120px;flex:none}.fi-cap.md svg{width:100%;height:auto}
+.fi-wb{flex:1;display:grid;gap:10px;min-width:0}
+.fi-dots{display:flex;gap:8px}.fi-dots button{all:unset;width:34px;height:8px;border-radius:99px;background:#D9E0F5;cursor:pointer}
+.fi-dots button.cur{background:#EC9A3A}.fi-dots button.done{background:#1a7f4b}.fi-dots button.cur.done{background:linear-gradient(90deg,#1a7f4b,#EC9A3A)}
+.fi-bub{background:#fff;border:2px solid #0F2B80;border-radius:18px;padding:14px 18px;position:relative}
+.fi-bub:before{content:"";position:absolute;left:-10px;top:26px;width:16px;height:16px;background:#fff;border-left:2px solid #0F2B80;border-bottom:2px solid #0F2B80;transform:rotate(45deg)}
+.fi-bub h4{margin:2px 0 4px;font:700 20px var(--f-title);color:#002882}.fi-bub p{margin:0;font-size:15px;line-height:1.5;color:#1d2540}
+.fi-wa{display:flex;gap:10px;flex-wrap:wrap}
+.fi-bento{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;align-items:start}
+.fi-bento>.fi-hero{grid-column:1/-1}.fi-b-tools,.fi-b-more{min-width:0}.fi-b-side{display:grid;gap:14px}
+.fi-b-more{grid-column:1/-1}
+.fi-steps.compact{gap:6px}.fi-steps.compact li button{padding:8px 12px;gap:10px}.fi-steps.compact .fi-n{width:34px;height:34px;font-size:13px}.fi-steps.compact .fi-tx small{display:none}.fi-steps.compact .fi-tx b{font-size:14.5px}
+.fi-bento .fi-tools{grid-template-columns:1fr 1fr}.fi-bento .fi-tip{align-items:flex-start}.fi-bento .fi-blk{padding:16px 18px}
+@media (max-width:820px){.fi-bento{grid-template-columns:1fr}.fi-wiz{flex-direction:column;align-items:flex-start}.fi-rail{grid-template-columns:repeat(5,minmax(0,1fr))}.fi-rail button small{font-size:11px}.fi-rn{width:36px;height:36px}.fi-rail:before{top:24px}}
 .fi-go{background:#EEF9F2;border:1px solid #bfe3cf;border-left:6px solid #1a7f4b;border-radius:18px;padding:16px 22px}
 .fi-gk{display:inline-block;font:800 11px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#1a7f4b}
 .fi-go h3{margin:4px 0 6px;font:700 19px var(--f-title);color:#0b4a2b}.fi-go p{margin:0;font:500 15px/1.55 var(--f-body);color:#16432b}
@@ -2840,24 +2872,46 @@ body,.dz-shell main{background:#F2F5FF}
   function stageTool(t){var u=null;if(t[2]==='url')u=L[t[3]];return '<button type="button" class="fi-tool" data-t="'+esc(t[2]+'|'+t[3])+'"><b>'+esc(t[0])+'</b><small>'+esc(t[1])+'</small><span aria-hidden="true">'+(t[2]==='url'?'Ouvrir ↗':'Voir →')+'</span></button>'}
   function renderFiche(i){
     var a=ACT[i],f=a.fiche,K='wf-st-'+i,ck=[];try{ck=JSON.parse(localStorage.getItem(K)||'[]')}catch(e){}
-    var n=ck.length,tot=f.steps.length;
-    var html='<button class="back" type="button" id="abk">← Le process de bout en bout</button>'+
-     '<section class="fi"><div class="fi-hero"><div><span class="fi-eyebrow">Étape '+('0'+(i+1)).slice(-2)+' / '+('0'+ACT.length).slice(-2)+' · Parcours candidat</span><h2>'+(i+1)+'. '+esc(a.t)+'<span class="dot">.</span></h2><p class="fi-tag">'+esc(f.tag)+'</p><p class="fi-mission"><b>Ta mission :</b> '+esc(f.mission)+'</p><span class="xs-tag">Statut Boond : '+esc(a.b)+'</span></div><div class="fi-cap" aria-hidden="true">'+mascot({})+'</div></div>'+
-     '<div class="fi-blk"><span class="fi-k">Ton plan d’action</span><div class="fi-hd"><h3>'+esc(f.stepsT)+'</h3><span class="fi-pg" id="fpg">'+n+' / '+tot+'</span></div><ol class="fi-steps">'+f.steps.map(function(x,j){var on=ck.indexOf(j)>-1;return '<li class="'+(on?'on':'')+'"><button type="button" data-s="'+j+'" aria-pressed="'+on+'"><span class="fi-n">'+('0'+(j+1)).slice(-2)+'</span><span class="fi-tx"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></span><span class="fi-ok" aria-hidden="true">✓</span></button></li>'}).join('')+'</ol></div>'+
-     '<div class="fi-tip"><div class="fi-cap sm" aria-hidden="true">'+mascot({})+'</div><div><span class="fi-k">Le conseil du Capitaine</span><p>'+esc(f.tip)+'</p></div></div>'+
-     '<div class="fi-blk"><span class="fi-k">Ta boîte à outils</span><div class="fi-hd"><h3>Tous les documents utiles pour cette étape</h3></div><div class="fi-tools">'+f.tools.map(stageTool).join('')+'</div></div>'+
-     (f.more?'<div class="fi-blk"><span class="fi-k">'+esc(f.more.k)+'</span><div class="fi-hd"><h3>'+esc(f.more.h)+'</h3></div><ul class="fi-acts">'+f.more.items.map(function(x,j){return '<li class="'+(j===f.more.items.length-1?'neg':'')+'"><span>'+(j===f.more.items.length-1?'✕':j+1)+'</span><b>'+esc(x)+'</b></li>'}).join('')+'</ul></div>':'')+
-     '<div class="fi-go"><span class="fi-gk">✓ Le feu vert</span><h3>Ton étape est réussie si…</h3><p>'+esc(f.done)+'</p></div>'+
-     '</section>'+
+    var v=window.__fv||'a',tot=f.steps.length,n=ck.length,cur=Math.min(window.__fcur|0,tot-1);
+    function pd(x){return ('0'+x).slice(-2)}
+    function sv(){try{localStorage.setItem(K,JSON.stringify(ck))}catch(e){}}
+    function hero(c){return '<div class="fi-hero '+(c||'')+'"><div><span class="fi-eyebrow">Étape '+pd(i+1)+' / '+pd(ACT.length)+' · Parcours candidat</span><h2>'+(i+1)+'. '+esc(a.t)+'<span class="dot">.</span></h2><p class="fi-tag">'+esc(f.tag)+'</p><p class="fi-mission"><b>Ta mission :</b> '+esc(f.mission)+'</p><span class="xs-tag">Statut Boond : '+esc(a.b)+'</span></div><div class="fi-cap" aria-hidden="true">'+mascot({})+'</div></div>'}
+    function head(k,h,extra){return '<span class="fi-k">'+k+'</span><div class="fi-hd"><h3>'+esc(h)+'</h3>'+(extra||'')+'</div>'}
+    var pg='<span class="fi-pg" id="fpg">'+n+' / '+tot+'</span>';
+    function stepsList(c){return '<ol class="fi-steps '+(c||'')+'">'+f.steps.map(function(x,j){var on=ck.indexOf(j)>-1;return '<li class="'+(on?'on':'')+'"><button type="button" data-s="'+j+'" aria-pressed="'+on+'"><span class="fi-n">'+pd(j+1)+'</span><span class="fi-tx"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></span><span class="fi-ok" aria-hidden="true">✓</span></button></li>'}).join('')+'</ol>'}
+    function planA(c){return '<div class="fi-blk">'+head('Ton plan d’action',f.stepsT,pg)+stepsList(c)+'</div>'}
+    function planB(){var x=f.steps[cur],on=ck.indexOf(cur)>-1;return '<div class="fi-blk">'+head('Ton plan d’action',f.stepsT,pg)+'<ol class="fi-rail">'+f.steps.map(function(y,j){var d=ck.indexOf(j)>-1;return '<li><button type="button" data-r="'+j+'" aria-selected="'+(j===cur)+'" class="'+(d?'done':'')+'"><span class="fi-rn">'+(d?'✓':pd(j+1))+'</span><small>'+esc(y[0])+'</small></button></li>'}).join('')+'</ol><div class="fi-pn"><span class="fi-k">Étape '+pd(cur+1)+' sur '+pd(tot)+'</span><h4>'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p><button type="button" class="btn sm'+(on?' sec':'')+'" data-done="'+cur+'">'+(on?'Terminée ✓ (annuler)':'Marquer comme faite')+'</button></div></div>'}
+    function planC(){var x=f.steps[cur],last=cur===tot-1,on=ck.indexOf(cur)>-1;return '<div class="fi-blk fi-wiz"><div class="fi-cap md" aria-hidden="true">'+mascot({})+'</div><div class="fi-wb"><span class="fi-k">Ton plan d’action · '+n+' / '+tot+' faites</span><div class="fi-dots">'+f.steps.map(function(y,j){return '<button type="button" data-r="'+j+'" aria-label="Étape '+(j+1)+'" class="'+(j===cur?'cur ':'')+(ck.indexOf(j)>-1?'done':'')+'"></button>'}).join('')+'</div><div class="fi-bub"><span class="fi-k">Étape '+(cur+1)+' sur '+tot+'</span><h4>'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p></div><div class="fi-wa"><button type="button" class="btn sm sec" data-prev="1"'+(cur===0?' disabled':'')+'>← Précédente</button><button type="button" class="btn sm" data-next="1">'+(last?(on?'Terminé ✓':'C’est fait ✓'):'C’est fait, suivante →')+'</button></div></div></div>'}
+    var tip='<div class="fi-tip"><div class="fi-cap sm" aria-hidden="true">'+mascot({})+'</div><div><span class="fi-k">Le conseil du Capitaine</span><p>'+esc(f.tip)+'</p></div></div>';
+    var tools='<div class="fi-blk">'+head('Ta boîte à outils','Tous les documents utiles pour cette étape')+'<div class="fi-tools">'+f.tools.map(stageTool).join('')+'</div></div>';
+    var more=f.more?'<div class="fi-blk">'+head(esc(f.more.k),f.more.h)+'<ul class="fi-acts">'+f.more.items.map(function(x,j){return '<li class="'+(j===f.more.items.length-1?'neg':'')+'"><span>'+(j===f.more.items.length-1?'✕':j+1)+'</span><b>'+esc(x)+'</b></li>'}).join('')+'</ul></div>':'';
+    var go='<div class="fi-go"><span class="fi-gk">✓ Le feu vert</span><h3>Ton étape est réussie si…</h3><p>'+esc(f.done)+'</p></div>';
+    var body;
+    if(v==='b')body=hero()+planB()+tip+tools+more+go;
+    else if(v==='c')body=hero('slim')+planC()+tip+tools+more+go;
+    else if(v==='d')body='<div class="fi-bento">'+hero('slim')+'<div class="fi-b-plan">'+planA('compact')+'</div><div class="fi-b-side">'+tip+go+'</div><div class="fi-b-tools">'+tools+'</div><div class="fi-b-more">'+more+'</div></div>';
+    else body=hero()+planA()+tip+tools+more+go;
+    var html='<button class="back" type="button" id="abk">← Le process de bout en bout</button><section class="fi fi-v'+v+'">'+body+'</section>'+
      (mailsFor(i).length?'<section class="stmail"><h3 class="sh">Mails d’invitation</h3>'+mailsFor(i).map(function(m){return '<details class="mailbox"><summary><span class="mb-t">✉️ '+esc(m.t)+'</span>'+(MAILOPT[m.id]?'<small>'+esc(MAILOPT[m.id])+'</small>':'')+'</summary>'+mailCard(m)+'</details>'}).join('')+'<p class="ml-note"><span class="ph">Orange</span> : à personnaliser avant l’envoi. Les liens et pièces jointes sont dans le Word d’origine.</p></section>':'')+
      '<div class="fi-q"><span>Un doute ?</span><button class="btn sm" type="button" id="aq">Poser la question</button></div>'+
      '<div class="stnav">'+(i>0?'<button class="btn sm sec" type="button" id="ap">← '+esc(ACT[i-1].t)+'</button>':'<span></span>')+(i<ACT.length-1?'<button class="btn sm sec" type="button" id="an">'+esc(ACT[i+1].t)+' →</button>':'')+'</div>';
     var d=$('actDetail');d.innerHTML=html;bindMails(d);
-    d.querySelectorAll('.fi-steps [data-s]').forEach(function(b){b.onclick=function(){var j=+b.getAttribute('data-s'),k=ck.indexOf(j);if(k>-1)ck.splice(k,1);else ck.push(j);try{localStorage.setItem(K,JSON.stringify(ck))}catch(e){}var on=k===-1;b.setAttribute('aria-pressed',on);b.parentNode.classList.toggle('on',on);$('fpg').textContent=ck.length+' / '+tot}});
-    d.querySelectorAll('.fi-tool').forEach(function(b){b.onclick=function(){var p=b.getAttribute('data-t').split('|'),k=p[0],v=p.slice(1).join('|');if(k==='url'){var u=L[v];if(u)window.open(encodeURI(u),'_blank','noopener')}else if(k==='map')show('map',true,+v+1);else if(k==='faq'){var q=KB.findIndex(function(e){return e.q===v});show('chat',true);if(q>=0)ask(KB[q].q,q)}}});
+    function again(){var y=window.scrollY;renderFiche(i);window.scrollTo(0,y)}
+    function toggle(j){var k=ck.indexOf(j);if(k>-1)ck.splice(k,1);else ck.push(j);sv()}
+    d.querySelectorAll('.fi-steps [data-s]').forEach(function(b){b.onclick=function(){var j=+b.getAttribute('data-s');toggle(j);var on=ck.indexOf(j)>-1;b.setAttribute('aria-pressed',on);b.parentNode.classList.toggle('on',on);$('fpg').textContent=ck.length+' / '+tot}});
+    d.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){window.__fcur=+b.getAttribute('data-r');again()}});
+    d.querySelectorAll('[data-done]').forEach(function(b){b.onclick=function(){toggle(+b.getAttribute('data-done'));again()}});
+    d.querySelectorAll('[data-prev]').forEach(function(b){b.onclick=function(){window.__fcur=Math.max(0,cur-1);again()}});
+    d.querySelectorAll('[data-next]').forEach(function(b){b.onclick=function(){if(ck.indexOf(cur)<0){ck.push(cur);sv()}window.__fcur=Math.min(tot-1,cur+1);again()}});
+    d.querySelectorAll('.fi-tool').forEach(function(b){b.onclick=function(){var p=b.getAttribute('data-t').split('|'),k=p[0],vv=p.slice(1).join('|');if(k==='url'){var u=L[vv];if(u)window.open(encodeURI(u),'_blank','noopener')}else if(k==='map')show('map',true,+vv+1);else if(k==='faq'){var q=KB.findIndex(function(e){return e.q===vv});show('chat',true);if(q>=0)ask(KB[q].q,q)}}});
     $('abk').onclick=function(){show('act',true)};
     $('aq').onclick=function(){show('chat',true);setTimeout(function(){try{ask(a.q)}catch(e){}},50)};
     if($('ap'))$('ap').onclick=function(){show('act',true,i)};if($('an'))$('an').onclick=function(){show('act',true,i+2)};
+    var op=document.querySelector('body>.fv-pick');if(op)op.remove();
+    var pk=document.createElement('div');pk.className='fv-pick';pk.setAttribute('role','group');pk.setAttribute('aria-label','Propositions de présentation');
+    pk.innerHTML='<span>Présentation</span>'+[['a','1 · Cartes à cocher'],['b','2 · Frise'],['c','3 · Capitaine guide'],['d','4 · Tableau de bord']].map(function(x){return '<button type="button" data-fv="'+x[0]+'" aria-pressed="'+(x[0]===v)+'">'+x[1]+'</button>'}).join('');
+    document.body.appendChild(pk);pk.querySelectorAll('[data-fv]').forEach(function(b){b.onclick=function(){window.__fv=b.getAttribute('data-fv');window.__fcur=0;again()}});
+    if(!window.__fvTimer)window.__fvTimer=setInterval(function(){var p=document.querySelector('body>.fv-pick'),va=$('v-act');if(p)p.hidden=!va||va.hidden||!document.querySelector('#actDetail .fi')},400);
   }
   function renderStage(i){
     if(ACT[i].fiche)return renderFiche(i);
