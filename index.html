@@ -3216,11 +3216,10 @@ body,.dz-shell main{background:#F2F5FF}
       var el=$('agAlt');
       if(k==='b'){
         el.innerHTML='<div class="xs">'+ACT.map(function(a,i){return '<button type="button" data-st="'+i+'"><span class="n">'+(i+1)+'</span><b>'+esc(a.t)+'</b><small>'+esc(a.b)+'</small></button>'}).join('')+'</div><div class="xs-panel" id="xsp"></div>';
-        function pick(i){var a=ACT[i];$('xsp').innerHTML='<div><h4>'+esc(a.t)+'</h4><p>'+esc(a.g)+'</p>'+(a.fiche?'<button class="btn sm" type="button" data-fi="'+i+'" style="margin:4px 0 10px">Ouvrir la fiche guidée →</button>':'')+'<h5>À faire</h5><ol>'+a.do.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ol></div><div class="docs2"><h5>Statut Boond</h5><p style="margin:0 0 8px"><span class="xs-tag">'+esc(a.b)+'</span></p><h5>Documents</h5>'+docsHtml(a)+'<button class="xbtn" type="button" data-q="'+i+'" style="margin-top:6px">Poser une question</button></div>';
+        function pick(i){var a=ACT[i];$('xsp').innerHTML='<div><h4>'+esc(a.t)+'</h4><p>'+esc(a.g)+'</p>'+'<h5>À faire</h5><ol>'+a.do.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ol></div><div class="docs2"><h5>Statut Boond</h5><p style="margin:0 0 8px"><span class="xs-tag">'+esc(a.b)+'</span></p><h5>Documents</h5>'+docsHtml(a)+'<button class="xbtn" type="button" data-q="'+i+'" style="margin-top:6px">Poser une question</button></div>';
           $('xsp').querySelector('[data-q]').onclick=function(){goAsk(a.q)};
-          var fb=$('xsp').querySelector('[data-fi]');if(fb)fb.onclick=function(){openFiche(i,fb)};
           el.querySelectorAll('.xs .n').forEach(function(n,j){n.style.background=j===i?'#002882':'';n.style.color=j===i?'#fff':''})}
-        el.querySelectorAll('[data-st]').forEach(function(b){b.onclick=function(){var i=+b.getAttribute('data-st');if(ACT[i].fiche){openFiche(i,b);return}pick(i)}});pick(0);
+        el.querySelectorAll('[data-st]').forEach(function(b){b.onclick=function(){var i=+b.getAttribute('data-st');if(ACT[i].fiche){openFiche(i,b);return}$('xsp').style.display='';pick(i)}});if(ACT[0].fiche)$('xsp').style.display='none';else pick(0);
       }else if(k==='c'){
         var COLS=[['Avant l’E1',[0,1]],['Entretiens',[2,3,4]],['Proposition',[5,6]],['Clôture',[7]]];
         el.innerHTML='<div class="xk">'+COLS.map(function(c){return '<section class="xk-col"><h4>'+c[0]+'<span>'+c[1].length+'</span></h4>'+c[1].map(function(i){var a=ACT[i];return '<button class="xk-card" type="button" data-st="'+i+'"><span class="bd">'+esc(a.b)+'</span><b>'+esc(a.t)+'</b><small>'+esc(a.g)+'</small></button>'}).join('')+'</section>'}).join('')+'</div>';
