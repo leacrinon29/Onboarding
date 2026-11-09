@@ -2111,6 +2111,20 @@ body,.dz-shell main{background:#F2F5FF}
 .fi-chip{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;padding:6px 12px;border:1px solid #C9D2EA;border-radius:999px;background:#fff;font:700 12.5px var(--f-body);color:#0042ff}
 .fi-chip:hover{background:#EAEEF9}.fi-chip:focus-visible{outline:2px solid #0042ff;outline-offset:2px}
 .fi-pn .fi-dl,.fi-bub .fi-dl{margin-top:8px}
+
+.fi-zoom{position:fixed;inset:0;z-index:500;display:grid;place-items:center;padding:20px;background:rgba(0,20,70,0);transition:background .25s;overflow:auto}
+.fi-zoom.on{background:rgba(0,20,70,.55)}
+.fi-zc{position:relative;width:min(640px,100%);background:#fff;border-radius:24px;padding:26px 28px 22px;box-shadow:0 40px 90px -30px rgba(0,20,70,.7);border-top:8px solid #EC9A3A;transform:scale(.45);opacity:0;transition:transform .32s cubic-bezier(.2,.8,.2,1.1),opacity .22s}
+.fi-zoom.on .fi-zc{transform:scale(1);opacity:1}
+.fi-zx{all:unset;position:absolute;right:14px;top:10px;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;font:400 26px/1 var(--f-body);color:#6B7490;cursor:pointer}
+.fi-zx:hover{background:#F2F5FF;color:#002882}.fi-zx:focus-visible{outline:2px solid #0042ff}
+.fi-zh{display:flex;align-items:center;gap:16px;margin-bottom:10px}
+.fi-zn{flex:none;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#EC9A3A;color:#fff;font:800 24px var(--f-body);box-shadow:0 0 0 6px #FFE6C9}
+.fi-zh h3{margin:2px 0 0;font:700 26px/1.2 var(--f-title);color:#002882}
+.fi-zd{margin:0 0 12px;font:600 16px/1.5 var(--f-body);color:#47506B}
+.fi-zc .fi-dl{font-size:15.5px;margin-bottom:14px}
+.fi-zf{display:flex;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid #ECEEF5}
+@media (prefers-reduced-motion:reduce){.fi-zc{transition:none}}
 .fi-go{background:#EEF9F2;border:1px solid #bfe3cf;border-left:6px solid #1a7f4b;border-radius:18px;padding:16px 22px}
 .fi-gk{display:inline-block;font:800 11px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#1a7f4b}
 .fi-go h3{margin:4px 0 6px;font:700 19px var(--f-title);color:#0b4a2b}.fi-go p{margin:0;font:500 15px/1.55 var(--f-body);color:#16432b}
@@ -2893,8 +2907,8 @@ body,.dz-shell main{background:#F2F5FF}
     function head(k,h){return '<span class="fi-k">'+k+'</span><div class="fi-hd"><h3>'+esc(h)+'</h3></div>'}
     function chip(t){return '<button type="button" class="fi-tool fi-chip" data-t="'+esc(t[1]+'|'+t[2])+'">'+esc(t[0])+(t[1]==='url'?' ↗':' →')+'</button>'}
     function detail(x){return '<ul class="fi-dl">'+x[2].map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>'+(x[3]&&x[3].length?'<div class="fi-chips">'+x[3].map(chip).join('')+'</div>':'')}
-    function acc(c){return '<ol class="fi-steps '+(c||'')+'">'+f.steps.map(function(x,j){var op=(j===0);return '<li class="'+(op?'open':'')+'"><button type="button" class="fi-sh" data-s="'+j+'" aria-expanded="'+op+'"><span class="fi-n">'+pd(j+1)+'</span><span class="fi-tx"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></span><span class="fi-chev" aria-hidden="true">▾</span></button><div class="fi-sb">'+detail(x)+'</div></li>'}).join('')+'</ol>'}
-    function planA(c){return '<div class="fi-blk">'+head('Ton plan d’action',f.stepsT)+'<p class="fi-hint">Clique sur une étape pour voir le détail.</p>'+acc(c)+'</div>'}
+    function acc(c){return '<ol class="fi-steps '+(c||'')+'">'+f.steps.map(function(x,j){return '<li><button type="button" class="fi-sh" data-s="'+j+'" aria-haspopup="dialog"><span class="fi-n">'+pd(j+1)+'</span><span class="fi-tx"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></span><span class="fi-chev" aria-hidden="true">⤢</span></button></li>'}).join('')+'</ol>'}
+    function planA(c){return '<div class="fi-blk">'+head('Ton plan d’action',f.stepsT)+'<p class="fi-hint">Clique sur une étape pour zoomer dessus.</p>'+acc(c)+'</div>'}
     function planB(){var x=f.steps[cur];return '<div class="fi-blk">'+head('Ton plan d’action',f.stepsT)+'<ol class="fi-rail">'+f.steps.map(function(y,j){return '<li><button type="button" data-r="'+j+'" aria-selected="'+(j===cur)+'"><span class="fi-rn">'+pd(j+1)+'</span><small>'+esc(y[0])+'</small></button></li>'}).join('')+'</ol><div class="fi-pn"><span class="fi-k">Étape '+pd(cur+1)+' sur '+pd(tot)+'</span><h4>'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p>'+detail(x)+'</div></div>'}
     function planC(){var x=f.steps[cur],last=cur===tot-1;return '<div class="fi-blk fi-wiz"><div class="fi-cap md" aria-hidden="true">'+mascot({})+'</div><div class="fi-wb"><span class="fi-k">Ton plan d’action · étape '+(cur+1)+' sur '+tot+'</span><div class="fi-dots">'+f.steps.map(function(y,j){return '<button type="button" data-r="'+j+'" aria-label="Étape '+(j+1)+'" class="'+(j<=cur?'done':'')+(j===cur?' cur':'')+'"></button>'}).join('')+'</div><div class="fi-bub"><h4>'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p>'+detail(x)+'</div><div class="fi-wa"><button type="button" class="btn sm sec" data-prev="1"'+(cur===0?' disabled':'')+'>← Précédente</button><button type="button" class="btn sm" data-next="1"'+(last?' disabled':'')+'>Suivante →</button></div></div></div>'}
     var tip='<div class="fi-tip"><div class="fi-cap sm" aria-hidden="true">'+mascot({})+'</div><div><span class="fi-k">Le conseil du Capitaine</span><p>'+esc(f.tip)+'</p></div></div>';
@@ -2912,12 +2926,25 @@ body,.dz-shell main{background:#F2F5FF}
      '<div class="stnav">'+(i>0?'<button class="btn sm sec" type="button" id="ap">← '+esc(ACT[i-1].t)+'</button>':'<span></span>')+(i<ACT.length-1?'<button class="btn sm sec" type="button" id="an">'+esc(ACT[i+1].t)+' →</button>':'')+'</div>';
     var d=$('actDetail');d.innerHTML=html;bindMails(d);
     function again(){var y=window.scrollY;renderFiche(i);window.scrollTo(0,y)}
-    d.querySelectorAll('.fi-sh').forEach(function(b){b.onclick=function(){var li=b.parentNode,op=!li.classList.contains('open');li.classList.toggle('open',op);b.setAttribute('aria-expanded',op)}});
+    function goTool(b){var p=b.getAttribute('data-t').split('|'),k=p[0],vv=p.slice(1).join('|');if(k==='url'){var u=L[vv];if(u)window.open(encodeURI(u),'_blank','noopener')}else if(k==='map'){closeZoom();show('map',true,+vv+1)}else if(k==='faq'){closeZoom();var q=KB.findIndex(function(e){return e.q===vv});show('chat',true);if(q>=0)ask(KB[q].q,q)}}
+    function closeZoom(){var z=document.querySelector('body>.fi-zoom');if(z){z.remove();document.removeEventListener('keydown',window.__fzKey)}}
+    function openZoom(j,trg){closeZoom();var x=f.steps[j],r=trg.getBoundingClientRect(),ox=r.left+r.width/2,oy=r.top+r.height/2;
+      var z=document.createElement('div');z.className='fi-zoom';z.setAttribute('role','dialog');z.setAttribute('aria-modal','true');z.setAttribute('aria-label',x[0]);
+      z.innerHTML='<div class="fi-zc"><button type="button" class="fi-zx" aria-label="Fermer">×</button><div class="fi-zh"><span class="fi-zn">'+pd(j+1)+'</span><div><span class="fi-k">Étape '+pd(j+1)+' sur '+pd(tot)+'</span><h3>'+esc(x[0])+'</h3></div></div><p class="fi-zd">'+esc(x[1])+'</p>'+detail(x)+'<div class="fi-zf"><button type="button" class="btn sm sec" data-zp="1"'+(j===0?' disabled':'')+'>← Étape précédente</button><button type="button" class="btn sm sec" data-zn="1"'+(j===tot-1?' disabled':'')+'>Étape suivante →</button></div></div>';
+      document.body.appendChild(z);var c=z.querySelector('.fi-zc');c.style.transformOrigin=(ox-(window.innerWidth/2-c.offsetWidth/2))+'px '+(oy-c.getBoundingClientRect().top)+'px';
+      requestAnimationFrame(function(){z.classList.add('on')});
+      z.onclick=function(e){if(e.target===z)closeZoom()};
+      z.querySelector('.fi-zx').onclick=function(){closeZoom();trg.focus()};z.querySelector('.fi-zx').focus();
+      z.querySelectorAll('.fi-tool').forEach(function(b){b.onclick=function(){goTool(b)}});
+      var pz=z.querySelector('[data-zp]'),nz=z.querySelector('[data-zn]');
+      pz.onclick=function(){var t=d.querySelector('.fi-sh[data-s="'+(j-1)+'"]');openZoom(j-1,t||trg)};nz.onclick=function(){var t=d.querySelector('.fi-sh[data-s="'+(j+1)+'"]');openZoom(j+1,t||trg)};
+      window.__fzKey=function(e){if(e.key==='Escape'){closeZoom();trg.focus()}};document.addEventListener('keydown',window.__fzKey)}
+    d.querySelectorAll('.fi-sh').forEach(function(b){b.onclick=function(){openZoom(+b.getAttribute('data-s'),b)}});
     d.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){window.__fcur=+b.getAttribute('data-r');again()}});
     d.querySelectorAll('[data-prev]').forEach(function(b){b.onclick=function(){window.__fcur=Math.max(0,cur-1);again()}});
     d.querySelectorAll('[data-next]').forEach(function(b){b.onclick=function(){window.__fcur=Math.min(tot-1,cur+1);again()}});
-    d.querySelectorAll('.fi-tool').forEach(function(b){b.onclick=function(){var p=b.getAttribute('data-t').split('|'),k=p[0],vv=p.slice(1).join('|');if(k==='url'){var u=L[vv];if(u)window.open(encodeURI(u),'_blank','noopener')}else if(k==='map')show('map',true,+vv+1);else if(k==='faq'){var q=KB.findIndex(function(e){return e.q===vv});show('chat',true);if(q>=0)ask(KB[q].q,q)}}});
-    $('abk').onclick=function(){show('act',true)};
+    d.querySelectorAll('.fi-tool').forEach(function(b){b.onclick=function(){goTool(b)}});
+    $('abk').onclick=function(){closeZoom();show('act',true)};
     $('aq').onclick=function(){show('chat',true);setTimeout(function(){try{ask(a.q)}catch(e){}},50)};
     if($('ap'))$('ap').onclick=function(){show('act',true,i)};if($('an'))$('an').onclick=function(){show('act',true,i+2)};
     var op=document.querySelector('body>.fv-pick');if(op)op.remove();
