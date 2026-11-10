@@ -2301,6 +2301,586 @@ body,.dz-shell main{background:#F2F5FF}
 .fi-zn.ico{background:#0042ff;color:#fff;box-shadow:0 0 0 6px #E8EEFF}.fi-zn.ico svg{width:22px;height:22px}
 @media (max-width:820px){.fi-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fi-flow>li:after,.fi-flow>li:before{display:none}}
 
+.pv{position:relative;margin-top:4px}
+.pv-road{position:absolute;left:0;top:0;width:100%;height:282px;pointer-events:none}
+.pv-st{list-style:none;margin:0;padding:0;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:130px 130px;row-gap:20px}
+.pv-st .pv-3{grid-column:3;grid-row:2}.pv-st .pv-4{grid-column:2;grid-row:2}.pv-st .pv-5{grid-column:1;grid-row:2}
+.pv-st li{animation:wUp .5s cubic-bezier(.2,.8,.2,1) both}
+.pv-st li.pv-1{animation-delay:.07s}.pv-st li.pv-2{animation-delay:.14s}.pv-st li.pv-3{animation-delay:.21s}.pv-st li.pv-4{animation-delay:.28s}.pv-st li.pv-5{animation-delay:.35s}
+.pv-st .fi-sh{all:unset;box-sizing:border-box;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:0 6px;cursor:pointer}
+.pv-st .fi-sh:focus-visible{outline:2px solid #0042ff;outline-offset:4px;border-radius:14px}
+.pv-b{position:relative;display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff;box-shadow:0 0 0 6px #fff,0 14px 26px -12px rgba(0,40,130,.7);transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.pv-b svg{width:30px;height:30px}
+.pv-b i{position:absolute;top:-2px;right:-4px;width:24px;height:24px;border-radius:50%;background:#f98f03;color:#fff;font:800 12px/24px var(--f-body);font-style:normal;box-shadow:0 0 0 3px #fff}
+.pv-st .fi-sh:hover .pv-b{transform:translateY(-3px) scale(1.06)}
+.pv-st b{margin-top:6px;font:700 14px/1.25 var(--f-title);color:#002882}
+.pv-st small{font:500 12.5px/1.35 var(--f-body);color:#5E6A86}
+.pv-ck{margin-top:18px;padding-top:16px;border-top:1px solid #EEF1F8}
+.pv-ck ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pv-ck li{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 7px;border-radius:999px;background:#F2F5FF;font:600 13px var(--f-body);color:#002882}
+.pv-ck li span{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#fff;color:#0042ff}
+.pv-ck li span svg{width:16px;height:16px}
+.pv-ck li.pv-out{background:#002882;color:#fff}.pv-ck li.pv-out span{background:#f98f03;color:#fff}
+@media (max-width:820px){.pv-road{display:none}.pv-st{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;row-gap:16px}.pv-st li{grid-column:auto!important;grid-row:auto!important}}
+
+.fi.fi-w4 .fi-bento.fi-2c{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);grid-template-areas:none;grid-template-rows:none;gap:22px;align-items:start}
+.fi.fi-w4 .fi-2c .fi-l{position:sticky;top:12px;background:#002882;border-radius:24px;overflow:hidden}
+.fi.fi-w4 .fi-2c .fi-r{display:grid;gap:16px;min-width:0}
+.fi.fi-w4 .fi-2c .fi-hero{grid-area:auto;border-radius:0}
+.fi.fi-w4 .fi-2c .fi-b-side{grid-area:auto;margin-top:0;border-radius:0}
+.fi.fi-w4 .fi-2c .fi-b-plan,.fi.fi-w4 .fi-2c .fi-b-tools,.fi.fi-w4 .fi-2c .fi-b-more{grid-area:auto;grid-column:auto}
+@media (max-width:820px){.fi.fi-w4 .fi-bento.fi-2c{grid-template-columns:1fr}.fi.fi-w4 .fi-2c .fi-l{position:static}}
+
+.pv-c{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:0 6px}
+.pv-pick{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:0 0 16px;padding:8px 10px;border-radius:12px;background:#F7F9FE;border:1px dashed #C9D2EA}
+.pv-pick span{font:700 10.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#6B7490;margin-right:4px}
+.pv-pick button{border:1px solid #DCE3F5;background:#fff;color:#002882;border-radius:999px;padding:4px 10px;font:600 12px var(--f-body);cursor:pointer}
+.pv-pick button[aria-pressed="true"]{background:#002882;border-color:#002882;color:#fff}
+/* 2 · Cadran */
+.pv2{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;align-items:center}
+.pv2-d{width:220px;height:220px;animation:wUp .6s both}
+.pv2-t1{font:400 34px var(--f-title);fill:#002882}.pv2-t2{font:600 13px var(--f-body);fill:#6B7490}
+.pv2-l{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.pv2-l li{display:flex;gap:10px;align-items:center}
+.pv2-l span{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:#E8EEFF;color:#0042ff;font:800 12px var(--f-body)}
+.pv2-l li:last-child span{background:#FFE6C9;color:#B8560A}
+.pv2-l b{font:700 14px var(--f-title);color:#002882;margin-right:6px}.pv2-l small{font:500 12.5px var(--f-body);color:#5E6A86}
+/* 3 · Appel */
+.pv3-bar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+.pv3-s{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;animation:wUp .5s both}
+.pv3-i{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:#fff;color:#0042ff;box-shadow:0 0 0 1px #DCE3F5,0 10px 18px -12px rgba(0,40,130,.6)}.pv3-i svg{width:22px;height:22px}
+.pv3-s i{display:block;width:100%;height:10px;background:linear-gradient(90deg,#0042ff,#2f6bff)}
+.pv3-s:first-child i{border-radius:6px 0 0 6px;background:#002882}.pv3-s:last-child i{border-radius:0 6px 6px 0;background:#f98f03}
+.pv3-s b{font:700 13px/1.25 var(--f-title);color:#002882}.pv3-s small{font:500 12px/1.3 var(--f-body);color:#5E6A86}
+.pv3-tl{display:flex;justify-content:space-between;margin-top:10px;font:700 11px var(--f-body);letter-spacing:.06em;color:#9AA3BC;text-transform:uppercase}
+/* 4 · Vignettes */
+.pv4{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pv4 li{border-radius:16px;overflow:hidden;background:#fff;border:1px solid #E3E8F6;padding-bottom:12px;animation:wUp .5s both}
+.pv4-img{position:relative;height:78px;display:grid;place-items:center;background:radial-gradient(circle at 25% 20%,#2f6bff,#0042ff 40%,#002882);color:#fff;margin-bottom:10px;overflow:hidden}
+.pv4-img:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;border:1px solid rgba(255,255,255,.18);right:-40px;bottom:-60px}
+.pv4-img svg{width:32px;height:32px}
+.pv4-img i{position:absolute;left:10px;top:8px;font:800 11px var(--f-body);font-style:normal;color:#ffb347;letter-spacing:.08em}
+.pv4 b{display:block;padding:0 12px;font:700 14px/1.25 var(--f-title);color:#002882}.pv4 small{display:block;padding:3px 12px 0;font:500 12.5px/1.35 var(--f-body);color:#5E6A86}
+/* 5 · Fil */
+.pv5{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:12px}
+.pv5:before{content:"";position:absolute;left:21px;top:12px;bottom:12px;width:2px;background:linear-gradient(#0042ff,#f98f03)}
+.pv5 li{position:relative;display:flex;gap:14px;align-items:center;animation:wUp .5s both}
+.pv5-n{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#0042ff;color:#fff;box-shadow:0 0 0 5px #fff}.pv5-n svg{width:20px;height:20px}
+.pv5 b{display:block;font:700 14.5px var(--f-title);color:#002882}.pv5 small{font:500 13px var(--f-body);color:#5E6A86}
+@media (max-width:820px){.pv2{grid-template-columns:1fr}.pv2-d{margin:0 auto}.pv3-bar{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:14px}.pv4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.kx{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,2fr);border-radius:28px;overflow:hidden;background:#fff;border:1px solid #E3E8F6;box-shadow:0 40px 80px -50px rgba(0,26,86,.55)}
+.kx-l{position:relative;display:flex;flex-direction:column;gap:14px;padding:30px 28px 32px;color:#fff;background:radial-gradient(ellipse at 10% 0,#0a3bd6 0,#002882 55%,#001A56 100%);overflow:hidden}
+.kx-l:before{content:"";position:absolute;right:-120px;top:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.05)}
+.kx-l:after{content:"";position:absolute;left:-80px;bottom:-120px;width:360px;height:360px;border-radius:50%;background:rgba(157,180,255,.10)}
+.kx-pill{position:relative;z-index:1;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font:600 13px var(--f-body);color:#fff}
+.kx-pill svg{width:16px;height:16px;color:#9DB4FF}
+.kx-l h2{position:relative;z-index:1;margin:8px 0 0;font:400 clamp(28px,2.6vw,36px)/1.05 var(--f-title);color:#fff}.kx-l h2 .dot{color:#f98f03}
+.kx-bar{position:relative;z-index:1;display:block;width:56px;height:4px;border-radius:4px;background:#2f6bff}
+.kx-mis{position:relative;z-index:1;margin:0;font:500 17px/1.5 var(--f-body);color:#fff}
+.kx-meta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:6px}
+.kx-meta span{padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.08);font:600 12px var(--f-body);color:#C9D6FF}
+.kx-enj{position:relative;z-index:1;display:flex;gap:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.kx-ei{flex:none;color:#ffb347}.kx-ei svg{width:22px;height:22px}
+.kx-enj b{font:700 15px var(--f-title);color:#ffb347}.kx-enj p{margin:3px 0 0;font:500 13px/1.45 var(--f-body);color:#E3EAFF}
+.kx-art{position:relative;z-index:1;margin-top:auto;padding-top:10px}.kx-art svg{width:100%;height:auto;display:block}
+.kx-r{position:relative;padding:22px 24px 24px;background:#F7F9FE;display:grid;gap:16px;align-content:start}
+.kx-st{justify-self:end;display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:#E8EEFF;font:600 13px var(--f-body);color:#002882}
+.kx-st i{width:9px;height:9px;border-radius:50%;background:#0042ff;box-shadow:0 0 0 4px rgba(0,66,255,.15)}
+.kx-card{background:#fff;border-radius:22px;padding:24px;box-shadow:0 24px 48px -36px rgba(0,40,130,.45)}
+.kx-card h3{margin:0;padding-left:14px;border-left:4px solid #0042ff;font:400 28px/1.15 var(--f-title);color:#002882}
+.kx-sub{margin:8px 0 18px;font:500 15px var(--f-body);color:#47506B}
+.kx-card .kx-grid.kx-wid.kx-g5{grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 6px}
+.kx-wid .kx-wb{all:unset;box-sizing:border-box;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;cursor:pointer;padding:6px 2px;border-radius:16px}
+.kx-wid .kx-wb:focus-visible{outline:2px solid #0042ff;outline-offset:2px}
+.kx-wid .kx-wb:hover .kx-ic{transform:translateY(-3px) scale(1.05)}
+.kx-wid .kx-n{font:700 11px var(--f-body);font-style:normal;letter-spacing:.12em;color:#9AA3BC;margin-top:-2px}
+@media (max-width:820px){.kx-card .kx-grid.kx-wid.kx-g5{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.kx-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kx-grid li{display:flex;flex-direction:column;gap:6px;padding:16px 14px;border-radius:16px;border:1px solid #E3E8F6;background:#fff;transition:transform .2s,box-shadow .2s;animation:wUp .5s both}
+.kx-grid li:hover{transform:translateY(-2px);box-shadow:0 16px 30px -22px rgba(0,40,130,.5)}
+.kx-grid li:nth-child(2){animation-delay:.04s}.kx-grid li:nth-child(3){animation-delay:.08s}.kx-grid li:nth-child(4){animation-delay:.12s}.kx-grid li:nth-child(5){animation-delay:.16s}.kx-grid li:nth-child(6){animation-delay:.2s}.kx-grid li:nth-child(7){animation-delay:.24s}.kx-grid li:nth-child(8){animation-delay:.28s}
+.kx-ic{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#E8EEFF;color:#0042ff;margin-bottom:6px}.kx-ic svg{width:26px;height:26px}
+.kx-grid li:last-child .kx-ic{background:#FFE6C9;color:#B8560A}
+.kx-grid b{font:700 15.5px/1.2 var(--f-title);color:#002882}
+.kx-grid small{font:500 13px/1.45 var(--f-body);color:#5E6A86}
+.kx-val{display:flex;gap:18px;align-items:center;margin-top:18px;padding:18px 20px;border-radius:18px;background:#E8EEFF}
+.kx-vi{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#0042ff;color:#fff;box-shadow:0 10px 20px -10px rgba(0,66,255,.8)}.kx-vi svg{width:26px;height:26px}
+.kx-val b{display:block;margin-bottom:8px;font:700 18px var(--f-title);color:#002882}
+.kx-val ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
+.kx-val li{display:flex;gap:8px;align-items:center;font:500 14.5px var(--f-body);color:#002882}.kx-val li svg{width:16px;height:16px;color:#0042ff;flex:none}
+.kx-more{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:16px;align-items:start}.kx-more .fi-tools{grid-template-columns:1fr 1fr}.kx-more .fi-acts{grid-template-columns:1fr}.kx-more .fi-blk{border:0;border-radius:20px;box-shadow:0 24px 48px -40px rgba(0,40,130,.45)}
+@media (max-width:1100px){.kx-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:820px){.kx-more{grid-template-columns:1fr}.kx{grid-template-columns:1fr}.kx-art{max-width:320px}.kx-val ul{grid-template-columns:1fr}}
+
+.kx-art{margin:0 -6px 4px}.kx-l .kx-art{order:-1;margin-top:-6px}
+.kx-steps ol{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;position:relative}
+.kx-steps ol:before{content:"";position:absolute;left:8%;right:8%;top:30px;height:2px;background:repeating-linear-gradient(90deg,#9DB4FF 0 6px,transparent 6px 12px)}
+.kx-steps li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;animation:wUp .5s both}
+.kx-steps li:nth-child(2){animation-delay:.05s}.kx-steps li:nth-child(3){animation-delay:.1s}.kx-steps li:nth-child(4){animation-delay:.15s}.kx-steps li:nth-child(5){animation-delay:.2s}.kx-steps li:nth-child(6){animation-delay:.25s}
+.kx-sn{position:relative;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff;box-shadow:0 0 0 6px #fff,0 12px 22px -12px rgba(0,40,130,.7);margin-bottom:6px}
+.kx-sn svg{width:26px;height:26px}
+.kx-sn i{position:absolute;top:-3px;right:-5px;width:22px;height:22px;border-radius:50%;background:#f98f03;color:#fff;font:800 11.5px/22px var(--f-body);font-style:normal;box-shadow:0 0 0 3px #fff}
+.kx-steps b{font:700 14px/1.25 var(--f-title);color:#002882}
+.kx-steps small{font:500 12.5px/1.35 var(--f-body);color:#5E6A86}
+/* infos clés compactes */
+.kx-card h3{font-size:24px}
+.kx-sub{margin:6px 0 14px}
+.kx-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px}
+.kx-grid li{flex-direction:row;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;border-color:#EEF1F8}
+.kx-ic{flex:none;width:40px;height:40px;margin:0}.kx-ic svg{width:20px;height:20px}
+.kx-grid li>div{display:grid;gap:1px;min-width:0}.kx-grid li b{font-size:14.5px}
+.kx-grid small{font-size:12.5px;line-height:1.35}
+.kx-val{margin-top:14px;padding:14px 18px}
+@media (max-width:1100px){.kx-steps ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:16px}.kx-steps ol:before{display:none}.kx-grid{grid-template-columns:1fr}}
+
+.kx-grid.kx-wid{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 10px;margin-top:20px}
+.kx-wid li{flex-direction:column!important;align-items:center;text-align:center;gap:8px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+.kx-wid li:hover{transform:none}
+.kx-wid .kx-ic{width:64px!important;height:64px!important;background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff;box-shadow:0 0 0 6px #fff,0 12px 22px -12px rgba(0,40,130,.7);transition:transform .25s,background .25s,color .25s}
+.kx-wid .kx-ic svg{width:26px!important;height:26px!important}
+.kx-wid li:hover .kx-ic{transform:translateY(-3px) scale(1.05)}
+.kx-grid.kx-wid li:last-child .kx-ic{background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff}
+
+.kx-wid b{font:700 14px/1.25 var(--f-title)!important;color:#002882}
+@media (max-width:820px){.kx-grid.kx-wid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.kx-br{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.kx-br li{padding:12px 14px;border-radius:14px;background:#F7F9FE;border-left:4px solid #9DB4FF}
+.kx-br li.go{border-left-color:#1a7f4b;background:#EEF9F2}
+.kx-br li.no{border-left-color:#C0392B;background:#FDF0EE}
+.kx-bk{display:block;font:800 10.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#6B7490;margin-bottom:3px}
+.kx-br li.go .kx-bk{color:#1a7f4b}.kx-br li.no .kx-bk{color:#C0392B}
+.kx-br b{display:block;font:700 15px var(--f-title);color:#002882}
+.kx-br p{display:flex;gap:8px;align-items:flex-start;margin:4px 0 0;font:500 13.5px/1.45 var(--f-body);color:#1E2A4A}
+.kx-br li.no p{font-weight:700;color:#7a1f16}
+.kx-br li.no p i{flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#C0392B;color:#fff;font:800 12px var(--f-body);font-style:normal}
+
+.kx-docs{background:#fff;border-radius:22px;box-shadow:0 24px 48px -36px rgba(0,40,130,.45);overflow:hidden}
+.kx-docs summary{list-style:none;display:flex;align-items:center;gap:14px;padding:18px 22px;cursor:pointer}
+.kx-docs summary::-webkit-details-marker{display:none}
+.kx-docs summary:hover{background:#F7F9FE}
+.kx-docs summary:focus-visible{outline:2px solid #0042ff;outline-offset:-2px}
+.kx-dic{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff}.kx-dic svg{width:22px;height:22px}
+.kx-docs summary>span:nth-child(2){flex:1;display:grid;gap:2px}
+.kx-docs summary b{font:700 17px var(--f-title);color:#002882}
+.kx-docs summary small{font:500 13px var(--f-body);color:#5E6A86}
+.kx-docs summary i{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#E8EEFF;color:#0042ff;font:700 20px/1 var(--f-body);font-style:normal;transition:transform .25s}
+.kx-docs[open] summary i{transform:rotate(45deg)}
+.kx-docs .fi-tools{padding:0 22px 20px;grid-template-columns:1fr 1fr;animation:wUp .35s both}
+.kx-more.one{grid-template-columns:1fr}
+.kx-more.one .kx-br{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:820px){.kx-more.one .kx-br{grid-template-columns:1fr}.kx-docs .fi-tools{grid-template-columns:1fr}}
+
+.kx-more.one .kx-br{align-items:start}.kx-br li:has(.kx-mail[open]){grid-column:1/-1;order:5}.kx-br li.no{order:4}
+.kx-mail{margin-top:10px;background:#fff;border:1px solid #bfe3cf;border-radius:12px}
+.kx-mail>summary{padding:9px 12px;font-size:13.5px}
+.kx-mail .mb-t{font:700 13.5px var(--f-body);color:#0b4a2b}
+.kx-mail .ml{margin:0 10px 10px}
+
+.kx-more.one .kx-br{align-items:stretch!important;gap:14px}
+.kx-r{display:flex!important;flex-direction:column}.kx-r>.kx-st{align-self:flex-end}
+.kx-r>.kx-card{flex:1;display:flex;flex-direction:column}.kx-r>.kx-card>.kx-grid.kx-wid{flex:1;align-content:space-evenly}
+.kx-br>li{display:flex;flex-direction:column;gap:6px;padding:18px 18px 16px!important;border-radius:18px!important;border:1px solid #E3E8F6!important;border-top:4px solid #0042ff!important;background:#fff!important;box-shadow:0 18px 36px -30px rgba(0,40,130,.5)}
+.kx-br>li.go{border-top-color:#1a7f4b!important}.kx-br>li.no{border-top-color:#C0392B!important}
+.kx-bt{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.kx-bi{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#E8EEFF;color:#0042ff}.kx-bi svg{width:18px;height:18px}
+.kx-br>li.go .kx-bi{background:#E3F4EA;color:#1a7f4b}
+.kx-br>li.no .kx-bi{background:#C0392B;color:#fff}.kx-bi>b{font:800 16px var(--f-body)!important;color:#fff!important}
+.kx-br .kx-bk{margin:0}
+.kx-br>li>b{font:700 16px/1.3 var(--f-title)!important}
+.kx-br>li>p{margin:0!important;font:500 13.5px/1.45 var(--f-body)!important;color:#5E6A86!important}
+.kx-br>li.no>p{font-weight:700!important;color:#9A2B20!important}
+.kx-mail{margin-top:auto!important;border:0!important;background:none!important}
+.kx-br>li.go .kx-mail{padding-top:6px}
+.kx-mail>summary{display:inline-flex!important;align-items:center;gap:6px;padding:7px 14px!important;border-radius:999px;background:#1a7f4b;color:#fff;cursor:pointer;list-style:none}
+.kx-mail>summary::-webkit-details-marker{display:none}.kx-mail>summary:before{display:none!important}
+.kx-mail .mb-t{color:#fff!important;font:700 13px var(--f-body)!important}
+.kx-mail[open]>summary{background:#0b4a2b}
+.kx-mail .ml{margin:12px 0 0!important}
+
+.fz-back{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:350;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border:0;border-radius:999px;background:#002882;color:#fff;font:700 14px var(--f-body);cursor:pointer;box-shadow:0 18px 36px -14px rgba(0,26,86,.7);animation:wUp .35s both}
+.fz-back:hover{background:#0042ff}.fz-back[hidden]{display:none}
+
+.kx-mbtn{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:0;border-radius:999px;background:#1a7f4b;color:#fff;font:700 13px var(--f-body);cursor:pointer}
+.kx-mbtn:hover{background:#0b4a2b}.kx-mbtn:focus-visible{outline:2px solid #0042ff;outline-offset:2px}
+.kx-mz .fi-zc{width:min(760px,100%);max-height:calc(100vh - 48px);overflow:auto;border-top-color:#1a7f4b}
+.kx-mzh{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.kx-mzi{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#1a7f4b;color:#fff;font-size:22px;box-shadow:0 0 0 6px #E3F4EA}
+.kx-mzh h3{margin:2px 0 0;font:400 26px var(--f-title);color:#002882}
+.kx-mz .ml{margin:0}
+
+/* === Fiche E2 bis : 5 propositions === */
+.e2-pick{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:0 0 16px;padding:8px 10px;border-radius:12px;background:#fff;border:1px dashed #C9D2EA}
+.e2-pick span{font:700 10.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#6B7490;margin-right:4px}
+.e2-pick button{border:1px solid #DCE3F5;background:#fff;color:#002882;border-radius:999px;padding:5px 12px;font:600 12.5px var(--f-body);cursor:pointer}
+.e2-pick button[aria-pressed="true"]{background:#002882;border-color:#002882;color:#fff}
+.e2{--nv:#002882;--el:#0042ff;--gl:#F2F5FF}
+.e2 h2{margin:6px 0 0;font:400 clamp(28px,2.8vw,40px)/1.05 var(--f-title);color:#fff}.e2 h2 .dot{color:#f98f03}
+.e2-eb{display:inline-block;font:700 11.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:#ffb347}
+.e2-mis{margin:10px 0 0;font:500 15.5px/1.5 var(--f-body);color:#E3EAFF}
+.e2-art{width:120px}.e2-art svg{width:100%;height:auto;display:block}
+.e2-ci{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff;box-shadow:0 10px 20px -12px rgba(0,40,130,.8)}.e2-ci svg{width:21px;height:21px}
+.e2-ci.lg{width:54px;height:54px;border-radius:16px}.e2-ci.lg svg{width:26px;height:26px}
+.e2-n{font:400 26px var(--f-title);color:#C9D2EA;min-width:34px}
+.e2-ch{display:flex;align-items:center;gap:12px}
+.e2-ch>div{flex:1;min-width:0}.e2-ch b{display:block;font:700 16px/1.25 var(--f-title);color:#002882}.e2-ch small{display:block;margin-top:2px;font:500 13px/1.4 var(--f-body);color:#5E6A86}
+.e2-ck{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px solid #C9D2EA;background:#fff;color:transparent;cursor:pointer;transition:all .25s}
+.e2-ck svg{width:18px;height:18px}.e2-ck:hover{border-color:#1a7f4b;color:#9fd4b4}
+.e2-ck.ok{background:#1a7f4b;border-color:#1a7f4b;color:#fff;transform:scale(1.05)}
+.e2-ck:focus-visible{outline:2px solid #0042ff;outline-offset:2px}
+.e2-tag{display:inline-block;margin:12px 0 8px;padding:4px 10px;border-radius:8px;background:#E8EEFF;font:700 11px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:#0042ff}
+.e2-it{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.e2-it li{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;background:#F7F9FE;font:600 13.5px/1.3 var(--f-body);color:#002882}
+.e2-it li span{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#0042ff;box-shadow:0 0 0 1px #E3E8F6}.e2-it li span svg{width:16px;height:16px}
+.e2-chips{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.e2-chips li{display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 6px;border-radius:999px;background:#F2F5FF;font:600 12.5px var(--f-body);color:#002882}
+.e2-chips li span{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;color:#0042ff}.e2-chips li span svg{width:13px;height:13px}
+.e2-ring{display:block;transform:rotate(-90deg)}.e2-ring circle{fill:none;stroke-width:8}.e2-ring .b{stroke:rgba(255,255,255,.15)}.e2-ring .p{stroke:#f98f03;stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
+.e2-prog{position:relative;display:flex;align-items:center;gap:14px}
+.e2-prog .e2-cnt{position:absolute;left:0;top:0;width:92px;height:92px;display:grid;place-items:center;font:500 14px var(--f-body);color:#9DB4FF}
+.e2-cnt b{font:400 30px var(--f-title);color:#fff}
+.e2-prog p{margin:0;font:600 13.5px/1.4 var(--f-body);color:#C9D6FF;max-width:120px}
+.e2-sp{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;padding:14px;border-radius:18px;background:#FFF4E3;border:1px solid #FFD9A6}
+.e2-spk{display:flex;align-items:center;gap:8px;font:700 14px var(--f-title);color:#8a4500}
+.e2-spk i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#f98f03;color:#fff;font:800 14px var(--f-body);font-style:normal}
+.e2-sp>div{flex:1;min-width:150px;padding:8px 12px;border-radius:12px;background:#fff}
+.e2-sp>div b{display:block;font:700 15px var(--f-title);color:#002882}.e2-sp>div span{font:500 13px var(--f-body);color:#47506B}
+.e2-sp.dark{background:rgba(249,143,3,.1);border-color:rgba(249,143,3,.35)}.e2-sp.dark .e2-spk{color:#ffb347}
+.e2-sp.dark>div{background:rgba(255,255,255,.08)}.e2-sp.dark>div b{color:#fff}.e2-sp.dark>div span{color:#C9D6FF}
+.e2-note{border-radius:22px;padding:20px;background:#002882;color:#fff}
+.e2-nh{display:flex;align-items:center;gap:12px;margin-bottom:14px}.e2-nh b{display:block;font:400 22px var(--f-title);color:#fff}.e2-nh small{font:500 13px var(--f-body);color:#9DB4FF}
+.e2-note .e2-ci,.e2v4 .note .e2-ci{background:#f98f03;box-shadow:none}
+.e2-ng{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.e2-ng li{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:rgba(255,255,255,.07)}
+.e2-ni{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff}.e2-ni svg{width:16px;height:16px}
+.e2-ng b{display:block;font:700 13.5px/1.25 var(--f-title);color:#fff}.e2-ng small{display:block;font:500 12px/1.35 var(--f-body);color:#9DB4FF}
+.e2-ng li.hl{background:rgba(249,143,3,.16)}.e2-ng li.hl .e2-ni{background:#f98f03}
+/* v1 checklist */
+.e2v1{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);border-radius:28px;overflow:hidden;background:#F7F9FE;border:1px solid #E3E8F6;box-shadow:0 40px 80px -50px rgba(0,26,86,.55)}
+.e2-l{display:flex;flex-direction:column;gap:16px;padding:28px 24px;background:radial-gradient(ellipse at 10% 0,#0a3bd6 0,#002882 55%,#001A56 100%)}
+.e2-r{padding:22px;display:grid;gap:16px;align-content:start}
+.e2-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.e2-cards li{padding:16px;border-radius:18px;background:#fff;border:1px solid #E3E8F6;transition:box-shadow .25s,border-color .25s;animation:wUp .45s both}
+.e2-cards li.wide{grid-column:span 4}
+.e2-cards li.wide .e2-it{grid-template-columns:repeat(4,minmax(0,1fr))}
+.e2-cards li:not(.wide) .e2-n{display:none}
+.e2-cards li:not(.wide) .e2-ch{position:relative;flex-direction:column;align-items:flex-start;gap:10px}.e2-cards li:not(.wide) .e2-ck{position:absolute;top:0;right:0}
+.e2-cards li.ok,.e2-glass li.ok,.e2v4 .bx.ok{border-color:#9fd4b4;box-shadow:0 0 0 3px #E3F4EA}
+/* v2 cockpit */
+.e2v2{padding:24px;border-radius:30px;background:radial-gradient(ellipse at 20% 0,#0a3bd6 0,#002882 45%,#001A56 100%);display:grid;gap:16px;box-shadow:0 40px 80px -40px rgba(0,26,86,.7)}
+.e2-hero2{display:flex;align-items:center;gap:22px}.e2-hero2>div:nth-child(2){flex:1}
+.e2-prog.big .e2-cnt{width:132px;height:132px}.e2-prog.big .e2-cnt b{font-size:40px}
+.e2-glass{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.e2-glass li{padding:16px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);animation:wUp .45s both}
+.e2-glass li.wide{grid-column:span 2}
+.e2-glass .e2-ch b{color:#fff}.e2-glass .e2-ch small{color:#9DB4FF}
+.e2-glass .e2-chips li{background:rgba(255,255,255,.1);color:#fff}.e2-glass .e2-chips li span{background:rgba(255,255,255,.15);color:#fff}
+.e2-glass .e2-ck{background:transparent;border-color:rgba(255,255,255,.35)}
+.e2-glass li.ok{border-color:#4cc283;box-shadow:0 0 0 3px rgba(76,194,131,.25)}
+.e2-note.glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.e2-ng.cols5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.e2-ng.cols5 li{flex-direction:column;align-items:flex-start}
+/* v3 dossier */
+.e2v3{display:grid;gap:16px}
+.e2-top3{display:flex;align-items:center;gap:22px;padding:24px 28px;border-radius:26px;background:radial-gradient(ellipse at 10% 0,#0a3bd6 0,#002882 55%,#001A56 100%)}
+.e2-g3{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px;align-items:start}
+.e2-tl{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:12px}
+.e2-tl:before{content:"";position:absolute;left:23px;top:20px;bottom:20px;width:2px;background:linear-gradient(#0042ff,#f98f03)}
+.e2-tl li{position:relative;display:flex;gap:14px;align-items:flex-start;animation:wUp .45s both}
+.e2-tn{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#0042ff;color:#fff;box-shadow:0 0 0 6px #F2F5FF}.e2-tn svg{width:22px;height:22px}
+.e2-tl li.ok .e2-tn{background:#1a7f4b}
+.e2-tb{flex:1;padding:14px 16px;border-radius:16px;background:#fff;border:1px solid #E3E8F6}
+.e2-paper{position:sticky;top:12px;padding:26px 24px 20px;border-radius:6px 22px 22px 6px;background:#fff;box-shadow:0 30px 60px -36px rgba(0,26,86,.55),inset 6px 0 0 #f98f03;background-image:repeating-linear-gradient(#fff 0 39px,#EEF1F8 39px 40px)}
+.e2-ph{margin-bottom:6px}.e2-ph span{display:block;font:700 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:#B8560A}.e2-ph b{font:400 24px var(--f-title);color:#002882}
+.e2-pl{display:flex;gap:10px;align-items:baseline;min-height:40px;padding-top:10px}
+.e2-pl b{flex:none;width:44%;font:700 13.5px var(--f-title);color:#002882}.e2-pl span{font:500 13px var(--f-body);color:#6B7490;font-style:italic}
+/* v4 bento */
+.e2-b4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.e2v4 .bx{padding:18px;border-radius:22px;background:#fff;border:1px solid #E3E8F6;box-shadow:0 20px 40px -34px rgba(0,40,130,.5);animation:wUp .45s both}
+.e2v4 .bx .e2-ch{justify-content:space-between;margin-bottom:12px}
+.e2-bt{display:block;font:700 17px var(--f-title);color:#002882}.e2v4 .bx>small{display:block;margin-top:3px;font:500 13px/1.4 var(--f-body);color:#5E6A86}
+.e2v4 .hero{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;gap:12px;background:radial-gradient(ellipse at 10% 0,#0a3bd6 0,#002882 55%,#001A56 100%);border:0}
+.e2v4 .big{grid-column:span 2}
+.e2v4 .note{grid-column:span 4;background:#002882;border:0}
+.e2-ng.icons{grid-template-columns:repeat(5,minmax(0,1fr))}.e2-ng.icons li{flex-direction:column;text-align:center}
+.e2v4 .sp{grid-column:span 4;padding:0;border:0;box-shadow:none;background:none}
+/* v5 duo */
+.e2v5{display:grid;gap:16px}
+.e2-hero5{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,.9fr);gap:22px;align-items:center;padding:24px 28px;border-radius:26px;background:radial-gradient(ellipse at 10% 0,#0a3bd6 0,#002882 55%,#001A56 100%)}
+.e2-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.e2-col{padding:20px;border-radius:24px;background:#fff;border:1px solid #E3E8F6}
+.e2-col.dark{background:#002882;border:0}
+.e2-colh{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.e2-colh>span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#f98f03;color:#fff;font:800 15px var(--f-body)}
+.e2-colh>div:nth-child(2){flex:1}.e2-colh b{display:block;font:400 22px var(--f-title);color:#002882}.e2-colh small{font:500 13px var(--f-body);color:#6B7490}
+.e2-col.dark .e2-colh b{color:#fff}.e2-col.dark .e2-colh small{color:#9DB4FF}
+.e2-prog.sm .e2-cnt{width:64px;height:64px;color:#6B7490}.e2-prog.sm .e2-cnt b{font-size:20px;color:#002882}.e2-prog.sm .e2-ring .b{stroke:#E8EEFF}
+.e2-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.e2-list li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;background:#F7F9FE;transition:background .25s}
+.e2-list li>div{flex:1;min-width:0}.e2-list b{display:block;font:700 15px var(--f-title);color:#002882}.e2-list small{font:500 12.5px/1.35 var(--f-body);color:#5E6A86}
+.e2-list li.ok{background:#EEF9F2}
+.e2-ng.two{grid-template-columns:1fr 1fr}
+@media (max-width:1100px){.e2-cards,.e2-glass{grid-template-columns:repeat(2,minmax(0,1fr))}.e2-cards li.wide{grid-column:span 2}.e2-cards li.wide .e2-it{grid-template-columns:1fr 1fr}.e2-ng.cols5,.e2-ng.icons{grid-template-columns:repeat(3,minmax(0,1fr))}.e2-b4{grid-template-columns:repeat(2,minmax(0,1fr))}.e2v4 .note,.e2v4 .sp{grid-column:span 2}}
+@media (max-width:820px){.e2v1,.e2-g3,.e2-duo,.e2-hero5{grid-template-columns:1fr}.e2-hero2,.e2-top3{flex-direction:column;align-items:flex-start}.e2-cards,.e2-glass,.e2-b4,.e2-it,.e2-ng,.e2-ng.two{grid-template-columns:1fr!important}.e2-cards li.wide,.e2-glass li.wide,.e2v4 .bx{grid-column:auto!important;grid-row:auto!important}}
+
+.e2k .kx-l{gap:14px}
+.e2-spl{display:grid;gap:8px;padding:14px;border-radius:16px;background:rgba(249,143,3,.1);border:1px solid rgba(249,143,3,.35)}
+.e2-spl .e2-spk{color:#ffb347;font-size:14px}
+.e2-spl>div{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.08)}.e2-spl>div b{display:block;font:700 14px var(--f-title);color:#fff}.e2-spl>div span{font:500 12.5px var(--f-body);color:#C9D6FF}
+.e2-r3 .kx-card h3{font-size:26px}
+.e2-r3 .e2-tl:before{left:23px}
+.e2-r3 .e2-tb{background:#F7F9FE;border-color:#EEF1F8}
+.e2-r3 .e2-tb>b{display:block;font:700 16px/1.25 var(--f-title);color:#002882}.e2-r3 .e2-tb>small{display:block;margin-top:2px;font:500 13px var(--f-body);color:#5E6A86}
+.e2-r3 .e2-tn{box-shadow:0 0 0 6px #fff}
+.e2-r3 .e2-chips li{background:#fff;box-shadow:0 0 0 1px #E3E8F6}
+.e2-lk{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:#0042ff;font:700 12.5px var(--f-body)}
+.e2-lk span{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#0042ff;color:#fff}.e2-lk span svg{width:13px;height:13px}
+.e2-chips li:has(.e2-lk){background:#E8EEFF!important;box-shadow:0 0 0 1px #9DB4FF!important}
+.e2-lk:hover{text-decoration:underline}.e2-lk:focus-visible{outline:2px solid #0042ff;outline-offset:3px;border-radius:999px}
+.e2-nbtn{margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:0;border-radius:999px;background:#002882;color:#fff;font:700 13.5px var(--f-body);cursor:pointer}
+.e2-nbtn svg{width:16px;height:16px}.e2-nbtn i{font-style:normal;color:#ffb347}.e2-nbtn:hover{background:#0042ff}
+.e2-mz .fi-zc{border-top-color:#f98f03}.e2-mz .kx-mzi{background:#f98f03;box-shadow:0 0 0 6px #FFE6C9}
+.e2-mz .e2-paper{position:static;box-shadow:inset 6px 0 0 #f98f03;border:1px solid #EEF1F8}
+.e2-pl.hl b{color:#B8560A}
+.e2k .kx-art{width:130px}.e2k .kx-art svg{width:100%;height:auto}
+.e2-chips .fi-tool.e2-lk{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;transform:none;font:700 12.5px var(--f-body);color:#0042ff}
+.e2-chips .fi-tool.e2-lk span{margin:0;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#0042ff;color:#fff}
+.e2-chips .fi-tool.e2-lk i{font-style:normal}
+.e2-mz .e2-ph{display:none}.e2-mz .e2-paper{padding-top:10px}
+
+.e2-r3 .e2-pick{margin:0}
+.e2-ti{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff;box-shadow:0 10px 20px -12px rgba(0,40,130,.8)}.e2-ti svg{width:22px;height:22px}
+.e2-ti.sm{width:36px;height:36px}.e2-ti.sm svg{width:17px;height:17px}
+.e2-act{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:0;border-radius:999px;background:#E8EEFF;color:#0042ff;font:700 13px var(--f-body);cursor:pointer;white-space:nowrap}
+.e2-act svg{width:16px;height:16px}.e2-act:hover{background:#0042ff;color:#fff}
+.e2-act.dark{background:#002882;color:#fff}.e2-act.dark:hover{background:#0042ff}
+.fi-tool.e2-act{display:inline-flex;align-items:center;gap:8px;width:auto;padding:9px 14px;border:0;border-radius:999px;background:#E8EEFF;box-shadow:none;transform:none;font:700 13px var(--f-body);color:#0042ff;white-space:nowrap}.fi-tool.e2-act:hover{background:#0042ff;color:#fff;transform:none}.fi-tool.e2-act svg{width:16px;height:16px}
+.e2-r3{display:flex!important;flex-direction:column;gap:16px}
+/* A */
+.e2-boond{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.e2-form{background:#fff;border-radius:20px;padding:18px;box-shadow:0 20px 40px -34px rgba(0,40,130,.5);border:1px solid #E3E8F6}
+.e2-fh{display:flex;align-items:center;gap:12px;margin-bottom:12px}.e2-fi{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#002882;color:#fff}.e2-fi svg{width:20px;height:20px}
+.e2-fk{display:block;font:700 10.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#6B7490}.e2-fh b{font:700 17px var(--f-title);color:#002882}
+.e2-field{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid #EEF1F8}
+.e2-fl{display:flex;align-items:center;gap:10px;font:600 14px var(--f-body);color:#002882}.e2-fl svg{width:17px;height:17px;color:#0042ff}
+.e2-fv{flex:none;width:38%;height:22px;border-radius:6px;background:repeating-linear-gradient(90deg,#F2F5FF 0 8px,#E8EEFF 8px 16px)}
+.e2-3t{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.e2-t{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:18px 14px;border-radius:20px;background:#fff;border:1px solid #E3E8F6}
+.e2-t b{font:700 15.5px var(--f-title);color:#002882}.e2-t small{font:500 13px var(--f-body);color:#5E6A86}
+.e2-cta{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:20px;background:#002882}
+.e2-cta>div{flex:1}.e2-cta b{display:block;font:700 16px var(--f-title);color:#fff}.e2-cta small{font:500 13px var(--f-body);color:#9DB4FF}
+.e2-cta .e2-act.dark{background:#f98f03}
+/* B */
+.e2-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+.e2-c3{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:22px;background:#fff;border:1px solid #E3E8F6}
+.e2-c3:last-child{background:#002882;border:0}
+.e2-c3h{display:flex;align-items:center;gap:10px}.e2-c3h>span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#f98f03;color:#fff;font:800 15px var(--f-body)}
+.e2-c3h b{display:block;font:400 21px var(--f-title);color:#002882}.e2-c3h small{font:500 12.5px var(--f-body);color:#6B7490}
+.e2-c3:last-child .e2-c3h b{color:#fff}.e2-c3:last-child .e2-c3h small,.e2-c3p{color:#9DB4FF}
+.e2-c3p{margin:0;font:500 13px var(--f-body)}
+.e2-ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.e2-ul li{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:14px;background:#F7F9FE}
+.e2-ul b{display:block;font:700 14px var(--f-title);color:#002882}.e2-ul small{font:500 12.5px/1.4 var(--f-body);color:#5E6A86}
+.e2-mini{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.e2-mini li{padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.1);font:600 12px var(--f-body);color:#fff}
+.e2-c3 .e2-act{align-self:flex-start;margin-top:auto}.e2-c3:last-child .e2-act.dark{background:#f98f03}
+/* C */
+.e2-rows{list-style:none;margin:0;padding:0;background:#fff;border-radius:22px;border:1px solid #E3E8F6;overflow:hidden}
+.e2-rows li{display:flex;align-items:center;gap:16px;padding:16px 20px;border-top:1px solid #EEF1F8}.e2-rows li:first-child{border-top:0}
+.e2-rows li>div{flex:1;min-width:0}.e2-rows b{display:block;font:700 16px var(--f-title);color:#002882}.e2-rows small{font:500 13.5px/1.4 var(--f-body);color:#5E6A86}
+.e2-rn{font:400 24px var(--f-title);color:#C9D2EA;min-width:30px}
+/* D */
+.e2-qh b{display:block;font:400 26px var(--f-title);color:#002882}.e2-qh small{font:500 14px var(--f-body);color:#5E6A86}
+.e2-q{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.e2-q li{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:20px;background:#fff;border:1px solid #E3E8F6}
+.e2-q li>div{flex:1;min-width:0}.e2-q b{display:block;font:700 15.5px/1.3 var(--f-title);color:#002882}.e2-q small{display:block;margin-top:3px;font:500 13px/1.4 var(--f-body);color:#5E6A86}
+.e2-qa{margin-top:10px}.e2-yes{flex:none;padding:4px 10px;border-radius:999px;background:#E3F4EA;color:#1a7f4b;font:700 12px var(--f-body)}
+@media (max-width:1100px){.e2-boond,.e2-cols,.e2-q{grid-template-columns:1fr}.e2-3t{grid-template-columns:1fr}.e2-rows li{flex-wrap:wrap}}
+
+.e2-lc .e2-rows{border:0;border-radius:0;background:none}
+.e2-lc .e2-rows li{padding:14px 4px}
+.e2-out .kx-mbtn{background:#1a7f4b}.e2-out li.all{order:5}
+
+.xs-mails{grid-column:1/-1;margin-top:8px;padding-top:14px;border-top:1px solid #EEF1F8}.xs-mails .mailbox{margin-top:8px}
+.e2k .kx-art{width:auto!important}
+.e2k .kx-l h2{white-space:nowrap;font-size:clamp(22px,2.1vw,30px)!important}
+@keyframes e2pop{0%,8%{opacity:0;transform:scale(.4)}16%,86%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+@keyframes e2float{0%,100%{transform:translate(238px,30px)}50%{transform:translate(238px,22px)}}
+@keyframes e2tw{0%,100%{opacity:.3}50%{opacity:1}}
+.e2s-doc{animation:e2float 4s ease-in-out infinite}
+.e2s-l{transform-box:fill-box;transform-origin:left center;animation:e2pop 6s ease-in-out infinite}
+.e2s-l.l1{animation-delay:.5s}.e2s-l.l2{animation-delay:1s}.e2s-l.l3{animation-delay:1.5s}
+.e2s-sp{animation:e2tw 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.e2s-doc,.e2s-l,.e2s-sp{animation:none}}
+
+.bw{border-radius:20px;overflow:hidden;background:#fff;border:1px solid #DCE3F5;box-shadow:0 24px 48px -36px rgba(0,40,130,.55)}
+.bw-top{display:flex;align-items:center;gap:12px;padding:10px 16px;background:#002882;color:#fff}
+.bw-dots{display:flex;gap:5px}.bw-dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3)}.bw-dots i:first-child{background:#f98f03}
+.bw-top b{display:flex;align-items:center;gap:8px;font:700 14px var(--f-body)}.bw-top b svg{width:16px;height:16px}
+.bw-top small{margin-left:auto;font:600 12px var(--f-body);color:#9DB4FF}
+.bw-tabs{display:flex;gap:4px;padding:0 10px;border-bottom:1px solid #E3E8F6;overflow-x:auto}
+.bw-tabs button,.bw-off{all:unset;display:inline-flex;align-items:center;gap:6px;padding:12px 12px 10px;font:700 14px var(--f-body);color:#002882;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.bw-tabs button span{display:grid;place-items:center;min-width:20px;height:20px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:#E8EEFF;color:#0042ff;font:800 11px var(--f-body)}
+.bw-tabs button[aria-selected="true"]{border-bottom-color:#0042ff;color:#0042ff}
+.bw-tabs button[aria-selected="true"] span{background:#0042ff;color:#fff}
+.bw-tabs button:focus-visible{outline:2px solid #0042ff;outline-offset:-2px}
+.bw-off{color:#B5BDD3;cursor:default}
+.bw-body{padding:6px 18px 14px;flex:1;display:flex;flex-direction:column}
+.e2-lc .bw{flex:1;display:flex;flex-direction:column;margin-bottom:0!important}
+.e2-lc .bw-pane:not([hidden]){flex:1;display:flex;flex-direction:column;justify-content:space-around}
+.e2-lc .bw-f{padding:16px 0}.e2-lc .bw-l{font-size:15.5px}.e2-lc .bw-l svg{width:20px;height:20px}
+.e2-lc .bw-tabs button{padding:14px 14px 12px;font-size:15px}
+.bw-pane[data-bp="2"] .bw-l{color:#B8560A;font-weight:700}.bw-pane[data-bp="2"] .bw-l svg{color:#f98f03}
+.bw-pane{animation:wUp .3s both}
+.bw-f{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #EEF1F8}.bw-f:first-child{border-top:0}
+.bw-l{display:flex;align-items:center;gap:10px;font:600 14.5px var(--f-body);color:#002882}.bw-l svg{width:18px;height:18px;color:#0042ff}
+.bw-v{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--f-body);color:#6B7490}.bw-v i{width:70px;height:10px;border-radius:5px;background:repeating-linear-gradient(90deg,#E8EEFF 0 8px,#F2F5FF 8px 16px)}
+.e2-and{margin:4px 0 -6px;font:700 11px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#6B7490}
+
+.e2-lc{display:flex;flex-direction:column}
+.bw-tip{margin-top:auto;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;background:#F2F5FF}
+.e2-lc .bw{margin-bottom:16px}
+.bw-tip>span{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#1a7f4b;color:#fff}.bw-tip>span svg{width:17px;height:17px}
+.bw-tip p{margin:0;font:500 13.5px/1.5 var(--f-body);color:#47506B}.bw-tip b{color:#002882}
+.bw-tip button{all:unset;cursor:pointer;font-weight:700;color:#0042ff;text-decoration:underline;text-underline-offset:3px}
+
+.e2-lc .bw-pane.bw-act:not([hidden]){display:grid;grid-template-columns:1fr 1fr;gap:16px;align-content:center;justify-content:stretch;padding:18px 0}
+.bw-ac{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:28px 18px;border-radius:20px;background:#FFF4E3;border:1px solid #FFD9A6;text-align:center;animation:wUp .35s both}
+.bw-aci{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#ffb347,#f98f03 60%,#d97400);color:#fff;box-shadow:0 14px 26px -12px rgba(217,116,0,.7)}.bw-aci svg{width:30px;height:30px}
+.bw-ac b{font:700 18px var(--f-title);color:#8a4500}
+.bw-ac .e2-act.dark{background:#002882}
+@media (max-width:820px){.e2-lc .bw-pane.bw-act:not([hidden]){grid-template-columns:1fr}}
+
+.e2-lc .bw-pane.bw-tl:not([hidden]){display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;align-content:center;padding:18px 0}
+.bw-ti{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:22px 12px;border-radius:18px;background:#F2F5FF;border:1px solid #E3E8F6;text-align:center;animation:wUp .35s both;transition:transform .2s,box-shadow .2s}
+.bw-ti:hover{transform:translateY(-3px);box-shadow:0 16px 30px -22px rgba(0,40,130,.6)}
+.bw-ti:nth-child(2){animation-delay:.04s}.bw-ti:nth-child(3){animation-delay:.08s}.bw-ti:nth-child(4){animation-delay:.12s}.bw-ti:nth-child(5){animation-delay:.16s}
+.bw-tic{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff;box-shadow:0 12px 22px -12px rgba(0,40,130,.8)}.bw-tic svg{width:26px;height:26px}
+.bw-ti b{font:700 15px/1.25 var(--f-title);color:#002882}
+.bw-ti .fi-tool.e2-act{padding:6px 12px;font-size:12px}
+
+/* premium refine */
+.e2-lc .bw-pane.bw-tl:not([hidden]),.e2-lc .bw-pane.bw-act:not([hidden]){grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:start;padding:20px 2px}
+.bw-ti,.bw-ac{flex-direction:row!important;justify-content:flex-start!important;text-align:left!important;gap:16px!important;padding:18px 20px!important;border-radius:16px!important;background:#fff!important;border:1px solid #E6EAF4!important;box-shadow:0 1px 0 #EEF1F8}
+.bw-ti:hover{transform:none;border-color:#9DB4FF!important;box-shadow:0 12px 28px -22px rgba(0,40,130,.55)}
+.bw-tic,.bw-aci{flex:none;width:48px!important;height:48px!important;border-radius:14px!important;background:#EEF2FF!important;color:#0042ff!important;box-shadow:none!important}
+.bw-tic svg,.bw-aci svg{width:22px!important;height:22px!important}
+.bw-aci{background:#FFF1DC!important;color:#d97400!important}
+.bw-ti b,.bw-ac b{flex:1;font:600 16px/1.3 var(--f-body)!important;color:#002882!important;letter-spacing:-.005em}
+.bw-ac b{color:#8a4500!important}
+.bw-ac{border-left:3px solid #f98f03!important}
+.bw-ti .fi-tool.e2-act,.bw-ac .e2-act{flex:none}
+.bw-ti:has(.fi-tool){grid-column:1/-1}
+.e2-lc .bw-tabs{padding:0 14px}
+
+/* fausse interface BoondManager */
+.e2-lc .bm{flex:1}
+.bm{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;background:#121212;border:1px solid #2a2a2a;box-shadow:0 30px 60px -34px rgba(0,0,0,.7);color:#e8e8e8;font-family:var(--f-body)}
+.bm-app{display:flex;align-items:center;gap:14px;padding:10px 16px;background:#0b0b0b;border-bottom:1px solid #262626}
+.bm-logo{display:flex;align-items:center;gap:8px;font:700 14px var(--f-body);color:#fff}.bm-logo i{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:#2f6bff;font:800 14px var(--f-body);font-style:normal}
+.bm-search{flex:1;max-width:320px;display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:8px;background:#1d1d1d;color:#7a7a7a;font:500 12.5px var(--f-body)}.bm-search svg{width:14px;height:14px}
+.bm-av{margin-left:auto;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#3a3a3a;font:700 11px var(--f-body);color:#ddd}
+.bm-cand{display:flex;align-items:center;gap:12px;padding:14px 18px 10px}
+.bm-ph{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#2a2a2a;font:700 13px var(--f-body);color:#bbb}
+.bm-cand b{display:block;font:700 16px var(--f-body);color:#fff}.bm-cand small{font:500 12.5px var(--f-body);color:#8a8a8a}
+.bm-st{margin-left:auto;display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:#1f1f1f;border:1px solid #333;font:600 12.5px var(--f-body);color:#ddd}.bm-st i{width:9px;height:9px;border-radius:50%;background:#3fbf8f}
+.bm-tabs{display:flex;gap:6px;padding:0 14px;border-bottom:1px solid #2a2a2a}
+.bm-tabs button{all:unset;cursor:pointer;padding:12px 14px 10px;font:600 14.5px var(--f-body);color:#bdbdbd;border-bottom:3px solid transparent}
+.bm-tabs button[aria-selected="true"]{color:#fff;border-bottom-color:#fff}
+.bm-tabs button:hover{color:#fff}.bm-tabs button:focus-visible{outline:2px solid #2f6bff;outline-offset:-2px}
+.bm-body{flex:1;padding:16px}
+.bm-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.bm-card{border:1px solid #2e2e2e;border-radius:10px;background:#1a1a1a;padding:16px 18px}
+.bm-ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;font:700 15px var(--f-body);color:#fff}.bm-ch span{font:600 12.5px var(--f-body);color:#9a9a9a;text-decoration:underline}
+.bm-fs{display:grid;gap:10px}
+.bm-f{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px;padding:9px 12px;border-radius:8px;border:1.5px dashed rgba(249,143,3,.75);background:rgba(249,143,3,.06);cursor:help;transition:background .2s}
+.bm-f:hover{background:rgba(249,143,3,.14)}
+.bm-lb{grid-column:1;font:500 12px var(--f-body);color:#9a9a9a}
+.bm-v{grid-column:1;display:flex;align-items:center;gap:8px;font:600 14.5px var(--f-body);color:#f2f2f2}.bm-v svg{width:15px;height:15px;color:#ffb347;flex:none}
+.bm-btn,.fi-tool.bm-btn{all:unset;grid-column:2;grid-row:1/3;cursor:pointer;padding:6px 12px;border-radius:999px;background:#2f6bff;color:#fff;font:700 12px var(--f-body);white-space:nowrap}
+.bm-btn:hover{background:#0042ff}.bm-btn.dark{background:#f98f03}
+.bm-a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:8px;border:1.5px dashed rgba(249,143,3,.75);background:rgba(249,143,3,.06);margin-top:10px}
+.bm-ai{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:#2a2a2a;color:#ffb347}.bm-ai svg{width:17px;height:17px}
+.bm-a>div{flex:1}.bm-a b{display:block;font:700 14.5px var(--f-body);color:#ffb347}.bm-a small{font:500 12.5px var(--f-body);color:#a0a0a0}
+.bm-leg{display:flex;align-items:center;gap:8px;padding:10px 18px;border-top:1px solid #262626;font:500 12px var(--f-body);color:#9a9a9a}.bm-leg i{width:16px;height:10px;border-radius:3px;border:1.5px dashed #f98f03}
+@media (max-width:900px){.bm-grid{grid-template-columns:1fr}.bm-search{display:none}}
+
+/* thèmes premium */
+.bm.bm1,.bm.bm3{background:#fff;border:1px solid #E3E8F6;color:#1E2A4A;box-shadow:0 30px 60px -40px rgba(0,40,130,.5)}
+.bm1 .bm-app,.bm3 .bm-app{background:#002882;border:0}
+.bm1 .bm-search,.bm3 .bm-search{background:rgba(255,255,255,.12);color:#C9D6FF}
+.bm1 .bm-av,.bm3 .bm-av{background:#f98f03;color:#fff}
+.bm1 .bm-logo i,.bm3 .bm-logo i,.bm2 .bm-logo i{background:#fff;color:#002882}
+.bm1 .bm-ph,.bm3 .bm-ph{background:#E8EEFF;color:#0042ff}
+.bm1 .bm-cand b,.bm3 .bm-cand b{color:#002882}.bm1 .bm-cand small,.bm3 .bm-cand small{color:#6B7490}
+.bm1 .bm-st,.bm3 .bm-st{background:#F2F5FF;border-color:#DCE3F5;color:#002882}
+.bm1 .bm-tabs,.bm3 .bm-tabs{border-color:#E3E8F6}
+.bm1 .bm-tabs button,.bm3 .bm-tabs button{color:#6B7490}.bm1 .bm-tabs button[aria-selected="true"],.bm3 .bm-tabs button[aria-selected="true"]{color:#0042ff;border-bottom-color:#0042ff}
+.bm1 .bm-body{background:#F7F9FE}
+.bm1 .bm-card{background:#fff;border-color:#E3E8F6;box-shadow:0 1px 2px rgba(0,40,130,.05)}
+.bm1 .bm-ch,.bm3 .bm-ch{color:#002882;font-family:var(--f-title)}
+.bm1 .bm-f,.bm1 .bm-a{border:0;border-left:3px solid #0042ff;border-radius:6px;background:#F7F9FE}
+.bm1 .bm-f:hover{background:#EEF2FF}
+.bm1 .bm-lb,.bm3 .bm-lb{color:#6B7490}.bm1 .bm-v,.bm3 .bm-v{color:#002882}.bm1 .bm-v svg,.bm3 .bm-v svg{color:#0042ff}
+.bm1 .bm-a,.bm3 .bm-a{border-left-color:#f98f03}.bm1 .bm-ai,.bm3 .bm-ai{background:#FFF1DC;color:#d97400}.bm1 .bm-a b,.bm3 .bm-a b{color:#8a4500}.bm1 .bm-a small,.bm3 .bm-a small{color:#6B7490}
+.bm1 .bm-ch span,.bm3 .bm-ch span{color:#0042ff}
+/* marine */
+.bm.bm2{background:#001A56;border:0;box-shadow:0 30px 60px -30px rgba(0,26,86,.8)}
+.bm2 .bm-app{background:#00113a;border-color:rgba(255,255,255,.08)}.bm2 .bm-search{background:rgba(255,255,255,.08);color:#9DB4FF}.bm2 .bm-av{background:#f98f03;color:#fff}
+.bm2 .bm-ph{background:rgba(255,255,255,.1);color:#fff}.bm2 .bm-cand small{color:#9DB4FF}.bm2 .bm-st{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff}
+.bm2 .bm-tabs{border-color:rgba(255,255,255,.1)}.bm2 .bm-tabs button{color:#9DB4FF}.bm2 .bm-tabs button[aria-selected="true"]{color:#fff;border-bottom-color:#f98f03}
+.bm2 .bm-card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+.bm2 .bm-f,.bm2 .bm-a{border:0;background:rgba(255,255,255,.06);border-radius:10px}.bm2 .bm-f:hover{background:rgba(255,255,255,.1)}
+.bm2 .bm-lb{color:#9DB4FF}.bm2 .bm-v svg{color:#9DB4FF}.bm2 .bm-a b{color:#ffb347}.bm2 .bm-ai{background:rgba(249,143,3,.15)}
+.bm2 .bm-btn{background:#fff;color:#002882}.bm2 .bm-btn.dark{background:#f98f03;color:#fff}
+/* épurée : lignes façon formulaire */
+.bm3 .bm-body{padding:8px 20px 16px}
+.bm3 .bm-grid{grid-template-columns:1fr 1fr;gap:0 28px}
+.bm3 .bm-card{border:0;background:none;padding:12px 0}
+.bm3 .bm-ch{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6B7490;font-family:var(--f-body)}
+.bm3 .bm-fs{gap:0}
+.bm3 .bm-f,.bm3 .bm-a{border:0;border-bottom:1px solid #EEF1F8;border-radius:0;background:none;padding:12px 0;margin:0}
+.bm3 .bm-f:hover{background:none}
+.bm3 .bm-v{font-size:15.5px}
+
+.bm-fs.bm-2c{grid-template-columns:1fr 1fr;gap:10px 12px}
+.bm-one .bm-ch span.bm-cnt{text-decoration:none;padding:3px 10px;border-radius:999px;background:#E8EEFF;color:#0042ff;font:700 12px var(--f-body)}
+.bm2 .bm-one .bm-ch span.bm-cnt{background:rgba(255,255,255,.1);color:#fff}
+.bm-2c .bm-a{margin-top:0}
+.bm3 .bm-fs.bm-2c{gap:0 28px}
+@media (max-width:900px){.bm-fs.bm-2c{grid-template-columns:1fr}}
+
+.bm-f .bm-v{grid-row:1/3;padding:4px 0}
+
+.bm-off{padding:12px 14px 10px;font:600 14.5px var(--f-body);color:#C3C9DA;cursor:default}.bm2 .bm-off{color:rgba(157,180,255,.4)}
+
+.sgk .sg-h{white-space:normal!important;font-size:clamp(26px,2.4vw,34px)!important}
+.sg-bravo{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:18px;background:linear-gradient(120deg,#FFF1DC,#FFE6C9);border:1px solid #FFD9A6}
+.sg-bravo>span{font-size:30px}.sg-bravo p{margin:0;font:500 14.5px/1.5 var(--f-body);color:#5a2f00}.sg-bravo b{display:block;font:700 17px var(--f-title);color:#8a4500}
+.sg-st{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;position:relative}
+.sg-st:before{content:"";position:absolute;left:16%;right:16%;top:28px;height:2px;background:repeating-linear-gradient(90deg,#9DB4FF 0 6px,transparent 6px 12px)}
+.sg-st li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;animation:wUp .45s both}
+.sg-st li:nth-child(2){animation-delay:.08s}.sg-st li:nth-child(3){animation-delay:.16s}
+.sg-n{position:relative;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#2f6bff,#0042ff 45%,#002882);color:#fff;box-shadow:0 0 0 6px #fff,0 12px 22px -12px rgba(0,40,130,.7);margin-bottom:6px}.sg-n svg{width:26px;height:26px}
+.sg-n i{position:absolute;top:-3px;right:-5px;width:22px;height:22px;border-radius:50%;background:#f98f03;color:#fff;font:800 11.5px/22px var(--f-body);font-style:normal;text-align:center;box-shadow:0 0 0 3px #fff}
+.sg-st b{font:700 15px/1.25 var(--f-title);color:#002882}.sg-st small{font:500 13px/1.4 var(--f-body);color:#5E6A86}
+.sg-st .kx-mbtn{align-self:center;margin-top:6px;background:#0042ff}
+.sg-row{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.sg-ck ul{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sg-ck li{display:flex;align-items:center;gap:10px;padding:12px;border-radius:14px;background:#F2F5FF;font:600 14px/1.3 var(--f-body);color:#002882}
+.sg-ck li span{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#fff;color:#0042ff}.sg-ck li span svg{width:17px;height:17px}
+.sg-ck h3,.sg-bd b{font-size:22px}
+.sg-bd{display:flex;flex-direction:column;align-items:flex-start;gap:6px;background:#002882!important}
+.sg-bd .fi-k{color:#ffb347;margin:4px 0 0}.sg-bd b{font:400 21px/1.2 var(--f-title);color:#fff}
+.sg-bi{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.12);color:#fff}.sg-bi svg{width:24px;height:24px}
+.sg-bd .fi-tool.e2-act{margin-top:auto;background:#fff;color:#002882}
+@keyframes sigdraw{0%,10%{stroke-dashoffset:140}55%,100%{stroke-dashoffset:0}}
+@keyframes sigcf{0%{transform:translateY(-8px) rotate(0);opacity:0}20%{opacity:1}100%{transform:translateY(26px) rotate(160deg);opacity:0}}
+.sig-p{stroke-dasharray:140;animation:sigdraw 3.6s ease-in-out infinite}
+.sig-cf rect{transform-box:fill-box;transform-origin:center;animation:sigcf 2.6s ease-in infinite}
+@media (prefers-reduced-motion:reduce){.sig-p,.sig-cf rect{animation:none}}
+@media (max-width:1100px){.sg-st,.sg-row,.sg-ck ul{grid-template-columns:1fr}.sg-st:before{display:none}}
+
 .fq-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 14px;padding:10px 12px;background:#fff;border:1px solid #DCE3F5;border-radius:14px}
 .fq-bar span{font:700 11px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#6B7490;margin-right:6px}
 .fq-bar button{border:1px solid #DCE3F5;background:#fff;color:#002882;border-radius:999px;padding:6px 12px;font:600 13px var(--f-body);cursor:pointer}
@@ -2886,7 +3466,7 @@ body,.dz-shell main{background:#F2F5FF}
     plus:[],
     tools:['Maquette Prequal','Maquette E1','Maquette E2'],
     faq:['Comment mener une pré-qualification ?','Quels sont les critères de GO / NO GO ?','Comment noter un candidat après un entretien ?','Que faire après un E1 et après un E2 ?','Que signifient E1, E2, E2 bis et propale ?'],
-    steps:[2,3,4]};
+    steps:[2,3]};
   BLOCS[5]={why:'Traiter une cooptation dans les règles : comprendre le programme, prendre le relais quand une cooptation t’est attribuée, et tenir le coopteur informé jusqu’au bout.',
     refl:['<b>Réactivité</b> : traiter une cooptation dans les <b>48h max</b> de l’attribution sur Teams.','<b>Transparence</b> : tenir au courant le coopteur (idéalement à chaque étape du process). Lui donner un feedback <b>obligatoirement</b> à la fin du process s’il n’aboutit pas, pour mieux aiguiller les prochaines cooptations.'],
     ess:['Le recrutement chez We.FiiT, c’est l’affaire de tous','Protocole de gestion de la cooptation - Team B&T'],
@@ -3173,7 +3753,7 @@ body,.dz-shell main{background:#F2F5FF}
     draw('');
   }
   /* mails d'invitation candidat : mêmes cartes à chaque étape du Parcours candidat */
-  var MAILMAP={1:['prequal'],2:['e1'],4:['e2'],5:['e2bis','propale','pairs'],6:['signature','atelier']};
+  var MAILMAP={1:['prequal'],2:['e1'],3:['e2','e2bis','pairs'],5:['propale'],6:['signature','atelier']};
   var MAILOPT={pairs:'Optionnel · si doute sur les hard skills ou besoin d’engagement',propale:'Optionnel · profils séniors (> 60K)'};
   var MPH=/(Prénom candidat|Prénom membre B&T|Prénom WeFiiTer|Prénom|Ton prénom|Jour XX mois - 00h00|\[[^\]]+\])/g;
   function mFmt(t){return esc(t).replace(MPH,'<span class="ph">$1</span>').replace(/^((?:[^\wÀ-ÿ]{1,4}\s)?)(Quand|Durée|Où|Avec) \?/,'$1<b>$2 ?</b>')}
@@ -3213,13 +3793,13 @@ body,.dz-shell main{background:#F2F5FF}
   }
 
   var ACT=[
-   {t:'Sourcer',b:'À traiter',g:'Trouver et approcher les bons profils.',do:['Cible le profil avec une recherche booléenne, sur LinkedIn, WTTJ ou l’APEC','Écris un message d’accroche personnalisé : ne dis pas tout, attise la curiosité','Crée la fiche candidat dans Boond depuis le CV ou LinkedIn'],docs:[['Messages d’accroche performants',L.accroche],['Tuto : ajouter un candidat dans Boond',L.tutoboond]],q:'Comment écrire un bon message d’accroche ?',fiche:{"img": "sourcing", "more": {"k": "Pour aller plus loin", "h": "Les actions à créer dans Boond", "items": ["Contact 1", "Contact 2", "Contact 3", "Retour négatif"]}, "tag": "Trouver les bons talents, au bon endroit.", "mission": "Identifier, attirer et engager des profils qui correspondent aux ambitions de WeFiiT.", "steps": [["Cibler selon le personae", "Axe tes séances de sourcing sur les personae en forte demande.", [], [["Les personae candidats", "map", 1]], "personae"], ["Identifier les bons profils", "Utiliser LinkedIn, WTTJ, APEC et les recherches booléennes.", [], [["Tutoriel recherche booléenne", "faq", "Comment faire une recherche booléenne ?"], ["Analyse concurrentielle", "url", "analconc"]], "canaux", [{"t": "Profils IA et Data (PO, PM, Builder)", "q": "(\"LLM\" OR \"Data science\" OR \"agent\") AND (\"Product owner\" OR \"Product Manager\" OR \"Builder\") -freelance", "f": ["Titre : AI OR IA", "Hors freelance", "Zone géographique déjà réglée"], "u": "https://www.linkedin.com/search/results/people/?keywords=%28%22LLM%22%20OR%20%22Data%20science%22%20%20OR%20%22agent%22%29%20AND%20%28%22Product%20owner%22%20OR%20%22Product%20Manager%22%20OR%20%22Builder%22%29%20-freelance&origin=GLOBAL_SEARCH_HEADER&geoUrn=%5B%22104246759%22%5D&title=%22AI%20OR%20IA%22"}, {"t": "PM full stack sur LinkedIn", "q": "(\"product manager\" OR \"product owner\" OR \"chef de produit\") AND (discovery OR delivery OR stratégie OR roadmap) AND conseil", "f": ["Lieu : Île-de-France"], "draft": true}]], ["Analyser les profils", "Ce qu’il faut regarder sur un profil.", [], [], "regarder", [], [["o", "Année de diplôme", ""], ["b", "Expérience pro", "ex : flag si le candidat change d’expérience tous les 6 mois à 1 an"], ["o", "Activités extra-scolaires", "JE, scouts…"], ["b", "Anglais", ""]]], ["Créer la fiche candidat", "Enregistrer le profil dans Boond et renseigner les premières informations.", ["Crée la fiche candidat dans Boond depuis le CV ou depuis LinkedIn, avec le plug-in Chrome.", "Crée ensuite les actions Boond : Contact 1, Contact 2, Contact 3 et Retour négatif."], [["Ajouter un candidat dans Boond", "url", "tutoboond"]]], ["Prendre contact", "Personnaliser ton approche et donner envie d’échanger avec WeFiiT.", ["Écris un message d’accroche personnalisé : ne dis pas tout, attise la curiosité.", "Si la fiche du candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.", "Pas de réponse ? Enchaîne avec les relances (relance 1, relance 2, puis une dernière tentative)."], [["Messages d’accroche performants", "url", "accroche"], ["Messages d’accroche LinkedIn B&T", "url", "accbt"], ["Comment relancer un candidat", "faq", "Comment relancer un candidat qui ne répond pas ?"]]]], "stepsT": "5 étapes pour réussir ton sourcing", "tip": "Ne cherche pas à contacter tout le monde. Privilégie la pertinence à la quantité : un profil bien ciblé et une approche personnalisée valent mieux que 20 messages génériques.", "done": "Le candidat est identifié, son profil a été analysé, une approche personnalisée a été envoyée et sa fiche est créée dans Boond.", "tools": [["Guide du sourcing", "Méthodes et bonnes pratiques", "map", 3], ["Bibliothèque de messages d’accroche", "Exemples de messages LinkedIn", "url", "accroche"], ["Tutoriel recherche booléenne", "Trouver les bons profils", "faq", "Comment faire une recherche booléenne ?"], ["Ajouter un candidat dans Boond", "Tutoriel pas à pas", "url", "tutoboond"]]}},
-   {t:'Préqualification',b:'Pré-qual',g:'Valider l’intérêt du candidat avant l’E1.',do:['Contacte le candidat par téléphone, puis message vocal et mail','Partage la présentation WeFiiT, le blog et le site','Fixe l’E1 et envoie un mail de rappel quelques jours avant, puis un SMS la veille'],docs:[['Pitch WeFiiT candidat',U('pitch')],['Présentation candidat interactive','https://claude.ai/artifact/5sB7DVd7Kp9G81eQuDKZZL']],q:'Comment éviter qu’un candidat annule son entretien ?',fiche:{"img": "prequal", "tag": "Valider l’expérience produit, et donner envie.", "mission": "Valider son expertise produit et transformer l’échange en Entretien 1, en lui donnant envie de continuer avec WeFiiT.", "stepsT": "Déroulé de l’appel · 15 à 20 min", "steps": [["Préparation", "Trame : onglet Préqualification de la fiche Boond.", ["Trame et prise de notes : onglet Préqualification de la fiche candidat dans Boond.", "Relecture du profil (Boond, LinkedIn) : produits, rôles, durée des expériences.", "Durée : 15 à 20 minutes maximum."], []], ["Motivations", "Raisons de l’écoute et attentes.", ["Outbound : pourquoi as-tu répondu à mon message ? Connaissais-tu WeFiiT ?", "Inbound : pourquoi as-tu répondu à l’annonce ? Qu’as-tu compris du poste ?", "Insatisfactions et drivers à identifier : ils servent de base au pitch WeFiiT."], []], ["Expertise produit", "Type de produit, périmètre et rôle.", ["Sur quel type de produit travailles-tu ? Web, app, front ou back office, combien d’utilisateurs, quels enjeux ?", "En quoi consiste ton rôle en tant que PM, PO ou QA ?", "Quelle est ta répartition entre Stratégie, Discovery et Delivery dans ta mission actuelle ?"], [["Les critères d’évaluation", "url", "grille"], ["Les personae candidats", "map", 1]]], ["Mobilité, anglais, rémunération", "Points bloquants à lever dès la préqual.", ["Rémunération à cadrer dès cet échange : « C’est important pour nous de te proposer une rémunération cohérente avec tes attentes, et équitable par rapport à l’équipe. »"], [["Estimer le salaire d’entrée", "faq", "Comment estimer le salaire d’un candidat à l’entrée ?"]], "regarder", [], [["o", "Mobilité", "Île-de-France, moins d’1 h de transport ; attentes sur le remote"], ["b", "Anglais", "As-tu déjà travaillé en anglais ? Serais-tu à l’aise dans un environnement international ?"], ["o", "Adaptabilité", "Attentes particulières en termes de mission et de secteur ?"], ["b", "Salaire", "Salaire actuel et attentes pour le prochain poste"]]], ["Projection chez WeFiiT", "Pitch construit à partir de ses drivers.", ["Relier chaque driver à ce que WeFiiT peut lui proposer.", "Compléter avec le pitch WeFiiT selon ce qu’il connaît déjà.", "Traiter ses objections éventuelles.", "Profil Product junior : évoquer le switch QA en fin d’échange."], [["Pitch WeFiiT", "map", 0], ["Les objections fréquentes", "url", "objec"], ["Le switch QA", "faq", "Comment proposer le switch QA à un profil Product junior ?"]]], ["Conclusion et E1", "Planifier l’E1 et garder le candidat engagé.", ["Point sur ses process en cours : entreprises, stade d’avancement.", "Envoi de la présentation WeFiiT, du blog et du site.", "E1 fixé et invitation envoyée ; rappel par mail quelques jours avant, SMS la veille.", "Action Boond « Préqualification téléphonique » créée."], [["Éviter qu’un candidat annule", "faq", "Comment éviter qu’un candidat annule son entretien ?"]]]], "tip": "Pars toujours de l’onglet Préqualification dans Boond : le but n’est pas de tout savoir, mais de valider son expérience produit et de repérer ses drivers. Ce sont eux qui te permettront de lui donner envie de WeFiiT.", "done": "Son expérience produit est validée (quel produit, quel rôle), tu connais ses drivers et tu as rebondi dessus, sa mobilité, son anglais et ses attentes salariales sont vérifiés, et l’E1 est fixé.", "tools": [["Pitch WeFiiT", "Présenter WeFiiT au candidat", "map", 0], ["Les objections fréquentes", "Répondre aux réticences du candidat", "url", "objec"], ["Cadrage salarial", "Estimer le salaire d’entrée", "map", 7]], "more": {"k": "Pour aller plus loin", "h": "Les actions à créer dans Boond", "items": ["Préqualification téléphonique", "Entretien 1", "Mail / Notif de fin de process"]}}},
+   {t:'Sourcer',b:'À traiter',g:'Trouver et approcher les bons profils.',do:['Cible le profil avec une recherche booléenne, sur LinkedIn, WTTJ ou l’APEC','Écris un message d’accroche personnalisé : ne dis pas tout, attise la curiosité','Crée la fiche candidat dans Boond depuis le CV ou LinkedIn'],docs:[['Messages d’accroche performants',L.accroche],['Tuto : ajouter un candidat dans Boond',L.tutoboond]],q:'Comment écrire un bon message d’accroche ?',fiche:{"kst": true, "ktitle": "Les étapes du sourcing", "ksub": "Clique sur une étape pour voir le détail.", "kmis": "Trouver les bons talents, au bon endroit, et leur donner envie d’échanger avec WeFiiT.", "meta": ["LinkedIn · WTTJ · APEC · vivier Boond", "Fiche candidat dans Boond"], "enjeu": "Privilégier la pertinence à la quantité : un profil bien ciblé et une approche personnalisée valent mieux que 20 messages génériques.", "img": "sourcing", "more": {"k": "Pour aller plus loin", "h": "Les actions à créer dans Boond", "items": ["Contact 1", "Contact 2", "Contact 3", "Retour négatif"], "br": [["all", "À chaque prise de contact", "Actions « Contact 1 », « Contact 2 », « Contact 3 »", "Contact 1 au premier message, puis Contact 2 et Contact 3 pour les relances."], ["no", "Si retour négatif", "Action « Retour négatif »", "À créer dès que le candidat décline."]]}, "tag": "Trouver les bons talents, au bon endroit.", "mission": "Identifier, attirer et engager des profils qui correspondent aux ambitions de WeFiiT.", "steps": [["Cibler selon le personae", "Axe tes séances de sourcing sur les personae en forte demande.", [], [["Les personae candidats", "map", 1]], "personae"], ["Identifier les bons profils", "Utiliser LinkedIn, WTTJ, APEC et les recherches booléennes.", [], [["Tutoriel recherche booléenne", "faq", "Comment faire une recherche booléenne ?"], ["Analyse concurrentielle", "url", "analconc"]], "canaux", [{"t": "Profils IA et Data (PO, PM, Builder)", "q": "(\"LLM\" OR \"Data science\" OR \"agent\") AND (\"Product owner\" OR \"Product Manager\" OR \"Builder\") -freelance", "f": ["Titre : AI OR IA", "Hors freelance", "Zone géographique déjà réglée"], "u": "https://www.linkedin.com/search/results/people/?keywords=%28%22LLM%22%20OR%20%22Data%20science%22%20%20OR%20%22agent%22%29%20AND%20%28%22Product%20owner%22%20OR%20%22Product%20Manager%22%20OR%20%22Builder%22%29%20-freelance&origin=GLOBAL_SEARCH_HEADER&geoUrn=%5B%22104246759%22%5D&title=%22AI%20OR%20IA%22"}, {"t": "PM full stack sur LinkedIn", "q": "(\"product manager\" OR \"product owner\" OR \"chef de produit\") AND (discovery OR delivery OR stratégie OR roadmap) AND conseil", "f": ["Lieu : Île-de-France"], "draft": true}]], ["Analyser les profils", "Ce qu’il faut regarder sur un profil.", [], [], "regarder", [], [["o", "Année de diplôme", ""], ["b", "Expérience pro", "ex : flag si le candidat change d’expérience tous les 6 mois à 1 an"], ["o", "Activités extra-scolaires", "JE, scouts…"], ["b", "Anglais", ""]]], ["Créer la fiche candidat", "Enregistrer le profil dans Boond et renseigner les premières informations.", ["Crée la fiche candidat dans Boond depuis le CV ou depuis LinkedIn, avec le plug-in Chrome.", "Crée ensuite les actions Boond : Contact 1, Contact 2, Contact 3 et Retour négatif."], [["Ajouter un candidat dans Boond", "url", "tutoboond"]]], ["Prendre contact", "Personnaliser ton approche et donner envie d’échanger avec WeFiiT.", ["Écris un message d’accroche personnalisé : ne dis pas tout, attise la curiosité.", "Si la fiche du candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.", "Pas de réponse ? Enchaîne avec les relances (relance 1, relance 2, puis une dernière tentative)."], [["Messages d’accroche performants", "url", "accroche"], ["Messages d’accroche LinkedIn B&T", "url", "accbt"], ["Comment relancer un candidat", "faq", "Comment relancer un candidat qui ne répond pas ?"]]]], "stepsT": "5 étapes pour réussir ton sourcing", "tip": "Ne cherche pas à contacter tout le monde. Privilégie la pertinence à la quantité : un profil bien ciblé et une approche personnalisée valent mieux que 20 messages génériques.", "done": "Le candidat est identifié, son profil a été analysé, une approche personnalisée a été envoyée et sa fiche est créée dans Boond.", "tools": [["Guide du sourcing", "Méthodes et bonnes pratiques", "map", 3], ["Bibliothèque de messages d’accroche", "Exemples de messages LinkedIn", "url", "accroche"], ["Tutoriel recherche booléenne", "Trouver les bons profils", "faq", "Comment faire une recherche booléenne ?"], ["Ajouter un candidat dans Boond", "Tutoriel pas à pas", "url", "tutoboond"]]}},
+   {t:'Préqualification',b:'Pré-qual',g:'Valider l’intérêt du candidat avant l’E1.',do:['Contacte le candidat par téléphone, puis message vocal et mail','Partage la présentation WeFiiT, le blog et le site','Fixe l’E1 et envoie un mail de rappel quelques jours avant, puis un SMS la veille'],docs:[['Pitch WeFiiT candidat',U('pitch')],['Présentation candidat interactive','https://claude.ai/artifact/5sB7DVd7Kp9G81eQuDKZZL']],q:'Comment éviter qu’un candidat annule son entretien ?',fiche:{"img": "prequal", "tag": "Valider l’expérience produit, et donner envie.", "mission": "Valider son expertise produit et transformer l’échange en Entretien 1, en lui donnant envie de continuer avec WeFiiT.", "stepsT": "Déroulé de l’appel · 15 à 20 min", "steps": [["Préparation", "Trame : onglet Préqualification de la fiche Boond.", ["Trame et prise de notes : onglet Préqualification de la fiche candidat dans Boond.", "Relecture du profil (Boond, LinkedIn) : produits, rôles, durée des expériences.", "Durée : 15 à 20 minutes maximum."], []], ["Motivations", "Raisons de l’écoute et attentes.", ["Outbound : pourquoi as-tu répondu à mon message ? Connaissais-tu WeFiiT ?", "Inbound : pourquoi as-tu répondu à l’annonce ? Qu’as-tu compris du poste ?", "Insatisfactions et drivers à identifier : ils servent de base au pitch WeFiiT."], []], ["Expertise produit", "Type de produit, périmètre et rôle.", ["Sur quel type de produit travailles-tu ? Web, app, front ou back office, combien d’utilisateurs, quels enjeux ?", "En quoi consiste ton rôle en tant que PM, PO ou QA ?", "Quelle est ta répartition entre Stratégie, Discovery et Delivery dans ta mission actuelle ?"], [["Les critères d’évaluation", "url", "grille"], ["Les personae candidats", "map", 1]]], ["Mobilité, anglais, rémunération", "Points bloquants à lever dès la préqual.", ["Rémunération à cadrer dès cet échange : « C’est important pour nous de te proposer une rémunération cohérente avec tes attentes, et équitable par rapport à l’équipe. »"], [["Estimer le salaire d’entrée", "faq", "Comment estimer le salaire d’un candidat à l’entrée ?"]], "regarder", [], [["o", "Mobilité", "Île-de-France, moins d’1 h de transport ; attentes sur le remote"], ["b", "Anglais", "As-tu déjà travaillé en anglais ? Serais-tu à l’aise dans un environnement international ?"], ["o", "Adaptabilité", "Attentes particulières en termes de mission et de secteur ?"], ["b", "Salaire", "Salaire actuel et attentes pour le prochain poste"]]], ["Projection chez WeFiiT", "Pitch construit à partir de ses drivers.", ["Relier chaque driver à ce que WeFiiT peut lui proposer.", "Compléter avec le pitch WeFiiT selon ce qu’il connaît déjà.", "Traiter ses objections éventuelles.", "Profil Product junior : évoquer le switch QA en fin d’échange."], [["Pitch WeFiiT", "map", 0], ["Les objections fréquentes", "url", "objec"], ["Le switch QA", "faq", "Comment proposer le switch QA à un profil Product junior ?"]]], ["Conclusion et E1", "Planifier l’E1 et garder le candidat engagé.", ["Point sur ses process en cours : entreprises, stade d’avancement.", "Envoi de la présentation WeFiiT, du blog et du site.", "E1 fixé et invitation envoyée ; rappel par mail quelques jours avant, SMS la veille.", "Action Boond « Préqualification téléphonique » créée."], [["Éviter qu’un candidat annule", "faq", "Comment éviter qu’un candidat annule son entretien ?"]]]], "tip": "Pars toujours de l’onglet Préqualification dans Boond : le but n’est pas de tout savoir, mais de valider son expérience produit et de repérer ses drivers. Ce sont eux qui te permettront de lui donner envie de WeFiiT.", "done": "Son expérience produit est validée (quel produit, quel rôle), tu connais ses drivers et tu as rebondi dessus, sa mobilité, son anglais et ses attentes salariales sont vérifiés, et l’E1 est fixé.", "tools": [["Pitch WeFiiT", "Présenter WeFiiT au candidat", "map", 0], ["Les objections fréquentes", "Répondre aux réticences du candidat", "url", "objec"]], "more": {"k": "Pour aller plus loin", "h": "Les actions à créer dans Boond", "items": ["Préqualification téléphonique", "Entretien 1", "Mail / Notif de fin de process"], "br": [["all", "Après chaque préqual", "Action « Préqualification téléphonique »", ""], ["go", "Si passage en E1", "Action « Entretien 1 »", "Envoyer le mail d’invitation E1"], ["no", "Si NO GO", "Action LN– / LN+ ou KO", "Prévenir le candidat : point hyper important, ne jamais le laisser sans réponse."]]}, "vis": ["Fiche Boond + LinkedIn", "Pourquoi il est à l’écoute", "Quel produit, quel rôle", "Les points bloquants", "Ses drivers → WeFiiT", "E1 fixé, invitation envoyée"], "checks": [["produit", "Expertise produit"], ["motiv", "Drivers"], ["pin", "Mobilité · IDF < 1 h"], ["lang", "Anglais"], ["eur", "Salaire"]], "enjeu": "Transformer l’échange en Entretien 1, en lui donnant envie de continuer avec WeFiiT.", "meta": ["15 à 20 min", "Trame : Boond, onglet Préqualification"], "keys": [["produit", "Expérience produit", "Quel produit, web ou app, combien d’utilisateurs."], ["brief", "Son rôle", "PM, PO ou QA ; part Stratégie, Discovery, Delivery."], ["motiv", "Motivations", "Pourquoi il est à l’écoute."], ["bolt", "Drivers", "Ses leviers : la base de ton pitch."], ["pin", "Mobilité", "IDF, moins d’1 h ; attentes sur le remote."], ["globe", "Anglais", "À l’aise pour travailler en anglais ?"], ["wallet", "Rémunération", "Salaire actuel et attentes."], ["build", "Projection chez WeFiiT", "Ce que WeFiiT lui apporte ; ses objections."]], "kmis": "Valider son expertise produit, comprendre ses drivers et vérifier les points bloquants."}},
    {t:'Entretien E1',b:'E1',g:'Sélection et séduction : expériences et hardskills.',do:['Évalue hard et soft skills avec la grille d’évaluation','Note le candidat de A à D dans Boond et ajoute un commentaire','Remplis la fiche Boond au plus tard à l’E1'],docs:[['Les critères d’évaluation chez WeFiiT',L.grille],['Tuto : remplir une fiche candidat',L.tutoboond]],q:'Comment noter un candidat après un entretien ?'},
-   {t:'GO / NO GO',b:'E1 → E2',g:'Décider d’avancer ou d’arrêter, et le dire.',do:['Applique les quatre critères : histoire à raconter, anglais, adaptabilité, interaction','Prends le feedback, fais le brief et le cadrage salarial','En cas de NO GO, qualifie KO, LN– ou LN+ et envoie un retour au candidat'],docs:[['Critères de passage : GO / NO GO',U('gonogo')],['Cadrage salarial',L.salaire],['Lexique candidat Boond',U('lexique')]],q:'Quels sont les critères de GO / NO GO ?'},
    {t:'Entretien E2',b:'E2',g:'Validation et approfondissement, le brief étant complété en amont.',do:['Vérifie que le brief et le cadrage sont validés avant l’E2','Organise un E2 pair si besoin (sélection ou séduction)','Passe si A/A ou A/B ; avec une interaction B, il faut une forte histoire à raconter'],docs:[['Critères de passage : GO / NO GO',U('gonogo')],['Les étapes du process',L.notice]],q:'Que faire après un E1 et après un E2 ?'},
-   {t:'E2 bis et propale',b:'E2 bis · Propale à faire',g:'Contractualiser et faire la proposition.',do:['Cadre le salaire avec le Super Calculator (et la propale OKR pour les salaires les plus élevés)','Fais un call pour réappuyer sur les drivers du candidat','Invite le candidat à un événement WeFiiT'],docs:[['Cadrage salarial',L.salaire],['Les étapes du process',L.notice]],q:'Comment estimer le salaire d’un candidat à l’entrée ?'},
-   {t:'Réponse et signature',b:'ADR · Signature · Recruté(e)',g:'Accompagner le candidat jusqu’à la signature.',do:['Relance le candidat pendant l’attente de réponse et rappelle les arguments clés','À la signature, ajoute l’action Boond « COOPTATION (si signature) » si besoin, avec le nom du coopteur','Une fois recruté(e), le candidat est converti en ressource Boond'],docs:[['Protocole de gestion de la cooptation',U('proto')],['Fonctionnement du programme de cooptation',U('recoopt')]],q:'Quels arguments pour convaincre un candidat ?'},
+   {t:'E2 bis',b:'E2 bis',g:'Préparer un dossier irréprochable avant l’E3.',do:['Cadre le salaire avec le Super Calculator (et la propale OKR pour les salaires les plus élevés)','Fais un call pour réappuyer sur les drivers du candidat','Invite le candidat à un événement WeFiiT'],docs:[['Cadrage salarial',L.salaire],['Les étapes du process',L.notice]],q:'Comment estimer le salaire d’un candidat à l’entrée ?',fiche:{"img": "", "tag": "", "mission": "Avant l’E3 avec Cédric : un dossier candidat irréprochable. La fiche Boond doit être niquel.", "stepsT": "", "steps": [], "tip": "", "done": "", "tools": [], "e2b": {"mission": "Avant l’E3 avec Cédric : un dossier irréprochable. La fiche Boond doit être niquel, à bien vérifier.", "checks": [{"t": "Fiche Boond", "s": "Onglet Information : tout est renseigné.", "ic": "boond", "tag": "Onglet Information", "items": [["brief", "Titre"], ["linkedin", "Lien LinkedIn"], ["pin", "Provenance"], ["cal", "Disponibilité"], ["target", "Brief parfait"]]}, {"t": "Administratif", "s": "Onglet Administratif : contrat et salaire.", "ic": "eur", "tag": "Onglet Administratif", "items": [["doc", "Type de contrat"], ["eur", "Salaire actuel"], ["sliders", "Fourchette salariale"], ["star", "Reco + estimation Flash Calculator", "supcalc"], ["diamond", "Propale OKR (si PO3)"]]}, {"t": "Références", "s": "1 référence minimum.", "ic": "people"}, {"t": "Brief", "s": "Le brief est parfait.", "ic": "target"}, {"t": "Propale OK (si PO3)", "s": "La propale est bien intégrée.", "ic": "diamond"}, {"t": "Note de passage E3", "s": "Faite à partir de la trame input E3 pour Cédric.", "ic": "rocket", "note": 1}], "noteSub": "Trame input E3 pour Cédric", "note": [["user", "Infos clés (DT)", "Rôle, diplôme, mission phare"], ["flow", "Niveau d’intervention", "Veut faire / Peut faire"], ["heart", "Drivers", ""], ["sad", "Insatisfactions", "Raison du départ"], ["scale", "Cohérence rém.", ""], ["cal", "Process en cours", ""], ["search", "Sélection", "Challenger quoi ? vs critères WeFiiT", "hl"], ["star", "Séduction", "Insister sur…", "hl"], ["rocket", "Piste mission", ""], ["spark", "Singularité", ""]], "special": [["Si RC", "Référence indispensable"], ["Si PO1", "Brief + posture rassurante"]], "enjeu": "Une fiche Boond niquel, pour que l’E3 se passe dans les bonnes conditions.", "meta": ["Avant l’E3 avec Cédric", "Fiche Boond à jour"], "kmis": "Vérifier que le dossier candidat est complet et irréprochable avant l’E3."}}},
+   {t:'Propale',b:'Propale à faire',g:'Contractualiser et faire la proposition.',do:['Cadre le salaire avec le Super Calculator (et la propale OKR pour les salaires les plus élevés)','Fais un call pour réappuyer sur les drivers du candidat','Invite le candidat à un événement WeFiiT'],docs:[['Super Calculator : cadrage salarial',L.supcalc],['Cadrage salarial',L.salaire]],q:'Comment estimer le salaire d’un candidat à l’entrée ?'},
+   {t:'Réponse et signature',b:'ADR · Signature · Recruté(e)',g:'Accompagner le candidat jusqu’à la signature.',do:['Relance le candidat pendant l’attente de réponse et rappelle les arguments clés','À la signature, ajoute l’action Boond « COOPTATION (si signature) » si besoin, avec le nom du coopteur','Une fois recruté(e), le candidat est converti en ressource Boond'],docs:[['Protocole de gestion de la cooptation',U('proto')],['Fonctionnement du programme de cooptation',U('recoopt')]],q:'Quels arguments pour convaincre un candidat ?',fiche:{"sig": {"mission": "Organiser la signature, idéalement dans nos locaux et le plus tôt possible.", "bravo": "Bravo, tu as réalisé un recrutement ! Ta recrue a confirmé sa volonté de nous rejoindre suite à notre proposition d’embauche.", "meta": ["45 min avec Matthieu", "Dans nos locaux"], "enjeu": "Une signature rapide et soignée, pour bien accueillir ta recrue.", "steps": [["agenda", "Fixer un créneau de 45 min", "Entre ta recrue et Matthieu."], ["send", "Envoyer l’invitation par mail", "Avec Yamila en copie, pour qu’elle édite le contrat en amont.", "mail"], ["doc", "Récupérer les infos du contrat", "Auprès de ta recrue : voir la checklist."]], "check": [["pin", "Adresse postale"], ["cal", "Date de naissance"], ["globe", "Lieu de naissance + code postal"], ["flag", "Date de démarrage validée"]], "boond": "Compléter les informations du candidat"}, "img": "", "tag": "", "stepsT": "", "steps": [], "tip": "", "done": "", "tools": []}},
    {t:'Retour et vivier',b:'KO · LN+ · LN– · NDPS',g:'Clôturer proprement chaque candidature.',do:['Envoie un retour à chaque candidat, même en LN–, avec l’action « Mail / Notif de fin de process »','Classe le candidat : KO, LN–, LN+ ou NDPS','Planifie les relances du vivier tous les 3 à 12 mois'],docs:[['Lexique candidat Boond',U('lexique')],['Les étapes et le suivi du vivier',L.notice]],q:'À quelle fréquence relancer un candidat du vivier ?'}
   ];
   function renderAct(){
@@ -3244,6 +3824,12 @@ function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
     '<g fill="none" stroke="#EC9A3A" stroke-width="5" stroke-linecap="round"><path d="M362 78a26 26 0 0 1 0 40"/><path d="M376 66a44 44 0 0 1 0 64" opacity=".6"/></g>'+
     '<g transform="translate(176 40)"><rect width="66" height="34" rx="12" fill="#fff" stroke="#C9D2EA" stroke-width="3"/><path d="M14 34l-6 10 14-10z" fill="#fff"/><circle cx="20" cy="17" r="3.5" fill="#0F2B80"/><circle cx="33" cy="17" r="3.5" fill="#0F2B80"/><circle cx="46" cy="17" r="3.5" fill="#EC9A3A"/></g>'+
     '<g fill="#ffb347"><path d="M420 28l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 16l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g></svg>'}
+function e2Scene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)">'+m0.slice(m0.indexOf('>')+1,m0.lastIndexOf('</svg>'))+'</g>';
+    return '<svg class="fi-scene e2s" viewBox="0 0 450 240" role="img" aria-label="Le Capitaine vérifie le dossier du candidat"><ellipse cx="215" cy="228" rx="170" ry="9" fill="#000" opacity=".18"/>'+m+
+    '<g class="e2s-doc" transform="translate(238 30)"><rect x="10" y="10" width="140" height="176" rx="14" fill="#9DB4FF" opacity=".35"/><rect x="0" y="0" width="140" height="176" rx="14" fill="#F6F8FF"/><rect x="0" y="0" width="140" height="34" rx="14" fill="#0F2B80"/><rect x="0" y="20" width="140" height="14" fill="#0F2B80"/>'+
+    '<text x="16" y="22" font-family="Work Sans,sans-serif" font-size="11" font-weight="800" fill="#fff">Dossier · E3</text>'+
+    [0,1,2,3].map(function(k){var y=54+k*30;return '<g class="e2s-l l'+k+'"><circle cx="22" cy="'+y+'" r="9" fill="#1a7f4b"/><path d="M17.5 '+y+' l3.2 3.2 6-6.4" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="40" y="'+(y-5)+'" width="'+[78,62,84,56][k]+'" height="10" rx="5" fill="#C9D2EA"/></g>'}).join('')+
+    '</g><g class="e2s-sp" fill="#ffb347"><path d="M420 26l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M200 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g></svg>'}
   function renderFiche(i,cont){
     var a=ACT[i],f=a.fiche;
     var v=window.__fv||'w4',tot=f.steps.length,cur=Math.min(window.__fcur|0,tot-1);
@@ -3260,9 +3846,123 @@ function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
     function bools(a){return a.map(function(b,j){return '<div class="fi-bool"><span class="fi-k">Recherche booléenne'+(b.draft?' · exemple à valider':'')+'</span><b>'+esc(b.t)+'</b><code>'+esc(b.q)+'</code>'+(b.f&&b.f.length?'<div class="fi-bf">'+b.f.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div>':'')+'<div class="fi-chips"><button type="button" class="fi-chip" data-copy="'+j+'">Copier la recherche</button><button type="button" class="fi-chip" data-li="'+j+'">Ouvrir sur LinkedIn ↗</button></div></div>'}).join('')}
     function detail(x){return '<ul class="fi-dl">'+x[2].map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>'+(x[4]==='personae'?pers():'')+(x[4]==='canaux'?logos():'')+(x[4]==='regarder'?look(x[6]):'')+(x[5]&&x[5].length?bools(x[5]):'')+(x[3]&&x[3].length?'<div class="fi-chips">'+x[3].map(chip).join('')+'</div>':'')}
     var ICO={prep:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM8.5 11h7M8.5 15h4.5"/>',motiv:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>',produit:'<path d="M12 3 3.5 7.5 12 12l8.5-4.5z"/><path d="m3.5 12 8.5 4.5 8.5-4.5M3.5 16.5 12 21l8.5-4.5"/>',globe:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.8 5.2 3.8 8.5s-1.2 6.1-3.8 8.5c-2.6-2.4-3.8-5.2-3.8-8.5S9.4 5.9 12 3.5z"/>',pitch:'<path d="M4 10v4h3l6 4V6L7 10z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/>',agenda:'<rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M9 15l2 2 4-4"/>',cible:'<circle cx="11" cy="11" r="7.5"/><circle cx="11" cy="11" r="3.5"/><path d="m16.5 16.5 4 4"/>',loupe:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/>',analyse:'<circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"/><path d="m15.5 11 2 2 4-4"/>',fiche:'<rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M14.5 10h3.5M14.5 13.5h3.5"/>',contact:'<path d="M21 3 10 14"/><path d="M21 3 14.5 21l-4.5-7-7-4.5z"/>',dot:'<circle cx="12" cy="12" r="3" fill="currentColor"/>'};
+    function stepIcoKey(t){return /pr[ée]par/i.test(t)?'prep':/motiv/i.test(t)?'motiv':/expertise|exp[ée]rience produit/i.test(t)?'produit':/mobilit|anglais|r[ée]mun/i.test(t)?'globe':/projection|pitch|rebondir/i.test(t)?'pitch':/conclu|planif|E1/i.test(t)?'agenda':'dot'}
     function stepIco(t){var k=/pr[ée]par/i.test(t)?'prep':/motiv/i.test(t)?'motiv':/expertise|exp[ée]rience produit/i.test(t)?'produit':/mobilit|anglais|r[ée]mun/i.test(t)?'globe':/projection|pitch|rebondir/i.test(t)?'pitch':/conclu|planif|E1/i.test(t)?'agenda':/cibler|persona/i.test(t)?'cible':/identifier/i.test(t)?'loupe':/analyser/i.test(t)?'analyse':/fiche/i.test(t)?'fiche':/contact/i.test(t)?'contact':'dot';return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICO[k]+'</svg>'}
+    var E2D={"Provenance": "Le canal d’origine est renseigné (LinkedIn, WTTJ, coopt…).", "Disponibilité": "La date de démarrage possible est indiquée.", "Lien LinkedIn": "Le lien du profil est ajouté et fonctionne.", "Titre": "Le titre du poste visé est à jour.", "Brief parfait": "Missions, profil et enjeux : clairs et complets.", "Type de contrat": "CDI, freelance… est sélectionné.", "Salaire actuel": "Le fixe et le variable actuels sont saisis.", "Fourchette salariale": "Ses attentes, en fourchette basse et haute.", "Propale OKR (si PO3)": "La proposition OKR est jointe au dossier.", "Reco + estimation Flash Calculator": "Ta recommandation de salaire, calculée avec l’outil.", "Action « Prise de référence »": "Au moins 1 référence, notée dans l’action.", "Action « Note »": "Coller la note de passage E3 pour Cédric."};
+    function sigScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)">'+m0.slice(m0.indexOf('>')+1,m0.lastIndexOf('</svg>'))+'</g>';
+      return '<svg class="fi-scene e2s" viewBox="0 0 450 240" role="img" aria-label="Le Capitaine fête la signature du contrat"><ellipse cx="215" cy="228" rx="170" ry="9" fill="#000" opacity=".18"/>'+m+
+      '<g class="e2s-doc" transform="translate(238 30)"><rect x="0" y="0" width="140" height="176" rx="14" fill="#F6F8FF"/><text x="16" y="30" font-family="Work Sans,sans-serif" font-size="13" font-weight="800" fill="#0F2B80">Contrat</text>'+
+      [50,66,82,98].map(function(y,k){return '<rect x="16" y="'+y+'" width="'+[108,96,104,70][k]+'" height="7" rx="3.5" fill="#C9D2EA"/>'}).join('')+
+      '<path class="sig-p" d="M18 146c10-14 18-14 22-2s10 10 16-4 12-10 16 2 10 6 18-6" fill="none" stroke="#0042ff" stroke-width="3" stroke-linecap="round"/><rect x="16" y="156" width="108" height="2" fill="#C9D2EA"/></g>'+
+      '<g class="sig-cf">'+[[200,40,'#f98f03'],[420,30,'#ffb347'],[410,120,'#0042ff'],[196,110,'#9DB4FF'],[430,190,'#f98f03']].map(function(c,k){return '<rect x="'+c[0]+'" y="'+c[1]+'" width="8" height="8" rx="2" fill="'+c[2]+'" style="animation-delay:'+(k*.35)+'s"/>'}).join('')+'</g></svg>'}
+    function sigBody(){var S=f.sig;
+      var X={send:'<path d="M21 3 10 14"/><path d="M21 3 14.5 21l-4.5-7-7-4.5z"/>',doc:'<path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/>',pin:'<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',cal:'<rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',boond:'<ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>',target:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>',brief:'<rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12.5h17"/>'};
+      function ic(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(X[k]||ICO[k]||ICO.dot)+'</svg>'}
+      var L='<aside class="kx-l"><div class="kx-art" aria-hidden="true">'+sigScene()+'</div><span class="kx-pill">'+ic('brief')+'Étape '+(i+1)+' · Parcours candidat</span><h2 class="sg-h">'+esc(a.t)+'<span class="dot">.</span></h2><i class="kx-bar" aria-hidden="true"></i><p class="kx-mis">'+esc(S.mission)+'</p><div class="kx-meta">'+S.meta.map(function(m){return '<span>'+esc(m)+'</span>'}).join('')+'</div><div class="kx-enj"><span class="kx-ei">'+ic('target')+'</span><div><b>Enjeu</b><p>'+esc(S.enjeu)+'</p></div></div></aside>';
+      var R='<div class="kx-r e2-r3"><span class="kx-st"><i></i>Statut Boond : '+esc(a.b)+'</span>'+
+        '<div class="sg-bravo"><span aria-hidden="true">🎉</span><p><b>Bravo, tu as réalisé un recrutement !</b> Ta recrue a confirmé sa volonté de nous rejoindre suite à notre proposition d’embauche.</p></div>'+
+        '<div class="kx-card"><h3>Les étapes</h3><ol class="sg-st">'+S.steps.map(function(x,j){return '<li><span class="sg-n">'+ic(x[0])+'<i>'+(j+1)+'</i></span><b>'+esc(x[1])+'</b><small>'+esc(x[2])+'</small>'+(x[3]==='mail'?'<button type="button" class="kx-mbtn" data-kxmail="signature">✉ Voir le template</button>':'')+'</li>'}).join('')+'</ol></div>'+
+        '<div class="sg-row"><div class="kx-card sg-ck"><h3>La checklist du contrat</h3><ul>'+S.check.map(function(x){return '<li><span>'+ic(x[0])+'</span>'+esc(x[1])+'</li>'}).join('')+'</ul></div>'+
+        '<div class="kx-card sg-bd"><span class="sg-bi">'+ic('boond')+'</span><span class="fi-k">Dans Boond</span><b>'+esc(S.boond)+'</b><button type="button" class="fi-tool e2-act" data-t="url|tutoboond">Guide : fiche candidat ↗</button></div></div></div>';
+      return '<div class="kx e2k sgk">'+L+R+'</div>'}
+    function e2Body(){var E=f.e2b,ev=window.__e2v||'1',CK=window.__e2ck=window.__e2ck||{};
+      var X={boond:'<ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>',
+        eur:'<path d="M17 6.5a6.5 6.5 0 1 0 0 11M4.5 10.5h8M4.5 13.5h8"/>',
+        people:'<circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c0-3.3 2.7-5.6 6-5.6s6 2.3 6 5.6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.2 5 2.2 5 5.3"/>',
+        target:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>',
+        diamond:'<path d="M6.5 4h11l3.5 5-9 11-9-11z"/><path d="M3 9h18M9 4l3 16 3-16"/>',
+        rocket:'<path d="M14 4.5c3-1.5 5.5-1 5.5-1s.5 2.5-1 5.5L13 15l-4-4z"/><path d="M9 11l-4 .5L3.5 14l4 1M13 15l-.5 4L10 20.5l-1-4"/><circle cx="15.5" cy="8.5" r="1.3"/>',
+        pin:'<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',
+        cal:'<rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
+        linkedin:'<rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-6M11.5 13c0-1.6 1-2.6 2.4-2.6s2.1 1 2.1 2.6v3.5"/>',
+        brief:'<rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12.5h17"/>',
+        doc:'<path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/>',
+        sliders:'<path d="M6 4v16M12 4v16M18 4v16"/><circle cx="6" cy="14" r="2" fill="#fff"/><circle cx="12" cy="8" r="2" fill="#fff"/><circle cx="18" cy="15" r="2" fill="#fff"/>',
+        star:'<path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.8z"/>',
+        user:'<circle cx="12" cy="8" r="3.8"/><path d="M4.5 20c0-4 3.4-6.8 7.5-6.8s7.5 2.8 7.5 6.8"/>',
+        heart:'<path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.6 4.3 4.3 0 0 1 19.5 10C19.5 15.4 12 20 12 20z"/>',
+        sad:'<circle cx="12" cy="12" r="8.5"/><path d="M8.5 16c1-1.2 2.2-1.8 3.5-1.8s2.5.6 3.5 1.8M9 10h.01M15 10h.01"/>',
+        scale:'<path d="M12 4v16M5 20h14M6 8h12M6 8l-3 6a3 3 0 0 0 6 0zM18 8l-3 6a3 3 0 0 0 6 0z"/>',
+        flow:'<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H14a4 4 0 0 1 0 8h-4a4 4 0 0 0 0 8"/>',
+        search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/>',
+        spark:'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/>',
+        check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>'};
+      function ic(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(X[k]||ICO[k]||ICO.dot)+'</svg>'}
+      var C=E.checks,N=E.note,SP=E.special;
+      function chip(x){return x[2]?'<li><button type="button" class="fi-tool e2-lk" data-t="url|'+x[2]+'"><span>'+ic(x[0])+'</span>'+esc(x[1])+' <i aria-hidden="true">↗</i></button></li>':'<li><span>'+ic(x[0])+'</span>'+esc(x[1])+'</li>'}
+      var L='<aside class="kx-l"><div class="kx-art" aria-hidden="true">'+e2Scene()+'</div><span class="kx-pill">'+ic('brief')+'Étape '+(i+1)+' · Parcours candidat</span><h2>'+esc(a.t)+'<span class="dot">.</span></h2><i class="kx-bar" aria-hidden="true"></i><p class="kx-mis">'+esc(E.kmis)+'</p>'+
+        '<div class="kx-meta">'+E.meta.map(function(m){return '<span>'+esc(m)+'</span>'}).join('')+'</div>'+
+        '<div class="kx-enj"><span class="kx-ei">'+ic('target')+'</span><div><b>Enjeu</b><p>'+esc(E.enjeu)+'</p></div></div>'+'</aside>';
+      var ev='C',C0=C[0],C1=C[1],C2=C[2],C3=C[3],C4=C[4],C5=C[5];
+      var pick='<div class="e2-pick" role="group" aria-label="Propositions"><span>Propositions</span>'+[['A','Écran Boond'],['B','3 colonnes'],['C','Liste simple'],['D','Questions']].map(function(o){return '<button type="button" data-e2v="'+o[0]+'" aria-pressed="'+(ev===o[0])+'">'+o[0]+' · '+o[1]+'</button>'}).join('')+'</div>';
+      function lk(x){return x[2]?'<button type="button" class="fi-tool e2-act" data-t="url|'+x[2]+'">'+ic(x[0])+'Ouvrir le Flash Calculator ↗</button>':''}
+      var noteBtn='<button type="button" class="e2-act dark" data-e2note="1">'+ic('doc')+'Ouvrir la trame input E3 →</button>';
+      var R='<div class="kx-r e2-r3"><span class="kx-st"><i></i>Statut Boond : '+esc(a.b)+'</span><div class="kx-card e2-lc"><h3>Le dossier avant l’E3</h3><p class="kx-sub">Tout doit être vérifié dans Boond avant de passer la main à Cédric.</p>';
+      if(ev==='A'){
+        function form(c){return '<div class="e2-form"><div class="e2-fh"><span class="e2-fi">'+ic(c.ic)+'</span><div><span class="e2-fk">Dans Boond</span><b>'+esc(c.tag)+'</b></div></div>'+c.items.map(function(x){return '<div class="e2-field'+(x[2]?' link':'')+'"><span class="e2-fl">'+ic(x[0])+esc(x[1])+'</span>'+(x[2]?lk(x):'<span class="e2-fv"></span>')+'</div>'}).join('')+'</div>'}
+        R+='<div class="e2-boond">'+form(C0)+form(C1)+'</div><div class="e2-3t">'+[C2,C3,C4].map(function(c){return '<div class="e2-t"><span class="e2-ti">'+ic(c.ic)+'</span><b>'+esc(c.t)+'</b><small>'+esc(c.s)+'</small></div>'}).join('')+'</div>'+
+          '<div class="e2-cta"><span class="e2-ti">'+ic('rocket')+'</span><div><b>'+esc(C5.t)+'</b><small>'+esc(C5.s)+'</small></div>'+noteBtn+'</div>'}
+      else if(ev==='B'){
+        function col(n,t,sub,inner){return '<section class="e2-c3"><div class="e2-c3h"><span>'+n+'</span><div><b>'+t+'</b><small>'+sub+'</small></div></div>'+inner+'</section>'}
+        function li(c){return '<li><span class="e2-ti sm">'+ic(c.ic)+'</span><div><b>'+esc(c.t)+'</b><small>'+esc(c.s)+'</small></div></li>'}
+        R+='<div class="e2-cols">'+
+          col(1,'Dans Boond','Fiche à jour','<ul class="e2-ul">'+[C0,C1].map(function(c){return '<li class="tall"><span class="e2-ti sm">'+ic(c.ic)+'</span><div><b>'+esc(c.tag)+'</b><small>'+c.items.map(function(x){return esc(x[1])}).join(' · ')+'</small></div></li>'}).join('')+'</ul>'+lk(C1.items.filter(function(x){return x[2]})[0]))+
+          col(2,'Le dossier','Pièces à joindre','<ul class="e2-ul">'+[C2,C3,C4].map(li).join('')+'</ul>')+
+          col(3,'Pour Cédric','Note de passage E3','<p class="e2-c3p">'+esc(C5.s)+'</p><ul class="e2-mini">'+N.slice(0,6).map(function(x){return '<li>'+esc(x[1])+'</li>'}).join('')+'<li>…</li></ul>'+noteBtn)+'</div>'}
+      else if(ev==='C'){
+        var CA={items:[['doc','Action « Note »','__note'],['people','Action « Prise de référence »']]};var TABS=[['Informations',C0],['Administratif',C1],['Actions',CA]],bt=window.__bt||0;
+        var V={'Provenance':'Annonces WTTJ - Inbound','Disponibilité':'Immédiate','Lien LinkedIn':'linkedin.com/in/prenom-nom','Titre':'Product Owner','Brief parfait':'Missions · Profil · Enjeux','Type de contrat':'CDI','Salaire actuel':'— k€ fixe + variable','Fourchette salariale':'— à — k€','Propale OKR (si PO3)':'Jointe au dossier','Reco + estimation Flash Calculator':'— k€'};
+        var SEC={0:[['Informations RH',[0,1,2,3]],['Recrutement',[4]]],1:[['Contrat',[0]],['Rémunération',[1,2,3,4]]]};
+        function fld(x){var hint=E2D&&E2D[x[1]]||'';return '<div class="bm-f" title="'+esc(hint)+'"><span class="bm-v">'+ic(x[0])+esc(x[1].replace(' Flash Calculator',''))+'</span>'+(x[2]?'<button type="button" class="fi-tool bm-btn" data-t="url|'+x[2]+'">Flash Calculator ↗</button>':'')+'</div>'}
+        var bmv='1';R+='<div class="bm bm'+bmv+'"><div class="bm-app"><span class="bm-logo"><i>b</i>BoondManager</span><span class="bm-search">'+ic('search')+'Rechercher un candidat…</span><span class="bm-av">LC</span></div>'+
+          '<div class="bm-cand"><span class="bm-ph">CW</span><div><b>Captain WeFiiT</b><small>PO2 · Product Owner @M6</small></div><span class="bm-st"><i></i>'+esc(a.b)+'</span></div>'+
+          '<div class="bm-tabs" role="tablist">'+[[0],[1],['DTs'],[2],['Positionnements']].map(function(o){if(typeof o[0]==='string')return '<span class="bm-off">'+o[0]+'</span>';var k=o[0],t=TABS[k];return '<button type="button" role="tab" data-bt="'+k+'" aria-selected="'+(bt===k)+'">'+esc(t[0])+'</button>'}).join('')+'</div>'+
+          '<div class="bm-body">'+TABS.map(function(t,k){var h='<div class="bm-pane" data-bp="'+k+'"'+(bt===k?'':' hidden')+'>';
+            if(t[1]===CA)return h+'<div class="bm-card bm-one"><div class="bm-ch">À créer dans l’onglet Actions<span class="bm-cnt">2 actions</span></div><div class="bm-fs bm-2c">'+CA.items.map(function(x){return '<div class="bm-a"><span class="bm-ai">'+ic(x[0])+'</span><div><b>'+esc(x[1])+'</b></div>'+(x[2]==='__note'?'<button type="button" class="bm-btn dark" data-e2note="1">Trame input E3 →</button>':'')+'</div>'}).join('')+'</div></div></div>';
+            return h+'<div class="bm-card bm-one"><div class="bm-ch">À renseigner dans l’onglet '+esc(t[0])+'<span class="bm-cnt">'+t[1].items.length+' champs</span></div><div class="bm-fs bm-2c">'+t[1].items.map(fld).join('')+'</div></div></div>'}).join('')+'</div>'+
+          '</div>';
+        var tot=TABS.reduce(function(n,t){return n+(t[1]?t[1].items.length:0)},0);R+=''}
+      else{
+        var Q=[['La fiche Boond est-elle complète ?','Onglet Information : '+C0.items.map(function(x){return x[1]}).join(', ')+'.',C0.ic,''],
+          ['L’administratif est-il renseigné ?','Onglet Administratif : '+C1.items.map(function(x){return x[1]}).join(', ')+'.',C1.ic,lk(C1.items.filter(function(x){return x[2]})[0])],
+          ['Ai-je au moins 1 référence ?','Indispensable si RC.',C2.ic,''],
+          ['Le brief est-il parfait ?','Rassurant et précis, surtout si PO1.',C3.ic,''],
+          ['La propale est-elle intégrée ?','Si PO3.',C4.ic,''],
+          ['La note de passage E3 est-elle prête ?','Trame input pour Cédric.',C5.ic,noteBtn]];
+        R+='<div class="e2-qh"><b>Avant l’E3, pose-toi 6 questions</b><small>Si tu réponds « oui » partout, le dossier est prêt.</small></div><ol class="e2-q">'+Q.map(function(q){return '<li><span class="e2-ti">'+ic(q[2])+'</span><div><b>'+esc(q[0])+'</b><small>'+esc(q[1])+'</small>'+(q[3]?'<div class="e2-qa">'+q[3]+'</div>':'')+'</div><span class="e2-yes">Oui ?</span></li>'}).join('')+'</ol>'}
+      R+='</div></div>';
+      var O='<div class="kx-more one"><div class="fi-blk"><span class="fi-k">Après l’E3</span><div class="fi-hd"><h3>Selon la décision</h3></div><ul class="kx-br e2-out">'+
+        '<li class="go"><div class="kx-bt"><span class="kx-bi">'+ic('diamond')+'</span><span class="kx-bk">Si propale</span></div><b>Passe à l’étape suivante</b><p>Suis la fiche « '+esc(ACT[i+1]?ACT[i+1].t:'')+' ».</p><button type="button" class="kx-mbtn" data-gostep="'+(i+1)+'">Voir l’étape →</button></li>'+
+        '<li class="no"><div class="kx-bt"><span class="kx-bi"><b aria-hidden="true">!</b></span><span class="kx-bk">Si NO GO à notre initiative</span></div><b>Action « Fiche fin de process à notre initiative »</b><p>Contacte le candidat, de préférence par téléphone, pour lui expliquer les raisons, puis note-les dans l’action.</p></li>'+
+        '<li class="all"><div class="kx-bt"><span class="kx-bi">'+ic('user')+'</span><span class="kx-bk">Si à l’initiative du candidat</span></div><b>Action « Fiche fin de process à l’initiative du candidat »</b><p>Note les raisons de son choix dans l’action.</p></li></ul></div></div>';
+      return '<div class="kx e2k">'+L+R+'</div>'+O}
+    function e2Note(){var E=f.e2b,N=E.note;return '<div class="e2-paper"><div class="e2-ph"><span>Note de passage</span><b>Input E3 · Cédric</b></div>'+N.map(function(x){return '<div class="e2-pl'+(x[3]?' hl':'')+'"><b>'+esc(x[1])+'</b><span>'+esc(x[2]||'')+'</span></div>'}).join('')+'</div>'}
+    function kxMail(id){var m=PG.mails.items.filter(function(x){return x.id===id})[0];if(!m)return '';return '<button type="button" class="kx-mbtn" data-kxmail="'+id+'">✉ Voir le template du mail E1</button>'}
+    function kxBody(){var X={brief:'<rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12.5h17M11 12.5v1.5h2v-1.5"/>',bolt:'<path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"/>',pin:'<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',wallet:'<path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H17v2.5"/><rect x="4" y="7.5" width="16" height="11.5" rx="2.5"/><path d="M15.5 13.2h2"/>',build:'<rect x="5" y="3.5" width="9" height="17" rx="1.5"/><path d="M14 9h4a1 1 0 0 1 1 1v10.5H14M8 7.5h1M10.5 7.5h1M8 11h1M10.5 11h1M8 14.5h1M10.5 14.5h1M3 20.5h18"/>',check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>'};
+      function ic(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(X[k]||ICO[k]||ICO.dot)+'</svg>'}
+      var L='<aside class="kx-l"><div class="kx-art" aria-hidden="true">'+(f.img==='prequal'?prScene():f.img==='sourcing'?fiScene():mascot({}))+'</div><span class="kx-pill">'+ic('brief')+'Étape '+(i+1)+' · Parcours candidat</span><h2>'+esc(a.t)+'<span class="dot">.</span></h2><i class="kx-bar" aria-hidden="true"></i><p class="kx-mis">'+esc(f.kmis||f.mission)+'</p>'+
+        (f.meta?'<div class="kx-meta">'+f.meta.map(function(m){return '<span>'+esc(m)+'</span>'}).join('')+'</div>':'')+
+        (f.enjeu?'<div class="kx-enj"><span class="kx-ei">'+ic('motiv')+'</span><div><b>Enjeu</b><p>'+esc(f.enjeu)+'</p></div></div>':'')+'</aside>';
+      var R='<div class="kx-r"><span class="kx-st"><i></i>Statut Boond : '+esc(a.b)+'</span><div class="kx-card">'+(f.kst?'<h3>'+esc(f.ktitle)+'</h3><p class="kx-sub">'+esc(f.ksub)+'</p><ul class="kx-grid kx-wid kx-g'+f.steps.length+'">'+f.steps.map(function(x,j){return '<li><button type="button" class="fi-sh kx-wb" data-s="'+j+'" aria-haspopup="dialog"><span class="kx-ic">'+stepIco(x[0])+'</span><i class="kx-n">'+pd(j+1)+'</i><b>'+esc(x[0])+'</b></button></li>'}).join('')+'</ul>':'<h3>Les informations clés à recueillir</h3><p class="kx-sub">À la fin de l’appel, tu dois avoir une vision claire sur :</p><ul class="kx-grid kx-wid">'+
+        f.keys.map(function(k){return '<li title="'+esc(k[2])+'"><span class="kx-ic">'+ic(k[0])+'</span><b>'+esc(k[1])+'</b></li>'}).join('')+'</ul>')+
+        (f.valid?'<div class="kx-val"><span class="kx-vi">'+ic('check')+'</span><div><b>À valider avant de raccrocher</b><ul>'+f.valid.map(function(x){return '<li>'+ic('check')+esc(x)+'</li>'}).join('')+'</ul></div></div>':'')+'</div><details class="kx-docs"><summary><span class="kx-dic">'+ic('brief')+'</span><span><b>Tous les documents utiles pour cette étape</b><small>'+f.tools.map(function(t){return esc(t[0])}).join(' · ')+'</small></span><i aria-hidden="true">+</i></summary><div class="fi-tools">'+f.tools.map(stageTool).join('')+'</div></details></div>';
+      var mb=f.more&&f.more.br?'<div class="fi-blk"><span class="fi-k">'+esc(f.more.k)+'</span><div class="fi-hd"><h3>'+esc(f.more.h)+'</h3></div><ul class="kx-br">'+f.more.br.map(function(b){return '<li class="'+b[0]+'"><div class="kx-bt"><span class="kx-bi">'+(b[0]==='all'?ic('prep'):b[0]==='go'?ic('agenda'):'<b aria-hidden="true">!</b>')+'</span><span class="kx-bk">'+esc(b[1])+'</span></div><b>'+esc(b[2])+'</b>'+(b[3]?'<p>'+esc(b[3])+'</p>':'<p>À créer dans Boond à la fin de chaque appel.</p>')+(b[0]==='go'?kxMail('e1'):'')+'</li>'}).join('')+'</ul></div>':more;
+      return '<div class="kx">'+L+R+'</div><div class="kx-more one">'+mb+'</div>'}
     function acc(c){if(/^w\d$/.test(v))return '<ol class="fi-flow">'+f.steps.map(function(x,j){return '<li><button type="button" class="fi-sh" data-s="'+j+'" aria-haspopup="dialog"><span class="ff-i">'+stepIco(x[0])+'</span><span class="ff-n">'+pd(j+1)+'</span><b>'+esc(x[0])+'</b></button></li>'}).join('')+'</ol>';return '<ol class="fi-steps '+(c||'')+'">'+f.steps.map(function(x,j){return '<li><button type="button" class="fi-sh" data-s="'+j+'" aria-haspopup="dialog"><span class="fi-n">'+pd(j+1)+'</span><span class="fi-tx"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></span><span class="fi-chev" aria-hidden="true">⤢</span></button></li>'}).join('')+'</ol>'}
-    function planA(c){return '<div class="fi-blk">'+head('Ton plan d’action',f.stepsT)+'<p class="fi-hint">Clique sur une étape pour zoomer dessus.</p>'+acc(c)+'</div>'}
+    function planA(c){if(f.vis)return '<div class="fi-blk pv-blk">'+head('La préqual en un coup d’œil',f.stepsT)+pVis()+'</div>';return '<div class="fi-blk">'+head('Ton plan d’action',f.stepsT)+'<p class="fi-hint">Clique sur une étape pour zoomer dessus.</p>'+acc(c)+'</div>'}
+    function pVis(){var X={pin:'<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',lang:'<rect x="3.5" y="5" width="17" height="12" rx="2.5"/><path d="M8 20l2-3M7.5 13.5 9.5 8.5l2 5M8.2 12h2.6M14 8.5v5h3M14 11h2.5M14 8.5h3"/>',eur:'<path d="M17 6.5a6.5 6.5 0 1 0 0 11M4.5 10.5h8M4.5 13.5h8"/>'};
+      function ic(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(X[k]||ICO[k]||ICO.dot)+'</svg>'}
+      var pv=window.__pv||'1',S=f.steps,V=f.vis,n=S.length,o='';
+      var pick='<div class="pv-pick" role="group" aria-label="Propositions"><span>Propositions</span>'+[['1','Chemin'],['2','Cadran'],['3','Appel'],['4','Vignettes'],['5','Fil']].map(function(x){return '<button type="button" data-pv="'+x[0]+'" aria-pressed="'+(pv===x[0])+'">'+x[0]+' · '+x[1]+'</button>'}).join('')+'</div>';
+      if(pv==='1')o='<div class="pv"><svg class="pv-road" viewBox="0 0 600 282" preserveAspectRatio="none" aria-hidden="true"><path d="M100 36 H500 C585 36 585 186 500 186 H100" fill="none" stroke="#9DB4FF" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><ol class="pv-st">'+S.map(function(x,j){return '<li class="pv-'+j+'"><div class="pv-c"><span class="pv-b">'+stepIco(x[0])+'<i>'+(j+1)+'</i></span><b>'+esc(x[0])+'</b><small>'+esc(V[j]||'')+'</small></div></li>'}).join('')+'</ol></div>';
+      else if(pv==='2'){var R=92,C=120,seg='',ics='';for(var j=0;j<n;j++){var a0=(j/n)*2*Math.PI-Math.PI/2+.05,a1=((j+1)/n)*2*Math.PI-Math.PI/2-.05,am=(a0+a1)/2;
+          seg+='<path d="M'+(C+R*Math.cos(a0)).toFixed(1)+' '+(C+R*Math.sin(a0)).toFixed(1)+' A'+R+' '+R+' 0 0 1 '+(C+R*Math.cos(a1)).toFixed(1)+' '+(C+R*Math.sin(a1)).toFixed(1)+'" stroke="'+['#002882','#0a37b8','#0042ff','#2f6bff','#5c8bff','#f98f03'][j%6]+'" stroke-width="26" fill="none"/>';
+          ics+='<g transform="translate('+(C+R*Math.cos(am)-9).toFixed(1)+' '+(C+R*Math.sin(am)-9).toFixed(1)+') scale(.75)" color="#fff">'+ic(stepIcoKey(S[j][0])).replace('<svg ','<svg width="24" height="24" ')+'</g>'}
+        o='<div class="pv2"><svg class="pv2-d" viewBox="0 0 240 240" aria-hidden="true">'+seg+ics+'<text x="120" y="114" text-anchor="middle" class="pv2-t1">15–20</text><text x="120" y="138" text-anchor="middle" class="pv2-t2">minutes</text></svg><ol class="pv2-l">'+S.map(function(x,j){return '<li><span>'+(j+1)+'</span><div><b>'+esc(x[0])+'</b><small>'+esc(V[j]||'')+'</small></div></li>'}).join('')+'</ol></div>'}
+      else if(pv==='3')o='<div class="pv3"><div class="pv3-bar">'+S.map(function(x,j){return '<div class="pv3-s"><span class="pv3-i">'+stepIco(x[0])+'</span><i></i><b>'+esc(x[0])+'</b><small>'+esc(V[j]||'')+'</small></div>'}).join('')+'</div><div class="pv3-tl"><span>0 min</span><span>☎ Appel</span><span>15–20 min</span></div></div>';
+      else if(pv==='4')o='<ul class="pv4">'+S.map(function(x,j){return '<li><div class="pv4-img"><span>'+stepIco(x[0])+'</span><i>'+pd(j+1)+'</i></div><b>'+esc(x[0])+'</b><small>'+esc(V[j]||'')+'</small></li>'}).join('')+'</ul>';
+      else o='<ol class="pv5">'+S.map(function(x,j){return '<li><span class="pv5-n">'+stepIco(x[0])+'</span><div><b>'+(j+1)+'. '+esc(x[0])+'</b><small>'+esc(V[j]||'')+'</small></div></li>'}).join('')+'</ol>';
+      return pick+o+(f.checks?'<div class="pv-ck"><span class="fi-k">À valider avant de raccrocher</span><ul>'+f.checks.map(function(c){return '<li><span>'+ic(c[0])+'</span>'+esc(c[1])+'</li>'}).join('')+'<li class="pv-out"><span>'+ic('agenda')+'</span>E1 planifié</li></ul></div>':'')}
     function planB(){var x=f.steps[cur];return '<div class="fi-blk">'+head('Ton plan d’action',f.stepsT)+'<ol class="fi-rail">'+f.steps.map(function(y,j){return '<li><button type="button" data-r="'+j+'" aria-selected="'+(j===cur)+'"><span class="fi-rn">'+pd(j+1)+'</span><small>'+esc(y[0])+'</small></button></li>'}).join('')+'</ol><div class="fi-pn"><span class="fi-k">Étape '+pd(cur+1)+' sur '+pd(tot)+'</span><h4>'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p>'+detail(x)+'</div></div>'}
     function planC(){var x=f.steps[cur],last=cur===tot-1;return '<div class="fi-blk fi-wiz"><div class="fi-cap md" aria-hidden="true">'+mascot({})+'</div><div class="fi-wb"><span class="fi-k">Ton plan d’action · étape '+(cur+1)+' sur '+tot+'</span><div class="fi-dots">'+f.steps.map(function(y,j){return '<button type="button" data-r="'+j+'" aria-label="Étape '+(j+1)+'" class="'+(j<=cur?'done':'')+(j===cur?' cur':'')+'"></button>'}).join('')+'</div><div class="fi-bub"><h4>'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p>'+detail(x)+'</div><div class="fi-wa"><button type="button" class="btn sm sec" data-prev="1"'+(cur===0?' disabled':'')+'>← Précédente</button><button type="button" class="btn sm" data-next="1"'+(last?' disabled':'')+'>Suivante →</button></div></div></div>'}
     var tip='<div class="fi-tip"><div><span class="fi-k">Le conseil du Capitaine</span><p>'+esc(f.tip)+'</p></div></div>';
@@ -3279,6 +3979,10 @@ function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
     var qDone='<div class="q-done"><span class="q-k">Étape réussie si</span><p>'+esc(f.done)+'</p></div>';
     if(v==='b')body=hero()+planB()+tip+tools+more+go;
     else if(v==='c')body=hero('slim')+planC()+tip+tools+more+go;
+    else if(f.sig)body=sigBody();
+    else if(f.e2b)body=e2Body();
+    else if(v==='w4'&&(f.keys||f.kst))body=kxBody();
+    else if(v==='w4')body='<div class="fi-bento fi-2c"><div class="fi-l">'+hero('slim')+'<div class="fi-b-side">'+tip+(f.checks?'':go)+'</div></div><div class="fi-r"><div class="fi-b-plan">'+planA('compact')+'</div><div class="fi-b-tools">'+tools+'</div><div class="fi-b-more">'+more+'</div></div></div>';
     else if(v==='d'||/^[sw]\d$/.test(v))body='<div class="fi-bento">'+hero('slim')+'<div class="fi-b-plan">'+planA('compact')+'</div><div class="fi-b-side">'+tip+go+'</div><div class="fi-b-tools">'+tools+'</div><div class="fi-b-more">'+more+'</div></div>';
     else if(v==='q1')body='<div class="q q1">'+qHead()+'<div class="q1-grid"><div><span class="q-k">Ton plan d’action</span><h3 class="q-h">'+esc(f.stepsT)+'</h3>'+qSteps('q1-steps')+'</div><aside class="q1-side">'+qMeta()+qDone+qTip+'<div><span class="q-k">Les documents</span>'+qTools()+'</div>'+(f.more?'<div><span class="q-k">Dans Boond</span>'+qBoond()+'</div>':'')+'</aside></div></div>';
     else if(v==='q2')body='<div class="q q2">'+qHead('c')+'<div class="q2-props"><div><span>Statut Boond</span><b>'+esc(a.b)+'</b></div><div><span>Mission</span><b>'+esc(f.mission)+'</b></div><div><span>Réussie si</span><b>'+esc(f.done)+'</b></div>'+(f.more?'<div><span>Actions Boond</span><b>'+f.more.items.map(esc).join(' · ')+'</b></div>':'')+'</div><h3 class="q-h">'+esc(f.stepsT)+'</h3>'+qSteps('q2-steps','Ouvrir')+qTip+'<h3 class="q-h">Les documents</h3>'+qTools()+'</div>';
@@ -3286,12 +3990,12 @@ function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
     else if(v==='q4')body='<div class="q q4">'+qHead('row')+'<div class="q4-card"><section><span class="q-k">L’objectif</span><p class="q4-mis">'+esc(f.mission)+'</p>'+qDone+'</section><section><span class="q-k">Les étapes</span>'+qSteps('q4-steps','')+'</section><section><span class="q-k">Les ressources</span>'+qTools()+(f.more?'<span class="q-k" style="margin-top:14px">Dans Boond · statut '+esc(a.b)+'</span>'+qBoond():'')+'</section></div>'+qTip+'</div>';
     else body=hero()+planA()+tip+tools+more+go;
     var html=(cont?'':'<button class="back" type="button" id="abk">← Le process de bout en bout</button>')+'<section class="fi fi-v'+(/^s\d$/.test(v)?'d fi-sk fi-'+v:/^w\d$/.test(v)?'d fi-wk fi-'+v:v)+'">'+body+'</section>'+
-     (mailsFor(i).length?'<section class="stmail"><h3 class="sh">Mails d’invitation</h3>'+mailsFor(i).map(function(m){return '<details class="mailbox"><summary><span class="mb-t">✉️ '+esc(m.t)+'</span>'+(MAILOPT[m.id]?'<small>'+esc(MAILOPT[m.id])+'</small>':'')+'</summary>'+mailCard(m)+'</details>'}).join('')+'<p class="ml-note"><span class="ph">Orange</span> : à personnaliser avant l’envoi. Les liens et pièces jointes sont dans le Word d’origine.</p></section>':'')+
+     (mailsFor(i).length&&!(v==='w4'&&f.keys)&&!f.sig?'<section class="stmail"><h3 class="sh">Mails d’invitation</h3>'+mailsFor(i).map(function(m){return '<details class="mailbox"><summary><span class="mb-t">✉️ '+esc(m.t)+'</span>'+(MAILOPT[m.id]?'<small>'+esc(MAILOPT[m.id])+'</small>':'')+'</summary>'+mailCard(m)+'</details>'}).join('')+'<p class="ml-note"><span class="ph">Orange</span> : à personnaliser avant l’envoi. Les liens et pièces jointes sont dans le Word d’origine.</p></section>':'')+
      '<div class="fi-q"><span>Un doute ?</span><button class="btn sm" type="button" id="aq">Poser la question</button></div>'+
      (cont?'':'<div class="stnav">'+(i>0?'<button class="btn sm sec" type="button" id="ap">← '+esc(ACT[i-1].t)+'</button>':'<span></span>')+(i<ACT.length-1?'<button class="btn sm sec" type="button" id="an">'+esc(ACT[i+1].t)+' →</button>':'')+'</div>');
     var d=cont||$('actDetail');d.innerHTML=html;bindMails(d);
     function again(){var y=window.scrollY;renderFiche(i,cont);window.scrollTo(0,y)}
-    function goTool(b){var p=b.getAttribute('data-t').split('|'),k=p[0],vv=p.slice(1).join('|');if(k==='url'){var u=L[vv];if(u)window.open(encodeURI(u),'_blank','noopener')}else if(k==='map'){closeZoom();closeFiche();show('map',true,+vv+1)}else if(k==='faq'){closeZoom();closeFiche();var q=KB.findIndex(function(e){return e.q===vv});show('chat',true);if(q>=0)ask(KB[q].q,q)}}
+    function goTool(b){var p=b.getAttribute('data-t').split('|'),k=p[0],vv=p.slice(1).join('|');if(k==='url'){var u=L[vv];if(u)window.open(encodeURI(u),'_blank','noopener')}else if(k==='map'){closeZoom();closeFiche();show('map',true,+vv+1);fzBack(i)}else if(k==='faq'){closeZoom();closeFiche();var q=KB.findIndex(function(e){return e.q===vv});show('chat',true);fzBack(i);if(q>=0)ask(KB[q].q,q)}}
     function closeZoom(){var z=document.querySelector('body>.fi-zoom');if(z){z.remove();document.removeEventListener('keydown',window.__fzKey)}}
     function openZoom(j,trg){closeZoom();var x=f.steps[j],r=trg.getBoundingClientRect(),ox=r.left+r.width/2,oy=r.top+r.height/2;
       var z=document.createElement('div');z.className='fi-zoom';z.setAttribute('role','dialog');z.setAttribute('aria-modal','true');z.setAttribute('aria-label',x[0]);
@@ -3307,10 +4011,27 @@ function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
       pz.onclick=function(){var t=d.querySelector('.fi-sh[data-s="'+(j-1)+'"]');openZoom(j-1,t||trg)};nz.onclick=function(){var t=d.querySelector('.fi-sh[data-s="'+(j+1)+'"]');openZoom(j+1,t||trg)};
       window.__fzKey=function(e){if(e.key==='Escape'){closeZoom();trg.focus()}};document.addEventListener('keydown',window.__fzKey)}
     d.querySelectorAll('.fi-sh').forEach(function(b){b.onclick=function(){openZoom(+b.getAttribute('data-s'),b)}});
+    d.querySelectorAll('[data-pv]').forEach(function(b){b.onclick=function(){window.__pv=b.getAttribute('data-pv');again()}});
     d.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){window.__fcur=+b.getAttribute('data-r');again()}});
     d.querySelectorAll('[data-prev]').forEach(function(b){b.onclick=function(){window.__fcur=Math.max(0,cur-1);again()}});
     d.querySelectorAll('[data-next]').forEach(function(b){b.onclick=function(){window.__fcur=Math.min(tot-1,cur+1);again()}});
     d.querySelectorAll('.fi-tool').forEach(function(b){b.onclick=function(){goTool(b)}});
+    d.querySelectorAll('[data-e2v]').forEach(function(b){b.onclick=function(){window.__e2v=b.getAttribute('data-e2v');again()}});
+    d.querySelectorAll('[data-ck]').forEach(function(b){b.onclick=function(){var j=+b.getAttribute('data-ck'),CK=window.__e2ck=window.__e2ck||{};CK[j]=!CK[j];b.classList.toggle('ok',CK[j]);b.setAttribute('aria-pressed',CK[j]);var row=b.closest('[data-row]');if(row)row.classList.toggle('ok',CK[j]);
+      var n=f.e2b.checks.length,dn=f.e2b.checks.filter(function(c,k){return CK[k]}).length;d.querySelectorAll('.e2-cnt b').forEach(function(x){x.textContent=dn});d.querySelectorAll('.e2-ring .p').forEach(function(p){var L=+p.getAttribute('data-l');p.style.strokeDashoffset=L*(1-dn/n)})}});
+    d.querySelectorAll('[data-e2note]').forEach(function(b){b.onclick=function(){closeZoom();var z=document.createElement('div');z.className='fi-zoom kx-mz e2-mz';z.setAttribute('role','dialog');z.setAttribute('aria-modal','true');z.setAttribute('aria-label','Trame input E3');
+      z.innerHTML='<div class="fi-zc"><button type="button" class="fi-zx" aria-label="Fermer">×</button><div class="kx-mzh"><span class="kx-mzi">✎</span><div><span class="fi-k">À remplir avant l’E3</span><h3>Trame input E3 · Cédric</h3></div></div>'+e2Note()+'</div>';
+      document.body.appendChild(z);requestAnimationFrame(function(){z.classList.add('on')});z.onclick=function(e){if(e.target===z)closeZoom()};z.querySelector('.fi-zx').onclick=function(){closeZoom();b.focus()};z.querySelector('.fi-zx').focus();
+      window.__fzKey=function(e){if(e.key==='Escape'){closeZoom();b.focus()}};document.addEventListener('keydown',window.__fzKey)}});
+    d.querySelectorAll('[data-bt]').forEach(function(b){b.onclick=function(){var k=+b.getAttribute('data-bt');window.__bt=k;d.querySelectorAll('[data-bt]').forEach(function(x){x.setAttribute('aria-selected',+x.getAttribute('data-bt')===k)});d.querySelectorAll('[data-bp]').forEach(function(p){p.hidden=+p.getAttribute('data-bp')!==k})}});
+    d.querySelectorAll('[data-bmv]').forEach(function(b){b.onclick=function(){window.__bmv=b.getAttribute('data-bmv');again()}});
+    d.querySelectorAll('[data-gostep]').forEach(function(b){b.onclick=function(){var k=+b.getAttribute('data-gostep');closeZoom();closeFiche();show('act',true);setTimeout(function(){var t=document.querySelector('#v-act [data-st="'+k+'"]');if(t)t.click()},350)}});
+    d.querySelectorAll('[data-kxmail]').forEach(function(b){b.onclick=function(){closeZoom();var m=PG.mails.items.filter(function(x){return x.id===b.getAttribute('data-kxmail')})[0];if(!m)return;
+      var z=document.createElement('div');z.className='fi-zoom kx-mz';z.setAttribute('role','dialog');z.setAttribute('aria-modal','true');z.setAttribute('aria-label',m.t);
+      z.innerHTML='<div class="fi-zc"><button type="button" class="fi-zx" aria-label="Fermer">×</button><div class="kx-mzh"><span class="kx-mzi">✉</span><div><span class="fi-k">Template à copier</span><h3>Mail · '+esc(m.t)+'</h3></div></div>'+mailCard(m)+'</div>';
+      document.body.appendChild(z);bindMails(z);requestAnimationFrame(function(){z.classList.add('on')});
+      z.onclick=function(e){if(e.target===z)closeZoom()};z.querySelector('.fi-zx').onclick=function(){closeZoom();b.focus()};z.querySelector('.fi-zx').focus();
+      window.__fzKey=function(e){if(e.key==='Escape'){closeZoom();b.focus()}};document.addEventListener('keydown',window.__fzKey)}});
     d.querySelectorAll('[data-fq]').forEach(function(b){b.onclick=function(){window.__fv=b.getAttribute('data-fq');again()}});
 
     if($('abk'))$('abk').onclick=function(){closeZoom();show('act',true)};
@@ -3319,7 +4040,10 @@ function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
     var op=document.querySelector('body>.fv-pick');if(op)op.remove();
   }
   function closeFiche(){var z=document.querySelector('body>.fz');if(!z)return;z.classList.remove('on');document.body.style.overflow='';document.removeEventListener('keydown',window.__fzK2);var zz=document.querySelector('body>.fi-zoom');if(zz)zz.remove();setTimeout(function(){z.remove()},260)}
-  function openFiche(i,trg){closeFiche();var r=trg.getBoundingClientRect(),ox=r.left+r.width/2,oy=r.top+r.height/2;
+  function fzBack(i){var o=document.querySelector('body>.fz-back');if(o)o.remove();var b=document.createElement('button');b.type='button';b.className='fz-back';b.innerHTML='<span aria-hidden="true">←</span> Retour à la fiche '+esc(ACT[i].t);document.body.appendChild(b);
+    b.onclick=function(){b.remove();show('act',true);setTimeout(function(){var t=document.querySelector('#v-act [data-st="'+i+'"]');if(t)openFiche(i,t)},350)};
+    var iv=setInterval(function(){if(!document.body.contains(b)){clearInterval(iv);return}b.hidden=!!document.querySelector('body>.fz')},300)}
+  function openFiche(i,trg){closeFiche();var ob=document.querySelector('body>.fz-back');if(ob)ob.remove();var r=trg.getBoundingClientRect(),ox=r.left+r.width/2,oy=r.top+r.height/2;
     var z=document.createElement('div');z.className='fz';z.setAttribute('role','dialog');z.setAttribute('aria-modal','true');z.setAttribute('aria-label',ACT[i].t);
     z.innerHTML='<div class="fz-c"><div class="fz-bar"><button type="button" class="btn sm sec fz-back">← Retour à la frise</button><span class="fz-t">'+esc(ACT[i].t)+'</span><button type="button" class="fz-x" aria-label="Fermer">×</button></div><div class="fz-body"></div></div>';
     document.body.appendChild(z);document.body.style.overflow='hidden';
@@ -3568,8 +4292,8 @@ function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
       var el=$('agAlt');
       if(k==='b'){
         el.innerHTML='<div class="xs">'+ACT.map(function(a,i){return '<button type="button" data-st="'+i+'"><span class="n">'+(i+1)+'</span><b>'+esc(a.t)+'</b><small>'+esc(a.b)+'</small></button>'}).join('')+'</div><div class="xs-panel" id="xsp"></div>';
-        function pick(i){var a=ACT[i];$('xsp').innerHTML='<div><h4>'+esc(a.t)+'</h4><p>'+esc(a.g)+'</p>'+'<h5>À faire</h5><ol>'+a.do.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ol></div><div class="docs2"><h5>Statut Boond</h5><p style="margin:0 0 8px"><span class="xs-tag">'+esc(a.b)+'</span></p><h5>Documents</h5>'+docsHtml(a)+'<button class="xbtn" type="button" data-q="'+i+'" style="margin-top:6px">Poser une question</button></div>';
-          $('xsp').querySelector('[data-q]').onclick=function(){goAsk(a.q)};
+        function pick(i){var a=ACT[i];$('xsp').innerHTML='<div><h4>'+esc(a.t)+'</h4><p>'+esc(a.g)+'</p>'+'<h5>À faire</h5><ol>'+a.do.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ol></div><div class="docs2"><h5>Statut Boond</h5><p style="margin:0 0 8px"><span class="xs-tag">'+esc(a.b)+'</span></p><h5>Documents</h5>'+docsHtml(a)+'<button class="xbtn" type="button" data-q="'+i+'" style="margin-top:6px">Poser une question</button></div>'+(mailsFor(i).length?'<section class="stmail xs-mails"><h5>Mails d’invitation</h5>'+mailsFor(i).map(function(m){return '<details class="mailbox"><summary><span class="mb-t">✉️ '+esc(m.t)+'</span>'+(MAILOPT[m.id]?'<small>'+esc(MAILOPT[m.id])+'</small>':'')+'</summary>'+mailCard(m)+'</details>'}).join('')+'</section>':'');
+          $('xsp').querySelector('[data-q]').onclick=function(){goAsk(a.q)};bindMails($('xsp'));
           el.querySelectorAll('.xs .n').forEach(function(n,j){n.style.background=j===i?'#002882':'';n.style.color=j===i?'#fff':''})}
         el.querySelectorAll('[data-st]').forEach(function(b){b.onclick=function(){var i=+b.getAttribute('data-st');if(ACT[i].fiche){openFiche(i,b);return}$('xsp').style.display='';pick(i)}});if(ACT[0].fiche)$('xsp').style.display='none';else pick(0);
       }else if(k==='c'){
@@ -3625,6 +4349,34 @@ function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
     function unread(d){var t=new Date(d.d).getTime();return NOW-t<WIN&&t>seen}
     function ago(d){var n=Math.round((NOW-new Date(d))/864e5);return n<=0?'aujourd’hui':n===1?'hier':n<31?'il y a '+n+' jours':'le '+fmt(d)}
     var CHG=[
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Nouvelle fiche Réponse et signature',p:'Fiche sur le modèle de l’E2 bis : bravo, 3 étapes (créneau de 45 min avec Matthieu, invitation par mail avec Yamila en copie et template, infos du contrat), checklist du contrat, et « Compléter les informations du candidat » dans Boond.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : version Claire retenue',p:'La fausse fiche Boond garde la présentation Claire ; le sélecteur de propositions est retiré.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : fiche Boond plus fidèle',p:'Champs réduits à leur titre (plus d’exemples). Candidat fictif « Captain WeFiiT · PO2 · Product Owner @M6 » et onglets Boond complets (DTs et Positionnements grisés).'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : un seul bloc par onglet Boond',p:'Dans chaque onglet de la fausse fiche Boond, tous les champs à renseigner sont regroupés dans un seul bloc, avec leur nombre, pour comprendre d’un coup d’œil ce qui doit être inscrit.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : fausse interface BoondManager',p:'La fiche Boond est présentée comme une vraie interface BoondManager (barre, candidat fictif, onglets, encarts) avec les champs à vérifier encadrés en orange.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Frise : E2 bis et Propale dissociées',p:'« E2 bis » et « Propale » deviennent deux étapes distinctes du Parcours candidat. Le mail d’invitation avec propale OKR passe dans l’étape Propale.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : note de passage dans l’onglet Actions',p:'La note de passage E3 se met dans une action « Note » de Boond (onglet Actions), avec la trame à ouvrir directement. Tout le dossier est maintenant dans la fiche Boond.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : brief dans l’onglet Informations',p:'Le brief est à vérifier dans l’onglet Informations de Boond.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : propale OKR dans l’onglet Administratif',p:'« Propale OKR (si PO3) » est à vérifier dans l’onglet Administratif de Boond.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : références dans l’onglet Actions',p:'La référence est à faire et à mettre dans l’onglet Actions de Boond, avec l’action « Prise de référence ».'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : fiche Boond avec ses onglets',p:'Les points à vérifier dans Boond sont présentés comme la fiche candidat, avec ses onglets (Informations, Administratif, DTs, Actions, Positionnements) : on clique sur un onglet pour voir ses champs.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : animation et titre sur une ligne',p:'Le Capitaine vérifie un dossier animé (les points se cochent un à un). Le titre « E2 bis et propale » tient sur une ligne.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : liste simple + décision après l’E3',p:'Présentation Liste simple retenue, sans numéros ni cas particuliers. Nouveau bloc « Selon la décision » : si propale, étape suivante ; si NO GO, appeler le candidat et créer l’action « Fiche fin de process à notre initiative » ; si à l’initiative du candidat, action « Fiche fin de process à l’initiative du candidat ». Les mails d’invitation E2 bis passent dans l’étape E2.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : 4 nouvelles propositions',p:'Quatre présentations plus simples à comparer en haut de la fiche : Écran Boond, 3 colonnes, Liste simple, Questions.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'E2 bis : présentation Dossier retenue',p:'Mise en page alignée sur la Préqualification (colonne marine avec l’enjeu et les cas particuliers). Plus de cases à cocher. Flash Calculator cliquable, « Propale OK si PO3 », et la trame input E3 s’ouvre dans une fiche.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Nouvelle fiche E2 bis et propale : 5 propositions',p:'Fiche « avant l’E3 » : fiche Boond (provenance, dispo, LinkedIn, titre), administratif (contrat, salaire actuel, fourchette, reco Flash Calculator), 1 référence minimum, brief parfait, propale si senior, note de passage E3 (trame input Cédric), cas RC et PO1. Cases à cocher et compteur. Cinq présentations : Checklist, Cockpit, Dossier, Bento, Duo.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : template E1 en fiche',p:'Le template du mail d’invitation E1 s’ouvre maintenant dans une fiche par-dessus la page, plus lisible, au lieu d’un bloc dépliant.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Fiches : retour à la fiche après un document',p:'Quand on ouvre un document interne depuis une fiche (ex. Pitch WeFiiT), un bouton « ← Retour à la fiche » permet de revenir directement à la fiche. Projection chez WeFiiT passe en bleu comme les autres widgets.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : actions Boond harmonisées',p:'Les trois cartes d’actions Boond ont la même taille, avec un pictogramme, et le template E1 s’ouvre depuis un bouton.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : « À valider avant de raccrocher » retiré',p:'Encadré retiré car il faisait doublon avec les informations clés.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : enjeu plus discret',p:'Texte de l’enjeu réduit pour laisser de l’air en bas de la colonne bleue.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : template E1 dans « Si passage en E1 »',p:'Le mail d’invitation E1 (template à copier) est accessible directement dans le carré vert « Si passage en E1 ».'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : documents en un clic',p:'« Tous les documents utiles pour cette étape » devient un bouton sous les informations clés : un clic affiche le Pitch WeFiiT et Les objections fréquentes. Cadrage salarial retiré.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : actions Boond selon l’issue',p:'Après chaque préqual : action « Préqualification téléphonique ». Si passage en E1 : action « Entretien 1 » et mail d’invitation E1. Si NO GO : action LN– / LN+ ou KO, et prévenir le candidat (point hyper important).'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : infos clés en widgets',p:'Le bloc « Déroulé de l’appel » est retiré. Les 8 informations clés à recueillir passent en petits widgets (pictogramme + titre) ; le détail apparaît au survol.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : nouvelle mise en page',p:'Colonne marine (Capitaine au téléphone en haut, mission, durée, trame Boond, enjeu), déroulé de l’appel en 6 étapes mis en avant, puis « Les informations clés à recueillir » en format compact : 8 pictogrammes (expérience produit, rôle, motivations, drivers, mobilité, anglais, rémunération, projection chez WeFiiT), puis « À valider avant de raccrocher ». Boîte à outils et actions Boond en dessous.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : visuel non cliquable, 5 propositions ; étape GO / NO GO retirée',p:'Le visuel « La préqual en un coup d’œil » n’ouvre plus de détail au clic (pas de redite). Cinq présentations à comparer : Chemin, Cadran, Appel, Vignettes, Fil. L’étape GO / NO GO est retirée de la frise du Parcours candidat.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : la fiche devient visuelle',p:'Le plan d’action est remplacé par une illustration de l’appel : 6 temps forts avec un pictogramme et l’essentiel en quelques mots, puis les points à valider avant de raccrocher (expertise produit, drivers, mobilité, anglais, salaire → E1 planifié). Le détail s’ouvre au clic.'},
       {d:'2026-11-10',who:'Léa',th:-1,t:'Nouvelle Maquette E2',p:'La Maquette E2 (feedback post-E2, trame d’entretien, cas pratique Sofitel) est ajoutée dans la Mallette, dossier Qualification et entretiens, juste après la Maquette E1.'},
       {d:'2026-11-10',who:'Léa',th:-1,t:'Fiches : présentation Focus retenue, étapes en schéma',p:'La présentation Focus devient celle de toutes les fiches. Les étapes deviennent un schéma : un pictogramme, un numéro et un titre court par étape ; le détail s’ouvre au clic.'},
       {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : étapes reformulées, objections ajoutées',p:'Étapes renommées sur un ton plus professionnel (Préparation, Motivations, Expertise produit, Mobilité/anglais/rémunération, Projection chez WeFiiT, Conclusion et E1). Retrait de la Maquette Prequal et des critères GO / NO GO ; ajout des objections fréquentes.'},
@@ -4183,6 +4935,9 @@ if(e.target.closest('#gngModal'))close()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})})();
 </script>
 <script>window.WF_PMC="<svg class=\"pmc\" viewBox=\"0 0 1000 1000\" role=\"img\" aria-label=\"La boussole du Product Management full stack : Product Strategy, Product Discovery, Product Delivery, Influence et consulting, avec leurs sous-compétences.\" xmlns=\"http://www.w3.org/2000/svg\"><g class=\"q q-discovery\"><path d=\"M500.0 170.0 A330 330 0 0 1 830.0 500.0 L672.0 500.0 A172 172 0 0 0 500.0 328.0 Z\" fill=\"#F4C142\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M500.0 22.0 A478 478 0 0 1 739.0 86.0 L671.0 203.8 A342 342 0 0 0 500.0 158.0 Z\" fill=\"#F4C142\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(606.1 104.0) rotate(15.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#002882\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Collecte</tspan><tspan x=\"0\" dy=\"25.8\">d’insights</tspan></text><path d=\"M739.0 86.0 A478 478 0 0 1 914.0 261.0 L796.2 329.0 A342 342 0 0 0 671.0 203.8 Z\" fill=\"#F4C142\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(789.9 210.1) rotate(45.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#002882\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Identification</tspan><tspan x=\"0\" dy=\"25.8\">des problèmes</tspan></text><path d=\"M914.0 261.0 A478 478 0 0 1 978.0 500.0 L842.0 500.0 A342 342 0 0 0 796.2 329.0 Z\" fill=\"#F4C142\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(896.0 393.9) rotate(75.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#002882\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Conception</tspan><tspan x=\"0\" dy=\"25.8\">de solutions</tspan></text><text x=\"678.2\" y=\"313.8\" text-anchor=\"middle\" class=\"pmc-q\" fill=\"#002882\" font-size=\"30\"><tspan x=\"678.2\" dy=\"0\">Product</tspan><tspan x=\"678.2\" dy=\"34\">Discovery</tspan></text></g><g class=\"q q-strategy\"><path d=\"M830.0 500.0 A330 330 0 0 1 500.0 830.0 L500.0 672.0 A172 172 0 0 0 672.0 500.0 Z\" fill=\"#6B9BD2\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M978.0 500.0 A478 478 0 0 1 914.0 739.0 L796.2 671.0 A342 342 0 0 0 842.0 500.0 Z\" fill=\"#6B9BD2\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(896.0 606.1) rotate(285.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Analyse</tspan><tspan x=\"0\" dy=\"25.8\">stratégique</tspan></text><path d=\"M914.0 739.0 A478 478 0 0 1 739.0 914.0 L671.0 796.2 A342 342 0 0 0 796.2 671.0 Z\" fill=\"#6B9BD2\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(789.9 789.9) rotate(315.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"-25.8\">Vision et</tspan><tspan x=\"0\" dy=\"25.8\">Stratégie</tspan><tspan x=\"0\" dy=\"25.8\">produit</tspan></text><path d=\"M739.0 914.0 A478 478 0 0 1 500.0 978.0 L500.0 842.0 A342 342 0 0 0 671.0 796.2 Z\" fill=\"#6B9BD2\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(606.1 896.0) rotate(345.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"0.0\">Exécution</tspan></text><text x=\"678.2\" y=\"670.2\" text-anchor=\"middle\" class=\"pmc-q\" fill=\"#ffffff\" font-size=\"30\"><tspan x=\"678.2\" dy=\"0\">Product</tspan><tspan x=\"678.2\" dy=\"34\">Strategy</tspan></text></g><g class=\"q q-influence\"><path d=\"M500.0 830.0 A330 330 0 0 1 170.0 500.0 L328.0 500.0 A172 172 0 0 0 500.0 672.0 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M500.0 978.0 A478 478 0 0 1 317.1 941.6 L369.1 816.0 A342 342 0 0 0 500.0 842.0 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(420.0 902.1) rotate(371.2)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"21\"><tspan x=\"0\" dy=\"-11.8\">AI for</tspan><tspan x=\"0\" dy=\"23.5\">Product</tspan></text><path d=\"M317.1 941.6 A478 478 0 0 1 162.0 838.0 L258.2 741.8 A342 342 0 0 0 369.1 816.0 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(272.2 840.9) rotate(393.8)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"21\"><tspan x=\"0\" dy=\"0.0\">Consulting</tspan></text><path d=\"M162.0 838.0 A478 478 0 0 1 58.4 682.9 L184.0 630.9 A342 342 0 0 0 258.2 741.8 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(159.1 727.8) rotate(416.2)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"21\"><tspan x=\"0\" dy=\"-11.8\">Manage-</tspan><tspan x=\"0\" dy=\"23.5\">ment</tspan></text><path d=\"M58.4 682.9 A478 478 0 0 1 22.0 500.0 L158.0 500.0 A342 342 0 0 0 184.0 630.9 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(97.9 580.0) rotate(438.8)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"21\"><tspan x=\"0\" dy=\"0.0\">Influence</tspan></text><text x=\"321.8\" y=\"670.2\" text-anchor=\"middle\" class=\"pmc-q\" fill=\"#ffffff\" font-size=\"30\"><tspan x=\"321.8\" dy=\"0\">Influence &</tspan><tspan x=\"321.8\" dy=\"34\">consulting</tspan></text></g><g class=\"q q-delivery\"><path d=\"M170.0 500.0 A330 330 0 0 1 500.0 170.0 L500.0 328.0 A172 172 0 0 0 328.0 500.0 Z\" fill=\"#EC9A3A\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M22.0 500.0 A478 478 0 0 1 86.0 261.0 L203.8 329.0 A342 342 0 0 0 158.0 500.0 Z\" fill=\"#EC9A3A\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(104.0 393.9) rotate(285.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Dévelop-</tspan><tspan x=\"0\" dy=\"25.8\">pement</tspan></text><path d=\"M86.0 261.0 A478 478 0 0 1 261.0 86.0 L329.0 203.8 A342 342 0 0 0 203.8 329.0 Z\" fill=\"#EC9A3A\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(210.1 210.1) rotate(315.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"0.0\">Priorisation</tspan></text><path d=\"M261.0 86.0 A478 478 0 0 1 500.0 22.0 L500.0 158.0 A342 342 0 0 0 329.0 203.8 Z\" fill=\"#EC9A3A\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(393.9 104.0) rotate(345.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"0.0\">Spécification</tspan></text><text x=\"321.8\" y=\"313.8\" text-anchor=\"middle\" class=\"pmc-q\" fill=\"#ffffff\" font-size=\"30\"><tspan x=\"321.8\" dy=\"0\">Product</tspan><tspan x=\"321.8\" dy=\"34\">Delivery</tspan></text></g><g class=\"pmc-c\"><circle cx=\"500\" cy=\"500\" r=\"160\" fill=\"#0B2377\"/><path d=\"M478.0 500.0 L500.0 350.0 L522.0 500.0 Z\" fill=\"#D4D6DB\"/><path d=\"M500.0 478.0 L650.0 500.0 L500.0 522.0 Z\" fill=\"#D4D6DB\"/><path d=\"M522.0 500.0 L500.0 650.0 L478.0 500.0 Z\" fill=\"#D4D6DB\"/><path d=\"M500.0 522.0 L350.0 500.0 L500.0 478.0 Z\" fill=\"#D4D6DB\"/><path d=\"M484.4 484.4 L570.7 429.3 L515.6 515.6 Z\" fill=\"#8D9096\"/><path d=\"M515.6 484.4 L570.7 570.7 L484.4 515.6 Z\" fill=\"#8D9096\"/><path d=\"M515.6 515.6 L429.3 570.7 L484.4 484.4 Z\" fill=\"#8D9096\"/><path d=\"M484.4 515.6 L429.3 429.3 L515.6 484.4 Z\" fill=\"#8D9096\"/><path d=\"M489.4 517.0 L379.6 424.8 L510.6 483.0 Z\" fill=\"#F4F5F8\"/><path d=\"M510.6 483.0 L620.4 575.2 L489.4 517.0 Z\" fill=\"#EC9A3A\"/><circle cx=\"500\" cy=\"500\" r=\"34\" fill=\"#9A9CA2\"/><text x=\"500\" y=\"511\" text-anchor=\"middle\" class=\"pmc-w\" fill=\"#fff\" font-size=\"40\">w</text><circle cx=\"520\" cy=\"509\" r=\"4.5\" fill=\"#EC9A3A\"/></g></svg>";</script>
+
+
+
 
 
 
