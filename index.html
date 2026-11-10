@@ -2011,6 +2011,285 @@ body,.dz-shell main{background:#F2F5FF}
 .rc-pick button{border:1px solid #DCE3F5;background:#fff;color:#002882;border-radius:999px;padding:6px 11px;font:600 12px var(--f-body);cursor:pointer}
 .rc-pick button[aria-pressed="true"]{background:#002882;border-color:#002882;color:#fff}
 @media (max-width:900px){.rc-steps,.rc-tiles{grid-template-columns:repeat(2,1fr)}.rc-steps:before{display:none}}
+/* ===== Fiches : 4 versions premium (q) ===== */
+.q{display:grid;gap:22px;color:#1d2a52}
+.q .dot{color:#f98f03}
+.q-eb{display:block;font:600 11.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:#8A93AD}
+.q-head h2{margin:6px 0 4px;font:500 clamp(34px,4vw,48px)/1.05 var(--f-title);letter-spacing:-.01em;color:#002882}
+.q-tag{margin:0;font-size:17px!important;color:#5E6A86}
+.q-k{display:block;font:600 11px var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:#8A93AD;margin-bottom:10px}
+.q-h{margin:0 0 14px;font:600 19px/1.3 var(--f-body);color:#002882}
+.q .fi-sh{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:16px;width:100%}
+.q .fi-sh:focus-visible{outline:2px solid #0042ff;outline-offset:3px;border-radius:10px}
+.q .qt{flex:1;display:grid;gap:2px}.q .qt b{font:600 15.5px var(--f-body);color:#002882}.q .qt small{font-size:13.5px;color:#5E6A86;line-height:1.45}
+.q .qa{font:600 12.5px var(--f-body);color:#0042ff;opacity:.55;transition:opacity .2s,transform .2s}
+.q .fi-sh:hover .qa{opacity:1;transform:translateX(2px)}
+.q-links{list-style:none;margin:0;padding:0}
+.q-link{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:1fr auto;column-gap:10px;width:100%;padding:10px 0;border-bottom:1px solid #ECEEF5}
+.q-links li:last-child .q-link{border-bottom:0}
+.q-link span{font:600 14px var(--f-body);color:#002882}.q-link small{grid-column:1;font-size:12.5px;color:#8A93AD}.q-link i{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;color:#0042ff}
+.q-link:hover span{color:#0042ff}.q-link:focus-visible{outline:2px solid #0042ff;outline-offset:2px;border-radius:6px}
+.q-boond{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.q-boond span{font:500 12.5px var(--f-body);color:#002882;border:1px solid #DCE3F5;border-radius:6px;padding:4px 9px;background:#fff}
+.q-boond span.neg{color:#9b2c2c;border-color:#F3C7C7}
+.q-tip{margin:0;padding:4px 0 4px 18px;border-left:2px solid #f98f03}
+.q-tip p{margin:0;font:italic 500 15.5px/1.55 var(--f-body)!important;color:#1d2a52}
+.q-tip footer{display:flex;align-items:center;gap:8px;margin-top:10px;font:600 12px var(--f-body);color:#8A93AD}
+.q-av{width:26px;height:26px;border-radius:50%;overflow:hidden;background:#F2F5FF;display:inline-block}.q-av svg{width:100%;height:100%}
+.q-done{border-top:1px solid #ECEEF5;padding-top:14px}.q-done p{margin:0;font-size:14px!important;line-height:1.55;color:#1d2a52}
+.q-meta{margin:0;display:grid;gap:12px}.q-meta dt{font:600 11px var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:#8A93AD}.q-meta dd{margin:2px 0 0;font-size:14px;line-height:1.5;color:#1d2a52}
+/* q1 Éditorial */
+.q1{background:#fff;border:1px solid #ECEEF5;border-radius:20px;padding:40px 44px}
+.q1 .q-head{padding-bottom:22px;border-bottom:1px solid #ECEEF5}
+.q1-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:48px}
+.q1-steps{list-style:none;margin:0;padding:0}
+.q1-steps li{border-bottom:1px solid #ECEEF5}.q1-steps .fi-sh{padding:16px 0}
+.q1-steps .qn{font:500 26px/1 var(--f-title);color:#C9D6F7;width:40px;transition:color .2s}
+.q1-steps .fi-sh:hover .qn{color:#0042ff}
+.q1-side{display:grid;gap:24px;align-content:start}
+/* q2 Document */
+.q2{max-width:780px;margin:0 auto;background:#fff;border:1px solid #ECEEF5;border-radius:16px;padding:40px 48px}
+.q2 .q-head.c{padding-bottom:6px}
+.q2-props{display:grid;gap:0;border-top:1px solid #ECEEF5;border-bottom:1px solid #ECEEF5}
+.q2-props>div{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid #F3F5FB}.q2-props>div:last-child{border-bottom:0}
+.q2-props span{font-size:13px;color:#8A93AD}.q2-props b{font:500 14px/1.5 var(--f-body);color:#1d2a52}
+.q2-steps{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.q2-steps .fi-sh{padding:12px 14px;border-radius:10px}.q2-steps .fi-sh:hover{background:#F6F8FD}
+.q2-steps .qn{font:600 12px var(--f-body);color:#8A93AD;width:24px}
+.q2-steps .qa{font-size:12px}
+/* q3 Timeline */
+.q3-band{background:linear-gradient(180deg,#fff,#F6F8FD);border:1px solid #ECEEF5;border-radius:20px;padding:34px 40px}
+.q3-mis{margin:14px 0 0;max-width:70ch;font-size:15px!important;line-height:1.6;color:#47506B}
+.q3-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start}
+.q3-line{list-style:none;margin:0 0 26px;padding:0 0 0 6px;position:relative}
+.q3-line:before{content:"";position:absolute;left:19px;top:16px;bottom:16px;width:1px;background:#DCE3F5}
+.q3-line .fi-sh{padding:14px 0}
+.q3-line .qn{position:relative;z-index:1;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid #C9D6F7;font:600 11.5px var(--f-body);color:#002882;transition:background .2s,color .2s,border-color .2s}
+.q3-line .fi-sh:hover .qn{background:#002882;border-color:#002882;color:#fff}
+.q3-card{position:sticky;top:90px;background:#fff;border:1px solid #ECEEF5;border-radius:18px;padding:22px;display:grid;gap:18px}
+.q3-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;color:#8A93AD}.q3-row b{font:600 14px var(--f-body);color:#002882}
+/* q4 Mémo */
+.q4 .q-head.row{display:block}
+.q4-card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#fff;border:1px solid #ECEEF5;border-radius:18px;overflow:hidden}
+.q4-card>section{padding:26px 26px;border-left:1px solid #ECEEF5}.q4-card>section:first-child{border-left:0;background:#FBFCFF}
+.q4-mis{margin:0 0 16px;font:500 15px/1.55 var(--f-body)!important;color:#1d2a52}
+.q4-steps{list-style:none;margin:0;padding:0;counter-reset:q}
+.q4-steps .fi-sh{padding:8px 0;gap:10px}.q4-steps .qn{font:600 12px var(--f-body);color:#f98f03;width:22px}
+.q4-steps .qt small{display:none}.q4-steps .qt b{font-size:14.5px}
+.q4-steps .fi-sh:hover .qt b{color:#0042ff}
+@media (max-width:900px){.q1-grid,.q3-grid,.q4-card{grid-template-columns:1fr}.q4-card>section{border-left:0;border-top:1px solid #ECEEF5}.q1,.q2,.q3-band{padding:26px 22px}.q2-props>div{grid-template-columns:1fr;gap:2px}}
+.fq-pick{position:fixed;left:16px;bottom:16px;z-index:300;display:flex;align-items:center;gap:6px;flex-wrap:wrap;max-width:calc(100vw - 32px);background:#fff;border:1px solid #ECEEF5;border-radius:999px;padding:6px 8px 6px 14px;box-shadow:0 18px 48px rgba(0,40,130,.2);font:600 12px var(--f-body);color:#5E6A86}
+.fq-pick[hidden]{display:none}
+.fq-pick button{border:1px solid #DCE3F5;background:#fff;color:#002882;border-radius:999px;padding:6px 11px;font:600 12px var(--f-body);cursor:pointer}
+.fq-pick button[aria-pressed="true"]{background:#002882;border-color:#002882;color:#fff}
+#v-act .xs button small{display:none!important}
+/* === Fiches : 5 habillages premium (même squelette) === */
+.fi.fi-sk .fi-hero:after{display:none}
+.fi.fi-sk .fi-hero{box-shadow:none}
+.fi.fi-sk .xs-tag{background:none!important;border:0!important;padding:0!important;border-radius:0!important;font:600 13px var(--f-body)!important;letter-spacing:.02em}
+.fi.fi-sk .fi-steps>li>.fi-sh:hover{transform:none;box-shadow:none}
+.fi.fi-sk .fi-tool:hover{transform:none}
+.fi.fi-sk .fi-hint{display:none}
+.fi.fi-sk .fi-chev{font-size:14px;color:#9AA3BC}
+.fi.fi-sk .fi-acts li,.fi.fi-sk .fi-acts li.neg{background:#fff;border:1px solid #E6EAF4;border-radius:12px}
+.fi.fi-sk .fi-acts li span,.fi.fi-sk .fi-acts li.neg span{background:none;color:#0042ff;border:1px solid #C9D2EA;width:26px;height:26px;font-size:12px}
+.fi.fi-sk .fi-acts li.neg span{color:#9A2B20;border-color:#EBC4BF}
+.fi.fi-sk .fi-acts li b,.fi.fi-sk .fi-acts li.neg b{color:#002882;font:600 14px var(--f-body)}
+.fi.fi-sk .fi-go{box-shadow:none}
+
+/* 1 · Épurée : tout blanc, filets fins */
+.fi.fi-s1 .fi-hero{background:#fff;border:1px solid #E6EAF4;color:#1E2A4A}
+.fi.fi-s1 .fi-eyebrow{color:#6B7490}
+.fi.fi-s1 .fi-hero h2{color:#002882}.fi.fi-s1 .fi-hero h2 .dot{color:#0042ff}
+.fi.fi-s1 .fi-tag{color:#47506B}.fi.fi-s1 .fi-mission{color:#1E2A4A}.fi.fi-s1 .fi-mission b{color:#002882}
+.fi.fi-s1 .xs-tag{color:#6B7490!important}
+.fi.fi-s1 .fi-cap{background:#F2F5FF;border-radius:14px;padding:6px}
+.fi.fi-s1 .fi-blk{border-color:#E6EAF4;border-radius:14px;box-shadow:none}
+.fi.fi-s1 .fi-k{color:#6B7490;font-weight:700}
+.fi.fi-s1 .fi-steps{gap:0}
+.fi.fi-s1 .fi-steps>li{border:0;border-top:1px solid #EEF1F7;border-radius:0;background:none}
+.fi.fi-s1 .fi-steps>li:first-child{border-top:0}
+.fi.fi-s1 .fi-steps>li>.fi-sh:hover{background:#F7F9FE}
+.fi.fi-s1 .fi-n{background:#fff;color:#002882;border:1px solid #C9D2EA;box-shadow:none}
+.fi.fi-s1 .fi-tip{background:#fff;border:1px solid #E6EAF4;border-left:2px solid #0042ff;border-radius:14px}
+.fi.fi-s1 .fi-tip p{color:#1E2A4A;font-weight:500}
+.fi.fi-s1 .fi-tip .fi-k{color:#0042ff}
+.fi.fi-s1 .fi-go{background:#fff;border:1px solid #E6EAF4;border-left:2px solid #1a7f4b;border-radius:14px}
+.fi.fi-s1 .fi-tool{border-color:#E6EAF4;border-radius:12px}
+
+/* 2 · Marine : bandeau plein, cartes nettes */
+.fi.fi-s2 .fi-hero{background:#002882}
+.fi.fi-s2 .fi-eyebrow{color:#9DB4FF}.fi.fi-s2 .fi-hero h2 .dot{color:#9DB4FF}
+.fi.fi-s2 .fi-mission b{color:#fff;text-decoration:underline;text-decoration-color:#0042ff;text-underline-offset:4px}
+.fi.fi-s2 .xs-tag{color:#9DB4FF!important}
+.fi.fi-s2 .fi-blk{border-radius:16px;border-color:#E3E8F6;box-shadow:0 1px 0 #E3E8F6}
+.fi.fi-s2 .fi-k{color:#0042ff}
+.fi.fi-s2 .fi-steps>li{border-radius:12px;background:#fff;border-color:#E3E8F6}
+.fi.fi-s2 .fi-n{border-radius:9px;background:#0042ff;box-shadow:none}
+.fi.fi-s2 .fi-tip{background:#fff;border:1px solid #E3E8F6;border-radius:16px}
+.fi.fi-s2 .fi-tip p{color:#002882;font-weight:500}.fi.fi-s2 .fi-tip .fi-k{color:#0042ff}
+.fi.fi-s2 .fi-go{background:#002882;border:0;border-radius:16px;color:#fff}
+.fi.fi-s2 .fi-go h3{color:#fff}.fi.fi-s2 .fi-go p{color:#DCE6FF}.fi.fi-s2 .fi-gk{color:#9DB4FF}
+.fi.fi-s2 .fi-tool{background:#F7F9FE;border-color:#E3E8F6;border-radius:12px}
+
+/* 3 · Éditoriale : grands chiffres, sans boîtes */
+.fi.fi-s3 .fi-hero{background:#F2F5FF;color:#1E2A4A}
+.fi.fi-s3 .fi-eyebrow{color:#0042ff}
+.fi.fi-s3 .fi-hero h2{color:#002882;font-size:38px}.fi.fi-s3 .fi-hero h2 .dot{color:#f98f03}
+.fi.fi-s3 .fi-tag{color:#002882;font-style:italic;font-weight:500}
+.fi.fi-s3 .fi-mission{color:#1E2A4A}.fi.fi-s3 .fi-mission b{color:#002882}
+.fi.fi-s3 .xs-tag{color:#6B7490!important}
+.fi.fi-s3 .fi-blk{border:0;border-top:2px solid #002882;border-radius:0;box-shadow:none;background:transparent;padding:16px 2px}
+.fi.fi-s3 .fi-k{color:#002882;letter-spacing:.16em}
+.fi.fi-s3 .fi-hd h3{font-size:24px}
+.fi.fi-s3 .fi-steps{gap:0}
+.fi.fi-s3 .fi-steps>li{border:0;border-bottom:1px solid #DCE3F5;border-radius:0;background:none}
+.fi.fi-s3 .fi-steps>li>.fi-sh{padding:12px 4px}
+.fi.fi-s3 .fi-steps>li>.fi-sh:hover{background:none}.fi.fi-s3 .fi-steps>li>.fi-sh:hover b{color:#0042ff}
+.fi.fi-s3 .fi-n{width:auto!important;height:auto!important;background:none;box-shadow:none;border-radius:0;color:#9DB4FF;font:400 28px/1 var(--f-title)!important;min-width:44px}
+.fi.fi-s3 .fi-tip{background:none;border:0;border-left:3px solid #002882;border-radius:0;padding:6px 0 6px 20px}
+.fi.fi-s3 .fi-tip .fi-cap{display:none}
+.fi.fi-s3 .fi-tip p{font:italic 500 17px/1.55 var(--f-body);color:#002882}
+.fi.fi-s3 .fi-tip .fi-k{color:#6B7490}
+.fi.fi-s3 .fi-go{background:none;border:0;border-top:1px solid #DCE3F5;border-radius:0;padding:14px 0 0}
+.fi.fi-s3 .fi-go h3{color:#002882}.fi.fi-s3 .fi-gk{color:#1a7f4b}
+.fi.fi-s3 .fi-tools{gap:0;grid-template-columns:1fr!important}
+.fi.fi-s3 .fi-tool{border:0;border-bottom:1px solid #DCE3F5;border-radius:0;background:none;grid-template-columns:1fr auto;padding:12px 4px}
+.fi.fi-s3 .fi-tool span{grid-column:2;grid-row:1/3;align-self:center;margin:0}
+.fi.fi-s3 .fi-tool:hover{box-shadow:none}
+
+/* 4 · Lignes : une seule feuille, sections séparées par des filets */
+.fi.fi-s4 .fi-bento{background:#fff;border:1px solid #E6EAF4;border-radius:18px;padding:8px 22px 18px;gap:0 34px}
+.fi.fi-s4 .fi-hero{background:#fff;color:#1E2A4A;border-radius:0;border-bottom:1px solid #E6EAF4;padding:18px 0 18px 18px;position:relative}
+.fi.fi-s4 .fi-hero:before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:3px;border-radius:3px;background:#0042ff}
+.fi.fi-s4 .fi-eyebrow{color:#6B7490}
+.fi.fi-s4 .fi-hero h2{color:#002882}.fi.fi-s4 .fi-hero h2 .dot{color:#0042ff}
+.fi.fi-s4 .fi-tag{color:#47506B}.fi.fi-s4 .fi-mission{color:#1E2A4A}.fi.fi-s4 .fi-mission b{color:#002882}
+.fi.fi-s4 .xs-tag{color:#6B7490!important}
+.fi.fi-s4 .fi-hero .fi-cap{width:80px}
+.fi.fi-s4 .fi-blk,.fi.fi-s4 .fi-tip,.fi.fi-s4 .fi-go{background:none;border:0;border-radius:0;box-shadow:none;padding:18px 0 4px}
+.fi.fi-s4 .fi-b-side{gap:0}.fi.fi-s4 .fi-go{border-top:1px solid #E6EAF4;margin-top:14px}
+.fi.fi-s4 .fi-b-tools,.fi.fi-s4 .fi-b-more{border-top:1px solid #E6EAF4;margin-top:14px}
+.fi.fi-s4 .fi-k{color:#6B7490;font-weight:700}
+.fi.fi-s4 .fi-steps{gap:2px}
+.fi.fi-s4 .fi-steps>li{border:0;background:none;border-radius:10px}
+.fi.fi-s4 .fi-steps>li>.fi-sh{padding:9px 8px}
+.fi.fi-s4 .fi-steps>li>.fi-sh:hover{background:#F2F5FF}
+.fi.fi-s4 .fi-n{width:auto!important;height:auto!important;background:none;box-shadow:none;color:#0042ff;font:700 13px var(--f-body)!important;min-width:24px}
+.fi.fi-s4 .fi-tip .fi-cap{width:48px}
+.fi.fi-s4 .fi-tip p{color:#1E2A4A;font-weight:500}.fi.fi-s4 .fi-tip .fi-k{color:#0042ff}
+.fi.fi-s4 .fi-go h3{color:#002882}.fi.fi-s4 .fi-gk{color:#1a7f4b}
+.fi.fi-s4 .fi-tools{gap:0 18px}
+.fi.fi-s4 .fi-tool{border:0;border-bottom:1px solid #EEF1F7;border-radius:0;padding:10px 0}
+.fi.fi-s4 .fi-tool:hover{box-shadow:none}.fi.fi-s4 .fi-tool:hover b{color:#0042ff}
+
+/* 5 · Glacée : fonds bleu glacé, cartes blanches intérieures */
+.fi.fi-s5 .fi-hero{background:linear-gradient(120deg,#F2F5FF,#E4EBFF);color:#1E2A4A}
+.fi.fi-s5 .fi-eyebrow{color:#0042ff}
+.fi.fi-s5 .fi-hero h2{color:#002882}.fi.fi-s5 .fi-hero h2 .dot{color:#0042ff}
+.fi.fi-s5 .fi-tag{color:#002882}.fi.fi-s5 .fi-mission{color:#1E2A4A}.fi.fi-s5 .fi-mission b{color:#0042ff}
+.fi.fi-s5 .xs-tag{color:#002882!important;background:#fff!important;padding:4px 10px!important;border-radius:8px!important}
+.fi.fi-s5 .fi-blk{background:#E8EEFF;border:0;border-radius:18px;box-shadow:none}
+.fi.fi-s5 .fi-k{color:#0042ff}
+.fi.fi-s5 .fi-steps>li{background:#fff;border:0;border-radius:12px}
+.fi.fi-s5 .fi-steps>li>.fi-sh:hover{background:#fff;box-shadow:inset 0 0 0 1px #9DB4FF}
+.fi.fi-s5 .fi-n{background:#E8EEFF;color:#0042ff;box-shadow:none}
+.fi.fi-s5 .fi-tip{background:#fff;border:1px solid #DCE3F5;border-radius:18px}
+.fi.fi-s5 .fi-tip p{color:#1E2A4A;font-weight:500}.fi.fi-s5 .fi-tip .fi-k{color:#0042ff}
+.fi.fi-s5 .fi-go{background:#fff;border:1px solid #DCE3F5;border-radius:18px}
+.fi.fi-s5 .fi-go h3{color:#002882}
+.fi.fi-s5 .fi-tool{background:#fff;border:0;border-radius:12px}
+
+/* === Fiches : 4 propositions « waouh » dans la charte === */
+@keyframes wUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes wGrad{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.fi.fi-wk .fi-hint,.fi.fi-wk .fi-b-tools .fi-hd,.fi.fi-wk .fi-b-more .fi-hd{display:none}
+.fi.fi-wk .fi-b-tools .fi-k,.fi.fi-wk .fi-b-more .fi-k{margin-bottom:12px}
+.fi.fi-wk .fi-hero:after{display:none}
+.fi.fi-wk .xs-tag{background:none!important;border:0!important;padding:0!important;font:600 12.5px var(--f-body)!important;color:#9DB4FF!important;letter-spacing:.03em}
+.fi.fi-wk .fi-steps>li{animation:wUp .5s cubic-bezier(.2,.8,.2,1) both}
+.fi.fi-wk .fi-steps>li:nth-child(2){animation-delay:.05s}.fi.fi-wk .fi-steps>li:nth-child(3){animation-delay:.1s}.fi.fi-wk .fi-steps>li:nth-child(4){animation-delay:.15s}.fi.fi-wk .fi-steps>li:nth-child(5){animation-delay:.2s}.fi.fi-wk .fi-steps>li:nth-child(6){animation-delay:.25s}
+.fi.fi-wk .fi-steps>li>.fi-sh:hover{transform:none}
+.fi.fi-wk .fi-tool:hover{transform:translateY(-2px)}
+.fi.fi-wk .fi-acts li,.fi.fi-wk .fi-acts li.neg{background:#fff;border:1px solid #E3E8F6;border-radius:12px}
+.fi.fi-wk .fi-acts li span{background:#0042ff;width:26px;height:26px;font-size:12px}
+.fi.fi-wk .fi-acts li.neg span{background:#C0392B}
+.fi.fi-wk .fi-acts li b,.fi.fi-wk .fi-acts li.neg b{color:#002882;font:600 14px var(--f-body)}
+
+/* A · Nuit */
+.fi.fi-w1 .fi-bento{background:radial-gradient(ellipse at 15% 0,#0a3bd6 0,#002882 45%,#001A56 100%);border-radius:28px;padding:26px;gap:16px;box-shadow:0 40px 80px -40px rgba(0,26,86,.7)}
+.fi.fi-w1 .fi-hero{background:none;border-radius:0;border-bottom:1px solid rgba(255,255,255,.12);padding:6px 4px 22px}
+.fi.fi-w1 .fi-hero h2{font-size:40px}
+.fi.fi-w1 .fi-blk,.fi.fi-w1 .fi-tip,.fi.fi-w1 .fi-go{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:none}
+.fi.fi-w1 .fi-k{color:#ffb347}
+.fi.fi-w1 .fi-hd h3,.fi.fi-w1 .fi-go h3{color:#fff}
+.fi.fi-w1 .fi-steps>li{background:transparent;border:1px solid rgba(255,255,255,.1)}
+.fi.fi-w1 .fi-steps>li>.fi-sh:hover{background:rgba(255,255,255,.08)}
+.fi.fi-w1 .fi-tx b{color:#fff}
+.fi.fi-w1 .fi-n{background:none;border:1px solid rgba(255,179,71,.7);color:#ffb347;box-shadow:none}
+.fi.fi-w1 .fi-chev{color:#9DB4FF}
+.fi.fi-w1 .fi-tip p{color:#fff;font-weight:500}
+.fi.fi-w1 .fi-go p{color:#DCE6FF}.fi.fi-w1 .fi-gk{color:#7CE0A8}
+.fi.fi-w1 .fi-tool{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}
+.fi.fi-w1 .fi-tool b{color:#fff}.fi.fi-w1 .fi-tool small{color:#9DB4FF}.fi.fi-w1 .fi-tool span{color:#ffb347}
+.fi.fi-w1 .fi-acts li,.fi.fi-w1 .fi-acts li.neg{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}
+.fi.fi-w1 .fi-acts li b,.fi.fi-w1 .fi-acts li.neg b{color:#fff}
+
+/* B · Signature */
+.fi.fi-w2 .fi-bento{grid-template-columns:1fr;gap:18px}
+.fi.fi-w2 .fi-hero{padding:34px 38px;border-radius:28px;background:linear-gradient(120deg,#001A56,#002882 35%,#0042ff 75%,#2f6bff);background-size:220% 220%;animation:wGrad 14s ease-in-out infinite}
+.fi.fi-w2 .fi-hero h2{font-size:46px}
+.fi.fi-w2 .fi-hero .fi-cap{width:150px}
+.fi.fi-w2 .fi-blk,.fi.fi-w2 .fi-tip,.fi.fi-w2 .fi-go{background:#fff;border:0;border-radius:22px;box-shadow:0 24px 48px -36px rgba(0,40,130,.45)}
+.fi.fi-w2 .fi-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fi.fi-w2 .fi-steps>li{position:relative;background:#F7F9FE;border:1px solid #E8EDF9;border-radius:18px}
+.fi.fi-w2 .fi-steps>li>.fi-sh{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 18px 20px;min-height:118px}
+.fi.fi-w2 .fi-steps>li>.fi-sh:hover{background:#fff;box-shadow:0 18px 36px -24px rgba(0,40,130,.5)}
+.fi.fi-w2 .fi-n{width:auto!important;height:auto!important;background:linear-gradient(135deg,#0042ff,#f98f03);-webkit-background-clip:text;background-clip:text;color:transparent;box-shadow:none;border-radius:0;font:400 34px/1 var(--f-title)!important}
+.fi.fi-w2 .fi-chev{position:absolute;right:16px;top:16px}
+.fi.fi-w2 .fi-b-side{grid-template-columns:1fr 1fr;align-items:stretch}
+.fi.fi-w2 .fi-tip{border-left:0;align-items:center}
+.fi.fi-w2 .fi-tip p{color:#002882;font-weight:500}
+.fi.fi-w2 .fi-tip .fi-k{color:#f98f03}
+.fi.fi-w2 .fi-go{border-left:0}.fi.fi-w2 .fi-go h3{color:#002882}.fi.fi-w2 .fi-go p{color:#1E2A4A}
+.fi.fi-w2 .fi-tools{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.fi.fi-w2 .fi-tool{background:#F7F9FE;border-color:#E8EDF9}
+
+/* C · Verre */
+.fi.fi-w3 .fi-bento{position:relative;border-radius:30px;padding:22px;background:radial-gradient(circle at 8% 30%,rgba(0,66,255,.20),transparent 38%),radial-gradient(circle at 92% 70%,rgba(249,143,3,.16),transparent 40%),radial-gradient(circle at 60% 0,rgba(157,180,255,.35),transparent 45%),#EEF2FF}
+.fi.fi-w3 .fi-hero{border-radius:24px;background:linear-gradient(135deg,#002882,#0042ff)}
+.fi.fi-w3 .fi-mission{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:12px 14px}
+.fi.fi-w3 .fi-blk,.fi.fi-w3 .fi-tip,.fi.fi-w3 .fi-go{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);border-radius:22px;box-shadow:0 20px 40px -30px rgba(0,40,130,.45)}
+.fi.fi-w3 .fi-k{color:#0042ff}
+.fi.fi-w3 .fi-steps>li{background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.95);border-radius:14px}
+.fi.fi-w3 .fi-steps>li>.fi-sh:hover{background:#fff}
+.fi.fi-w3 .fi-n{background:linear-gradient(135deg,#002882,#0042ff);box-shadow:0 6px 14px -6px rgba(0,66,255,.7)}
+.fi.fi-w3 .fi-tip{border-left:0}.fi.fi-w3 .fi-tip .fi-k{color:#f98f03}.fi.fi-w3 .fi-tip p{color:#002882;font-weight:500}
+.fi.fi-w3 .fi-go{border-left:0}.fi.fi-w3 .fi-go h3{color:#002882}.fi.fi-w3 .fi-go p{color:#1E2A4A}
+.fi.fi-w3 .fi-tool{background:rgba(255,255,255,.8);border-color:rgba(255,255,255,.95)}
+
+/* D · Focus */
+.fi.fi-w4 .fi-bento{grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);grid-template-areas:"h p" "s t" "s m";grid-template-rows:auto auto 1fr;gap:16px 22px}
+.fi.fi-w4 .fi-hero{grid-area:h;grid-column:auto;flex-direction:column-reverse;align-items:flex-start;border-radius:24px 24px 0 0;padding:26px 26px 10px;background:linear-gradient(160deg,#0042ff,#002882 70%)}
+.fi.fi-w4 .fi-hero .fi-cap{width:120px}
+.fi.fi-w4 .fi-b-plan{grid-area:p}.fi.fi-w4 .fi-b-tools{grid-area:t}.fi.fi-w4 .fi-b-more{grid-area:m;grid-column:auto}
+.fi.fi-w4 .fi-b-side{grid-area:s;align-self:stretch;align-content:start;margin-top:-16px;background:#002882;border-radius:0 0 24px 24px;padding:10px 26px 26px;gap:0}
+.fi.fi-w4 .fi-tip,.fi.fi-w4 .fi-go{background:none;border:0;border-top:1px solid rgba(255,255,255,.14);border-radius:0;padding:18px 0;box-shadow:none}
+.fi.fi-w4 .fi-tip .fi-cap{width:52px}
+.fi.fi-w4 .fi-tip .fi-k{color:#ffb347}.fi.fi-w4 .fi-tip p{color:#fff;font-weight:500}
+.fi.fi-w4 .fi-go h3{color:#fff}.fi.fi-w4 .fi-go p{color:#DCE6FF}.fi.fi-w4 .fi-gk{color:#7CE0A8}
+.fi.fi-w4 .fi-blk{border:0;border-radius:22px;box-shadow:0 24px 48px -36px rgba(0,40,130,.45)}
+.fi.fi-w4 .fi-steps>li{background:#F7F9FE;border-color:#EEF1F8}
+.fi.fi-w4 .fi-n{background:#fff;color:#0042ff;box-shadow:0 0 0 1px #DCE3F5}
+.fi.fi-w4 .fi-steps>li>.fi-sh:hover .fi-n{background:#0042ff;color:#fff}
+.fi.fi-w4 .fi-acts{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:820px){.fi.fi-w2 .fi-steps,.fi.fi-w2 .fi-b-side,.fi.fi-w2 .fi-tools{grid-template-columns:1fr!important}.fi.fi-w4 .fi-bento{grid-template-columns:1fr;grid-template-areas:"h" "s" "p" "t" "m"}.fi.fi-w2 .fi-hero h2{font-size:34px}}
+
+.fq-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 14px;padding:10px 12px;background:#fff;border:1px solid #DCE3F5;border-radius:14px}
+.fq-bar span{font:700 11px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#6B7490;margin-right:6px}
+.fq-bar button{border:1px solid #DCE3F5;background:#fff;color:#002882;border-radius:999px;padding:6px 12px;font:600 13px var(--f-body);cursor:pointer}
+.fq-bar button:hover{border-color:#0042ff}
+.fq-bar button[aria-pressed="true"]{background:#002882;border-color:#002882;color:#fff}
 .dv-intro{background:#fff;border:1px solid #ECEEF5;border-left:4px solid #f98f03;border-radius:14px;padding:14px 18px;margin-bottom:14px;color:#47506B;font-size:15px;line-height:1.55}
 .dv-intro p{margin:0 0 10px}.dv-intro ul{margin:0;padding-left:20px}.dv-intro li{margin-bottom:6px}.dv-intro b{color:#002882}
 
@@ -2126,7 +2405,7 @@ body,.dz-shell main{background:#F2F5FF}
 .fi-zf{display:flex;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid #ECEEF5}
 @media (prefers-reduced-motion:reduce){.fi-zc{transition:none}}
 
-.fi-cap.wide,.fi-hero.slim .fi-cap.wide{width:330px}.fi-scene{width:100%;height:auto;display:block;overflow:visible}.fi-scene .mascot{overflow:visible}
+.fi-cap.wide,.fi-hero.slim .fi-cap.wide{width:330px}.fi-scene{width:100%;height:auto;display:block;overflow:visible}.fi-cap .fi-scene svg.mascot{width:auto;height:auto;overflow:visible}
 @media (max-width:720px){.fi-cap.wide,.fi-hero.slim .fi-cap.wide{width:100%;max-width:300px}}
 .fz{position:fixed;inset:0;z-index:400;overflow:auto;padding:24px 20px 40px;background:rgba(0,20,70,0);transition:background .28s}
 .fz.on{background:rgba(0,20,70,.6)}
@@ -2918,7 +3197,7 @@ body,.dz-shell main{background:#F2F5FF}
 
   var ACT=[
    {t:'Sourcer',b:'À traiter',g:'Trouver et approcher les bons profils.',do:['Cible le profil avec une recherche booléenne, sur LinkedIn, WTTJ ou l’APEC','Écris un message d’accroche personnalisé : ne dis pas tout, attise la curiosité','Crée la fiche candidat dans Boond depuis le CV ou LinkedIn'],docs:[['Messages d’accroche performants',L.accroche],['Tuto : ajouter un candidat dans Boond',L.tutoboond]],q:'Comment écrire un bon message d’accroche ?',fiche:{"img": "sourcing", "more": {"k": "Pour aller plus loin", "h": "Les actions à créer dans Boond", "items": ["Contact 1", "Contact 2", "Contact 3", "Retour négatif"]}, "tag": "Trouver les bons talents, au bon endroit.", "mission": "Identifier, attirer et engager des profils qui correspondent aux ambitions de WeFiiT.", "steps": [["Cibler selon le personae", "Axe tes séances de sourcing sur les personae en forte demande.", [], [["Les personae candidats", "map", 1]], "personae"], ["Identifier les bons profils", "Utiliser LinkedIn, WTTJ, APEC et les recherches booléennes.", [], [["Tutoriel recherche booléenne", "faq", "Comment faire une recherche booléenne ?"], ["Analyse concurrentielle", "url", "analconc"]], "canaux", [{"t": "Profils IA et Data (PO, PM, Builder)", "q": "(\"LLM\" OR \"Data science\" OR \"agent\") AND (\"Product owner\" OR \"Product Manager\" OR \"Builder\") -freelance", "f": ["Titre : AI OR IA", "Hors freelance", "Zone géographique déjà réglée"], "u": "https://www.linkedin.com/search/results/people/?keywords=%28%22LLM%22%20OR%20%22Data%20science%22%20%20OR%20%22agent%22%29%20AND%20%28%22Product%20owner%22%20OR%20%22Product%20Manager%22%20OR%20%22Builder%22%29%20-freelance&origin=GLOBAL_SEARCH_HEADER&geoUrn=%5B%22104246759%22%5D&title=%22AI%20OR%20IA%22"}, {"t": "PM full stack sur LinkedIn", "q": "(\"product manager\" OR \"product owner\" OR \"chef de produit\") AND (discovery OR delivery OR stratégie OR roadmap) AND conseil", "f": ["Lieu : Île-de-France"], "draft": true}]], ["Analyser les profils", "Ce qu’il faut regarder sur un profil.", [], [], "regarder", [], [["o", "Année de diplôme", ""], ["b", "Expérience pro", "ex : flag si le candidat change d’expérience tous les 6 mois à 1 an"], ["o", "Activités extra-scolaires", "JE, scouts…"], ["b", "Anglais", ""]]], ["Créer la fiche candidat", "Enregistrer le profil dans Boond et renseigner les premières informations.", ["Crée la fiche candidat dans Boond depuis le CV ou depuis LinkedIn, avec le plug-in Chrome.", "Crée ensuite les actions Boond : Contact 1, Contact 2, Contact 3 et Retour négatif."], [["Ajouter un candidat dans Boond", "url", "tutoboond"]]], ["Prendre contact", "Personnaliser ton approche et donner envie d’échanger avec WeFiiT.", ["Écris un message d’accroche personnalisé : ne dis pas tout, attise la curiosité.", "Si la fiche du candidat mentionne déjà un contact avec un autre membre de la squad B&T, attends un mois sans aucune action avant de le contacter.", "Pas de réponse ? Enchaîne avec les relances (relance 1, relance 2, puis une dernière tentative)."], [["Messages d’accroche performants", "url", "accroche"], ["Messages d’accroche LinkedIn B&T", "url", "accbt"], ["Comment relancer un candidat", "faq", "Comment relancer un candidat qui ne répond pas ?"]]]], "stepsT": "5 étapes pour réussir ton sourcing", "tip": "Ne cherche pas à contacter tout le monde. Privilégie la pertinence à la quantité : un profil bien ciblé et une approche personnalisée valent mieux que 20 messages génériques.", "done": "Le candidat est identifié, son profil a été analysé, une approche personnalisée a été envoyée et sa fiche est créée dans Boond.", "tools": [["Guide du sourcing", "Méthodes et bonnes pratiques", "map", 3], ["Bibliothèque de messages d’accroche", "Exemples de messages LinkedIn", "url", "accroche"], ["Tutoriel recherche booléenne", "Trouver les bons profils", "faq", "Comment faire une recherche booléenne ?"], ["Ajouter un candidat dans Boond", "Tutoriel pas à pas", "url", "tutoboond"]]}},
-   {t:'Préqualification',b:'Pré-qual',g:'Valider l’intérêt du candidat avant l’E1.',do:['Contacte le candidat par téléphone, puis message vocal et mail','Partage la présentation WeFiiT, le blog et le site','Fixe l’E1 et envoie un mail de rappel quelques jours avant, puis un SMS la veille'],docs:[['Pitch WeFiiT candidat',U('pitch')],['Présentation candidat interactive','https://claude.ai/artifact/5sB7DVd7Kp9G81eQuDKZZL']],q:'Comment éviter qu’un candidat annule son entretien ?'},
+   {t:'Préqualification',b:'Pré-qual',g:'Valider l’intérêt du candidat avant l’E1.',do:['Contacte le candidat par téléphone, puis message vocal et mail','Partage la présentation WeFiiT, le blog et le site','Fixe l’E1 et envoie un mail de rappel quelques jours avant, puis un SMS la veille'],docs:[['Pitch WeFiiT candidat',U('pitch')],['Présentation candidat interactive','https://claude.ai/artifact/5sB7DVd7Kp9G81eQuDKZZL']],q:'Comment éviter qu’un candidat annule son entretien ?',fiche:{"img": "prequal", "tag": "Valider l’expérience produit, et donner envie.", "mission": "Valider son expertise produit et transformer l’échange en Entretien 1, en lui donnant envie de continuer avec WeFiiT.", "stepsT": "6 étapes pour réussir ta préqualification", "steps": [["Préparer l’appel", "Ta trame : l’onglet Préqualification dans Boond.", ["Ouvre la fiche du candidat dans Boond, onglet Préqualification : c’est ta trame pendant tout l’appel, et tu y prends tes notes directement.", "Relis sa fiche Boond et son profil LinkedIn : produits, rôles, durée des expériences.", "Prévois 15 à 20 minutes, grand maximum."], [["Maquette Prequal", "url", "mprequal"]]], ["Comprendre ses motivations", "Pourquoi il est à l’écoute, ce qu’il cherche.", ["Outbound : pourquoi as-tu répondu à mon message ? Connaissais-tu WeFiiT ?", "Inbound : pourquoi as-tu répondu à l’annonce ? Qu’as-tu compris du poste ?", "Creuse ses insatisfactions et ses drivers : ce sont eux qui te serviront à rebondir sur ce que WeFiiT peut lui proposer."], [["Maquette Prequal", "url", "mprequal"]]], ["Valider son expérience produit", "Le cœur de la préqual : sur quel produit, avec quel rôle.", ["Sur quel type de produit travailles-tu ? Web, app, front ou back office, combien d’utilisateurs, quels enjeux ?", "En quoi consiste ton rôle en tant que PM, PO ou QA ?", "Quelle est ta répartition entre Stratégie, Discovery et Delivery dans ta mission actuelle ?"], [["Les critères d’évaluation", "url", "grille"], ["Les personae candidats", "map", 1]]], ["Vérifier mobilité, anglais et salaire", "Les points qui peuvent bloquer la suite.", ["Cadre le salaire dès maintenant : « C’est important pour nous de te proposer une rémunération cohérente avec tes attentes, et équitable par rapport à l’équipe. »"], [["Les critères de GO / NO GO", "faq", "Quels sont les critères de GO / NO GO ?"], ["Estimer le salaire d’entrée", "faq", "Comment estimer le salaire d’un candidat à l’entrée ?"]], "regarder", [], [["o", "Mobilité", "Île-de-France, moins d’1 h de transport ; attentes sur le remote"], ["b", "Anglais", "As-tu déjà travaillé en anglais ? Serais-tu à l’aise dans un environnement international ?"], ["o", "Adaptabilité", "Attentes particulières en termes de mission et de secteur ?"], ["b", "Salaire", "Salaire actuel et attentes pour le prochain poste"]]], ["Rebondir sur ses drivers", "Présenter WeFiiT à partir de ce qu’il cherche.", ["Reprends ses drivers un par un et montre ce que WeFiiT peut lui apporter.", "Complète avec le pitch WeFiiT selon ce qu’il a déjà compris.", "Profil Product junior ? Pense au switch QA, idéalement dès la fin de la préqual."], [["Pitch WeFiiT", "map", 0], ["Le switch QA", "faq", "Comment proposer le switch QA à un profil Product junior ?"]]], ["Conclure et planifier l’E1", "Caler la suite et garder le candidat engagé.", ["Fais le point sur son process en cours : autres entretiens, chez qui, à quel stade.", "Partage la présentation WeFiiT, le blog et le site.", "Fixe l’E1 et envoie l’invitation, puis un mail de rappel quelques jours avant et un SMS la veille.", "Crée l’action Boond « Préqualification téléphonique »."], [["Éviter qu’un candidat annule", "faq", "Comment éviter qu’un candidat annule son entretien ?"]]]], "tip": "Pars toujours de l’onglet Préqualification dans Boond : le but n’est pas de tout savoir, mais de valider son expérience produit et de repérer ses drivers. Ce sont eux qui te permettront de lui donner envie de WeFiiT.", "done": "Son expérience produit est validée (quel produit, quel rôle), tu connais ses drivers et tu as rebondi dessus, sa mobilité, son anglais et ses attentes salariales sont vérifiés, et l’E1 est fixé.", "tools": [["Maquette Prequal", "La trame d’appel", "url", "mprequal"], ["Pitch WeFiiT", "Présenter WeFiiT au candidat", "map", 0], ["Critères de GO / NO GO", "Ce qu’on valide dès la préqual", "faq", "Quels sont les critères de GO / NO GO ?"], ["Cadrage salarial", "Estimer le salaire d’entrée", "map", 7]], "more": {"k": "Pour aller plus loin", "h": "Les actions à créer dans Boond", "items": ["Préqualification téléphonique", "Entretien 1", "Mail / Notif de fin de process"]}}},
    {t:'Entretien E1',b:'E1',g:'Sélection et séduction : expériences et hardskills.',do:['Évalue hard et soft skills avec la grille d’évaluation','Note le candidat de A à D dans Boond et ajoute un commentaire','Remplis la fiche Boond au plus tard à l’E1'],docs:[['Les critères d’évaluation chez WeFiiT',L.grille],['Tuto : remplir une fiche candidat',L.tutoboond]],q:'Comment noter un candidat après un entretien ?'},
    {t:'GO / NO GO',b:'E1 → E2',g:'Décider d’avancer ou d’arrêter, et le dire.',do:['Applique les quatre critères : histoire à raconter, anglais, adaptabilité, interaction','Prends le feedback, fais le brief et le cadrage salarial','En cas de NO GO, qualifie KO, LN– ou LN+ et envoie un retour au candidat'],docs:[['Critères de passage : GO / NO GO',U('gonogo')],['Cadrage salarial',L.salaire],['Lexique candidat Boond',U('lexique')]],q:'Quels sont les critères de GO / NO GO ?'},
    {t:'Entretien E2',b:'E2',g:'Validation et approfondissement, le brief étant complété en amont.',do:['Vérifie que le brief et le cadrage sont validés avant l’E2','Organise un E2 pair si besoin (sélection ou séduction)','Passe si A/A ou A/B ; avec une interaction B, il faut une forte histoire à raconter'],docs:[['Critères de passage : GO / NO GO',U('gonogo')],['Les étapes du process',L.notice]],q:'Que faire après un E1 et après un E2 ?'},
@@ -2934,17 +3213,25 @@ body,.dz-shell main{background:#F2F5FF}
     });
   }
   function stageTool(t){var u=null;if(t[2]==='url')u=L[t[3]];return '<button type="button" class="fi-tool" data-t="'+esc(t[2]+'|'+t[3])+'"><b>'+esc(t[0])+'</b><small>'+esc(t[1])+'</small><span aria-hidden="true">'+(t[2]==='url'?'Ouvrir ↗':'Voir →')+'</span></button>'}
-  function fiScene(){var m=mascot({}).replace('<svg ','<svg x="0" y="14" width="184" height="214" ');return '<svg class="fi-scene" viewBox="0 0 450 240" role="img" aria-label="Le Capitaine en train de sourcer : il cherche les bons profils à la loupe sur son ordinateur"><ellipse cx="215" cy="228" rx="170" ry="9" fill="#000" opacity=".18"/>'+m+
+  function fiScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)">'+m0.slice(m0.indexOf('>')+1,m0.lastIndexOf('</svg>'))+'</g>';return '<svg class="fi-scene" viewBox="0 0 450 240" role="img" aria-label="Le Capitaine en train de sourcer : il cherche les bons profils à la loupe sur son ordinateur"><ellipse cx="215" cy="228" rx="170" ry="9" fill="#000" opacity=".18"/>'+m+
     '<g transform="translate(52 0)"><rect x="176" y="58" width="206" height="128" rx="12" fill="#fff" stroke="#C9D2EA" stroke-width="4"/><rect x="168" y="186" width="222" height="12" rx="6" fill="#C9D2EA"/><rect x="256" y="186" width="46" height="5" rx="2.5" fill="#9AA7CF"/>'+
     '<rect x="188" y="68" width="182" height="14" rx="7" fill="#EAEEF9"/><text x="200" y="78.5" font-family="Work Sans,sans-serif" font-size="8.5" font-weight="700" fill="#0F2B80">Profils · LinkedIn · WTTJ · APEC</text>'+
     [0,1,2].map(function(k){var y=90+k*30,hot=k===1;return '<g><rect x="188" y="'+y+'" width="182" height="26" rx="8" fill="'+(hot?'#FFF0C2':'#F6F8FF')+'" stroke="'+(hot?'#EC9A3A':'#E1E7F7')+'" stroke-width="'+(hot?2.5:1)+'"/><circle cx="204" cy="'+(y+13)+'" r="8" fill="'+['#6B9BD2','#F4C142','#0F2B80'][k]+'"/><rect x="218" y="'+(y+7)+'" width="'+(70+k*8)+'" height="5" rx="2.5" fill="#0F2B80" opacity=".8"/><rect x="218" y="'+(y+15)+'" width="'+(46+k*10)+'" height="4" rx="2" fill="#9AA7CF"/>'+(hot?'<circle cx="354" cy="'+(y+13)+'" r="9" fill="#1a7f4b"/><path d="M349.5 '+(y+13)+'l3 3 6-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>':'')+'</g>'}).join('')+
-    '<circle cx="300" cy="112" r="36" fill="#fff" fill-opacity=".28" stroke="#EC9A3A" stroke-width="8"/><path d="M274 138 L206 190" stroke="#EC9A3A" stroke-width="11" stroke-linecap="round"/><path d="M96 208 L198 190" stroke="#2b3a78" stroke-width="17" stroke-linecap="round"/><path d="M118 205L121 197M140 201L143 193M162 197L165 189M184 193L187 185" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="210" cy="186" r="12" fill="#F2C29B"/></g>'+
+    '<circle cx="300" cy="112" r="36" fill="#fff" fill-opacity=".28" stroke="#EC9A3A" stroke-width="8"/><path d="M274 138 L206 190" stroke="#EC9A3A" stroke-width="11" stroke-linecap="round"/><circle cx="92" cy="184" r="10" fill="#2b3a78"/><path d="M88 186 L124 214 L200 192" fill="none" stroke="#2b3a78" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M102.1 188.7 L94.1 199.0 M111.8 196.3 L103.8 206.5 M121.5 203.8 L113.5 214.1 M137.4 203.4 L141.0 215.8 M152.6 199.0 L156.2 211.4 M167.8 194.6 L171.4 207.0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M184 196 L196 193" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="208" cy="190" r="11.5" fill="#F2C29B"/><path d="M203 184c3-4 9-4 12 0" fill="none" stroke="#E0A67C" stroke-width="2" stroke-linecap="round"/><ellipse cx="212" cy="186" rx="4.5" ry="3" fill="#F2C29B" stroke="#E0A67C" stroke-width="1.2"/></g>'+
     '<g fill="#ffb347"><path d="M420 28l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M262 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g></svg>'}
+function prScene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)">'+m0.slice(m0.indexOf('>')+1,m0.lastIndexOf('</svg>'))+'</g>';
+    return '<svg class="fi-scene" viewBox="0 0 450 240" role="img" aria-label="Le Capitaine au téléphone avec un candidat"><ellipse cx="215" cy="228" rx="170" ry="9" fill="#000" opacity=".18"/>'+m+
+    '<g transform="translate(250 34)"><rect x="0" y="0" width="98" height="176" rx="18" fill="#0F2B80"/><rect x="6" y="10" width="86" height="150" rx="10" fill="#F6F8FF"/><rect x="36" y="4" width="26" height="4" rx="2" fill="#2b3a78"/>'+
+    '<circle cx="49" cy="52" r="20" fill="#6B9BD2"/><path d="M33 86c3-10 9-14 16-14s13 4 16 14z" fill="#6B9BD2"/><text x="49" y="104" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="8.5" font-weight="700" fill="#0F2B80">Préqual · 15–20 min</text>'+
+    '<rect x="20" y="118" width="58" height="20" rx="10" fill="#1a7f4b"/><path d="M41 128c3 3 6 5 9 5l2-2-3-3-2 1c-1-1-2-2-3-3l1-2-3-3-2 2c0 1 0 3 1 5z" fill="#fff"/><text x="60" y="131.5" font-family="Work Sans,sans-serif" font-size="7" font-weight="700" fill="#fff">appel</text></g>'+
+    '<g fill="none" stroke="#EC9A3A" stroke-width="5" stroke-linecap="round"><path d="M362 78a26 26 0 0 1 0 40"/><path d="M376 66a44 44 0 0 1 0 64" opacity=".6"/></g>'+
+    '<g transform="translate(176 40)"><rect width="66" height="34" rx="12" fill="#fff" stroke="#C9D2EA" stroke-width="3"/><path d="M14 34l-6 10 14-10z" fill="#fff"/><circle cx="20" cy="17" r="3.5" fill="#0F2B80"/><circle cx="33" cy="17" r="3.5" fill="#0F2B80"/><circle cx="46" cy="17" r="3.5" fill="#EC9A3A"/></g>'+
+    '<g fill="#ffb347"><path d="M420 28l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 16l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g></svg>'}
   function renderFiche(i,cont){
     var a=ACT[i],f=a.fiche;
-    var v='d',tot=f.steps.length,cur=Math.min(window.__fcur|0,tot-1);
+    var v=window.__fv||'d',tot=f.steps.length,cur=Math.min(window.__fcur|0,tot-1);
     function pd(x){return ('0'+x).slice(-2)}
-    function hero(c){return '<div class="fi-hero '+(c||'')+'"><div><span class="fi-eyebrow">Étape '+pd(i+1)+' / '+pd(ACT.length)+' · Parcours candidat</span><h2>'+(i+1)+'. '+esc(a.t)+'<span class="dot">.</span></h2><p class="fi-tag">'+esc(f.tag)+'</p><p class="fi-mission"><b>Ta mission :</b> '+esc(f.mission)+'</p><span class="xs-tag">Statut Boond : '+esc(a.b)+'</span></div><div class="fi-cap'+(f.img==='sourcing'?' wide':'')+'" aria-hidden="true">'+(f.img==='sourcing'?fiScene():mascot({}))+'</div></div>'}
+    function hero(c){return '<div class="fi-hero '+(c||'')+'"><div><span class="fi-eyebrow">Étape '+pd(i+1)+' / '+pd(ACT.length)+' · Parcours candidat</span><h2>'+(i+1)+'. '+esc(a.t)+'<span class="dot">.</span></h2><p class="fi-tag">'+esc(f.tag)+'</p><p class="fi-mission"><b>Ta mission :</b> '+esc(f.mission)+'</p><span class="xs-tag">Statut Boond : '+esc(a.b)+'</span></div><div class="fi-cap'+(f.img?' wide':'')+'" aria-hidden="true">'+(f.img==='sourcing'?fiScene():f.img==='prequal'?prScene():mascot({}))+'</div></div>'}
     function head(k,h){return '<span class="fi-k">'+k+'</span><div class="fi-hd"><h3>'+esc(h)+'</h3></div>'}
     function chip(t){return '<button type="button" class="fi-tool fi-chip" data-t="'+esc(t[1]+'|'+t[2])+'">'+esc(t[0])+(t[1]==='url'?' ↗':' →')+'</button>'}
     var PERS=[['PO2','Stratégie · Discovery · Delivery','#6B9BD2'],['QA1','Quality Analyst','#0F2B80'],['PM data','','#1a7f4b'],['PM IA','','#8E5BD6'],['Product builder','','#C0392B']];
@@ -2964,11 +3251,22 @@ body,.dz-shell main{background:#F2F5FF}
     var more=f.more?'<div class="fi-blk">'+head(esc(f.more.k),f.more.h)+'<ul class="fi-acts">'+f.more.items.map(function(x,j){return '<li class="'+(j===f.more.items.length-1?'neg':'')+'"><span>'+(j===f.more.items.length-1?'✕':j+1)+'</span><b>'+esc(x)+'</b></li>'}).join('')+'</ul></div>':'';
     var go='<div class="fi-go"><span class="fi-gk">✓ Le feu vert</span><h3>Ton étape est réussie si…</h3><p>'+esc(f.done)+'</p></div>';
     var body;
+    function qSteps(cls,arrow){return '<ol class="'+cls+'">'+f.steps.map(function(x,j){return '<li><button type="button" class="fi-sh" data-s="'+j+'" aria-haspopup="dialog"><span class="qn">'+pd(j+1)+'</span><span class="qt"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></span><span class="qa" aria-hidden="true">'+(arrow||'↗')+'</span></button></li>'}).join('')+'</ol>'}
+    function qTools(){return '<ul class="q-links">'+f.tools.map(function(t){return '<li><button type="button" class="fi-tool q-link" data-t="'+esc(t[2]+'|'+t[3])+'"><span>'+esc(t[0])+'</span><small>'+esc(t[1])+'</small><i aria-hidden="true">'+(t[2]==='url'?'↗':'→')+'</i></button></li>'}).join('')+'</ul>'}
+    function qBoond(){return f.more?'<p class="q-boond">'+f.more.items.map(function(x,j){return '<span'+(j===f.more.items.length-1?' class="neg"':'')+'>'+esc(x)+'</span>'}).join('')+'</p>':''}
+    function qHead(c){return '<header class="q-head '+(c||'')+'"><span class="q-eb">Étape '+pd(i+1)+' — Parcours candidat</span><h2>'+esc(a.t)+'<span class="dot">.</span></h2><p class="q-tag">'+esc(f.tag)+'</p></header>'}
+    function qMeta(){return '<dl class="q-meta"><div><dt>Statut Boond</dt><dd>'+esc(a.b)+'</dd></div><div><dt>Ta mission</dt><dd>'+esc(f.mission)+'</dd></div></dl>'}
+    var qTip='<blockquote class="q-tip"><p>« '+esc(f.tip)+' »</p><footer><span class="q-av" aria-hidden="true">'+mascot({face:true})+'</span>Le conseil du Capitaine</footer></blockquote>';
+    var qDone='<div class="q-done"><span class="q-k">Étape réussie si</span><p>'+esc(f.done)+'</p></div>';
     if(v==='b')body=hero()+planB()+tip+tools+more+go;
     else if(v==='c')body=hero('slim')+planC()+tip+tools+more+go;
-    else if(v==='d')body='<div class="fi-bento">'+hero('slim')+'<div class="fi-b-plan">'+planA('compact')+'</div><div class="fi-b-side">'+tip+go+'</div><div class="fi-b-tools">'+tools+'</div><div class="fi-b-more">'+more+'</div></div>';
+    else if(v==='d'||/^[sw]\d$/.test(v))body='<div class="fi-bento">'+hero('slim')+'<div class="fi-b-plan">'+planA('compact')+'</div><div class="fi-b-side">'+tip+go+'</div><div class="fi-b-tools">'+tools+'</div><div class="fi-b-more">'+more+'</div></div>';
+    else if(v==='q1')body='<div class="q q1">'+qHead()+'<div class="q1-grid"><div><span class="q-k">Ton plan d’action</span><h3 class="q-h">'+esc(f.stepsT)+'</h3>'+qSteps('q1-steps')+'</div><aside class="q1-side">'+qMeta()+qDone+qTip+'<div><span class="q-k">Les documents</span>'+qTools()+'</div>'+(f.more?'<div><span class="q-k">Dans Boond</span>'+qBoond()+'</div>':'')+'</aside></div></div>';
+    else if(v==='q2')body='<div class="q q2">'+qHead('c')+'<div class="q2-props"><div><span>Statut Boond</span><b>'+esc(a.b)+'</b></div><div><span>Mission</span><b>'+esc(f.mission)+'</b></div><div><span>Réussie si</span><b>'+esc(f.done)+'</b></div>'+(f.more?'<div><span>Actions Boond</span><b>'+f.more.items.map(esc).join(' · ')+'</b></div>':'')+'</div><h3 class="q-h">'+esc(f.stepsT)+'</h3>'+qSteps('q2-steps','Ouvrir')+qTip+'<h3 class="q-h">Les documents</h3>'+qTools()+'</div>';
+    else if(v==='q3')body='<div class="q q3"><div class="q3-band">'+qHead()+'<p class="q3-mis">'+esc(f.mission)+'</p></div><div class="q3-grid"><div><span class="q-k">'+esc(f.stepsT)+'</span>'+qSteps('q3-line','Détails')+qTip+'</div><aside class="q3-card"><span class="q-k">En bref</span><div class="q3-row"><span>Statut Boond</span><b>'+esc(a.b)+'</b></div>'+qDone+(f.more?'<div><span class="q-k">Actions Boond</span>'+qBoond()+'</div>':'')+'<div><span class="q-k">Documents</span>'+qTools()+'</div></aside></div></div>';
+    else if(v==='q4')body='<div class="q q4">'+qHead('row')+'<div class="q4-card"><section><span class="q-k">L’objectif</span><p class="q4-mis">'+esc(f.mission)+'</p>'+qDone+'</section><section><span class="q-k">Les étapes</span>'+qSteps('q4-steps','')+'</section><section><span class="q-k">Les ressources</span>'+qTools()+(f.more?'<span class="q-k" style="margin-top:14px">Dans Boond · statut '+esc(a.b)+'</span>'+qBoond():'')+'</section></div>'+qTip+'</div>';
     else body=hero()+planA()+tip+tools+more+go;
-    var html=(cont?'':'<button class="back" type="button" id="abk">← Le process de bout en bout</button>')+'<section class="fi fi-v'+v+'">'+body+'</section>'+
+    var html=(cont?'':'<button class="back" type="button" id="abk">← Le process de bout en bout</button>')+'<div class="fq-bar" role="group" aria-label="Propositions de présentation"><span>Propositions de présentation</span>'+[['d','Actuelle'],['w1','A · Nuit'],['w2','B · Signature'],['w3','C · Verre'],['w4','D · Focus']].map(function(o){return '<button type="button" data-fq="'+o[0]+'" aria-pressed="'+(o[0]===v)+'">'+o[1]+'</button>'}).join('')+'</div><section class="fi fi-v'+(/^s\d$/.test(v)?'d fi-sk fi-'+v:/^w\d$/.test(v)?'d fi-wk fi-'+v:v)+'">'+body+'</section>'+
      (mailsFor(i).length?'<section class="stmail"><h3 class="sh">Mails d’invitation</h3>'+mailsFor(i).map(function(m){return '<details class="mailbox"><summary><span class="mb-t">✉️ '+esc(m.t)+'</span>'+(MAILOPT[m.id]?'<small>'+esc(MAILOPT[m.id])+'</small>':'')+'</summary>'+mailCard(m)+'</details>'}).join('')+'<p class="ml-note"><span class="ph">Orange</span> : à personnaliser avant l’envoi. Les liens et pièces jointes sont dans le Word d’origine.</p></section>':'')+
      '<div class="fi-q"><span>Un doute ?</span><button class="btn sm" type="button" id="aq">Poser la question</button></div>'+
      (cont?'':'<div class="stnav">'+(i>0?'<button class="btn sm sec" type="button" id="ap">← '+esc(ACT[i-1].t)+'</button>':'<span></span>')+(i<ACT.length-1?'<button class="btn sm sec" type="button" id="an">'+esc(ACT[i+1].t)+' →</button>':'')+'</div>');
@@ -2994,6 +3292,8 @@ body,.dz-shell main{background:#F2F5FF}
     d.querySelectorAll('[data-prev]').forEach(function(b){b.onclick=function(){window.__fcur=Math.max(0,cur-1);again()}});
     d.querySelectorAll('[data-next]').forEach(function(b){b.onclick=function(){window.__fcur=Math.min(tot-1,cur+1);again()}});
     d.querySelectorAll('.fi-tool').forEach(function(b){b.onclick=function(){goTool(b)}});
+    d.querySelectorAll('[data-fq]').forEach(function(b){b.onclick=function(){window.__fv=b.getAttribute('data-fq');again()}});
+
     if($('abk'))$('abk').onclick=function(){closeZoom();show('act',true)};
     $('aq').onclick=function(){closeFiche();show('chat',true);setTimeout(function(){try{ask(a.q)}catch(e){}},50)};
     if(!cont){if($('ap'))$('ap').onclick=function(){show('act',true,i)};if($('an'))$('an').onclick=function(){show('act',true,i+2)}}
@@ -3305,6 +3605,14 @@ body,.dz-shell main{background:#F2F5FF}
     function unread(d){var t=new Date(d.d).getTime();return NOW-t<WIN&&t>seen}
     function ago(d){var n=Math.round((NOW-new Date(d))/864e5);return n<=0?'aujourd’hui':n===1?'hier':n<31?'il y a '+n+' jours':'le '+fmt(d)}
     var CHG=[
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Fiches : 4 propositions plus premium',p:'Quatre nouvelles présentations dans la charte (marine, électrique, touche d’orange), plus épurées : A · Nuit, B · Signature, C · Verre, D · Focus. À choisir en haut des fiches Sourcer et Préqualification.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : rôle PM, PO ou QA',p:'Étape 3 « Valider son expérience produit » : la question sur le rôle couvre maintenant les PM, les PO et les QA.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Préqualification : la trame est dans Boond',p:'L’étape « Préparer l’appel » et le conseil du Capitaine renvoient maintenant à l’onglet Préqualification de la fiche candidat dans Boond.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Mission de la préqualification simplifiée',p:'Nouvelle mission : valider son expertise produit et transformer l’échange en Entretien 1, en lui donnant envie de continuer avec WeFiiT.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Frise du Parcours épurée',p:'Les étiquettes orange de statut Boond sous chaque étape sont retirées de la frise : le statut reste indiqué dans la fiche de chaque étape.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Fiches du Parcours : 5 habillages premium',p:'Cinq versions plus sobres des fiches Sourcer et Préqualification, avec la même structure (bandeau, plan d’action, conseil, feu vert, documents) : Épurée, Marine, Éditoriale, Lignes et Glacée. Les propositions se choisissent en haut de chaque fiche.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Fiche Préqualification enrichie',p:'La fiche part de la Maquette Prequal : valider l’expérience produit (quel produit, quel rôle), creuser les drivers pour rebondir sur ce que WeFiiT propose, vérifier la mobilité et l’anglais.'},
+      {d:'2026-11-10',who:'Léa',th:-1,t:'Parcours candidat : fiche Préqualification',p:'L’étape Préqualification a maintenant sa fiche, comme Sourcer : plan d’action en 5 étapes, conseil du Capitaine, feu vert, boîte à outils et actions Boond.'},
       {d:'2026-11-07',who:'Léa',th:0,t:'Pitch WeFiiT : annuaire Campus',p:'Le document Pitchs des missions WeFiiT est remplacé par le lien vers l’annuaire des missions sur Campus.'},
       {d:'2026-11-07',who:'Léa',th:0,t:'Pitch WeFiiT : deck candidat en premier',p:'Le Deck candidat passe en tête des indispensables du dossier Pitch WeFiiT.'},
       {d:'2026-11-05',who:'Léa',th:-1,t:'Mon intégration : bloc reco (4 propositions)',p:'En semaine 1, avant l’Objectif S1, un bloc « Ma reco » liste les 5 premières actions : espaces de travail, signatures, dashboard Boond, téléphone et licence LinkedIn. 4 présentations à comparer.'},
@@ -3852,6 +4160,9 @@ if(e.target.closest('#gngModal'))close()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})})();
 </script>
 <script>window.WF_PMC="<svg class=\"pmc\" viewBox=\"0 0 1000 1000\" role=\"img\" aria-label=\"La boussole du Product Management full stack : Product Strategy, Product Discovery, Product Delivery, Influence et consulting, avec leurs sous-compétences.\" xmlns=\"http://www.w3.org/2000/svg\"><g class=\"q q-discovery\"><path d=\"M500.0 170.0 A330 330 0 0 1 830.0 500.0 L672.0 500.0 A172 172 0 0 0 500.0 328.0 Z\" fill=\"#F4C142\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M500.0 22.0 A478 478 0 0 1 739.0 86.0 L671.0 203.8 A342 342 0 0 0 500.0 158.0 Z\" fill=\"#F4C142\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(606.1 104.0) rotate(15.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#002882\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Collecte</tspan><tspan x=\"0\" dy=\"25.8\">d’insights</tspan></text><path d=\"M739.0 86.0 A478 478 0 0 1 914.0 261.0 L796.2 329.0 A342 342 0 0 0 671.0 203.8 Z\" fill=\"#F4C142\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(789.9 210.1) rotate(45.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#002882\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Identification</tspan><tspan x=\"0\" dy=\"25.8\">des problèmes</tspan></text><path d=\"M914.0 261.0 A478 478 0 0 1 978.0 500.0 L842.0 500.0 A342 342 0 0 0 796.2 329.0 Z\" fill=\"#F4C142\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(896.0 393.9) rotate(75.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#002882\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Conception</tspan><tspan x=\"0\" dy=\"25.8\">de solutions</tspan></text><text x=\"678.2\" y=\"313.8\" text-anchor=\"middle\" class=\"pmc-q\" fill=\"#002882\" font-size=\"30\"><tspan x=\"678.2\" dy=\"0\">Product</tspan><tspan x=\"678.2\" dy=\"34\">Discovery</tspan></text></g><g class=\"q q-strategy\"><path d=\"M830.0 500.0 A330 330 0 0 1 500.0 830.0 L500.0 672.0 A172 172 0 0 0 672.0 500.0 Z\" fill=\"#6B9BD2\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M978.0 500.0 A478 478 0 0 1 914.0 739.0 L796.2 671.0 A342 342 0 0 0 842.0 500.0 Z\" fill=\"#6B9BD2\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(896.0 606.1) rotate(285.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Analyse</tspan><tspan x=\"0\" dy=\"25.8\">stratégique</tspan></text><path d=\"M914.0 739.0 A478 478 0 0 1 739.0 914.0 L671.0 796.2 A342 342 0 0 0 796.2 671.0 Z\" fill=\"#6B9BD2\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(789.9 789.9) rotate(315.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"-25.8\">Vision et</tspan><tspan x=\"0\" dy=\"25.8\">Stratégie</tspan><tspan x=\"0\" dy=\"25.8\">produit</tspan></text><path d=\"M739.0 914.0 A478 478 0 0 1 500.0 978.0 L500.0 842.0 A342 342 0 0 0 671.0 796.2 Z\" fill=\"#6B9BD2\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(606.1 896.0) rotate(345.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"0.0\">Exécution</tspan></text><text x=\"678.2\" y=\"670.2\" text-anchor=\"middle\" class=\"pmc-q\" fill=\"#ffffff\" font-size=\"30\"><tspan x=\"678.2\" dy=\"0\">Product</tspan><tspan x=\"678.2\" dy=\"34\">Strategy</tspan></text></g><g class=\"q q-influence\"><path d=\"M500.0 830.0 A330 330 0 0 1 170.0 500.0 L328.0 500.0 A172 172 0 0 0 500.0 672.0 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M500.0 978.0 A478 478 0 0 1 317.1 941.6 L369.1 816.0 A342 342 0 0 0 500.0 842.0 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(420.0 902.1) rotate(371.2)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"21\"><tspan x=\"0\" dy=\"-11.8\">AI for</tspan><tspan x=\"0\" dy=\"23.5\">Product</tspan></text><path d=\"M317.1 941.6 A478 478 0 0 1 162.0 838.0 L258.2 741.8 A342 342 0 0 0 369.1 816.0 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(272.2 840.9) rotate(393.8)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"21\"><tspan x=\"0\" dy=\"0.0\">Consulting</tspan></text><path d=\"M162.0 838.0 A478 478 0 0 1 58.4 682.9 L184.0 630.9 A342 342 0 0 0 258.2 741.8 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(159.1 727.8) rotate(416.2)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"21\"><tspan x=\"0\" dy=\"-11.8\">Manage-</tspan><tspan x=\"0\" dy=\"23.5\">ment</tspan></text><path d=\"M58.4 682.9 A478 478 0 0 1 22.0 500.0 L158.0 500.0 A342 342 0 0 0 184.0 630.9 Z\" fill=\"#0F2B80\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(97.9 580.0) rotate(438.8)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"21\"><tspan x=\"0\" dy=\"0.0\">Influence</tspan></text><text x=\"321.8\" y=\"670.2\" text-anchor=\"middle\" class=\"pmc-q\" fill=\"#ffffff\" font-size=\"30\"><tspan x=\"321.8\" dy=\"0\">Influence &</tspan><tspan x=\"321.8\" dy=\"34\">consulting</tspan></text></g><g class=\"q q-delivery\"><path d=\"M170.0 500.0 A330 330 0 0 1 500.0 170.0 L500.0 328.0 A172 172 0 0 0 328.0 500.0 Z\" fill=\"#EC9A3A\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M22.0 500.0 A478 478 0 0 1 86.0 261.0 L203.8 329.0 A342 342 0 0 0 158.0 500.0 Z\" fill=\"#EC9A3A\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(104.0 393.9) rotate(285.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"-12.9\">Dévelop-</tspan><tspan x=\"0\" dy=\"25.8\">pement</tspan></text><path d=\"M86.0 261.0 A478 478 0 0 1 261.0 86.0 L329.0 203.8 A342 342 0 0 0 203.8 329.0 Z\" fill=\"#EC9A3A\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(210.1 210.1) rotate(315.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"0.0\">Priorisation</tspan></text><path d=\"M261.0 86.0 A478 478 0 0 1 500.0 22.0 L500.0 158.0 A342 342 0 0 0 329.0 203.8 Z\" fill=\"#EC9A3A\" stroke=\"#fff\" stroke-width=\"6\" opacity=\".93\"/><text transform=\"translate(393.9 104.0) rotate(345.0)\" text-anchor=\"middle\" class=\"pmc-seg\" fill=\"#ffffff\" font-size=\"23\"><tspan x=\"0\" dy=\"0.0\">Spécification</tspan></text><text x=\"321.8\" y=\"313.8\" text-anchor=\"middle\" class=\"pmc-q\" fill=\"#ffffff\" font-size=\"30\"><tspan x=\"321.8\" dy=\"0\">Product</tspan><tspan x=\"321.8\" dy=\"34\">Delivery</tspan></text></g><g class=\"pmc-c\"><circle cx=\"500\" cy=\"500\" r=\"160\" fill=\"#0B2377\"/><path d=\"M478.0 500.0 L500.0 350.0 L522.0 500.0 Z\" fill=\"#D4D6DB\"/><path d=\"M500.0 478.0 L650.0 500.0 L500.0 522.0 Z\" fill=\"#D4D6DB\"/><path d=\"M522.0 500.0 L500.0 650.0 L478.0 500.0 Z\" fill=\"#D4D6DB\"/><path d=\"M500.0 522.0 L350.0 500.0 L500.0 478.0 Z\" fill=\"#D4D6DB\"/><path d=\"M484.4 484.4 L570.7 429.3 L515.6 515.6 Z\" fill=\"#8D9096\"/><path d=\"M515.6 484.4 L570.7 570.7 L484.4 515.6 Z\" fill=\"#8D9096\"/><path d=\"M515.6 515.6 L429.3 570.7 L484.4 484.4 Z\" fill=\"#8D9096\"/><path d=\"M484.4 515.6 L429.3 429.3 L515.6 484.4 Z\" fill=\"#8D9096\"/><path d=\"M489.4 517.0 L379.6 424.8 L510.6 483.0 Z\" fill=\"#F4F5F8\"/><path d=\"M510.6 483.0 L620.4 575.2 L489.4 517.0 Z\" fill=\"#EC9A3A\"/><circle cx=\"500\" cy=\"500\" r=\"34\" fill=\"#9A9CA2\"/><text x=\"500\" y=\"511\" text-anchor=\"middle\" class=\"pmc-w\" fill=\"#fff\" font-size=\"40\">w</text><circle cx=\"520\" cy=\"509\" r=\"4.5\" fill=\"#EC9A3A\"/></g></svg>";</script>
+
+
+
 
 
 
