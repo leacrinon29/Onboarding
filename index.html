@@ -3985,7 +3985,7 @@ function e2Scene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
         '<div class="bm-card bm-one e1-ev"><div class="bm-ch">Évaluation du candidat<span class="bm-cnt">À ne pas oublier</span></div><p class="e1-evl">Évaluation globale <small>+ Ajouter une évaluation</small></p><ul class="e1-gr">'+E.grades.map(function(g){return '<li class="g'+g[0]+'"><b>'+g[0]+'</b><span>'+esc(g[1])+'</span></li>'}).join('')+'</ul><small class="e1-cmt">'+ic('chat')+esc(E.comment)+'</small></div></div></div>';
       var MQ=E.maq.map(function(m){return m[0]+' :'+(m[1].length?'\n'+m[1].map(function(x){return '* '+x+' :'}).join('\n'):'')}).join('\n\n');
       window.__e1mq=MQ;
-      var maq='<div class="kx-card e1-mq"><div class="e1-mqh"><div><h3>La maquette E1</h3><p class="kx-sub">À écrire juste après l’E1. Commence par les 4 premières parties.</p></div><button type="button" class="kx-mbtn" data-e1copy="1">⧉ Copier la maquette</button></div>'+
+      var maq='<div class="kx-card e1-mq"><div class="e1-mqh"><div><h3>La maquette E1</h3><p class="kx-sub">À écrire juste après l’E1. Commence par les 4 premières parties.</p></div></div>'+
         '<ol class="e1-pp">'+E.maq.map(function(m,k){return '<li'+(m[2]?' class="hl"':'')+'><i>'+(k+1)+'</i><div><b>'+esc(m[0])+'</b>'+(m[1].length?'<small>'+m[1].map(esc).join(' · ')+'</small>':'')+'</div>'+(m[2]?'<span class="e1-1st">En premier</span>':'')+'</li>'}).join('')+'</ol></div>';
       var R='<div class="kx-r e2-r3"><span class="kx-st"><i></i>Statut Boond : '+esc(a.b)+'</span>'+steps+maq+
         '<div class="kx-card e2-lc"><h3>Les champs Boond</h3><p class="kx-sub">Onglet Informations : remplis bien tous ces champs, notamment l’évaluation du candidat.</p>'+bm+'</div></div>';
