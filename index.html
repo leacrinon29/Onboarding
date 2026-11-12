@@ -4154,7 +4154,7 @@ function e2Scene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
       var obj='<div class="e2i-obj"><span>Objectif</span><b>'+esc(E.obj)+'</b></div>';
       var share='<div class="kx-card"><h3>À partager à l’interviewer avant l’E2</h3><ul class="e2i-sh">'+E.share.map(function(x){return '<li><span>'+ic(x[0])+'</span>'+esc(x[1])+'</li>'}).join('')+'</ul></div>';
       var ev='<div class="kx-card"><h3>Ce sur quoi le candidat va être évalué</h3><p class="kx-sub">Et ce qui est attendu de lui pendant l’E2.</p><ul class="e2i-ev">'+E.eval.map(function(x){return '<li><span>'+ic(x[0])+'</span><b>'+esc(x[1])+'</b></li>'}).join('')+'</ul><div class="e2i-live"><span>'+ic('bolt')+'</span><b>+ '+esc(E.live)+'</b></div></div>';
-      var R='<div class="kx-r e2-r3"><span class="kx-st"><i></i>Statut Boond : '+esc(a.b)+'</span>'+obj+share+ev+'</div>';
+      var R='<div class="kx-r e2-r3"><span class="kx-st"><i></i>Statut Boond : '+esc(a.b)+'</span>'+share+ev+'</div>';
       var nx=ACT[i+1],nx2=ACT[i+2];
       var O='<div class="kx-more one"><div class="fi-blk"><span class="fi-k">Après l’E2</span><div class="fi-hd"><h3>Selon la décision</h3></div><ul class="kx-br e2-out">'+
         '<li class="go"><div class="kx-bt"><span class="kx-bi">'+ic('check')+'</span><span class="kx-bk">Si GO</span></div><b>Passe si A/A ou A/B</b><p>Avec une interaction B, il faut une forte histoire à raconter. Suis ensuite la fiche « '+esc(nx2?nx2.t:'')+' ».</p><button type="button" class="kx-mbtn" data-gostep="'+(i+2)+'">Voir l’étape →</button></li>'+
