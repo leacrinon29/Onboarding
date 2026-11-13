@@ -3846,6 +3846,7 @@ body,.dz-shell main{background:#F2F5FF}
 @media (max-width:820px){.sg-form{flex-direction:column}.sg-tb{font-size:12.5px}}
 .ans-top{margin:6px 0 10px;padding:12px 14px;border-radius:12px;background:#E8EEFF;font:600 14.5px/1.5 var(--f-body);color:#002882}
 .ans-top a{color:#0042ff!important;font-weight:700;text-decoration:underline!important;text-underline-offset:2px}
+.doc-star{margin-left:4px;font-size:.9em}
 .qx{margin-top:12px}
 .qx-more{padding:14px 16px;border-radius:14px;background:#fff;border:1px dashed #C9D6FF}
 .qx-more:empty{display:none}
@@ -4457,6 +4458,7 @@ body,.dz-shell main{background:#F2F5FF}
     'Maquette Prequal':'La trame d’appel : motivations, drivers, salaire, remote, anglais, timing.',
     'Maquette E1':'La trame d’entretien et de feedback, avec une note de A à D par compétence.',
      'Maquette E2':'Le feedback post-E2 (décision ED, soft et hard skills, salaire), la trame d’entretien et le cas pratique Sofitel.'};
+  function STAR(it){return ['Deck candidat','Annuaire des missions (Campus)'].indexOf(it[0])>-1?' <span class="doc-star" title="Document phare" aria-label="Document phare">⭐</span>':''}
   function DD(it){return DOCDESC[it[0]]?'<small class="dd">'+esc(DOCDESC[it[0]])+'</small>':''}
   var INTRO={7:'<p>Le cadrage salarial est une <b>étape essentielle</b> du processus de recrutement. Il permet de s’assurer, <mark>dès les premiers échanges</mark>, de la <b>cohérence</b> entre les <b>attentes du candidat</b>, son <b>expérience</b> et notre <b>référentiel de rémunération</b>.</p><p>Un positionnement mal évalué peut entraîner une <mark>réévaluation tardive</mark>, notamment en <b>E2 ou E2bis</b>, et générer de la <b>frustration</b> ou de la <b>déception</b> chez le candidat.</p>'};
   var MIS=[
@@ -4563,9 +4565,9 @@ body,.dz-shell main{background:#F2F5FF}
       html+='<header class="dva-head"><span class="dva-hub">'+ic+'</span><div><h2>'+esc(s.t)+'</h2><p>'+esc(m.o)+'</p></div>'+ringSv(n,t,64)+'</header>';
       if(BLOCS[i]){
         var B=BLOCS[i];
-        var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
+        var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+STAR(it)+DD(it)+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
         if(B.refl)html+='<section class="bl"><h3 class="dv-h">Les bons réflexes</h3><ul class="refl">'+B.refl.map(function(t){return '<li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>'+t+'</span></li>'}).join('')+'</ul></section>';
-        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}if(B.go)html+='<aside class="dist dist-u" role="note"><div class="dist-t"><b>Tu as besoin de savoir <mark>quoi faire</mark> et <mark>quand</mark> ?</b></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>'}
+        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+STAR(it)+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}if(B.go)html+='<aside class="dist dist-u" role="note"><div class="dist-t"><b>Tu as besoin de savoir <mark>quoi faire</mark> et <mark>quand</mark> ?</b></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>'}
         else if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
         else{
         [['Les indispensables','ess'],['Pour aller plus loin','plus'],['Les outils pratiques','tools']].forEach(function(g){var u=bl(B[g[1]]);if(u)html+='<section class="bl"><h3 class="dv-h">'+g[0]+'</h3>'+u+'</section>'});if(B.img&&window.WF_GNG)html+='<figure class="gng-fig"><button type="button" class="gng-btn" aria-label="Agrandir : critères de GO / NO GO recrutement"><img src="'+window.WF_GNG+'" alt="Critères de GO / NO GO recrutement : ce qu’on valide à la préqualification, à l’E1, à l’E2 et à l’E2 bis, et les actions après chaque étape, jusqu’à la signature."><span class="gng-zoom" aria-hidden="true">Agrandir</span></button><figcaption>Critères de GO / NO GO recrutement · clique pour agrandir</figcaption></figure>';if(B.pic&&window[B.pic.v])html+='<section class="bl"><h3 class="dv-h">'+esc(B.pic.cap)+'</h3><div class="pmc-wrap">'+window[B.pic.v]+'</div></section>';
@@ -4575,7 +4577,7 @@ body,.dz-shell main{background:#F2F5FF}
         if(st)html+='<section class="bl"><h3 class="dv-h">Les étapes du parcours associées</h3><div class="bl-sts">'+st+'</div></section>';
         if(B.go)html+='<aside class="dist dist-u" role="note"><div class="dist-t"><b>Tu as besoin de savoir <mark>quoi faire</mark> et <mark>quand</mark> ?</b></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>';
         }
-      }else if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
+      }else if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+STAR(it)+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
       html+='<h3 class="dv-h">Compétences à acquérir</h3><div class="dva-skw">'+skills()+'</div>';
     }else if(DMODE==='b'){
       html+='<header class="dvb-head"><span class="dvb-port">'+ic+'</span><div class="dvb-t"><h2>'+esc(s.t)+'</h2><div class="dvb-say">'+cap+'<p>'+esc(m.o)+'</p></div></div></header>';
@@ -4587,7 +4589,7 @@ body,.dz-shell main{background:#F2F5FF}
       html+='<div class="dvc-skw"><div class="dvc-skh">'+ringSv(n,t,52)+'<div><h3>Compétences à acquérir</h3><p>Coche au fur et à mesure.</p></div></div>'+skills()+'</div>';
     }else if(DMODE==='d'){
       html+='<header class="dvd-band"><div class="dvd-l"><span class="dvd-ic">'+ic+'</span><div><h2>'+esc(s.t)+'</h2><p>'+esc(m.o)+'</p></div></div>'+cap+'</header><div class="dvd-body">';
-      if(docs.length){html+='<section class="dvd-card"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}
+      if(docs.length){html+='<section class="dvd-card"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+STAR(it)+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}
       html+='<section class="dvd-card"><div class="dvd-skh"><h3 class="dv-h">Compétences à acquérir</h3>'+ringSv(n,t,46)+'</div>'+skills()+'</section></div>';
     }else if(DMODE==='e'){
       html+='<header class="dve-head">'+cap+'<div><h2>'+esc(s.t)+'</h2><p>'+esc(m.o)+'</p></div></header><ol class="dve-path">';
@@ -4623,9 +4625,9 @@ body,.dz-shell main{background:#F2F5FF}
       html+='<div class="dvf"><aside class="dvf-side">'+cap+'<div class="dvf-bub"><b>'+esc(s.t)+'</b>'+(BLOCS[i]&&BLOCS[i].why?'<small class="bub-k">À quoi sert ce dossier ?</small><p>'+esc(BLOCS[i].why)+'</p>':'<p>'+esc(m.o)+'</p>')+'</div>'+(NOSK[i]?'':ringSv(n,t,72)+'<small>compétences cochées</small>')+'</aside><div class="dvf-main">'+tipHtml(i)+(i===0?storyHtml():'')+(INTRO[i]?'<div class="dv-intro">'+INTRO[i]+'</div>':'');
       if(BLOCS[i]){
         var B=BLOCS[i];
-        var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
+        var bl=function(names){var o='';names.forEach(function(n){var it=s.items.filter(function(x){return x[0]===n})[0];if(it)o+='<li>'+badge(it)+'<b>'+esc(it[0])+STAR(it)+DD(it)+'</b>'+act(it,0,'dv-btn')+'</li>'});return o?'<ul class="dva-docs">'+o+'</ul>':''};
         if(B.refl)html+='<section class="bl"><h3 class="dv-h">Les bons réflexes</h3><ul class="refl">'+B.refl.map(function(t){return '<li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>'+t+'</span></li>'}).join('')+'</ul></section>';
-        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}if(B.go)html+='<aside class="dist dist-u" role="note"><div class="dist-t"><b>Tu as besoin de savoir <mark>quoi faire</mark> et <mark>quand</mark> ?</b></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>'}
+        if(B.plain){if(docs.length){html+='<section class="bl"><h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+STAR(it)+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul></section>'}if(B.go)html+='<aside class="dist dist-u" role="note"><div class="dist-t"><b>Tu as besoin de savoir <mark>quoi faire</mark> et <mark>quand</mark> ?</b></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>'}
         else if(B.secs){B.secs.forEach(function(g){var u=bl(g.docs);html+='<section class="bl"><h3 class="dv-h">'+esc(g.h)+'</h3>'+(g.p?'<p class="bl-why">'+esc(g.p)+'</p>':'')+u+'</section>'})}
         else{
         [['Les indispensables','ess'],['Pour aller plus loin','plus'],['Les outils pratiques','tools']].forEach(function(g){var u=bl(B[g[1]]);if(u)html+='<section class="bl"><h3 class="dv-h">'+g[0]+'</h3>'+u+'</section>'});if(B.img&&window.WF_GNG)html+='<figure class="gng-fig"><button type="button" class="gng-btn" aria-label="Agrandir : critères de GO / NO GO recrutement"><img src="'+window.WF_GNG+'" alt="Critères de GO / NO GO recrutement : ce qu’on valide à la préqualification, à l’E1, à l’E2 et à l’E2 bis, et les actions après chaque étape, jusqu’à la signature."><span class="gng-zoom" aria-hidden="true">Agrandir</span></button><figcaption>Critères de GO / NO GO recrutement · clique pour agrandir</figcaption></figure>';if(B.pic&&window[B.pic.v])html+='<section class="bl"><h3 class="dv-h">'+esc(B.pic.cap)+'</h3><div class="pmc-wrap">'+window[B.pic.v]+'</div></section>';
@@ -4635,7 +4637,7 @@ body,.dz-shell main{background:#F2F5FF}
         if(st)html+='<section class="bl"><h3 class="dv-h">Les étapes du parcours associées</h3><div class="bl-sts">'+st+'</div></section>';
         if(B.go)html+='<aside class="dist dist-u" role="note"><div class="dist-t"><b>Tu as besoin de savoir <mark>quoi faire</mark> et <mark>quand</mark> ?</b></div><div class="dist-o"><button class="dist-go" type="button" data-nav="act">Ouvrir le Parcours candidat →</button></div></aside>';
         }
-      }else if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
+      }else if(docs.length){html+='<h3 class="dv-h">Les documents</h3><ul class="dva-docs">';docs.forEach(function(it,k){html+='<li>'+badge(it)+'<b>'+esc(it[0])+STAR(it)+DD(it)+'</b>'+act(it,k,'dv-btn')+'</li>'});html+='</ul>'}
       html+=(NOSK[i]?'':'<details class="dv-skd"'+(window.__skOpen?' open':'')+'><summary>Compétences à acquérir <small>'+n+' / '+t+(WHEN[i]?' · repère d’onboarding : '+WHEN[i]:'')+'</small></summary><div class="dva-skw">'+skills()+'</div></details>')+'</div></div>';
     }
     html+='</div>';
