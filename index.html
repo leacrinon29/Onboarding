@@ -3924,6 +3924,17 @@ body,.dz-shell main{background:#F2F5FF}
 .ans-bs .ans-btn:first-child:hover{background:#002882;border-color:#002882}
 .ans-btn:focus-visible{outline:2px solid #f98f03;outline-offset:2px}
 .ans-src{margin:0;font:500 12.5px var(--f-body);color:#8A93AD}
+.dz-know.dz-gold{position:relative;display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;background:linear-gradient(120deg,#FFF3DC,#FFE6BD 55%,#FFF6E8);border:1px solid #F7C77A;box-shadow:0 14px 28px -22px rgba(249,143,3,.7)}
+.dz-know.dz-gold .bulb{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#f98f03;box-shadow:0 8px 16px -8px rgba(249,143,3,.9);animation:dzGlow 2.6s ease-in-out infinite}
+.dz-know.dz-gold .bulb .dz-ico{width:22px;height:22px;stroke:#fff!important;color:#fff}
+@keyframes dzGlow{0%,100%{box-shadow:0 0 0 0 rgba(249,143,3,.45)}50%{box-shadow:0 0 0 8px rgba(249,143,3,0)}}
+.dz-know.dz-gold b{display:block;font:800 11.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#B35F00}
+.dz-know.dz-gold p{margin:3px 0 0;font:700 16px/1.4 var(--f-title);color:#002882}
+.dz-know.dz-gold>div{flex:1;min-width:0}
+.dz-gnext{all:unset;flex:none;cursor:pointer;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid #F7C77A;font:700 12.5px var(--f-body);color:#B35F00}
+.dz-gnext:hover{background:#FFF8EC}.dz-gnext:focus-visible{outline:2px solid #0042ff;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.dz-know.dz-gold .bulb{animation:none}}
+#dzChips{display:none!important}
 .e1-gr{list-style:none;margin:4px 0 12px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .e1-gr li{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:10px;background:#F7F9FE;font:600 12.5px var(--f-body);color:#47506B}
 .e1-gr b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#fff;font:800 15px var(--f-body)}
@@ -6230,11 +6241,12 @@ function recoHtml(){var k='b';
    ['L’art de recruter','C’est être rigoureux dans le process et humain dans la relation.'],
    ['L’art de recruter','C’est faire vivre une expérience candidat dont on est fier, même quand c’est un refus.']];
   var t=document.getElementById('ruleT'),pp=document.getElementById('ruleP');if(!t||!pp)return;
-  var i=0;
-  function show(){t.textContent=R[i][0];pp.textContent=R[i][1]}
+  var d=new Date(),day=Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))/864e5),i=day%R.length,i0=i;
+  var box=t.closest('.dz-know');box.classList.add('dz-gold');
+  var nx=document.createElement('button');nx.type='button';nx.className='dz-gnext';nx.textContent='Une autre';box.appendChild(nx);
+  function show(){t.textContent=(i===i0?(R[i][0]==='L’art de recruter'?'L’art de recruter, du jour':'La règle d’or du jour'):R[i][0]);pp.textContent=R[i][1]}
   show();
-  var box=t.closest('.dz-know');box.style.cursor='pointer';box.setAttribute('title','Règle suivante');
-  box.addEventListener('click',function(){i=(i+1)%R.length;show()});
+  nx.addEventListener('click',function(){i=(i+1)%R.length;show()});
 })();
 </script>
 
