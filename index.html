@@ -3931,6 +3931,8 @@ body,.dz-shell main{background:#F2F5FF}
 .dz-know.dz-gold b{display:block;font:800 11.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#B35F00}
 .dz-know.dz-gold p{margin:3px 0 0;font:700 16px/1.4 var(--f-title);color:#002882}
 .dz-know.dz-gold>div{flex:1;min-width:0}
+.dz-know.dz-gold>div{transition:opacity .35s,transform .35s}
+.dz-know.dz-gold.dz-fade>div{opacity:0;transform:translateY(4px)}
 .dz-gold-top{margin:0 0 18px;padding:18px 22px!important}
 .dz-gold-top p{font:700 17px/1.4 var(--f-title)!important;color:#002882!important;margin:4px 0 0!important}
 .dz-gold-top b{font:800 12px var(--f-body)!important;letter-spacing:.1em!important;color:#B35F00!important}
@@ -5852,7 +5854,7 @@ function recoHtml(){var k='b';
         var tools='<details class="onb-tools"><summary><b>Avant de commencer : la checklist de tes outils de travail</b><span class="xs-tag">'+tn+' / '+ONBT.length+'</span></summary>'+list('T',0,ONBT)+'</details>';
         var obj=role==='tr'?'<section class="onb-obj"><h3>📊 Objectifs</h3><ul><li>7 entretiens (E1)</li><li>12 à 13 préqualifications par semaine</li><li>100 à 120 messages envoyés par semaine</li><li>1 recrutement par semaine</li><li>Utilisation de canaux : APEC / Welcome to the Jungle / LinkedIn / Boond (vivier)</li><li>Être proactif dans les actions</li></ul></section>':'';
         var f='<ol class="onb-fr" role="tablist">'+L.map(function(m,i){var st=stat(m);return '<li><button type="button" role="tab" aria-selected="'+(i===cur)+'" data-o="'+i+'"><span class="onb-n">'+esc(m.k)+'</span><small>'+esc(m.h)+'</small><i class="onb-pg'+(st[0]===st[1]?' done':'')+'">'+st[0]+' / '+st[1]+'</i></button></li>'}).join('')+'</ol>';
-        var tdone=0,tall=0;L.forEach(function(mm){var x=stat(mm);tdone+=x[0];tall+=x[1]});var pct=tall?Math.round(tdone*100/tall):0;window.__onbPct=pct;window.__onbRole=role;window.__onbStep=L[cur]?(L[cur].t+' · '+L[cur].h):'';
+        var tdone=0,tall=0;L.forEach(function(mm){var x=stat(mm);tdone+=x[0];tall+=x[1]});var pct=tall?Math.round(tdone*100/tall):0;window.__onbPct=pct;window.__onbRole=role;window.__onbStep=L[cur]?(L[cur].t+' · '+L[cur].h):'';try{document.dispatchEvent(new Event('onb:pct'))}catch(x){}
         var sea='<div class="nv-sea" aria-label="Ta traversée : '+pct+' % du parcours"><div class="nv-track"><span class="nv-port" aria-hidden="true">⚓</span><div class="nv-water" aria-hidden="true"></div>'+
           '<div class="nv-boat" style="left:'+(window.__boatX==null?0:window.__boatX)+'%" data-to="'+pct+'" title="Tu as parcouru '+pct+' % du parcours"><svg viewBox="0 0 64 56" aria-hidden="true"><path d="M33 4v34" stroke="#002882" stroke-width="2.4" stroke-linecap="round"/><path d="M34 6c10 7 15 17 15 28H34z" fill="#fff" stroke="#002882" stroke-width="1.6" stroke-linejoin="round"/><path d="M34 22h13.4" stroke="#f98f03" stroke-width="3"/><path d="M31 9c-7 6-11 15-11 25h11z" fill="#E8EEFF" stroke="#002882" stroke-width="1.6" stroke-linejoin="round"/><path d="M33 4l9 3-9 3z" fill="#f98f03"/><path d="M8 38h48l-7 11H15z" fill="#002882"/><path d="M12 43h40" stroke="#fff" stroke-width="2" opacity=".85"/></svg></div>'+
           '<span class="nv-dest" aria-hidden="true"><svg viewBox="0 0 48 44"><path d="M2 40c6-9 15-13 22-13s16 4 22 13z" fill="#F4D9A6"/><path d="M24 6v24" stroke="#002882" stroke-width="2.2" stroke-linecap="round"/><path d="M25 7l13 5-13 5z" fill="#f98f03"/></svg></span></div>'+
@@ -6295,8 +6297,9 @@ function recoHtml(){var k='b';
   var d=new Date(),day=Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))/864e5),i=day%R.length,i0=i;
   var box=t.closest('.dz-know');box.classList.add('dz-gold');
   var sec=document.querySelector('.b-doubt');if(sec){sec.insertBefore(box,sec.firstChild);box.classList.add('dz-gold-top')}
-  function show(){t.textContent=(i===i0?(R[i][0]==='L’art de recruter'?'L’art de recruter, du jour':'La règle d’or du jour'):R[i][0]);pp.textContent=R[i][1]}
+  function show(){t.textContent=R[i][0];pp.textContent=R[i][1]}
   show();
+  setInterval(function(){if(document.hidden)return;box.classList.add('dz-fade');setTimeout(function(){i=(i+1)%R.length;show();box.classList.remove('dz-fade')},350)},10000);
 
 })();
 </script>
@@ -6401,7 +6404,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})})(
   function homeB(){var pct=window.__onbPct||0,role=window.__onbRole;var N=(window.__CHG||[]).slice(0,3);
     return '<section class="org-prog"><div class="org-pl"><span class="org-k">Ta progression</span><b>'+(role?(role==='pad'?'Parcours PAD':'Parcours Talent Recruteur')+(window.__onbStep?' · '+e(window.__onbStep):''):'Ton parcours d’intégration')+'</b><div class="org-bar"><i style="width:'+pct+'%"></i><svg class="org-bt" style="left:'+pct+'%" viewBox="0 0 64 56" aria-hidden="true"><path d="M33 4v34" stroke="#002882" stroke-width="2.4"/><path d="M34 6c10 7 15 17 15 28H34z" fill="#fff" stroke="#002882" stroke-width="1.6"/><path d="M31 9c-7 6-11 15-11 25h11z" fill="#E8EEFF" stroke="#002882" stroke-width="1.6"/><path d="M33 4l9 3-9 3z" fill="#f98f03"/><path d="M8 38h48l-7 11H15z" fill="#002882"/></svg></div><small>Ta traversée : '+pct+' %</small></div><button type="button" class="org-cta" data-nav="onb">'+(role?'Reprendre là où j’en suis':'Commencer mon intégration')+'</button></section>'+
       '<section class="org-doors">'+[['map','La Mallette du recruteur','Le comment et le pourquoi : méthodes, documents, bonnes pratiques.','#0042ff','<path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/>'],['act','Le Parcours candidat','Le quoi et le quand : chaque étape, du sourcing à la signature.','#f98f03','<path d="M4 18c4 0 4-12 8-12s4 12 8 12"/>'],['onb','Mon intégration','Ma montée en compétence, du Jour 1 au 3ᵉ mois.','#1a7f4b','<path d="M5 19V9l7-5 7 5v10"/><path d="M10 19v-5h4v5"/>']].map(function(d){return '<button type="button" class="org-door" data-nav="'+d[0]+'" style="--c:'+d[3]+'"><span class="org-di"><svg viewBox="0 0 24 24" aria-hidden="true">'+d[4]+'</svg></span><b>'+d[1]+'</b><small>'+d[2]+'</small></button>'}).join('')+'</section>'+
-      (N.length?'<section class="org-news"><h3>Les nouveautés</h3><ul>'+N.map(function(c){return '<li><b>'+e(c.t)+'</b><span>'+e(c.d.split('-').reverse().join('/'))+'</span></li>'}).join('')+'</ul></section>':'')+
       '<section class="org-ask"><div><b>Une question ?</b><span>Le Capitaine te répond, avec le bon document.</span></div><button type="button" class="org-cta" data-nav="chat">Demander au Capitaine</button></section>'}
   function chatB(){var KB=window.__KB||[];var G={};KB.forEach(function(x,i){if(!x||!x.q)return;var t=themeOf2(x.q,x.k);(G[t]=G[t]||[]).push(x.q)});
     return '<section class="org-dq"><h3>J’ai un doute</h3><div id="orgDoubtSlot"></div></section><section class="org-all"><h3>Toutes les questions, par thème</h3>'+THEMES.concat([['Autres']]).map(function(t,k){var L=G[k]||[];if(!L.length)return '';return '<details class="org-th"><summary>'+e(t[0])+'<span>'+L.length+'</span></summary><ul>'+L.map(function(q){return '<li><button type="button" data-oq="'+e(q)+'">'+e(q)+'</button></li>'}).join('')+'</ul></details>'}).join('')+'</section>'}
@@ -6421,6 +6423,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})})(
     var cp=document.createElement('div');cp.id='orgPickC';var t=chat.querySelector('.vtitle')||chat.firstChild;chat.insertBefore(cp,chat.firstChild);
     var cb=document.createElement('div');cb.id='orgChat';chat.appendChild(cb);apply();
     document.querySelectorAll('.dz-tnav .lk').forEach(function(l){l.addEventListener('click',function(){if(org==='b'&&l.getAttribute('data-v')==='home')setTimeout(function(){$i('orgHome').innerHTML=homeB();bind()},50)})})}
+  document.addEventListener('onb:pct',function(){var hb=$i('orgHome');if(org==='b'&&hb&&hb.innerHTML){hb.innerHTML=homeB();bind()}});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(init,300)});else setTimeout(init,300);
 })();
 </script>
