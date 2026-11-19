@@ -6602,3 +6602,13 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
     p.querySelectorAll('button').forEach(function(b){b.onclick=function(){v=b.getAttribute('data-tit');try{localStorage.setItem('wf-tit',v)}catch(x){}var w=document.getElementById('orbWrap');if(w)w.setAttribute('data-tit',v);paint()}})}
   setInterval(ensure,1000);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensure);else ensure()})();
 </script>
+<script>
+(function(){var on=false;try{on=localStorage.getItem('wf-short')==='1'}catch(x){}
+  var M={'Pitch WeFiiT':'Pitch WeFiiT','Compréhension métier':'Métiers','Cadre et process de recrutement':'Process','Sourcing et chasse':'Sourcing','Qualification et entretiens':'Entretiens','Cooptation':'Cooptation','Outils et pilotage':'Outils Boond','Cadrage salarial':'Salaire','Expérience candidat & communication':'Expérience candidat'};
+  function apply(){document.querySelectorAll('#steps .orb-it b').forEach(function(b){var f=b.getAttribute('data-full');if(!f){f=b.textContent.trim();b.setAttribute('data-full',f)}var t=on&&M[f]?M[f]:f;if(b.textContent!==t)b.textContent=t})}
+  function pick(){var w=document.getElementById('orbWrap');if(!w)return;var p=document.getElementById('shortPick');if(!p){p=document.createElement('div');p.id='shortPick';p.className='lis-pick';p.setAttribute('role','group');p.setAttribute('aria-label','Noms des dossiers');var tp=document.getElementById('titPick');w.parentNode.insertBefore(p,w)}
+    var h='Noms <button type="button" data-sh="0" aria-pressed="'+(!on)+'">Complets</button><button type="button" data-sh="1" aria-pressed="'+on+'">Courts</button>';if(p.innerHTML!==h){p.innerHTML=h;p.querySelectorAll('button').forEach(function(b){b.onclick=function(){on=b.getAttribute('data-sh')==='1';try{localStorage.setItem('wf-short',on?'1':'0')}catch(x){}p.innerHTML='';pick();apply()}})}}
+  function tick(){pick();apply()}
+  try{new MutationObserver(function(){var s=document.getElementById('steps');if(s)apply()}).observe(document.body,{childList:true,subtree:true})}catch(x){}
+  setInterval(tick,1000);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',tick);else tick()})();
+</script>
