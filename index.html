@@ -5900,7 +5900,7 @@ function recoHtml(){var k='b';
         var L=ONBR[role];
         var tn=0;ONBT.forEach(function(x,b){if(CK[ky('T',0,b)])tn++});
         var tools='<details class="onb-tools"><summary><b>Avant de commencer : la checklist de tes outils de travail</b><span class="xs-tag">'+tn+' / '+ONBT.length+'</span></summary>'+list('T',0,ONBT)+'</details>';
-        var OBT=['7 entretiens (E1)','12 à 13 préqualifications par semaine','100 à 120 messages envoyés par semaine','1 recrutement par semaine','Utilisation de canaux : APEC / Welcome to the Jungle / LinkedIn / Boond (vivier)','Être proactif dans les actions'];
+        var OBT=['7 entretiens (E1)','12 à 13 préqualifications par semaine','100 à 120 messages envoyés par semaine','Utilisation de canaux : APEC / Welcome to the Jungle / LinkedIn / Boond (vivier)','Être proactif dans les actions'];
         var obS=document.getElementById('v-onb').getAttribute('data-ob')||'1';
         var obPick='<div class="ob-pick" role="group" aria-label="Style des objectifs">Style '+[['1','Marine'],['2','Glace'],['3','Chiffres clés'],['4','Orange doux'],['5','Liste légère']].map(function(o){return '<button type="button" data-obs="'+o[0]+'" aria-pressed="'+(obS===o[0])+'">'+o[0]+' · '+o[1]+'</button>'}).join('')+'</div>';
         var obj=role==='tr'?'<section class="onb-obj"><h3>📊 Objectifs</h3>'+obPick+'<ul>'+OBT.map(function(t){var m=/^(\d+(?: à \d+)?)\s+(.*)$/.exec(t);return m?'<li><b class="ob-n">'+m[1]+'</b> '+m[2]+'</li>':'<li class="ob-t">'+t+'</li>'}).join('')+'</ul></section>':'';
