@@ -4081,17 +4081,6 @@ body.lite .lis-pick{display:none}
 #orbWrap[data-lis="5"] .orb-it small{color:#5E6A86!important}
 #orbWrap[data-lis="5"]::before,#orbWrap[data-lis="5"]::after,#orbWrap[data-lis="5"] .cx-fx::before,#orbWrap[data-lis="5"] .cx-fx::after,#orbWrap[data-lis="5"] .orbit::before,#orbWrap[data-lis="5"] .orbit::after{display:none!important}
 }
-@media (min-width:641px){
-#orbWrap[data-tit="2"] .orb-it b{font:500 18px/1.15 var(--f-title)!important;color:#002882!important;max-width:210px}
-#orbWrap[data-tit="3"] .orb-it .dz-ico{display:block!important;width:36px!important;height:36px!important;padding:8px;box-sizing:border-box;border-radius:50%;background:#fff;stroke:#0042ff;color:#0042ff;box-shadow:0 6px 14px -8px rgba(0,40,130,.5);margin:0 auto 4px}
-#orbWrap[data-tit="3"] .orb-it.hot .dz-ico,#orbWrap[data-tit="3"] .orb-it:hover .dz-ico{background:#f98f03;stroke:#fff;color:#fff}
-#orbWrap[data-tit="3"] .orb-it b{font-size:15.5px!important}
-#orbWrap[data-tit="4"] .orb-it b{display:inline-block;padding:8px 14px;border-radius:14px;background:#fff;color:#002882!important;font:700 14.5px/1.2 var(--f-body)!important;box-shadow:0 10px 24px -14px rgba(0,40,130,.55);border:1px solid #E3E8F6;max-width:200px}
-#orbWrap[data-tit="4"] .orb-it.hot b,#orbWrap[data-tit="4"] .orb-it:hover b{border-color:#f98f03;color:#e07f00!important}
-#orbWrap[data-tit="5"] .orb-it b{font:700 16px/1.2 var(--f-body)!important;color:#002882!important;max-width:200px}
-#orbWrap[data-tit="5"] .orb-it b:after{content:"";display:block;width:28px;height:3px;border-radius:2px;background:#f98f03;margin:6px auto 0}
-#orbWrap[data-tit="5"] .orb-it.hot b{color:#e07f00!important}
-}
 .e1-gr{list-style:none;margin:4px 0 12px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .e1-gr li{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:10px;background:#F7F9FE;font:600 12.5px var(--f-body);color:#47506B}
 .e1-gr b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#fff;font:800 15px var(--f-body)}
@@ -6559,7 +6548,7 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
 </script>
 <script>
 (function(){
-  var on=false;try{on=localStorage.getItem('wf-lite')==='1'}catch(x){}
+  var on=false;
   function $(s){return document.querySelector(s)}
   function e(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function buildMap(){var mh=document.getElementById('mapHome');if(!mh)return;var its=document.querySelectorAll('#steps .orb-it');if(!its.length)return;
@@ -6570,7 +6559,7 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
   function sw(){var d=document.getElementById('liteSw');if(!d){d=document.createElement('div');d.id='liteSw';d.className='lite-sw';d.setAttribute('role','group');d.setAttribute('aria-label','Affichage');document.body.appendChild(d)}
     d.innerHTML='<span>Affichage</span><button type="button" data-lite="0" aria-pressed="'+(!on)+'">Actuel</button><button type="button" data-lite="1" aria-pressed="'+on+'">Allégé</button>';
     d.querySelectorAll('button').forEach(function(b){b.onclick=function(){on=b.getAttribute('data-lite')==='1';try{localStorage.setItem('wf-lite',on?'1':'0')}catch(x){}apply()}})}
-  function apply(){document.body.classList.toggle('lite',on);sw();if(on)buildMap()}
+  function apply(){document.body.classList.remove('lite')}
   function init(){apply();setInterval(function(){if(on)buildMap()},1500)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
@@ -6595,20 +6584,12 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
   setInterval(ensure,1000);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensure);else ensure()})();
 </script>
 <script>
-(function(){var v='1';try{v=localStorage.getItem('wf-tit')||'1'}catch(x){}
-  var L=[['1','Actuels'],['2','Plus grands'],['3','Avec icônes'],['4','Cartes blanches'],['5','Trait orange']];
-  function ensure(){var w=document.getElementById('orbWrap');if(!w)return;w.setAttribute('data-tit',v);var p=document.getElementById('titPick');if(!p){p=document.createElement('div');p.id='titPick';p.className='lis-pick';p.setAttribute('role','group');p.setAttribute('aria-label','Titres de la boussole');w.parentNode.insertBefore(p,w);paint()}}
-  function paint(){var p=document.getElementById('titPick');if(!p)return;p.innerHTML='Titres '+L.map(function(o){return '<button type="button" data-tit="'+o[0]+'" aria-pressed="'+(v===o[0])+'">'+o[0]+' · '+o[1]+'</button>'}).join('');
-    p.querySelectorAll('button').forEach(function(b){b.onclick=function(){v=b.getAttribute('data-tit');try{localStorage.setItem('wf-tit',v)}catch(x){}var w=document.getElementById('orbWrap');if(w)w.setAttribute('data-tit',v);paint()}})}
-  setInterval(ensure,1000);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensure);else ensure()})();
-</script>
-<script>
-(function(){var on=false;try{on=localStorage.getItem('wf-short')==='1'}catch(x){}
+(function(){var on=true;
   var M={'Pitch WeFiiT':'Pitch WeFiiT','Compréhension métier':'Métiers','Cadre et process de recrutement':'Process','Sourcing et chasse':'Sourcing','Qualification et entretiens':'Entretiens','Cooptation':'Cooptation','Outils et pilotage':'Outils Boond','Cadrage salarial':'Salaire','Expérience candidat & communication':'Expérience candidat'};
   function apply(){document.querySelectorAll('#steps .orb-it b').forEach(function(b){var f=b.getAttribute('data-full');if(!f){f=b.textContent.trim();b.setAttribute('data-full',f)}var t=on&&M[f]?M[f]:f;if(b.textContent!==t)b.textContent=t})}
   function pick(){var w=document.getElementById('orbWrap');if(!w)return;var p=document.getElementById('shortPick');if(!p){p=document.createElement('div');p.id='shortPick';p.className='lis-pick';p.setAttribute('role','group');p.setAttribute('aria-label','Noms des dossiers');var tp=document.getElementById('titPick');w.parentNode.insertBefore(p,w)}
     var h='Noms <button type="button" data-sh="0" aria-pressed="'+(!on)+'">Complets</button><button type="button" data-sh="1" aria-pressed="'+on+'">Courts</button>';if(p.innerHTML!==h){p.innerHTML=h;p.querySelectorAll('button').forEach(function(b){b.onclick=function(){on=b.getAttribute('data-sh')==='1';try{localStorage.setItem('wf-short',on?'1':'0')}catch(x){}p.innerHTML='';pick();apply()}})}}
-  function tick(){pick();apply()}
+  function tick(){apply()}
   try{new MutationObserver(function(){var s=document.getElementById('steps');if(s)apply()}).observe(document.body,{childList:true,subtree:true})}catch(x){}
   setInterval(tick,1000);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',tick);else tick()})();
 </script>
