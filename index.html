@@ -4072,24 +4072,23 @@ body.lite #xrc{display:none!important}
 body.lite .lis-pick{display:none}
 @media (max-width:640px){.lis-pick{display:none}}
 @media (min-width:641px){
-/* 2 Pastilles blanches */
-#orbWrap[data-lis="2"] .orb-it b{display:inline-block;padding:7px 14px;border-radius:999px;background:#fff;color:#002882!important;font:700 14px/1.2 var(--f-body)!important;text-shadow:none!important;box-shadow:0 8px 20px -8px rgba(0,10,60,.55);max-width:190px}
-#orbWrap[data-lis="2"] .orb-it.hot b,#orbWrap[data-lis="2"] .orb-it:hover b,#orbWrap[data-lis="2"] .orb-it:focus-visible b{background:#f98f03;color:#fff!important}
-/* 3 Grands titres + icône */
-#orbWrap[data-lis="3"] .orb-it .dz-ico{display:block!important;width:40px!important;height:40px!important;padding:9px;border-radius:50%;background:rgba(255,255,255,.16);stroke:#fff;color:#fff;box-sizing:border-box;margin:0 auto 4px}
-#orbWrap[data-lis="3"] .orb-it b{font:700 17px/1.15 var(--f-title)!important;color:#fff!important;text-shadow:0 2px 12px rgba(0,10,60,.85)!important;max-width:200px}
-#orbWrap[data-lis="3"] .orb-it.hot .dz-ico,#orbWrap[data-lis="3"] .orb-it:hover .dz-ico{background:#f98f03}
-#orbWrap[data-lis="3"] .orb-it.hot b,#orbWrap[data-lis="3"] .orb-it:hover b{color:#FFD08A!important}
-/* 4 Numérotés */
-#orbWrap[data-lis="4"] #steps{counter-reset:orb}
-#orbWrap[data-lis="4"] .orb-it{counter-increment:orb}
-#orbWrap[data-lis="4"] .orb-it b{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(0,26,86,.55);border:1px solid rgba(255,255,255,.35);color:#fff!important;font:700 14px/1.2 var(--f-body)!important;text-shadow:none!important;text-align:left;max-width:220px;backdrop-filter:blur(4px)}
-#orbWrap[data-lis="4"] .orb-it b:before{content:counter(orb);flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#f98f03;color:#fff;font:800 12px var(--f-body)}
-#orbWrap[data-lis="4"] .orb-it.hot b,#orbWrap[data-lis="4"] .orb-it:hover b{background:#fff;color:#002882!important}
-/* 5 Contraste renforcé */
-#orbWrap[data-lis="5"]{filter:saturate(.85) brightness(.82)}
-#orbWrap[data-lis="5"] .orb-it b{font:700 16px/1.2 var(--f-body)!important;color:#fff!important;text-shadow:0 1px 2px rgba(0,0,0,.6),0 0 14px rgba(0,10,60,.9)!important;max-width:200px;border-bottom:2px solid #f98f03;padding-bottom:3px}
-#orbWrap[data-lis="5"] .orb-it.hot b,#orbWrap[data-lis="5"] .orb-it:hover b{color:#FFD08A!important}
+/* 2 Nuit marine */
+#orbWrap[data-lis="2"]{background:radial-gradient(circle at 50% 45%,#0b3bc4 0,#002882 34%,#001A56 72%,#00113a 100%)!important}
+#orbWrap[data-lis="2"] .orb-it b{font-size:15px!important}
+/* 3 Dégradé WeFiiT */
+#orbWrap[data-lis="3"]{background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.10) 0,rgba(255,255,255,0) 34%),linear-gradient(125deg,#001A56 0,#002882 42%,#0042ff 100%)!important}
+#orbWrap[data-lis="3"] .orb-it b{font-size:15px!important}
+/* 4 Carte marine */
+#orbWrap[data-lis="4"]{background:radial-gradient(circle at 50% 45%,rgba(0,66,255,.35) 0,rgba(0,66,255,0) 40%),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 48px),repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 48px),linear-gradient(#001A56,#002882)!important}
+#orbWrap[data-lis="4"] .orb-it b{font-size:15px!important;letter-spacing:.01em}
+/* 5 Glace (clair) */
+#orbWrap[data-lis="5"]{background:radial-gradient(circle at 50% 45%,#fff 0,#F2F5FF 40%,#DCE5FF 100%)!important;box-shadow:inset 0 0 0 1px #DCE3F5!important}
+#orbWrap[data-lis="5"] .orb-ring,#orbWrap[data-lis="5"] .cx-svg{filter:brightness(0) invert(13%) sepia(60%) saturate(4500%) hue-rotate(222deg) brightness(95%);opacity:.55}
+#orbWrap[data-lis="5"] .orb-center{box-shadow:0 0 0 1px #DCE3F5,0 18px 40px -20px rgba(0,40,130,.45)!important}
+#orbWrap[data-lis="5"] .orb-it b{color:#002882!important;font-size:15px!important;text-shadow:none!important}
+#orbWrap[data-lis="5"] .orb-it.hot b,#orbWrap[data-lis="5"] .orb-it:hover b{color:#e07f00!important}
+#orbWrap[data-lis="5"] .orb-it small{color:#5E6A86!important}
+#orbWrap[data-lis="5"]::before,#orbWrap[data-lis="5"]::after,#orbWrap[data-lis="5"] .cx-fx::before,#orbWrap[data-lis="5"] .cx-fx::after,#orbWrap[data-lis="5"] .orbit::before,#orbWrap[data-lis="5"] .orbit::after{display:none!important}
 }
 .e1-gr{list-style:none;margin:4px 0 12px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .e1-gr li{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:10px;background:#F7F9FE;font:600 12.5px var(--f-body);color:#47506B}
@@ -6586,10 +6585,10 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
     (function step2(){if(!it)return;var rows=[].filter.call(document.querySelectorAll('#v-map li, #v-map .bl-row, #v-map div'),function(x){return x.textContent.indexOf(it)>-1&&x.querySelector('.dv-btn')});rows.sort(function(a,b){return a.textContent.length-b.textContent.length});var r=rows[0];if(!r){if(n++<20)setTimeout(step2,150);return}var btn=r.querySelector('.dv-btn');if(btn.hasAttribute('data-pg'))btn.click();else flash(r)})()})()})})();
 </script>
 <script>
-(function(){var v='1';try{v=localStorage.getItem('wf-lis')||'1'}catch(x){}
-  var L=[['1','Actuelle'],['2','Pastilles blanches'],['3','Grands titres + icônes'],['4','Numérotés'],['5','Contraste renforcé']];
+(function(){var v='1';try{v=localStorage.getItem('wf-lis2')||'1'}catch(x){}
+  var L=[['1','Actuelle'],['2','Nuit marine'],['3','Dégradé WeFiiT'],['4','Carte marine'],['5','Glace (clair)']];
   function ensure(){var w=document.getElementById('orbWrap');if(!w)return;w.setAttribute('data-lis',v);var p=document.getElementById('lisPick');if(!p){p=document.createElement('div');p.id='lisPick';p.className='lis-pick';p.setAttribute('role','group');p.setAttribute('aria-label','Lisibilité de la boussole');w.parentNode.insertBefore(p,w);paint()}}
-  function paint(){var p=document.getElementById('lisPick');if(!p)return;p.innerHTML='Boussole '+L.map(function(o){return '<button type="button" data-lis="'+o[0]+'" aria-pressed="'+(v===o[0])+'">'+o[0]+' · '+o[1]+'</button>'}).join('');
-    p.querySelectorAll('button').forEach(function(b){b.onclick=function(){v=b.getAttribute('data-lis');try{localStorage.setItem('wf-lis',v)}catch(x){}var w=document.getElementById('orbWrap');if(w)w.setAttribute('data-lis',v);paint()}})}
+  function paint(){var p=document.getElementById('lisPick');if(!p)return;p.innerHTML='Fond de la boussole '+L.map(function(o){return '<button type="button" data-lis="'+o[0]+'" aria-pressed="'+(v===o[0])+'">'+o[0]+' · '+o[1]+'</button>'}).join('');
+    p.querySelectorAll('button').forEach(function(b){b.onclick=function(){v=b.getAttribute('data-lis');try{localStorage.setItem('wf-lis2',v)}catch(x){}var w=document.getElementById('orbWrap');if(w)w.setAttribute('data-lis',v);paint()}})}
   setInterval(ensure,1000);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensure);else ensure()})();
 </script>
