@@ -4064,16 +4064,6 @@ body.lite #xrc{display:none!important}
 #v-onb .onb-fr .fr-boat{position:absolute;top:-4px;left:0;width:46px;height:40px;margin-left:-23px;transition:left 1.8s cubic-bezier(.45,.05,.3,1);pointer-events:none;z-index:3;animation:none!important;list-style:none}
 #v-onb .onb-fr .fr-boat svg{display:block;width:100%;height:100%;transform-origin:50% 90%;animation:nvBob 3.2s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){#v-onb .onb-fr .fr-boat{transition:none}#v-onb .onb-fr .fr-boat svg{animation:none}}
-.lks-pick{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 12px;font:700 10.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:#6B7490}
-.lks-pick span{margin-right:4px}
-.lks-pick button{border:1px solid #DCE3F5;background:#fff;color:#002882;border-radius:999px;padding:4px 11px;font:600 12px var(--f-body);letter-spacing:0;text-transform:none;cursor:pointer}
-.lks-pick button[aria-pressed="true"]{background:#002882;border-color:#002882;color:#fff}
-.onb-lks{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 2px 32px}
-.onb-lk2{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;background:#F2F5FF;border:1px solid #DCE3F5;color:#002882;font:500 12px/1.4 var(--f-body);text-decoration:none}
-.onb-lk2 b{font:700 10px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:#0042ff}
-.onb-lk2.lk-act{background:#FFF6EA;border-color:#FFE0B8}.onb-lk2.lk-act b{color:#B8560A}
-.onb-lk2:hover{border-color:#0042ff}.onb-lk2.lk-act:hover{border-color:#f98f03}
-.onb-lk2:focus-visible{outline:2px solid #0042ff;outline-offset:2px}
 .lk-flash{animation:lkFl 2.6s ease both!important;border-radius:12px}
 @keyframes lkFl{0%,60%{background:#FFE9C7;box-shadow:0 0 0 3px #f98f03}100%{background:transparent;box-shadow:none}}
 .lis-pick{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 12px;padding:8px 10px;border-radius:12px;background:#fff;border:1px dashed #C9D2EA;width:fit-content;font:700 10.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#6B7490}
@@ -5954,97 +5944,9 @@ function e2Scene(){var m0=mascot({}),m='<g transform="translate(0 14) scale(.92)
         if(!anim||window.__frX==null){b.style.transition='none';b.style.left=(window.__frX==null?x:window.__frX)+'px';b.offsetWidth;b.style.transition=''}else{b.style.transition='none';b.style.left=window.__frX+'px';b.offsetWidth;b.style.transition=''}
         requestAnimationFrame(function(){b.style.left=x+'px';window.__frX=x})}
       var frW=0;try{new ResizeObserver(function(){var w=box.offsetWidth;if(w&&w!==frW){frW=w;window.__frX=null;frBoat(false)}}).observe(box)}catch(x){window.addEventListener('resize',function(){window.__frX=null;frBoat(false)})}
-var LKM=[
- ['organisation produit|','m','Compréhension métier','Le Product & la QA'],
- ['rôle d’un [[Product Owner','m','Compréhension métier','Personae candidats'],
- ['signature de mail personnalisée','m','Expérience candidat & communication','Template mails d’invitation candidat 2026'],
- ['plug-in Boond','m','Outils et pilotage','Tuto : compléter et créer une fiche candidat sur Boond'],
- ['Ajouter 100 candidats','a','Sourcer'],
- ['Envoyer 30 premiers contacts','m','Sourcing et chasse','La recette magique du message d’accroche'],
- ['préquals support','a','Préqualification'],
- ['entretiens support','a','Entretien E1'],
- ['différents statuts d’un candidat','m','Outils et pilotage','Lexique candidat BoondManager'],
- ['étapes de notre process de recrutement','m','Cadre et process de recrutement','Le process de recrutement WeFiiT'],
- ['sourcer un candidat depuis LinkedIn','a','Sourcer'],
- ['sourcer un candidat depuis l’APEC','m','Outils et pilotage','Identifiants Jobboards & Outils'],
- ['sourcer un candidat depuis WTTJ','m','Outils et pilotage','Identifiants Jobboards & Outils'],
- ['créer un candidat dans Boond','m','Outils et pilotage','Tuto : compléter et créer une fiche candidat sur Boond'],
- ['rédigé mon message d’accroche','m','Sourcing et chasse','La recette magique du message d’accroche'],
- ['préqualifier un candidat au téléphone','a','Préqualification'],
- ['préqualifier un candidat au téléphone','m','Qualification et entretiens','Maquette Prequal'],
- ['notes de préqual dans Boond','m','Outils et pilotage','Tuto : compléter et créer une fiche candidat sur Boond'],
- ['pitcher WeFiiT pour séduire','m','Pitch WeFiiT','Pitch WeFiiT candidat (version écrite)'],
- ['pitché WeFiiT en 1 min puis en 5 min','m','Pitch WeFiiT','Deck candidat'],
- ['en traitant les objections','m','Sourcing et chasse','Les objections fréquentes'],
- ['maquette d’invitation pour un E','m','Expérience candidat & communication','Template mails d’invitation candidat 2026'],
- ['maquette d’évaluation des candidats en E1','m','Qualification et entretiens','Maquette E1'],
- ['noter un candidat en','m','Qualification et entretiens','Les critères d’évaluation chez WeFiiT'],
- ['liste préconisée','a','Entretien E1'],
- ['remplir Boond pendant et après un E1','a','Entretien E1'],
- ['J’ai assisté à 2 E2','a','Entretien E2'],
- ['remplir son brief','a','Entretien E1'],
- ['notif fin de process','m','Expérience candidat & communication','Mails de retour candidats - WeFiiT'],
- ['mail fin de process','m','Expérience candidat & communication','Mails de retour candidats - WeFiiT'],
- ['différence entre un PO, un PM et un Lead PM','m','Compréhension métier','Le Product & la QA'],
- ['différence entre un QA, un QA engineer','m','Compréhension métier','Le Product & la QA'],
- ['Discovery et Delivery','m','Compréhension métier','Glossaire'],
- ['séances de sourcing et de préqualification','a','Sourcer'],
- ['viviers +++','m','Cadre et process de recrutement','Étapes recrutement et suivi vivier'],
- ['75 profils qualifiés','a','Sourcer'],
- ['J’ai envoyé 20 messages','m','Sourcing et chasse','Messages d’accroche performants'],
- ['J’ai envoyé 30 messages','m','Sourcing et chasse','Messages d’accroche performants'],
- ['Je maîtrise le pitch WeFiiT','m','Pitch WeFiiT','Pitch WeFiiT candidat (version écrite)'],
- ['E1 en shadow','a','Entretien E1'],
- ['premier E1 supervisé','a','Entretien E1'],
- ['évaluer chaque candidat vu en shadow','m','Qualification et entretiens','Les critères d’évaluation chez WeFiiT'],
- ['E2 en shadow','a','Entretien E2'],
- ['organisation projet et une organisation produit','m','Compréhension métier','Glossaire'],
- ['Product Owner et un chef de projet','m','Compréhension métier','Le Product & la QA'],
- ['point hebdo du lundi','m','Outils et pilotage','Piloter son activité avec BoondManager'],
- ['Je sais pitcher WeFiiT','m','Pitch WeFiiT','Pitch WeFiiT candidat (version écrite)'],
- ['ce qu’est une API','m','Compréhension métier','Glossaire'],
- ['US en Gherkin','m','Compréhension métier','Glossaire'],
- ['Scrum et Kanban','m','Compréhension métier','Glossaire'],
- ['ce qu’est une EPIC','m','Compréhension métier','Glossaire'],
- ['Prendre 8 E1','a','Entretien E1'],
- ['étapes du processus de recrutement','m','Cadre et process de recrutement','Le process de recrutement WeFiiT'],
- ['4 candidats en E2','a','Entretien E2'],
- ['Faire mon premier recrutement','a','Réponse et signature'],
- ['pitcher clairement mes candidats en réunion B&T','m','Cadre et process de recrutement','Rituels B&T'],
- ['campagne de messages personnalisés','m','Sourcing et chasse','Messages d’accroche performants'],
- ['campagnes de messages d’accroche','m','Sourcing et chasse','Messages d’accroche performants'],
- ['séances de sourcing sur LinkedIn et les jobboards','m','Outils et pilotage','Identifiants Jobboards & Outils'],
- ['faire avancer dans le process','m','Cadre et process de recrutement','Critères de passage : GO / NO GO'],
- ['accès aux plateformes : Boond','m','Outils et pilotage','Identifiants Jobboards & Outils'],
- ['J’installe les standards WeFiiT','m','Expérience candidat & communication','Template mails d’invitation candidat 2026'],
- ['invitations aux rituels dans mon agenda','m','Cadre et process de recrutement','Rituels B&T'],
- ['histoire, les ambitions et la proposition de valeur','m','Pitch WeFiiT','WeFiiT Story (onboarding)'],
- ['positionnement de WeFiiT face à la concurrence','m','Sourcing et chasse','Analyse concurrentielle (sociétés à sourcer)'],
- ['positionnement de WeFiiT face à la concurrence','m','Pitch WeFiiT','Annuaire des missions (Campus)'],
- ['Je connais les personae','m','Compréhension métier','Personae candidats'],
- ['Je connais les personae','m','Cadrage salarial','Grille salariale PM & QA'],
- ['process de recrutement et de vente','m','Cadre et process de recrutement','Le process de recrutement WeFiiT'],
- ['process de recrutement et de vente','m','Outils et pilotage','Lexique candidat BoondManager'],
- ['pitch WeFiiT en 1 min et en 5 min avec','m','Pitch WeFiiT','Pitch WeFiiT candidat (version écrite)'],
- ['Je préqualifie mes premiers candidats','a','Préqualification'],
- ['Je préqualifie mes premiers candidats','m','Sourcing et chasse','Les objections fréquentes'],
- ['et à 3 E2','a','Entretien E2'],
- ['Je réalise X préquals','a','Préqualification'],
- ['Je prends X E1','a','Entretien E1'],
- ['dashboard Boond','m','Outils et pilotage','Piloter son activité avec BoondManager'],
- ['« Piloter ma performance »','m','Outils et pilotage','Piloter son activité avec BoondManager'],
- ['je prends au minimum 5 E1','a','Entretien E1'],
- ['Je pitche un candidat et un besoin en réunion B&T','m','Cadre et process de recrutement','Rituels B&T'],
- ['suivre une préqual et un E1','a','Préqualification'],
- ['suivre une préqual et un E1','a','Entretien E1'],
- ['jusqu’en E2 bis','a','E2 bis'],
- ['1 recrutement et 1 business','a','Réponse et signature'],
- ['en préqual et en E1','a','Entretien E1']];
-      function lkChips(x){var on=true;try{on=localStorage.getItem('wf-lks')!=='0'}catch(e){}if(!on)return '';var L=[],seen={};LKM.forEach(function(k){if(x.indexOf(k[0])<0)return;var id=k.slice(1).join('>');if(seen[id]||L.length>=2)return;seen[id]=1;L.push(k)});if(!L.length)return '';
-        return '<span class="onb-lks">'+L.map(function(k){return k[1]==='a'?'<a href="#" class="onb-lk2 lk-act" data-act="'+esc(k[2])+'"><b>Parcours</b> '+esc(k[2])+'</a>':'<a href="#" class="onb-lk2" data-mal="'+esc(k[2]+'>'+k[3])+'"><b>Mallette</b> '+esc(k[3])+'</a>'}).join('')+'</span>'}
       function ky(k,a,b){return (role==='pad'&&k!=='T'&&k!=='R'?'P2':'')+k+'.'+a+'.'+b}
       function stat(m){var n=0,t=0;m.s.forEach(function(sc,a){sc.i.forEach(function(x,b){t++;if(CK[ky(m.k,a,b)])n++})});return [n,t]}
-      function list(k,a,items,hl){return '<ul class="onb-ck">'+items.map(function(x,b){var id=ky(k,a,b);return '<li'+(hl===b?' class="onb-hl"':'')+'><label><input type="checkbox" data-k="'+id+'"'+(CK[id]?' checked':'')+'><span>'+(x.indexOf('||')>0?esc(x.split('||')[0])+' <a class="onb-lk" target="_blank" rel="noopener" href="'+encodeURI(x.split('||')[1])+'">Ouvrir ↗</a>':esc(x)).replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g,function(m,t,u){if(u.indexOf('mal:')===0)return '<a class="onb-il" href="#" data-mal="'+u.slice(4).replace(/"/g,'&quot;')+'">'+t+'</a>';return '<a class="onb-il" target="_blank" rel="noopener" href="'+u+'">'+t+'</a>'})+'</span></label>'+lkChips(x)+'</li>'}).join('')+'</ul>'}
+      function list(k,a,items,hl){return '<ul class="onb-ck">'+items.map(function(x,b){var id=ky(k,a,b);return '<li'+(hl===b?' class="onb-hl"':'')+'><label><input type="checkbox" data-k="'+id+'"'+(CK[id]?' checked':'')+'><span>'+(x.indexOf('||')>0?esc(x.split('||')[0])+' <a class="onb-lk" target="_blank" rel="noopener" href="'+encodeURI(x.split('||')[1])+'">Ouvrir ↗</a>':esc(x)).replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g,function(m,t,u){if(u.indexOf('mal:')===0)return '<a class="onb-il" href="#" data-mal="'+u.slice(4).replace(/"/g,'&quot;')+'">'+t+'</a>';return '<a class="onb-il" target="_blank" rel="noopener" href="'+u+'">'+t+'</a>'})+'</span></label></li>'}).join('')+'</ul>'}
 function recoHtml(){var k='b';
         var IC={ws:'<path d="M4 5h16v11H4z"/><path d="M9 20h6M12 16v4"/>',sg:'<path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/>',db:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',ph:'<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/>',li:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/>'};
         var R=[['ws','Te connecter à tes espaces de travail','Microsoft 365, Teams, Boond, Showcase…',null],['sg','Ajouter tes signatures','Ta signature mail et tes templates de mail dans Outlook.',{m:8,l:'Les templates'}],['db','Créer ton dashboard Boond','Ton tableau de bord pour te piloter au quotidien.',{u:'https://wefiitcom.sharepoint.com/sites/STAFF/Documents partages/STAFF Talent Recruitment/2 - La mallette du recruteur/BoondManager/Piloter son activite\u0301 avec BoondManager - WeFiiT.docx',l:'Le guide'}],['ph','Configurer ton téléphone','Créer ton compte Apple et installer ta carte SIM.',null],['li','Prendre ta licence LinkedIn','Pour pouvoir sourcer dès ta première semaine.',null]];
@@ -6077,12 +5979,10 @@ function recoHtml(){var k='b';
           '<div class="nv-leg"><span>Jour 1</span><b>'+(pct>=100?'Bravo, tu es arrivé·e à destination !':'Ta traversée : '+pct+' %')+'</b><span>Autonomie</span></div></div>';
         var m=L[cur],st=stat(m);
         var d='<div class="onb-card"><div class="onb-h"><span class="xs-tag">'+esc(m.t)+'</span><h3>'+esc(m.h)+'</h3><span class="onb-bar" aria-label="Progression"><em style="width:'+(st[1]?st[0]*100/st[1]:0)+'%"></em></span></div><p class="onb-o">'+esc(m.o)+'</p>'+(m.k==='S1'&&role==='tr'?recoHtml():'')+m.s.map(function(sc,a){return a}).sort(function(x,y){return (m.s[y].first?1:0)-(m.s[x].first?1:0)}).map(function(a,pos){var sc=m.s[a],id=m.k+'.'+a,n=0;sc.i.forEach(function(x,b){if(CK[ky(m.k,a,b)])n++});var op=(id in OP)?OP[id]:(pos===0||!!sc.open);return '<details class="onb-sec'+(sc.first?' onb-hot':'')+'" data-d="'+id+'"'+(op?' open':'')+'><summary><h4>'+esc(sc.h)+'</h4><span class="onb-cnt'+(n===sc.i.length?' done':'')+'">'+n+' / '+sc.i.length+'</span></summary>'+list(m.k,a,sc.i,sc.hl)+'</details>'}).join('')+'<div class="onb-b"><span>Dans la Mallette :</span>'+m.b.map(function(i){return '<button type="button" class="xbtn" data-m="'+i+'">'+esc(STEPS[i].t)+'</button>'}).join('')+'</div></div>';
-        var lkOn=true;try{lkOn=localStorage.getItem('wf-lks')!=='0'}catch(e){}var lkp='<div class="lks-pick" role="group" aria-label="Liens proposés"><span>Liens vers la Mallette et le Parcours</span><button type="button" data-lks="1" aria-pressed="'+lkOn+'">Afficher</button><button type="button" data-lks="0" aria-pressed="'+(!lkOn)+'">Masquer</button></div>';
-        box.innerHTML=sel+tools+obj+f+lkp+d+sugBox(m)+'<p class="onb-ft">Valide chaque étape de ta montée en compétence, drive un point hebdo avec Cédric et sollicite l’aide de toute l’équipe. Tes cases cochées restent enregistrées sur cet appareil. Version de travail, à valider avec l’équipe.</p>';
+        box.innerHTML=sel+tools+obj+f+d+sugBox(m)+'<p class="onb-ft">Valide chaque étape de ta montée en compétence, drive un point hebdo avec Cédric et sollicite l’aide de toute l’équipe. Tes cases cochées restent enregistrées sur cet appareil. Version de travail, à valider avec l’équipe.</p>';
         bindR();sugBind(m);frBoat(true);(function(){var b=box.querySelector('.nv-boat');if(!b)return;var to=+b.getAttribute('data-to');window.__boatX=to;requestAnimationFrame(function(){requestAnimationFrame(function(){b.style.left=to+'%'})})})();var op=document.querySelector('body>.rc-pick');if(op)op.remove();
         box.querySelectorAll('details[data-d]').forEach(function(x){x.addEventListener('toggle',function(){OP[x.getAttribute('data-d')]=x.open})});
         box.querySelectorAll('[data-o]').forEach(function(b){b.onclick=function(){cur=+b.getAttribute('data-o');draw()}});
-        box.querySelectorAll('[data-lks]').forEach(function(b){b.onclick=function(){try{localStorage.setItem('wf-lks',b.getAttribute('data-lks'))}catch(e){}draw()}});
         box.querySelectorAll('[data-m]').forEach(function(b){b.onclick=function(){show('map',true,+b.getAttribute('data-m')+1)}});
         box.querySelectorAll('input[data-k]').forEach(function(c){c.onchange=function(){var id=c.getAttribute('data-k');if(c.checked)CK[id]=1;else delete CK[id];sv();var y=window.scrollY,tl=box.querySelector('.onb-tools'),o=tl&&tl.open;draw();tl=box.querySelector('.onb-tools');if(tl)tl.open=o;window.scrollTo(0,y)}});
       }
